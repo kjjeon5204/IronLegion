@@ -235,11 +235,6 @@ public class ai : Character {
 	// get the nextState based on current state and player state
 	AIState nextState(){
 		//Debug.Log("haoe");
-		
-		if (curStats.baseHp <= 0){
-			curCharacterState = "Death";
-			return AIState.DEATH;
-		}
 		// go through the fsm array
 		for(int i = 0; i < reactions.Length; ++i){
 			if((curState == reactions[i].myState || reactions[i].myState == AIState.ANYSTATE) && matchState(getPlayerState(), reactions[i].pState)){
@@ -280,10 +275,8 @@ public class ai : Character {
 	/*********HIT*********/
 	bool getHit(){
 		if (messageReceived == true){
-			if(curCharacterState == "Hit"){
-				messageReceived = false;
-				return true;
-			}
+			messageReceived = false;
+			return true;
 		}
 		return false;
 	}
@@ -294,7 +287,7 @@ public class ai : Character {
 			animPlaying = true;
 			return false;
 		} else if (!animation.IsPlaying("flinch")){
-			
+			animPlaying = false; 
 			return true;
 		}
 		return false;
@@ -518,19 +511,8 @@ public class ai : Character {
 	bool dodge(){
 		return transfer( moveType.dodge);
 	}
-	/*********DEATH*********/
-	bool death(){
-		if (animPlaying_death == false){
-			animation.Play("death");
-			animPlaying_death = true;
-			return false;
-		} else if (!animation.IsPlaying("death")){
-			destroyReady = true;
-			animPlaying_death = false;
-			return true;
-		}
-		return false;
-	}  
+
+
 
 
 	bool custom_lookAt (Vector3 toVector, Vector3 fromVector, Transform obj, float rotateSpeed){
@@ -594,25 +576,21 @@ public class ai : Character {
 		}
 	}
 	public override void manual_update(){
-			if(curCharacterState == "HIT"){
-				curState = AIState.HIT;
-				curCharacterState = "IDLE";
+		
+			if (curStats.baseHp <= 0){
+				curState = AIState.DEATH;
 			}
+			else if(getHit()){
+				curState = AIState.HIT;
+			}
+
 			if(curState == AIState.IDLE){
 				idle();
 				curState = nextState();
 			} else if(curState == AIState.HIT){
-				if(!animation.IsPlaying(hitAnimation.name)){
-					if (hasTurret){
-						if (custom_lookAt(transform.forward, turret.transform.forward, turret.transform, turretRotSpeed)){
-							curState = AIState.IDLE;
-							curState = nextState();
-						}
-					}
-					else {
-						curState = AIState.IDLE;
-						curState = nextState();
-					}
+				if (hit()){
+					curState = AIState.IDLE;
+					curState = nextState();
 				}
 			} else if(curState == AIState.ATTACK1){
 				//Debug.Log ("start attack--1!!");
@@ -651,7 +629,7 @@ public class ai : Character {
 					curState = nextState();
 				}
 			} else if(curState == AIState.DEATH){
-				death();
+//				death();
 			}
 		}		
 }

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Missile : MyProjectile {
 	public float speed;
-	public float rotSpeed = 180.0f;
     public float trackDist = 5.0f;
     bool track = true;
     float destructionTime;

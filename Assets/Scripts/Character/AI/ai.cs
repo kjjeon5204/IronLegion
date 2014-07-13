@@ -576,7 +576,6 @@ public class ai : Character {
 		}
 	}
 	public override void manual_update(){
-		
 			if (curStats.baseHp <= 0){
 				curState = AIState.DEATH;
 			}
@@ -629,7 +628,7 @@ public class ai : Character {
 					curState = nextState();
 				}
 			} else if(curState == AIState.DEATH){
-//				death();
+				death_state();
 			}
 		}		
 }

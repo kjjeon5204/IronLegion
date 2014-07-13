@@ -42,6 +42,7 @@ public class SetTiles : MonoBehaviour {
         {
             tileDataAccess[unlockedLevels[ctr]].TileOn();
             Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
+			Camera.main.transform.position = new Vector3(Hero.transform.position.x,Hero.transform.position.y,-10f);
         }
 
         /*

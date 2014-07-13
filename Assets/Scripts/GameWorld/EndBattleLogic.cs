@@ -45,7 +45,11 @@ public class EndBattleLogic : MonoBehaviour
         creditString.text = "Credits: " + creditReceived.ToString();
 
         Item curItem = itemPolled.GetComponent<Item>();
-        itemNameString.text = curItem.name;
+		Inventory myInventory = new Inventory();
+		myInventory.load_inventory();
+		myInventory.add_item(curItem.name);
+		myInventory.store_inventory();
+        itemNameString.text = curItem.itemName;
 
         itemIcon.sprite = itemPolled.GetComponent<SpriteRenderer>().sprite;
 

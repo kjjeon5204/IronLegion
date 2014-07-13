@@ -52,7 +52,6 @@ public class MapControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CheckView();
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{
@@ -107,6 +106,7 @@ public class MapControls : MonoBehaviour {
 		{
 			Zoom(touches[0], touches[1]);
 		}
+		CheckView();
 	}
 	
 	public void ChangeCameraPosition(Vector2 change) {

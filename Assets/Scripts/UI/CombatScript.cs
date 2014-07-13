@@ -176,7 +176,8 @@ public class CombatScript : MonoBehaviour {
 	public void turn_off_combat_ui() {
 		lowerLeftFrame.SetActive(false);
 		lowerRightFrame.SetActive(false);
-		playerHpBar.SetActive(false);
+		hpBar.SetActive(false);
+        radarDisplay.SetActive(false);
 		upperRightFrame.SetActive(false);
 		enemyDisplay.SetActive (false);
 	}
@@ -184,7 +185,8 @@ public class CombatScript : MonoBehaviour {
 	public void turn_on_combat_ui() {
 		lowerLeftFrame.SetActive(true);
 		lowerRightFrame.SetActive(true);
-		playerHpBar.SetActive(true);
+        hpBar.SetActive(true);
+        radarDisplay.SetActive(true);
 		upperRightFrame.SetActive(true);
 		enemyDisplay.SetActive (true);
 	}
@@ -269,6 +271,7 @@ public class CombatScript : MonoBehaviour {
         RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
         if (hitButton.collider != null)
         {
+            //Combat related input
             if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready())
             {
                 if (mainCharacter.isClose == true)
@@ -302,8 +305,7 @@ public class CombatScript : MonoBehaviour {
                     }
                 }
             }
-            else if (hitButton.collider.name == resetPlayerPos.name && acc.phase == TouchPhase.Ended
-			         && mainCharacter.player_input_ready())
+            else if (hitButton.collider.name == resetPlayerPos.name && acc.phase == TouchPhase.Ended)
             {
                 mainCharacter.reset_player_pos();
             }
@@ -319,6 +321,18 @@ public class CombatScript : MonoBehaviour {
 			         && mainCharacter.player_input_ready())
             {
                 mainCharacter.get_next_target();
+            }
+            //*****************************
+            //*******End battle Inputs*****
+            //*****************************
+
+            else if (hitButton.collider.gameObject == retryButton)
+            {
+                Application.LoadLevel(2);
+            }
+            else if (hitButton.collider.gameObject == overworldButton)
+            {
+                Application.LoadLevel(0);
             }
         }
         else

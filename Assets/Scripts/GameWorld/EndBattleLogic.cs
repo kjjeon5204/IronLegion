@@ -40,8 +40,8 @@ public class EndBattleLogic : MonoBehaviour
         else
             missionStatusString.text = "Mission Failed!";
         levelString.text = "Level: " + inputData.level.ToString();
-        experienceString.text = "Exp: " + ((int)(inputData.curExperience / 
-            inputData.expRequired) * 100).ToString() + "%";
+        experienceString.text = "Exp: " + inputData.curExperience + "/" + 
+            inputData.expRequired;
         creditString.text = "Credits: " + creditReceived.ToString();
 
         Item curItem = itemPolled.GetComponent<Item>();

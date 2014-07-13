@@ -72,6 +72,14 @@ public class Character : MonoBehaviour
     protected Vector3 movement = Vector3.zero;
     public bool modifyPath = false;
 
+
+    protected int initLevel;
+
+    public void set_level(int level)
+    {
+        initLevel = level;
+    }
+
 	/*
 	 **Important**
 	All animations/actions should be handled when it receives message from the

@@ -151,7 +151,8 @@ public class ai : Character {
 	private Vector3 movementDir;
 	private float explosionRadius = 0;
 	private int moveNum = 0;
-	
+
+    
 
 	// s1 <= s2
 	bool matchState(PlayerState s1, PlayerState s2){
@@ -561,10 +562,11 @@ public class ai : Character {
 
 		public override void manual_start()
 		{
+            AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
 			curState = AIState.IDLE;
-			curStats.armor = (float)setArmor;
-			curStats.baseHp = setHealth;
-			curStats.baseDamage = (float)setDamage;
+			curStats.armor = aiStat.baseArmor;
+			curStats.baseHp = aiStat.hp;
+			curStats.baseDamage = aiStat.baseAttack;
 			baseStats = curStats;
 			starttime = Time.time;
 			gameObject.transform.LookAt(player.transform);

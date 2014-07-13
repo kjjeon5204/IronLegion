@@ -518,7 +518,7 @@ public class MainChar : Character {
         PlayerLevelReadData curData;
         curData.levelUp = curLevelData.add_experience(experience);
         curData.expRequired = curLevelData.get_experience_required();
-        curData.curExperience = curLevelData.get_player_stat().experience;
+        curData.curExperience = curLevelData.get_player_experience();
         curData.level = curLevelData.get_player_level();
         curLevelData.save_file();
         return curData;

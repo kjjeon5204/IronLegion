@@ -7,8 +7,8 @@ public class SetSecondaryCamera : MonoBehaviour {
 	private Camera second_cam;
 	
 	void Start () {
-		border_bot = GameObject.Find("BorderBotAbility");
-		border_top = GameObject.Find("BorderTopAbility");
+		border_bot = GameObject.Find("BorderBotEquip");
+		border_top = GameObject.Find("BorderTopEquip");
 		second_cam = GameObject.Find("Camera").GetComponent<Camera>();
 		
 		Vector3 bottom_left = Camera.main.WorldToViewportPoint(border_bot.transform.position);

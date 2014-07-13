@@ -155,13 +155,16 @@ public class MainChar : Character {
         {
             currentTargetIndex = 0;
         }
-        while (enemyList[currentTargetIndex] == null)
+		int loopPreventer = 0;
+        while (enemyList[currentTargetIndex].return_cur_stats().baseHp <= 0 &&
+		       loopPreventer < enemyList.Length)
         {
             currentTargetIndex++;
             if (currentTargetIndex >= enemyList.Length)
             {
                 currentTargetIndex = 0;
             }
+			loopPreventer++;
         }
         target = enemyList[currentTargetIndex].gameObject;
         targetScript = enemyList[currentTargetIndex];
@@ -605,7 +608,7 @@ public class MainChar : Character {
         if (inputReady == true)
             temp_input();
 
-        if (target == null /*|| (target != null && target.GetComponent<Character>().return_cur_stats().baseHp <= 0.0f)*/)
+        if (target == null || targetScript.return_cur_stats().baseHp <= 0)
             get_next_target();
         /*Check Events*/
         float distToTarget = (gameObject.transform.position - target.transform.position).magnitude;

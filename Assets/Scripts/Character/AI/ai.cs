@@ -594,7 +594,7 @@ public class ai : Character {
 		}
 	}
 	public override void manual_update(){
-			if(curCharacterState == "HIT"){
+			if(curCharacterState == "HIT" && curState != AIState.DEATH){
 				curState = AIState.HIT;
 				curCharacterState = "IDLE";
 			}
@@ -651,7 +651,7 @@ public class ai : Character {
 					curState = nextState();
 				}
 			} else if(curState == AIState.DEATH){
-				death();
+				death_state();
 			}
 		}		
 }

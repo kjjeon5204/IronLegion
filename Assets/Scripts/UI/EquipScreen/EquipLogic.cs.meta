@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 541f42f338a394ddf9b75ddbaf15b6d0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - GUICam: {instanceID: 0}
+  - inventoryTexture: {fileID: 100000, guid: 53f019c2f778e3f4b9346bdd7190cafa, type: 2}
+  - equipTexture: {fileID: 100000, guid: 7126cfe37d12995498a12277c93ce360, type: 2}
+  - characterTexture: {fileID: 100000, guid: 9433e0ccd9e5f9e43b639786c5e03de8, type: 2}
+  - recyclerTexture: {fileID: 100000, guid: 421d6a3e3cabda84cb8db48f653a72fd, type: 2}
+  - recycleBarTexture: {fileID: 100000, guid: d28616980473a214392e612cde9a543f, type: 2}
+  - recycleButtonTexture: {fileID: 100000, guid: f7003f4bce99c7b4689c4825c0a5ae59,
+      type: 2}
+  - exitButtonTexture: {fileID: 100000, guid: c48fb5535cf69e642b83d0f97ddafb78, type: 2}
+  - itemBoxTexture: {fileID: 100000, guid: 27de0f63415c3a24ba56c235b932a970, type: 2}
+  - equipButtonTexture: {fileID: 100000, guid: 7c4929696ae0c14419cf55dd4cfa6079, type: 2}
+  - playerMech: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

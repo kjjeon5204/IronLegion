@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: a065bd4b08b674d4b98e7cf85b2a0ebe
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - library_frame: {fileID: 100004, guid: ee80563bfd10ce14daeae7c2e74c7e31, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

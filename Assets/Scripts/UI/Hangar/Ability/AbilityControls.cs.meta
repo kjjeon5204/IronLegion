@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 884bf5a851af16c46890f1edf0280212
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ability000: {fileID: 21300000, guid: 40162aff82ec3b245932d5dadb0c2dd3, type: 3}
+  - ability001: {fileID: 21300000, guid: f01b08dd3fd01ac42b4c35d0d1205028, type: 3}
+  - ability002: {fileID: 21300000, guid: ec2b30faf298f0242a3572b97898745a, type: 3}
+  - ability003: {fileID: 21300000, guid: 60fdc7cee1b99cc419b88aa905acbfc7, type: 3}
+  - ability100: {fileID: 21300000, guid: 40f69d0ba5b18a2419cbfdd6f6db76d3, type: 3}
+  - ability101: {fileID: 21300000, guid: b1aea5144a3b1e640afd0cc7ce295fff, type: 3}
+  - ability102: {fileID: 21300000, guid: d9f61ccd4a6726e439847f06baeb6078, type: 3}
+  - ability103: {fileID: 21300000, guid: 7cee698a495345641b9e3608ff3bce79, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 102428a2d500dbf4a8221c61ed0e7e1b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - TutorialSkin: {instanceID: 0}
+  - borderLeft: {fileID: 2800000, guid: 4ac9e7f8bc505a84084b58128f4f5edd, type: 3}
+  - borderRight: {fileID: 2800000, guid: 64300c82ff8ad554bac77f23a309bc70, type: 3}
+  - overworldnavButton: {fileID: 2800000, guid: 825792be38d5d61418d22753d3e73702,
+      type: 3}
+  - overworldnavBox: {fileID: 2800000, guid: d032bf1d5f51be847ac807af5a8a09d9, type: 3}
+  - combatButton: {fileID: 2800000, guid: 7b8f5f3c34c17ce4384593886c1467ae, type: 3}
+  - abilitiesButton: {fileID: 2800000, guid: 12505d643e630944598d7801d7795663, type: 3}
+  - equipmentButton: {fileID: 2800000, guid: 3583c3aa77ea55544b7a1236ec0b4087, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

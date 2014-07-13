@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 1f89e488fcb870d45899c0c2970ec4ef
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - filler_sprite: {fileID: 21300000, guid: 69a1b85f656dd7a47a4d2e06f9f21820, type: 3}
+  - icon_sprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

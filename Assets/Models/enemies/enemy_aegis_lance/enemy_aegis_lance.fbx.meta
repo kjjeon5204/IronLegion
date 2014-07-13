@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: 044f0acea0de16c4888eb8ad3de07a5d
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: body
+    100002: body1
+    100004: Dfin
+    100006: Dtab
+    100008: //RootNode
+    100010: Lfin
+    100012: Ltab
+    100014: Rfin
+    100016: Rtab
+    100018: Ufin
+    100020: Utab
+    400000: body
+    400002: body1
+    400004: Dfin
+    400006: Dtab
+    400008: //RootNode
+    400010: Lfin
+    400012: Ltab
+    400014: Rfin
+    400016: Rtab
+    400018: Ufin
+    400020: Utab
+    4300000: body
+    7400000: idle
+    7400002: attackaim
+    7400004: attackfire
+    7400006: movestart
+    7400008: move
+    7400010: movestop
+    7400012: death
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackaim
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackfire
+      takeName: Take 001
+      firstFrame: 81
+      lastFrame: 124
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 124
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 141
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestop
+      takeName: Take 001
+      firstFrame: 116
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/Dfin
+        weight: 1
+      - path: body1/Dtab
+        weight: 1
+      - path: body1/Lfin
+        weight: 1
+      - path: body1/Ltab
+        weight: 1
+      - path: body1/Rfin
+        weight: 1
+      - path: body1/Rtab
+        weight: 1
+      - path: body1/Ufin
+        weight: 1
+      - path: body1/Utab
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  userData: 

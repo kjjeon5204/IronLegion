@@ -1,0 +1,2931 @@
+fileFormatVersion: 2
+guid: 279f2ac3644b0674c86873a072c0540a
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: armpivot
+    100002: body1
+    100004: bottomplate
+    100006: dragon
+    100008: //RootNode
+    100010: head
+    100012: jaw
+    100014: jawcannon
+    100016: jetpack
+    100018: Larm
+    100020: Larmpivot
+    100022: Lelbow
+    100024: Lfeather
+    100026: Lfeather1
+    100028: Lfeather2
+    100030: Lfeather3
+    100032: Lfeather4
+    100034: Lfin1
+    100036: Lfin2
+    100038: Lfinger1
+    100040: Lfinger2
+    100042: Lfinger2 1
+    100044: Lfinger2 2
+    100046: Lfinger2 3
+    100048: Lfinger3
+    100050: Lfinger3 1
+    100052: Lfinger4
+    100054: Lfinger5
+    100056: Lfingerback
+    100058: Lfingerjoint1
+    100060: Lfingerjoint2
+    100062: Lfoot
+    100064: Lhand
+    100066: Lhip
+    100068: Lknee1
+    100070: Lknee2
+    100072: Lleg
+    100074: Lpalm
+    100076: Lplate
+    100078: Lplate1
+    100080: Lplate2
+    100082: Lplate3
+    100084: Lrocketpacks
+    100086: Lshoulder
+    100088: Ltoe
+    100090: Lwing2
+    100092: Lwingbase
+    100094: neck1
+    100096: neck10
+    100098: neck2
+    100100: neck3
+    100102: neck4
+    100104: neck5
+    100106: neck6
+    100108: neck7
+    100110: neck8
+    100112: neck9
+    100114: pelvis
+    100116: Rarm
+    100118: Rarmpivot
+    100120: Relbow
+    100122: Rfeather
+    100124: Rfeather1
+    100126: Rfeather2
+    100128: Rfeather3
+    100130: Rfeather4
+    100132: Rfin1
+    100134: Rfin2
+    100136: Rfinger1
+    100138: Rfinger2
+    100140: Rfinger2 1
+    100142: Rfinger2 2
+    100144: Rfinger2 3
+    100146: Rfinger3
+    100148: Rfinger3 1
+    100150: Rfinger4
+    100152: Rfinger5
+    100154: Rfingerback
+    100156: Rfingerjoint1
+    100158: Rfingerjoint2
+    100160: Rfoot
+    100162: Rhand
+    100164: Rhip
+    100166: Rknee1
+    100168: Rknee2
+    100170: Rleg
+    100172: Rpalm
+    100174: Rplate
+    100176: Rplate1
+    100178: Rplate2
+    100180: Rplate3
+    100182: Rrocketpacks
+    100184: Rshoulder
+    100186: Rtoe
+    100188: Rwing2
+    100190: Rwingbase
+    100192: tail1
+    100194: tail10
+    100196: tail11
+    100198: tail12
+    100200: tail13
+    100202: tail2
+    100204: tail3
+    100206: tail4
+    100208: tail5
+    100210: tail6
+    100212: tail7
+    100214: tail8
+    100216: tail9
+    100218: tailspike
+    100220: thumbtip
+    100222: thumbtip 1
+    100224: topplate
+    100226: torso
+    400000: armpivot
+    400002: body1
+    400004: bottomplate
+    400006: dragon
+    400008: //RootNode
+    400010: head
+    400012: jaw
+    400014: jawcannon
+    400016: jetpack
+    400018: Larm
+    400020: Larmpivot
+    400022: Lelbow
+    400024: Lfeather
+    400026: Lfeather1
+    400028: Lfeather2
+    400030: Lfeather3
+    400032: Lfeather4
+    400034: Lfin1
+    400036: Lfin2
+    400038: Lfinger1
+    400040: Lfinger2
+    400042: Lfinger2 1
+    400044: Lfinger2 2
+    400046: Lfinger2 3
+    400048: Lfinger3
+    400050: Lfinger3 1
+    400052: Lfinger4
+    400054: Lfinger5
+    400056: Lfingerback
+    400058: Lfingerjoint1
+    400060: Lfingerjoint2
+    400062: Lfoot
+    400064: Lhand
+    400066: Lhip
+    400068: Lknee1
+    400070: Lknee2
+    400072: Lleg
+    400074: Lpalm
+    400076: Lplate
+    400078: Lplate1
+    400080: Lplate2
+    400082: Lplate3
+    400084: Lrocketpacks
+    400086: Lshoulder
+    400088: Ltoe
+    400090: Lwing2
+    400092: Lwingbase
+    400094: neck1
+    400096: neck10
+    400098: neck2
+    400100: neck3
+    400102: neck4
+    400104: neck5
+    400106: neck6
+    400108: neck7
+    400110: neck8
+    400112: neck9
+    400114: pelvis
+    400116: Rarm
+    400118: Rarmpivot
+    400120: Relbow
+    400122: Rfeather
+    400124: Rfeather1
+    400126: Rfeather2
+    400128: Rfeather3
+    400130: Rfeather4
+    400132: Rfin1
+    400134: Rfin2
+    400136: Rfinger1
+    400138: Rfinger2
+    400140: Rfinger2 1
+    400142: Rfinger2 2
+    400144: Rfinger2 3
+    400146: Rfinger3
+    400148: Rfinger3 1
+    400150: Rfinger4
+    400152: Rfinger5
+    400154: Rfingerback
+    400156: Rfingerjoint1
+    400158: Rfingerjoint2
+    400160: Rfoot
+    400162: Rhand
+    400164: Rhip
+    400166: Rknee1
+    400168: Rknee2
+    400170: Rleg
+    400172: Rpalm
+    400174: Rplate
+    400176: Rplate1
+    400178: Rplate2
+    400180: Rplate3
+    400182: Rrocketpacks
+    400184: Rshoulder
+    400186: Rtoe
+    400188: Rwing2
+    400190: Rwingbase
+    400192: tail1
+    400194: tail10
+    400196: tail11
+    400198: tail12
+    400200: tail13
+    400202: tail2
+    400204: tail3
+    400206: tail4
+    400208: tail5
+    400210: tail6
+    400212: tail7
+    400214: tail8
+    400216: tail9
+    400218: tailspike
+    400220: thumbtip
+    400222: thumbtip 1
+    400224: topplate
+    400226: torso
+    4300000: dragon
+    7400000: idle
+    7400002: missilestart
+    7400004: missilefire
+    7400006: missilestop
+    7400008: forwardattackstart
+    7400010: forwardattackfire
+    7400012: forwardattackend
+    7400014: death
+    7400016: transform
+    7400018: Take 0010
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: dragon
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: missilestart
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: missilefire
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: missilestop
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: forwardattackstart
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: forwardattackfire
+      takeName: Take 001
+      firstFrame: 125
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: forwardattackend
+      takeName: Take 001
+      firstFrame: 175
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: transform
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 440
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Take 0010
+      takeName: Take 001
+      firstFrame: 440
+      lastFrame: 550
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/pelvis
+        weight: 1
+      - path: body1/pelvis/Lhip
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lfeather4
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lknee1/Lknee2/Lfoot/Ltoe
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin1
+        weight: 1
+      - path: body1/pelvis/Lhip/Lleg/Lplate/Lfin2
+        weight: 1
+      - path: body1/pelvis/Rhip
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rfeather4
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rknee1/Rknee2/Rfoot/Rtoe
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin1
+        weight: 1
+      - path: body1/pelvis/Rhip/Rleg/Rplate/Rfin2
+        weight: 1
+      - path: body1/tail1
+        weight: 1
+      - path: body1/tail1/tail2
+        weight: 1
+      - path: body1/tail1/tail2/tail3
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/bottomplate
+        weight: 1
+      - path: body1/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tailspike/topplate
+        weight: 1
+      - path: body1/torso
+        weight: 1
+      - path: body1/torso/armpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger1/Lfinger2/Lfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger4/Lfinger2
+          1/Lfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfinger5/Lfinger2
+          2/Lfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Larmpivot/Larm/Lelbow/Lhand/Lpalm/Lfingerback/Lfingerjoint1/Lfingerjoint2/thumbtip
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger1/Rfinger2/Rfinger3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger4/Rfinger2
+          1/Rfinger3 1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfinger5/Rfinger2
+          2/Rfinger2 3
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2
+        weight: 1
+      - path: body1/torso/armpivot/Rarmpivot/Rarm/Relbow/Rhand/Rpalm/Rfingerback/Rfingerjoint1/Rfingerjoint2/thumbtip
+          1
+        weight: 1
+      - path: body1/torso/jetpack
+        weight: 1
+      - path: body1/torso/Lshoulder
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lplate1/Lplate2/Lplate3
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lrocketpacks
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather1
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather2
+        weight: 1
+      - path: body1/torso/Lshoulder/Lwingbase/Lwing2/Lfeather3
+        weight: 1
+      - path: body1/torso/neck1
+        weight: 1
+      - path: body1/torso/neck1/neck2
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/head
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jaw
+        weight: 1
+      - path: body1/torso/neck1/neck2/neck3/neck4/neck5/neck6/neck7/neck8/neck9/neck10/jawcannon
+        weight: 1
+      - path: body1/torso/Rshoulder
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rplate1/Rplate2/Rplate3
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rrocketpacks
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather1
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather2
+        weight: 1
+      - path: body1/torso/Rshoulder/Rwingbase/Rwing2/Rfeather3
+        weight: 1
+      - path: dragon
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .600000024
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

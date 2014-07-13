@@ -1,0 +1,4391 @@
+fileFormatVersion: 2
+guid: 89e64a810e104ba46986117af6475eb9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: back
+    100002: chest
+    100004: gun1
+    100006: gun2
+    100008: head
+    100010: //RootNode
+    100012: joint17
+    100014: joint17 1
+    100016: joint19
+    100018: joint19 1
+    100020: joint28
+    100022: joint28 1
+    100024: joint29
+    100026: joint29 1
+    100028: joint30
+    100030: joint30 1
+    100032: joint39
+    100034: joint40
+    100036: joint41
+    100038: joint45
+    100040: joint46
+    100042: joint47
+    100044: joint48
+    100046: joint5
+    100048: joint5 1
+    100050: joint7
+    100052: joint7 1
+    100054: joint8
+    100056: Larm
+    100058: Lelbow
+    100060: Lfins
+    100062: Lfoot
+    100064: Lknee
+    100066: Lleg
+    100068: Lwing
+    100070: model
+    100072: pelvis
+    100074: pelvisplate
+    100076: Rarm
+    100078: Relbow
+    100080: Rfins
+    100082: Rfoot
+    100084: Rgunbarrel
+    100086: Rhand
+    100088: Rknee
+    100090: Rleg
+    100092: Rwing
+    400000: back
+    400002: chest
+    400004: gun1
+    400006: gun2
+    400008: head
+    400010: //RootNode
+    400012: joint17
+    400014: joint17 1
+    400016: joint19
+    400018: joint19 1
+    400020: joint28
+    400022: joint28 1
+    400024: joint29
+    400026: joint29 1
+    400028: joint30
+    400030: joint30 1
+    400032: joint39
+    400034: joint40
+    400036: joint41
+    400038: joint45
+    400040: joint46
+    400042: joint47
+    400044: joint48
+    400046: joint5
+    400048: joint5 1
+    400050: joint7
+    400052: joint7 1
+    400054: joint8
+    400056: Larm
+    400058: Lelbow
+    400060: Lfins
+    400062: Lfoot
+    400064: Lknee
+    400066: Lleg
+    400068: Lwing
+    400070: model
+    400072: pelvis
+    400074: pelvisplate
+    400076: Rarm
+    400078: Relbow
+    400080: Rfins
+    400082: Rfoot
+    400084: Rgunbarrel
+    400086: Rhand
+    400088: Rknee
+    400090: Rleg
+    400092: Rwing
+    4300000: model
+    7400000: groundstart
+    7400002: takeoff
+    7400004: idle
+    7400006: movestart
+    7400008: movestop
+    7400010: dodgerightstart
+    7400012: dodgerightloop
+    7400014: dodgerightstop
+    7400016: dodgeleftstart
+    7400018: dodgeleftloop
+    7400020: dodgeleftstop
+    7400022: shotgunaim
+    7400024: shotgunfinish
+    7400026: caststart
+    7400028: castfire
+    7400030: chestlaserstart
+    7400032: chestlaserloop
+    7400034: chestlaserend
+    7400036: gatlinggunaim
+    7400038: gatlinggunloop
+    7400040: gatlinggunend
+    7400042: shatteraim
+    7400044: shatterfire
+    7400046: slashend
+    7400048: blutsaugeraim
+    7400050: blutsaugerfire
+    7400052: blutsaugerend
+    7400054: slashaim
+    7400056: slashfire
+    7400058: shatterend
+    7400060: flinch
+    7400062: deathstart
+    7400064: deathloop
+    7400066: move
+    7400068: castfinish
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: groundstart
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: takeoff
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestop
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 170
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgerightstart
+      takeName: Take 001
+      firstFrame: 170
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgerightloop
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgerightstop
+      takeName: Take 001
+      firstFrame: 190
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgeleftstart
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgeleftloop
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dodgeleftstop
+      takeName: Take 001
+      firstFrame: 220
+      lastFrame: 230
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shotgunaim
+      takeName: Take 001
+      firstFrame: 230
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shotgunfinish
+      takeName: Take 001
+      firstFrame: 245
+      lastFrame: 255
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: caststart
+      takeName: Take 001
+      firstFrame: 255
+      lastFrame: 265
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: castfire
+      takeName: Take 001
+      firstFrame: 265
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chestlaserstart
+      takeName: Take 001
+      firstFrame: 290
+      lastFrame: 310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chestlaserloop
+      takeName: Take 001
+      firstFrame: 310
+      lastFrame: 330
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chestlaserend
+      takeName: Take 001
+      firstFrame: 330
+      lastFrame: 350
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: gatlinggunaim
+      takeName: Take 001
+      firstFrame: 350
+      lastFrame: 360
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: gatlinggunloop
+      takeName: Take 001
+      firstFrame: 360
+      lastFrame: 365
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: gatlinggunend
+      takeName: Take 001
+      firstFrame: 365
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shatteraim
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 385
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shatterfire
+      takeName: Take 001
+      firstFrame: 385
+      lastFrame: 390
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shatterend
+      takeName: Take 001
+      firstFrame: 390
+      lastFrame: 420
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: blutsaugeraim
+      takeName: Take 001
+      firstFrame: 420
+      lastFrame: 425
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: blutsaugerfire
+      takeName: Take 001
+      firstFrame: 425
+      lastFrame: 430
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: blutsaugerend
+      takeName: Take 001
+      firstFrame: 430
+      lastFrame: 460
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashaim
+      takeName: Take 001
+      firstFrame: 460
+      lastFrame: 475
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashfire
+      takeName: Take 001
+      firstFrame: 475
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashend
+      takeName: Take 001
+      firstFrame: 480
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 500
+      lastFrame: 525
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deathstart
+      takeName: Take 001
+      firstFrame: 525
+      lastFrame: 540
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deathloop
+      takeName: Take 001
+      firstFrame: 540
+      lastFrame: 550
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: castfinish
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 290
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: model
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/chest
+        weight: 1
+      - path: pelvis/chest/back
+        weight: 1
+      - path: pelvis/chest/back/Lwing
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins
+        weight: 1
+      - path: pelvis/chest/back/Lwing/joint17/Lfins/joint19
+        weight: 1
+      - path: pelvis/chest/back/Rwing
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins
+        weight: 1
+      - path: pelvis/chest/back/Rwing/joint17 1/Rfins/joint19 1
+        weight: 1
+      - path: pelvis/chest/head
+        weight: 1
+      - path: pelvis/chest/head/joint40
+        weight: 1
+      - path: pelvis/chest/Larm
+        weight: 1
+      - path: pelvis/chest/Larm/joint5
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun1/joint45/joint46
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/gun2/joint47/joint48
+        weight: 1
+      - path: pelvis/chest/Larm/joint5/Lelbow/joint7/joint8
+        weight: 1
+      - path: pelvis/chest/Rarm
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41
+        weight: 1
+      - path: pelvis/chest/Rarm/joint5 1/Relbow/joint7 1/Rhand/joint41/Rgunbarrel
+        weight: 1
+      - path: pelvis/Lleg
+        weight: 1
+      - path: pelvis/Lleg/Lknee
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29
+        weight: 1
+      - path: pelvis/Lleg/Lknee/Lfoot/joint28/joint29/joint30
+        weight: 1
+      - path: pelvis/pelvisplate
+        weight: 1
+      - path: pelvis/pelvisplate/joint39
+        weight: 1
+      - path: pelvis/Rleg
+        weight: 1
+      - path: pelvis/Rleg/Rknee
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1
+        weight: 1
+      - path: pelvis/Rleg/Rknee/Rfoot/joint28 1/joint29 1/joint30 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .159999996
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

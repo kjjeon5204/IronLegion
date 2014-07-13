@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: 14f4799c33438e74e8db3d9eedd65b33
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: base
+    100002: Bbase
+    100004: Bjoint
+    100006: Btip
+    100008: claw
+    100010: Lbase
+    100012: Ljoint
+    100014: Ltip
+    100016: Rbase
+    100018: Rjoint
+    100020: Rtip
+    100022: //RootNode
+    100024: Tbase
+    100026: Tjoint
+    100028: Ttip
+    400000: base
+    400002: Bbase
+    400004: Bjoint
+    400006: Btip
+    400008: claw
+    400010: Lbase
+    400012: Ljoint
+    400014: Ltip
+    400016: Rbase
+    400018: Rjoint
+    400020: Rtip
+    400022: //RootNode
+    400024: Tbase
+    400026: Tjoint
+    400028: Ttip
+    4300000: claw
+    7400000: idle
+    7400002: clawopen
+    7400004: clawopenloop
+    7400006: clawclose
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: claw
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Bbase
+        weight: 1
+      - path: base/Bbase/Bjoint
+        weight: 1
+      - path: base/Bbase/Bjoint/Btip
+        weight: 1
+      - path: base/Lbase
+        weight: 1
+      - path: base/Lbase/Ljoint
+        weight: 1
+      - path: base/Lbase/Ljoint/Ltip
+        weight: 1
+      - path: base/Rbase
+        weight: 1
+      - path: base/Rbase/Rjoint
+        weight: 1
+      - path: base/Rbase/Rjoint/Rtip
+        weight: 1
+      - path: base/Tbase
+        weight: 1
+      - path: base/Tbase/Tjoint
+        weight: 1
+      - path: base/Tbase/Tjoint/Ttip
+        weight: 1
+      - path: claw
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: clawopen
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 56
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Bbase
+        weight: 1
+      - path: base/Bbase/Bjoint
+        weight: 1
+      - path: base/Bbase/Bjoint/Btip
+        weight: 1
+      - path: base/Lbase
+        weight: 1
+      - path: base/Lbase/Ljoint
+        weight: 1
+      - path: base/Lbase/Ljoint/Ltip
+        weight: 1
+      - path: base/Rbase
+        weight: 1
+      - path: base/Rbase/Rjoint
+        weight: 1
+      - path: base/Rbase/Rjoint/Rtip
+        weight: 1
+      - path: base/Tbase
+        weight: 1
+      - path: base/Tbase/Tjoint
+        weight: 1
+      - path: base/Tbase/Tjoint/Ttip
+        weight: 1
+      - path: claw
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: clawopenloop
+      takeName: Take 001
+      firstFrame: 57
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Bbase
+        weight: 1
+      - path: base/Bbase/Bjoint
+        weight: 1
+      - path: base/Bbase/Bjoint/Btip
+        weight: 1
+      - path: base/Lbase
+        weight: 1
+      - path: base/Lbase/Ljoint
+        weight: 1
+      - path: base/Lbase/Ljoint/Ltip
+        weight: 1
+      - path: base/Rbase
+        weight: 1
+      - path: base/Rbase/Rjoint
+        weight: 1
+      - path: base/Rbase/Rjoint/Rtip
+        weight: 1
+      - path: base/Tbase
+        weight: 1
+      - path: base/Tbase/Tjoint
+        weight: 1
+      - path: base/Tbase/Tjoint/Ttip
+        weight: 1
+      - path: claw
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: clawclose
+      takeName: Take 001
+      firstFrame: 91
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Bbase
+        weight: 1
+      - path: base/Bbase/Bjoint
+        weight: 1
+      - path: base/Bbase/Bjoint/Btip
+        weight: 1
+      - path: base/Lbase
+        weight: 1
+      - path: base/Lbase/Ljoint
+        weight: 1
+      - path: base/Lbase/Ljoint/Ltip
+        weight: 1
+      - path: base/Rbase
+        weight: 1
+      - path: base/Rbase/Rjoint
+        weight: 1
+      - path: base/Rbase/Rjoint/Rtip
+        weight: 1
+      - path: base/Tbase
+        weight: 1
+      - path: base/Tbase/Tjoint
+        weight: 1
+      - path: base/Tbase/Tjoint/Ttip
+        weight: 1
+      - path: claw
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

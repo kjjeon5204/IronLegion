@@ -1,0 +1,2038 @@
+fileFormatVersion: 2
+guid: 7c5d160b295eac24ba13c2857c73841f
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: armpivot
+    100002: backpivot
+    100004: backpivot1
+    100006: body
+    100008: //RootNode
+    100010: frame
+    100012: frontpelvis
+    100014: head
+    100016: Lbackfoot
+    100018: Lbackknee
+    100020: Lbacklegball
+    100022: Lcannons
+    100024: Lelbow
+    100026: Lfoot
+    100028: Lfrontball
+    100030: Lholder
+    100032: Lknee
+    100034: Lmissile
+    100036: Lshoulder
+    100038: Rbackfoot
+    100040: Rbackknee
+    100042: Rbacklegball
+    100044: Rcannons
+    100046: Relbow
+    100048: Rfoot
+    100050: Rfrontball
+    100052: Rholder
+    100054: Rknee
+    100056: Rmissile
+    100058: Rshoulder
+    100060: torso
+    100062: turret_minigun
+    400000: armpivot
+    400002: backpivot
+    400004: backpivot1
+    400006: body
+    400008: //RootNode
+    400010: frame
+    400012: frontpelvis
+    400014: head
+    400016: Lbackfoot
+    400018: Lbackknee
+    400020: Lbacklegball
+    400022: Lcannons
+    400024: Lelbow
+    400026: Lfoot
+    400028: Lfrontball
+    400030: Lholder
+    400032: Lknee
+    400034: Lmissile
+    400036: Lshoulder
+    400038: Rbackfoot
+    400040: Rbackknee
+    400042: Rbacklegball
+    400044: Rcannons
+    400046: Relbow
+    400048: Rfoot
+    400050: Rfrontball
+    400052: Rholder
+    400054: Rknee
+    400056: Rmissile
+    400058: Rshoulder
+    400060: torso
+    400062: turret_minigun
+    4300000: frame
+    7400000: idle
+    7400002: stompstart
+    7400004: stompfire
+    7400006: stompend
+    7400008: rocketstart
+    7400010: rocketfire
+    7400012: rocketend
+    7400014: dualmissilestrikestart
+    7400016: dualmissilestrikefire
+    7400018: dualmissilestrikeend
+    7400020: rightmeleeswipestart
+    7400022: rightmeleeswipefire
+    7400024: rightmeleeswipeend
+    7400026: leftmeleeswipestart
+    7400028: leftmeleeswipefire
+    7400030: leftmeleeswipeend
+    7400032: dualshotgunstart
+    7400034: dualshotgunfire
+    7400036: dualshotgunend
+    7400038: death
+    7400040: deathloop
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: frame
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stompstart
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 78
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stompfire
+      takeName: Take 001
+      firstFrame: 78
+      lastFrame: 84
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stompend
+      takeName: Take 001
+      firstFrame: 84
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rocketstart
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 113
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rocketfire
+      takeName: Take 001
+      firstFrame: 114
+      lastFrame: 139
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rocketend
+      takeName: Take 001
+      firstFrame: 140
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualmissilestrikestart
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 157
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualmissilestrikefire
+      takeName: Take 001
+      firstFrame: 158
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualmissilestrikeend
+      takeName: Take 001
+      firstFrame: 186
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightmeleeswipestart
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightmeleeswipefire
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 216
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightmeleeswipeend
+      takeName: Take 001
+      firstFrame: 217
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftmeleeswipestart
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 257
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftmeleeswipefire
+      takeName: Take 001
+      firstFrame: 258
+      lastFrame: 261
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftmeleeswipeend
+      takeName: Take 001
+      firstFrame: 262
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualshotgunstart
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 304
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualshotgunfire
+      takeName: Take 001
+      firstFrame: 305
+      lastFrame: 318
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualshotgunend
+      takeName: Take 001
+      firstFrame: 318
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 325
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deathloop
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/backpivot
+        weight: 1
+      - path: body/backpivot/Lbacklegball
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee
+        weight: 1
+      - path: body/backpivot/Lbacklegball/Lbackknee/Lbackfoot
+        weight: 1
+      - path: body/backpivot1
+        weight: 1
+      - path: body/backpivot1/Rbacklegball
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee
+        weight: 1
+      - path: body/backpivot1/Rbacklegball/Rbackknee/Rbackfoot
+        weight: 1
+      - path: body/frontpelvis
+        weight: 1
+      - path: body/frontpelvis/Lfrontball
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee
+        weight: 1
+      - path: body/frontpelvis/Lfrontball/Lknee/Lfoot
+        weight: 1
+      - path: body/frontpelvis/Rfrontball
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee
+        weight: 1
+      - path: body/frontpelvis/Rfrontball/Rknee/Rfoot
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/armpivot
+        weight: 1
+      - path: body/torso/armpivot/Lmissile
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lcannons
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow
+        weight: 1
+      - path: body/torso/armpivot/Lmissile/Lshoulder/Lelbow/Lholder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Rcannons
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow
+        weight: 1
+      - path: body/torso/armpivot/Rmissile/Rshoulder/Relbow/Rholder
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/head/turret_minigun
+        weight: 1
+      - path: frame
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

@@ -1,0 +1,916 @@
+fileFormatVersion: 2
+guid: 0cb3673a4432aaa47b37eba36bc8e528
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: body
+    100002: //RootNode
+    100004: Larm
+    100006: Larm1
+    100008: Lelbow
+    100010: Lelbow 1
+    100012: Lleg
+    100014: Lleg1
+    100016: Lthruster
+    100018: Lthruster1
+    100020: pelvis
+    100022: powerarmor
+    100024: top
+    100026: torso
+    400000: body
+    400002: //RootNode
+    400004: Larm
+    400006: Larm1
+    400008: Lelbow
+    400010: Lelbow 1
+    400012: Lleg
+    400014: Lleg1
+    400016: Lthruster
+    400018: Lthruster1
+    400020: pelvis
+    400022: powerarmor
+    400024: top
+    400026: torso
+    4300000: powerarmor
+    7400000: idle
+    7400002: idle2
+    7400004: movestart
+    7400006: move
+    7400008: movestop
+    7400010: flinch
+    7400012: stunstart
+    7400014: stunend
+    7400016: attack1start
+    7400018: attack1fire
+    7400020: attack1end
+    7400022: attack2start
+    7400024: attack2fire
+    7400026: attack2end
+    7400028: deathground
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: powerarmor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle2
+      takeName: Take 001
+      firstFrame: 51
+      lastFrame: 94
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 95
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 125
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestop
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 175
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stunstart
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 225
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stunend
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack1start
+      takeName: Take 001
+      firstFrame: 275
+      lastFrame: 289
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack1fire
+      takeName: Take 001
+      firstFrame: 289
+      lastFrame: 312
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack1end
+      takeName: Take 001
+      firstFrame: 312
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack2start
+      takeName: Take 001
+      firstFrame: 325
+      lastFrame: 334
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack2fire
+      takeName: Take 001
+      firstFrame: 334
+      lastFrame: 362
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attack2end
+      takeName: Take 001
+      firstFrame: 362
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deathground
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 425
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg1
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/Larm
+        weight: 1
+      - path: body/torso/Larm/Lelbow
+        weight: 1
+      - path: body/torso/Larm1
+        weight: 1
+      - path: body/torso/Larm1/Lelbow 1
+        weight: 1
+      - path: body/torso/top
+        weight: 1
+      - path: body/torso/top/Lthruster
+        weight: 1
+      - path: body/torso/top/Lthruster1
+        weight: 1
+      - path: powerarmor
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

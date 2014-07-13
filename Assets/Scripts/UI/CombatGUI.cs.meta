@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 4e48fc677f71bb2479641e59dbd611ad
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - HPframe: {fileID: 2800000, guid: b4e5add51cc453b43ada19eec75d03fb, type: 3}
+  - HPfill_high: {fileID: 2800000, guid: 34d87e98fe8f75a4bb067756b9f8c061, type: 3}
+  - HPfill_med: {fileID: 2800000, guid: 11f559c25e5bf364a88251e71e7b2654, type: 3}
+  - HPfill_low: {fileID: 2800000, guid: 786fb436337806a4ab1d3f88b8c07f82, type: 3}
+  - change_to_Close: {fileID: 2800000, guid: ec7928cb368e4cf4c834a375f30215e4, type: 3}
+  - change_to_Far: {fileID: 2800000, guid: 64d62d30da75dc24a8b1ce0a5ffb9575, type: 3}
+  - isClose: {fileID: 2800000, guid: 99193a6e4c92f124aa634c86cd5c035a, type: 3}
+  - isFar: {fileID: 2800000, guid: fe18a9f2d6908e847821e1b9a347705b, type: 3}
+  - changeTarget: {fileID: 2800000, guid: d3dc8a280e0b9074d8136e47af67cf99, type: 3}
+  - skill_fill: {fileID: 2800000, guid: 636178b125aca234ea49e33006328307, type: 3}
+  - blank: {fileID: 11400000, guid: caf76b5c55a44d14fba9d18702ac9a09, type: 2}
+  - skill1: {fileID: 2800000, guid: e370f227c45f86843844499a9eb6a834, type: 3}
+  - skill2: {fileID: 2800000, guid: a47a8d3563f30e64d8aa30499070c172, type: 3}
+  - skill3: {fileID: 2800000, guid: 3d9d3817a65f88e44b07259b8efc4007, type: 3}
+  - skill4: {fileID: 2800000, guid: 6fac2b796cb43e24988797018d3102d3, type: 3}
+  - skill5: {fileID: 2800000, guid: a27dd6e893457e84387ac9800d3f986f, type: 3}
+  - skill6: {fileID: 2800000, guid: 7769ee197a517684db3c3f2c9206953e, type: 3}
+  - skill7: {fileID: 2800000, guid: dcdb7390ed05a7e44886b5a761a676a3, type: 3}
+  - skill8: {fileID: 2800000, guid: c0e4d2ae0d4b2e34985705a9a3b711f8, type: 3}
+  - skill1off: {fileID: 2800000, guid: 25e92343d89ad7247bdbe3ee22a43af3, type: 3}
+  - skill2off: {fileID: 2800000, guid: a79362fb711849c428f5240edc6d7dc5, type: 3}
+  - skill3off: {fileID: 2800000, guid: becc9381186fa0c41ae4cf16fcfe4e25, type: 3}
+  - skill4off: {fileID: 2800000, guid: ce2f24be1ef36d340996c1aca80c44cc, type: 3}
+  - skill5off: {fileID: 2800000, guid: 0d7e5951a435a5244a1c91f7815d6fb1, type: 3}
+  - skill6off: {fileID: 2800000, guid: 69b3dc2d9a7ea64448b582c91547c032, type: 3}
+  - skill7off: {fileID: 2800000, guid: 1ab05ae8a5525da4db7597aa27bc47db, type: 3}
+  - skill8off: {fileID: 2800000, guid: 7bfa8cc5cd9f9864f8ba51228c719f72, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

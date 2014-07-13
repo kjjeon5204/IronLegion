@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: c0386cf239141d2459479bd9d0d98136
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: body
+    100002: body1
+    100004: chassis
+    100006: //RootNode
+    100008: gun
+    100010: L1
+    100012: L2
+    100014: L3
+    100016: LB1
+    100018: LB2
+    100020: LB3
+    100022: LBfrontpivot
+    100024: LBwheel1
+    100026: LBwheel2
+    100028: LBwheel3
+    100030: Lfrontpivot
+    100032: Lwheel1
+    100034: Lwheel2
+    100036: Lwheel3
+    100038: plunger
+    100040: R1
+    100042: R2
+    100044: R3
+    100046: RB1
+    100048: RB2
+    100050: RB3
+    100052: RBfrontpivot
+    100054: RBwheel1
+    100056: RBwheel2
+    100058: RBwheel3
+    100060: Rfrontpivot
+    100062: Rwheel1
+    100064: Rwheel2
+    100066: Rwheel3
+    100068: turret
+    400000: body
+    400002: body1
+    400004: chassis
+    400006: //RootNode
+    400008: gun
+    400010: L1
+    400012: L2
+    400014: L3
+    400016: LB1
+    400018: LB2
+    400020: LB3
+    400022: LBfrontpivot
+    400024: LBwheel1
+    400026: LBwheel2
+    400028: LBwheel3
+    400030: Lfrontpivot
+    400032: Lwheel1
+    400034: Lwheel2
+    400036: Lwheel3
+    400038: plunger
+    400040: R1
+    400042: R2
+    400044: R3
+    400046: RB1
+    400048: RB2
+    400050: RB3
+    400052: RBfrontpivot
+    400054: RBwheel1
+    400056: RBwheel2
+    400058: RBwheel3
+    400060: Rfrontpivot
+    400062: Rwheel1
+    400064: Rwheel2
+    400066: Rwheel3
+    400068: turret
+    4300000: body
+    9500000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

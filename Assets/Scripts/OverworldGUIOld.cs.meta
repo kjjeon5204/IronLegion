@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: bf754707b10474647b016c575be2a98d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - startButton: {fileID: 2800000, guid: a3364bd7340a1f44db8272188cabeb8a, type: 3}
+  - startBackground: {fileID: 2800000, guid: be2ee26d19b450b4185979ae21a16021, type: 3}
+  - tutorialButton: {fileID: 2800000, guid: 3be6c7321b168c847ab109594c2b3600, type: 3}
+  - tutorialButtonP: {fileID: 2800000, guid: 597f452b4cf18f34882eb310d2c93c8f, type: 3}
+  - equipButton: {fileID: 2800000, guid: e58aaa722f7374c4594546b114578c93, type: 3}
+  - equipButtonP: {fileID: 2800000, guid: 3bf337ac8435d1746a7a16f4012ee471, type: 3}
+  - exitButton: {fileID: 2800000, guid: 21e3a09ce667e84449cc31b3acb82a2e, type: 3}
+  - exitButtonP: {fileID: 2800000, guid: b7c0e34e0b2063c4983ab7a5f9b63880, type: 3}
+  - instructions: {fileID: 2800000, guid: 1aea7b1fa8b426d43840c6be84182502, type: 3}
+  - solHexButton: {fileID: 2800000, guid: 0b1dac23c71af004b9ed90d8bea1989a, type: 3}
+  - solHexButtonP: {fileID: 2800000, guid: 23bc7ae37bce0b446abada4f8383094b, type: 3}
+  - popupBackground: {fileID: 2800000, guid: 25c2a4e2621a53a47993e04dfb91f019, type: 3}
+  - yesButton: {fileID: 2800000, guid: f58d4a292619e37419512788194b6dbd, type: 3}
+  - yesButtonP: {fileID: 2800000, guid: cdb591ba5814f5f409a225722fa6b49c, type: 3}
+  - noButton: {fileID: 2800000, guid: 6733e2ba0c44f404da9c21a8769a78c0, type: 3}
+  - noButtonP: {fileID: 2800000, guid: 66b6d593ce9ccc64fb1bce33ab0e05ee, type: 3}
+  - mainBackground: {fileID: 2800000, guid: bade06871e48c174ca85424445ca8f8d, type: 3}
+  - levelButton: {fileID: 2800000, guid: da91085112fea7e4b9d601878c396f51, type: 3}
+  - font: {fileID: 12800000, guid: 012a13e06931ed2449014323718e903c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -42,6 +42,7 @@ public class AbilityPhase
 	public bool forceTarget;
 	public GameObject[] muzzle;
 	public GameObject projectiles;
+	public bool childEffectToMuzzle;
 	public GameObject muzzleEffects;
 	public float radius;
 	public GameObject[] effect;
@@ -177,6 +178,14 @@ public class Ability : MonoBehaviour {
 	
 	bool projectile_parser()
 	{
+		if(currentPhaseData.muzzleEffects != null) {
+			foreach (GameObject muzzle in currentPhaseData.muzzle) {
+				GameObject effectStore = (GameObject)Instantiate(currentPhaseData.muzzleEffects, muzzle.transform.position, muzzle.transform.rotation);
+				if (currentPhaseData.childEffectToMuzzle == true) {
+					effectStore.transform.parent = muzzle.transform;
+				}
+			}
+		}
 		if (myData.ranged == false)
 		{
 			if (currentPhaseData.targetDam > 0.0f &&
@@ -200,6 +209,7 @@ public class Ability : MonoBehaviour {
 		{
 			if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.PROJECTILE)
 			{
+				
 				foreach (GameObject curMuzzle in currentPhaseData.muzzle)
 				{
 					if (currentPhaseData.forceTarget == true)
@@ -266,9 +276,6 @@ public class Ability : MonoBehaviour {
 	//Toggle effect
 	bool effect_parser()
 	{
-		foreach (GameObject muzzle in currentPhaseData.muzzle) {
-			Instantiate(currentPhaseData.muzzleEffects, muzzle.transform.position, muzzle.transform.rotation);
-		}
 		foreach (GameObject curEffect in currentPhaseData.effect)
 		{
 			if (curEffect != null)

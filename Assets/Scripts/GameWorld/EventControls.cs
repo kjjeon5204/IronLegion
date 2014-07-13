@@ -10,6 +10,7 @@ public class EngageData
     public WaveData[] waveData;
     public float experience;
     public int lootableItemTier;
+    public int creditReceived;
     public GameObject playerStartPos;
 }
 
@@ -22,14 +23,15 @@ public class WaveData
     public BattleType battleType;
 
     //Used by regular battle
-    public GameObject[] requiredEnemy;
-    public GameObject[] randomEnemy;
+    public EnemyData[] requiredEnemy;
+    public EnemyData[] randomEnemy;
     public int randomEnemyCount;
 
     //Used by boss battle
     public GameObject[] availableEnemy;
 }
 
+[System.Serializable]
 public struct EnemyData
 {
     public GameObject enemyUnit;
@@ -112,6 +114,8 @@ public class EventControls : MonoBehaviour {
     Character[] allCharacterScripts;
     int targetPathUpdater = 0;
 
+    bool mapCleared = false;
+
 	public int[] close_index() {
 		int[] retVal = new int[4];
 		for (int ctr = 0; ctr < 4; ctr ++) {
@@ -152,8 +156,14 @@ public class EventControls : MonoBehaviour {
         //end battle
         MapData curMap = new MapData(System.Convert.ToInt32(gameObject.name[1].ToString()));
         curMap.clear_level(curEngageData.levelNum);
-        playerScript.player_add_experience((int)curEngageData.experience);
-        Application.LoadLevel(0);
+
+        combatScript.enable_end_battle_window(curEngageData.creditReceived,
+            playerScript.player_add_experience((int)curEngageData.experience),
+            true, curEngageData.lootableItemTier);
+
+
+        mapCleared = true;
+
     }
    
     Vector3 generate_spawn_coordinate() {
@@ -329,12 +339,16 @@ public class EventControls : MonoBehaviour {
                 for (int enemyCtr = 0; enemyCtr < curEngageData.waveData[waveCtr].requiredEnemy.Length; enemyCtr++)
                 {
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
-                        curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr], generate_spawn_coordinate(),
+                        curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit, generate_spawn_coordinate(),
                         Quaternion.identity);
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] =
                         waveRunData[waveCtr].enemyList[enemyStoreCtr].GetComponent<Character>();
+
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].mapFlag = mapChargeFlags[0];
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_enemy_unit_index(enemyStoreCtr);
+                    //Set level
+                    waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_level
+                        (curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].level);
                     waveRunData[waveCtr].characterScriptCollection[enemyStoreCtr + 1] = waveRunData[waveCtr].enemyListScript[enemyStoreCtr];
                     waveRunData[waveCtr].enemyList[enemyStoreCtr].SetActive(false);
                     enemyStoreCtr++;
@@ -346,11 +360,14 @@ public class EventControls : MonoBehaviour {
                 {
                     int randPool = Random.Range(0, curEngageData.waveData[waveCtr].randomEnemy.Length);
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
-                        curEngageData.waveData[waveCtr].randomEnemy[randPool], generate_spawn_coordinate(),
+                        curEngageData.waveData[waveCtr].randomEnemy[randPool].enemyUnit, generate_spawn_coordinate(),
                         Quaternion.identity);
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] = waveRunData[waveCtr].enemyList[enemyStoreCtr].GetComponent<Character>();
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].mapFlag = mapChargeFlags[0];
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_enemy_unit_index(enemyStoreCtr);
+                    //set level
+                    waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_level(curEngageData.waveData[waveCtr].randomEnemy[randPool].level);
+
                     waveRunData[waveCtr].characterScriptCollection[enemyStoreCtr + 1] = waveRunData[waveCtr].enemyListScript[enemyStoreCtr];
                     waveRunData[waveCtr].enemyList[enemyStoreCtr].SetActive(false);
                     enemyStoreCtr++;
@@ -367,7 +384,7 @@ public class EventControls : MonoBehaviour {
 				waveRunData[waveCtr].enemyList = new GameObject[curEngageData.waveData[waveCtr].requiredEnemy.Length];
 				waveRunData[waveCtr].enemyListScript = new Character[curEngageData.waveData[waveCtr].requiredEnemy.Length];
 				for (int enemyCtr = 0; enemyCtr < waveRunData[waveCtr].enemyList.Length; enemyCtr ++) {
-                	waveRunData[waveCtr].enemyList[enemyCtr] = curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr];
+                	waveRunData[waveCtr].enemyList[enemyCtr] = curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit;
 					waveRunData[waveCtr].enemyListScript[enemyCtr] = waveRunData[waveCtr].enemyList	[enemyCtr].GetComponent<Character>();
 					waveRunData[waveCtr].enemyListScript[enemyCtr].set_enemy_unit_index(enemyCtr);
 				}
@@ -419,173 +436,178 @@ public class EventControls : MonoBehaviour {
             enabled = false;
             Application.LoadLevel(0);
         }
-        if (waveRunData[curWave].eventRunPhase == false)
+        if (mapCleared == false)
         {
-            //targetpath update
-
-            playerScript.enable_player_camera();
-
-            if (combatScriptObject.activeInHierarchy == false)
+            if (waveRunData[curWave].eventRunPhase == false)
             {
-                combatScriptObject.SetActive(true);
-            }
+                //targetpath update
 
-            //Check for last wave/win condition
-            if (curWave >= waveRunData.Length) {
-                Debug.Log("Current wave counter: " + curWave);
-                end_battle_win();
-                enabled = false;
-                return;
-            }
+                playerScript.enable_player_camera();
 
-            if (check_wave_ended(waveRunData[curWave])) {
-                if (!is_win()) {
-                    //If there is an ending storyline
-                    if (waveRunData[curWave].thisStoryEnd != null)
-                    {
-                        waveRunData[curWave].eventRunPhase = true;
-                        waveRunData[curWave].waveEnded = true;
-                        waveRunData[curWave].storyInitialized = false;
-                    }
-                    //If there is no ending storyline
-                    else
-                    {
-                        curWave++;
-                        if (curWave >= waveRunData.Length)
-                        {
-                            //end battle
-                            end_battle_win();
-                            Application.LoadLevel(0);
+                if (combatScriptObject.activeInHierarchy == false)
+                {
+                    combatScriptObject.SetActive(true);
+                }
 
-                        }
-						Debug.Log ("Current wave number: " + curWave);
-                        //If there is a beginning storyline at next wave.
-                        if (waveRunData[curWave].thisStoryStart != null)
-                        {
-                            if (waveRunData[curWave].loadBeforeStory == true)
-                            {
-                                waveRunData[curWave].eventRunPhase = true;
-                                waveRunData[curWave].storyInitialized = false;
-                                waveRunData[curWave].waveEnded = false;
-                            }
-                            else
-                            {
-                                start_wave(waveRunData[curWave]);
-                                waveRunData[curWave].eventRunPhase = true;
-                                waveRunData[curWave].storyInitialized = false;
-                                waveRunData[curWave].waveEnded = false;
-                            }
-                        }
-                        //If there is no beginning storyline at next wave.
-                        else
-                        {
-							start_wave (waveRunData[curWave]);
-                            waveRunData[curWave].eventRunPhase = false;
-                            waveRunData[curWave].storyInitialized = false;
-                            waveRunData[curWave].waveEnded = false;
-                        }
-                        
-                    }
+                //Check for last wave/win condition
+                if (curWave >= waveRunData.Length)
+                {
+                    Debug.Log("Current wave counter: " + curWave);
+                    end_battle_win();
+                    enabled = false;
                     return;
                 }
 
-            }
-            
-
-            
-
-            /*
-            targetPathUpdater++;
-            if (targetPathUpdater >= enemyScripts.Length)
-            {
-                targetPathUpdater = 0;
-            }
-            if (enemyScripts[targetPathUpdater] != null)
-            {
-                enemyScripts[targetPathUpdater].modifyPath = true;
-            }
-            */
-            /*Event Handle*/
-            playerScript.manual_update();
-            /* Old non wave feature
-            for (int ctr = 0; ctr < enemyList.Length; ctr++)
-            {
-                if (enemyList[ctr] != null)
+                if (check_wave_ended(waveRunData[curWave]))
                 {
-                    if (enemyScripts[ctr].return_cur_stats().baseHp <= 0)
+                    if (!is_win())
                     {
-                        if (is_win())
+                        //If there is an ending storyline
+                        if (waveRunData[curWave].thisStoryEnd != null)
                         {
-                            Destroy(gameObject);
+                            waveRunData[curWave].eventRunPhase = true;
+                            waveRunData[curWave].waveEnded = true;
+                            waveRunData[curWave].storyInitialized = false;
+                        }
+                        //If there is no ending storyline
+                        else
+                        {
+                            curWave++;
+                            if (curWave >= waveRunData.Length)
+                            {
+                                //end battle
+                                end_battle_win();
+                                return;
+                            }
+                            Debug.Log("Current wave number: " + curWave);
+                            //If there is a beginning storyline at next wave.
+                            if (waveRunData[curWave].thisStoryStart != null)
+                            {
+                                if (waveRunData[curWave].loadBeforeStory == true)
+                                {
+                                    waveRunData[curWave].eventRunPhase = true;
+                                    waveRunData[curWave].storyInitialized = false;
+                                    waveRunData[curWave].waveEnded = false;
+                                }
+                                else
+                                {
+                                    start_wave(waveRunData[curWave]);
+                                    waveRunData[curWave].eventRunPhase = true;
+                                    waveRunData[curWave].storyInitialized = false;
+                                    waveRunData[curWave].waveEnded = false;
+                                }
+                            }
+                            //If there is no beginning storyline at next wave.
+                            else
+                            {
+                                start_wave(waveRunData[curWave]);
+                                waveRunData[curWave].eventRunPhase = false;
+                                waveRunData[curWave].storyInitialized = false;
+                                waveRunData[curWave].waveEnded = false;
+                            }
+
+                        }
+                        return;
+                    }
+
+                }
+
+
+
+
+                /*
+                targetPathUpdater++;
+                if (targetPathUpdater >= enemyScripts.Length)
+                {
+                    targetPathUpdater = 0;
+                }
+                if (enemyScripts[targetPathUpdater] != null)
+                {
+                    enemyScripts[targetPathUpdater].modifyPath = true;
+                }
+                */
+                /*Event Handle*/
+                playerScript.manual_update();
+                /* Old non wave feature
+                for (int ctr = 0; ctr < enemyList.Length; ctr++)
+                {
+                    if (enemyList[ctr] != null)
+                    {
+                        if (enemyScripts[ctr].return_cur_stats().baseHp <= 0)
+                        {
+                            if (is_win())
+                            {
+                                Destroy(gameObject);
+                            }
+                        }
+                        else if (enemyList[ctr] != null)
+                        {
+                            Debug.Log(enemyScripts[ctr].gameObject);
+                            enemyScripts[ctr].manual_update();
                         }
                     }
-                    else if (enemyList[ctr] != null)
+                }
+                 * */
+                for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
+                {
+                    if (waveRunData[curWave].enemyList[ctr] != null)
                     {
-                        Debug.Log(enemyScripts[ctr].gameObject);
-                        enemyScripts[ctr].manual_update();
+                        waveRunData[curWave].enemyListScript[ctr].manual_update();
                     }
                 }
-            }
-             * */
-            for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
-            {
-                if (waveRunData[curWave].enemyList[ctr] != null)
-                {
-                    waveRunData[curWave].enemyListScript[ctr].manual_update();
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("Run story");
-            if (combatScriptObject.activeInHierarchy == true)
-            {
-                combatScriptObject.SetActive(false);
-            }
-            playerScript.disable_player_camera();
-            if (waveRunData[curWave].waveEnded == false && 
-                waveRunData[curWave].storyEnded == false)
-            {
-                if (waveRunData[curWave].storyInitialized == false)
-                {
-                    waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
-                    waveRunData[curWave].thisStoryStart.manual_start();
-                    waveRunData[curWave].storyInitialized = true;
-                }
-                waveRunData[curWave].storyEnded = 
-                    waveRunData[curWave].thisStoryStart.manual_update();
-            }
-            else if (waveRunData[curWave].waveEnded == true &&
-                waveRunData[curWave].storyEnded == false)
-            {
-                if (waveRunData[curWave].storyInitialized == false)
-                {
-                    waveRunData[curWave].thisStoryEnd.manual_start();
-                    waveRunData[curWave].storyInitialized = true;
-                }
-                waveRunData[curWave].storyEnded =
-                    waveRunData[curWave].thisStoryEnd.manual_update();
             }
             else
             {
-                if (waveRunData[curWave].waveEnded == true)
+                Debug.Log("Run story");
+                if (combatScriptObject.activeInHierarchy == true)
                 {
-                    curWave++;
-                    waveRunData[curWave].eventRunPhase = false;
-                    waveRunData[curWave].storyEnded = true;
+                    combatScriptObject.SetActive(false);
+                }
+                playerScript.disable_player_camera();
+                if (waveRunData[curWave].waveEnded == false &&
+                    waveRunData[curWave].storyEnded == false)
+                {
+                    if (waveRunData[curWave].storyInitialized == false)
+                    {
+                        waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
+                        waveRunData[curWave].thisStoryStart.manual_start();
+                        waveRunData[curWave].storyInitialized = true;
+                    }
+                    waveRunData[curWave].storyEnded =
+                        waveRunData[curWave].thisStoryStart.manual_update();
+                }
+                else if (waveRunData[curWave].waveEnded == true &&
+                    waveRunData[curWave].storyEnded == false)
+                {
+                    if (waveRunData[curWave].storyInitialized == false)
+                    {
+                        waveRunData[curWave].thisStoryEnd.manual_start();
+                        waveRunData[curWave].storyInitialized = true;
+                    }
+                    waveRunData[curWave].storyEnded =
+                        waveRunData[curWave].thisStoryEnd.manual_update();
                 }
                 else
                 {
-                    waveRunData[curWave].eventRunPhase = false;
-                    waveRunData[curWave].storyEnded = false;
-                    if (waveRunData[curWave].loadBeforeStory == false)
+                    if (waveRunData[curWave].waveEnded == true)
                     {
-                        start_wave(waveRunData[curWave]);
+                        curWave++;
+                        waveRunData[curWave].eventRunPhase = false;
+                        waveRunData[curWave].storyEnded = true;
                     }
+                    else
+                    {
+                        waveRunData[curWave].eventRunPhase = false;
+                        waveRunData[curWave].storyEnded = false;
+                        if (waveRunData[curWave].loadBeforeStory == false)
+                        {
+                            start_wave(waveRunData[curWave]);
+                        }
+                    }
+                    if (waveRunData[curWave].waveEnded == false)
+                        waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
+                    else waveRunData[curWave].thisStoryEnd.gameObject.SetActive(false);
                 }
-                if (waveRunData[curWave].waveEnded == false)
-                    waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
-                else waveRunData[curWave].thisStoryEnd.gameObject.SetActive(false);
             }
         }
 	}

@@ -7,11 +7,21 @@ public class EngageData
 {
     public int levelNum;
     public Material skyBox;
+    public CustomRenderSettings fogSettings;
     public WaveData[] waveData;
     public float experience;
     public int lootableItemTier;
     public int creditReceived;
     public GameObject playerStartPos;
+}
+
+[System.Serializable]
+public struct CustomRenderSettings
+{
+    public bool fogEnabled;
+    public Color fogColor;
+    public float fogStartDistance;
+    public float fogEndDistance;
 }
 
 [System.Serializable]
@@ -269,6 +279,10 @@ public class EventControls : MonoBehaviour {
     void Start()
     {
 		RenderSettings.skybox = curEngageData.skyBox;
+        RenderSettings.fog = curEngageData.fogSettings.fogEnabled;
+        RenderSettings.fogColor = curEngageData.fogSettings.fogColor;
+        RenderSettings.fogStartDistance = curEngageData.fogSettings.fogStartDistance;
+        RenderSettings.fogEndDistance = curEngageData.fogSettings.fogEndDistance;
 
         combatScriptObject = GameObject.Find("Camera");
         radar = GameObject.Find("RadarDisplay");
@@ -515,39 +529,10 @@ public class EventControls : MonoBehaviour {
 
 
 
-                /*
-                targetPathUpdater++;
-                if (targetPathUpdater >= enemyScripts.Length)
-                {
-                    targetPathUpdater = 0;
-                }
-                if (enemyScripts[targetPathUpdater] != null)
-                {
-                    enemyScripts[targetPathUpdater].modifyPath = true;
-                }
-                */
+                
                 /*Event Handle*/
                 playerScript.manual_update();
-                /* Old non wave feature
-                for (int ctr = 0; ctr < enemyList.Length; ctr++)
-                {
-                    if (enemyList[ctr] != null)
-                    {
-                        if (enemyScripts[ctr].return_cur_stats().baseHp <= 0)
-                        {
-                            if (is_win())
-                            {
-                                Destroy(gameObject);
-                            }
-                        }
-                        else if (enemyList[ctr] != null)
-                        {
-                            Debug.Log(enemyScripts[ctr].gameObject);
-                            enemyScripts[ctr].manual_update();
-                        }
-                    }
-                }
-                 * */
+                
                 for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
                 {
                     if (waveRunData[curWave].enemyList[ctr] != null)

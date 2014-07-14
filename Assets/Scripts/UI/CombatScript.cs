@@ -280,15 +280,14 @@ public class CombatScript : MonoBehaviour {
                     disable_ability_button(closeSkillSlots);
                     mainCharacter.isClose = false;
                   */
-                    if (mainCharacter.regAttackCtr == 0)
+                    if (mainCharacter.regAttackCtr == 0 && mainCharacter.curState != "REGULAR_ATTACK1")
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK1"].initialize_ability())
                         {
                             mainCharacter.curState = "REGULAR_ATTACK1";
-                            mainCharacter.regAttackCtr++;
                         }
                     }
-                    else 
+                    else if (mainCharacter.regAttackCtr == 1 && mainCharacter.isClose == true)
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
                         {

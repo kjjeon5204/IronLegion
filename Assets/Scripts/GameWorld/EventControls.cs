@@ -450,7 +450,7 @@ public class EventControls : MonoBehaviour {
             enabled = false;
             Application.LoadLevel(0);
         }
-        if (mapCleared == false)
+        if (mapCleared == false && curWave < waveRunData.Length)
         {
             if (waveRunData[curWave].eventRunPhase == false)
             {

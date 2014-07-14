@@ -12,6 +12,7 @@ public class Radar : MonoBehaviour {
     public GameObject eventControlObject;
     EventControls eventControlScript;
 
+    public GameObject radarOuterRing;
 
     public GameObject mainChar;
     public float maxScanDist;
@@ -78,6 +79,7 @@ public class Radar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        radarOuterRing.transform.Rotate(Vector3.forward * Time.deltaTime * 15.0f);
         if (scriptActive == true)
         {
             Debug.Log("radar updating!");

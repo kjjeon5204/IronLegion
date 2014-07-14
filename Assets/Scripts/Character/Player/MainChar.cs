@@ -61,6 +61,9 @@ public class MainChar : Character {
      * BEAM_CANNON
     */
     public bool isClose = true;
+    bool stateSwitched = false;
+    bool autoAdjustEnabled = true;
+
     HeroStats statData;
     bool inputReady;
 
@@ -357,7 +360,7 @@ public class MainChar : Character {
             if (isClose == true)
                 isClose = false;
             else isClose = true;
-            curState = "IDLE";
+            stateSwitched = true;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
@@ -624,8 +627,11 @@ public class MainChar : Character {
 			messageReceived = false;
 			event_checker();
 		}
-        if (curState == "IDLE")
+
+        
+        if (stateSwitched == true || autoAdjustEnabled == true)
         {
+            stateSwitched = false;
 			
             float distanceToMove;
             if (isClose == true)
@@ -673,6 +679,7 @@ public class MainChar : Character {
             }
             
         }
+     
 
         if (curBattleType == BattleType.REGULAR)
             turning = custom_look_at();
@@ -732,13 +739,15 @@ public class MainChar : Character {
         }
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
+            inputReady = false;
+            autoAdjustEnabled = false;
             inputReady = true;
             if (!movementScript.run_movement())
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";
             }
-            regAttackCtr = 0;
+            //regAttackCtr = 0;
         }
         else if (curState == "HIT")
         {
@@ -747,7 +756,7 @@ public class MainChar : Character {
             {
                 curState = "IDLE";
             }
-            regAttackCtr = 0;
+            //regAttackCtr = 0;
         }
         else if (curState == "PATHING")
         {

@@ -4,6 +4,7 @@ using System.Collections;
 public class Orbit : MyProjectile {
 	public float speed;
 	public float lifespan;
+	public float hitDamage;
 	public float xTranslate;
 	public float yTranslate;
 	public float zTranslate;
@@ -19,7 +20,8 @@ public class Orbit : MyProjectile {
 	void OnTriggerEnter (Collider hit) {	
 		if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner && 
 			hit.gameObject.tag != "Projectile" ) {
-			hit.gameObject.GetComponent<Character>().hit (damage);
+			if (hit.gameObject.tag == "Character")
+				hit.gameObject.GetComponent<Character>().hit (hitDamage);
 		}
 			
 	    if (detonation != null) 

@@ -42,6 +42,9 @@ public class AbilityPhase
     public bool forceTarget;
     public GameObject[] muzzle;
     public GameObject projectiles;
+    public bool selfTargetProjectile;
+    public bool childEffectToMuzzle;
+    public GameObject muzzleEffects;
     public float radius;
     public GameObject[] effect;
     public bool isCancellable;
@@ -176,6 +179,14 @@ public class Ability : MonoBehaviour {
 
     bool projectile_parser()
     {
+    	if(currentPhaseData.muzzleEffects != null) {
+			foreach (GameObject muzzle in currentPhaseData.muzzle) {
+				GameObject effectStore = (GameObject)Instantiate(currentPhaseData.muzzleEffects, muzzle.transform.position, muzzle.transform.rotation);
+				if (currentPhaseData.childEffectToMuzzle == true) {
+					effectStore.transform.parent = muzzle.transform;
+				}
+			}
+		}
         if (myData.ranged == false)
         {
             if (currentPhaseData.targetDam > 0.0f &&
@@ -199,6 +210,7 @@ public class Ability : MonoBehaviour {
         {
             if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.PROJECTILE)
             {
+            	
                 foreach (GameObject curMuzzle in currentPhaseData.muzzle)
                 {
                     if (currentPhaseData.forceTarget == true)
@@ -208,12 +220,18 @@ public class Ability : MonoBehaviour {
                     MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
 					ProjectileDataInput tempData;
 					tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+					/*
 					tempData.inOwner = gameObject;
 					tempData.inDamage = calc_damage(currentPhaseData.targetDam);
 					tempData.square = null;
 					tempData.aimAngle = Mathf.Abs(curMuzzle.transform.localRotation.x);
 					tempData.radius = 0;
+					
                     projectileScript.set_projectile(tempData);
+                    */
+                    if (currentPhaseData.selfTargetProjectile) 
+						projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
+					else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
 			/*

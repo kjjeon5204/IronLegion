@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd1004298d1b5f04f864f5b5174c5fbf
+guid: 16cdd8d580e58764798687bdd80424ec
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -46,18 +46,17 @@ ModelImporter:
     7400002: idle2
     7400004: movestart
     7400006: move
-    7400008: movestop
-    7400010: attack1aim
-    7400012: attack1fire
-    7400014: flinch
-    7400016: stunstart
-    7400018: stun
-    7400020: stunend
-    7400022: attack2aim
-    7400024: attack2fire
-    7400026: castaim
-    7400028: castfire
-    7400030: death
+    7400008: attack1aim
+    7400010: attack1fire
+    7400012: flinch
+    7400014: stunstart
+    7400016: stun
+    7400018: stunend
+    7400020: attack2aim
+    7400022: attack2fire
+    7400024: castaim
+    7400026: castfire
+    7400028: death
     9500000: //RootNode
     11100000: //RootNode
     13700000: body
@@ -274,70 +273,6 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 127
       lastFrame: 173
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: body
-        weight: 1
-      - path: body1
-        weight: 1
-      - path: body1/frontlegs
-        weight: 1
-      - path: body1/frontlegs/backlegs
-        weight: 1
-      - path: body1/frontlegs/backlegs/Lback
-        weight: 1
-      - path: body1/frontlegs/backlegs/Rback
-        weight: 1
-      - path: body1/frontlegs/Lhip
-        weight: 1
-      - path: body1/frontlegs/Lhip/Lthrust
-        weight: 1
-      - path: body1/frontlegs/Rhip
-        weight: 1
-      - path: body1/frontlegs/Rhip/Rthrust
-        weight: 1
-      - path: body1/torso
-        weight: 1
-      - path: body1/torso/head
-        weight: 1
-      - path: body1/torso/Lshoulder
-        weight: 1
-      - path: body1/torso/Lshoulder/Larm
-        weight: 1
-      - path: body1/torso/Lshoulder/Larm/Lgun
-        weight: 1
-      - path: body1/torso/Rshoulder
-        weight: 1
-      - path: body1/torso/Rshoulder/Rarm
-        weight: 1
-      - path: body1/torso/Rshoulder/Rarm/Rgun
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: movestop
-      takeName: Take 001
-      firstFrame: 174
-      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class LibraryControls : MonoBehaviour {
 	private AbilityData abilities;
-	private HeroStats hero;
-	private Stats hero_stats;
+	private HeroLevelData hero;
+	private int hero_level;
 	public GameObject library_frame;
 	private AbilityControls controls;
 	private Vector3 offset;
@@ -17,9 +17,9 @@ public class LibraryControls : MonoBehaviour {
 		abilities = new AbilityData();
 		abilities.load_data();
 		
-		hero = new HeroStats();
-		hero.load_data();
-		hero_stats = hero.get_current_stats();
+		hero = GetComponent<HeroLevelData>();
+		hero.load_file();
+		hero_level = hero.get_player_level();
 		
 		controls = GameObject.Find("AbilityFrame").GetComponent<AbilityControls>();
 		num_of_available_skills = 0;
@@ -35,7 +35,7 @@ public class LibraryControls : MonoBehaviour {
 		LibraryAbility cur_library_ability;
 		for (int i = 0; i < abilities.num_of_close; i++)
 		{
-			if (abilities.GetAbilityInfo(i).level <= hero_stats.level)
+			if (abilities.GetAbilityInfo(i).level <= hero_level)
 			{
 				cur_library_frame = (GameObject)Instantiate(library_frame,gameObject.transform.position+(offset*num_of_available_skills),Quaternion.identity);
 				cur_library_ability = cur_library_frame.GetComponent<LibraryAbility>();
@@ -49,7 +49,7 @@ public class LibraryControls : MonoBehaviour {
 		//Enter divider
 		for (int i = 0; i < abilities.num_of_far; i++)
 		{
-			if (abilities.GetAbilityInfo(i+100).level <= hero_stats.level)
+			if (abilities.GetAbilityInfo(i+100).level <= hero_level)
 			{
 				cur_library_frame = (GameObject)Instantiate(library_frame,gameObject.transform.position+(offset*num_of_available_skills),Quaternion.identity);
 				cur_library_ability = cur_library_frame.GetComponent<LibraryAbility>();

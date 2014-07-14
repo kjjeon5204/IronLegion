@@ -9,6 +9,7 @@ using System.Collections.Generic;
 public class Character : MonoBehaviour 
 {
     public string characterName;
+	public AnimationClip deathAnimation;
 
     //AI variables
     protected GameObject player;
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour
 	protected Stats baseStats; /*All values within this keeps track of all the base stats
 	                  *THIS SHOULD NEVER BE MODIFIED*/
     
+
     //Variables shared by all character
     //**IDLE does not mean Character is not doing anything. Non idle means that the actor is doing something due to external commands**
 	public string curCharacterState = "IDLE";
@@ -79,6 +81,8 @@ public class Character : MonoBehaviour
     {
         initLevel = level;
     }
+
+	bool deathPhasedPlayed = false;
 
 	/*
 	 **Important**
@@ -403,10 +407,6 @@ public class Character : MonoBehaviour
             {
                 animation.Play(hitAnimation.name);
             }
-            if (curStats.baseHp <= 0.0f)
-            {
-                Destroy(gameObject);
-            }
             return damageDone;
         }
         else
@@ -418,6 +418,21 @@ public class Character : MonoBehaviour
             }
             return rawDamage;
         }
+	}
+
+	protected void death_state() {
+		if (deathPhasedPlayed == false) {
+			deathPhasedPlayed = true;
+			if (deathAnimation != null)
+				animation.Play (deathAnimation.name);
+			else 
+				Destroy (gameObject);
+		}
+		else {
+			if (!animation.IsPlaying (deathAnimation.name)) {
+				Destroy (gameObject);
+			}
+		}
 	}
 
 

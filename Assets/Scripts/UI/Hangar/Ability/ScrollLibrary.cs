@@ -15,11 +15,11 @@ public class ScrollLibrary : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		button = gameObject.GetComponent<Button>();
-		leftBound = GameObject.Find("Scroll Left");
-		rightBound = GameObject.Find("Scroll Right");
+		leftBound = GameObject.Find("LibraryEndLeft");
+		rightBound = GameObject.Find("LibraryEndRight");
 		
 		libraryStart = GameObject.Find("LibraryControl");
-		libraryEnd = GameObject.Find("EndLibrary");
+		libraryEnd = GameObject.Find("End Library");
 		
 		change = new Vector3(3f,0,0);
 	}
@@ -28,20 +28,20 @@ public class ScrollLibrary : MonoBehaviour {
 	void Update () {
 		clicking = button.beginClick;
 		
-		if (clicking == true && Right && libraryStart.transform.position.x-30f < leftBound.transform.position.x)
+		if (clicking == true && Right && libraryStart.transform.position.x < leftBound.transform.position.x)
 		{
 			libraryStart.transform.position += (change*Time.deltaTime);
 		}
-		else if (clicking == true && !Right && libraryEnd.transform.position.x-30f < rightBound.transform.position.x)
+		else if (clicking == true && !Right && libraryEnd.transform.position.x > rightBound.transform.position.x)
 		{
 			libraryStart.transform.position -= (change*Time.deltaTime);
 		}
 		
-		if (Input.GetKey(KeyCode.U))
+		if (Input.GetKey(KeyCode.U) && libraryEnd.transform.position.x > rightBound.transform.position.x )
 		{
 			libraryStart.transform.position -= (change*Time.deltaTime);
 		}
-		else if (Input.GetKey(KeyCode.I))
+		else if (Input.GetKey(KeyCode.I) && libraryStart.transform.position.x < leftBound.transform.position.x)
 		{
 			libraryStart.transform.position += (change*Time.deltaTime);
 		}

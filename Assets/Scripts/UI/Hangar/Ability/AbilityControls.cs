@@ -6,17 +6,8 @@ public class AbilityControls : MonoBehaviour {
 	private AbilityData abilities;
 	private Slot[] ability_slots;
 	
-	public Sprite ability000;
-	public Sprite ability001;
-	public Sprite ability002;
-	public Sprite ability003;
-	public Sprite ability100;
-	public Sprite ability101;
-	public Sprite ability102;
-	public Sprite ability103;
-	
-	private Sprite[] close_range_sprites;
-	private Sprite[] long_range_sprites;
+	public Sprite[] close_range_sprites;
+	public Sprite[] long_range_sprites;
 	
 	private int saved_id;
 	private DescriptionControl description;
@@ -26,17 +17,6 @@ public class AbilityControls : MonoBehaviour {
 	void Start () {
 		abilities = new AbilityData();
 		abilities.load_data();
-		close_range_sprites = new Sprite[abilities.num_of_close];
-		long_range_sprites = new Sprite[abilities.num_of_far];
-		
-		close_range_sprites[0] = ability000;
-		close_range_sprites[1] = ability001;
-		close_range_sprites[2] = ability002;
-		close_range_sprites[3] = ability003;
-		long_range_sprites[0] = ability100;
-		long_range_sprites[1] = ability101;
-		long_range_sprites[2] = ability102;
-		long_range_sprites[3] = ability103;
 	
 		hero = new HeroData();
 		hero.load_data();

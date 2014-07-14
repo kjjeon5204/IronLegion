@@ -266,7 +266,7 @@ public class EventControls : MonoBehaviour {
     {
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
-            if (instantiateWave.enemyList[ctr].gameObject != null)
+            if (instantiateWave.enemyListScript[ctr].return_cur_stats().baseHp > 0)
             {
                 return false;
             }

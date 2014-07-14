@@ -94,7 +94,7 @@ public class Missile : MyProjectile {
 	
 	void OnTriggerEnter (Collider hit) {
 		if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner 
-            && hit.gameObject.tag != "bullet1") {
+            && hit.gameObject.tag != "Projectile") {
             
             if (hit.gameObject.tag == "Character")
 			    hit.gameObject.GetComponent<Character>().hit (damage);

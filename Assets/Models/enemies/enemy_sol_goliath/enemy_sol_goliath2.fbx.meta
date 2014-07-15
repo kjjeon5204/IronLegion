@@ -26,6 +26,17 @@ ModelImporter:
     4300000: vehicle_SOL_heavy
     7400000: idle
     7400002: movestart
+    7400004: move
+    7400006: flinch
+    7400008: caststart
+    7400010: castloop
+    7400012: castend
+    7400014: attackbasicstart
+    7400016: attackbasic
+    7400018: attackspecialstart
+    7400020: attackspecial
+    7400022: attackspecialend
+    7400024: death
     9500000: //RootNode
     11100000: //RootNode
     13700000: vehicle_SOL_heavy
@@ -96,6 +107,512 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 100
       lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: caststart
+      takeName: Take 001
+      firstFrame: 275
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: castloop
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 350
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: castend
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 400
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackbasicstart
+      takeName: Take 001
+      firstFrame: 400
+      lastFrame: 414
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackbasic
+      takeName: Take 001
+      firstFrame: 415
+      lastFrame: 450
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackspecialstart
+      takeName: Take 001
+      firstFrame: 450
+      lastFrame: 460
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackspecial
+      takeName: Take 001
+      firstFrame: 461
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackspecialend
+      takeName: Take 001
+      firstFrame: 480
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/Lpod
+        weight: 1
+      - path: body/Lpod/Lmissiledoor
+        weight: 1
+      - path: body/R_pod
+        weight: 1
+      - path: body/R_pod/R_missiledoor
+        weight: 1
+      - path: body/turret
+        weight: 1
+      - path: body/turret/gun
+        weight: 1
+      - path: body/turret/gun/plunger
+        weight: 1
+      - path: vehicle_SOL_heavy
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 550
+      lastFrame: 600
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -125,7 +125,12 @@ public class MainChar : Character {
     public GameObject playerCamera;
 
     //Temporary testing variable
-    
+
+    public void switch_hero_state()
+    {
+        stateSwitched = true;
+    }
+
     public HeroStats get_hero_stats() {
         return statData;
     }

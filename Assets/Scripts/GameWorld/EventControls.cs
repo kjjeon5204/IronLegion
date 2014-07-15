@@ -271,6 +271,13 @@ public class EventControls : MonoBehaviour {
                 return false;
             }
         }
+        for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
+        {
+            if (instantiateWave.enemyList[ctr] != null)
+            {
+                Destroy(instantiateWave.enemyList[ctr]);
+            }
+        }
         return true;
     }
 

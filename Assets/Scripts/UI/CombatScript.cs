@@ -364,6 +364,7 @@ public class CombatScript : MonoBehaviour {
                 }
                 else
                 {
+                    mainCharacter.switch_hero_state();
                     mainCharacter.curEnergy -= 10.0f;
                     if (mainCharacter.isClose == true && curRecord.y < 0.0f)
                     {

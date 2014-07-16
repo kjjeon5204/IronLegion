@@ -176,7 +176,12 @@ public class MainChar : Character {
         }
         target = enemyList[currentTargetIndex].gameObject;
         targetScript = enemyList[currentTargetIndex];
+<<<<<<< HEAD
         autoAdjustEnabled = true;
+=======
+		
+		autoAdjustEnabled = false;
+>>>>>>> origin/master
     }
 
     public void reset_player_pos()
@@ -222,11 +227,11 @@ public class MainChar : Character {
     
     void line_of_sight_handle()
     {
-
         GameObject objectLookedAt = this.check_line_of_sight();
         if (objectLookedAt != null) {
             if (objectLookedAt != target) {
                 target = objectLookedAt;
+				targetScript = objectLookedAt.GetComponent<Character>();
             }
         }
     }
@@ -640,7 +645,7 @@ public class MainChar : Character {
 		}
 
         
-        if (stateSwitched == true || autoAdjustEnabled == true)
+        if ((stateSwitched == true || autoAdjustEnabled == true) && curState == "IDLE")
         {
             stateSwitched = false;
             Debug.Log("Distance to move: " + distToTarget);
@@ -704,7 +709,7 @@ public class MainChar : Character {
             regAttackCtr++;
         }
 
-        if (turning == false && curState == "IDLE")
+        if (/*turning == false && */curState == "IDLE")
         {
             line_of_sight_handle();
         }
@@ -751,8 +756,13 @@ public class MainChar : Character {
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
             inputReady = false;
+<<<<<<< HEAD
+=======
+            inputReady = true;
+>>>>>>> origin/master
             if (!movementScript.run_movement())
             {
+				autoAdjustEnabled = false;
                 curState = "IDLE";
                 curCharacterState = "IDLE";
                 autoAdjustEnabled = false;

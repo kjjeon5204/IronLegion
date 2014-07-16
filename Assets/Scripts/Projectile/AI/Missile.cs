@@ -114,36 +114,40 @@ public class Missile : MyProjectile {
 	
 	// Update is called once per frame
 	void Update () {
-         if (Time.time > destructionTime)
-          {
-              Destroy(gameObject);
-
-			if (detonation != null) {
-				Instantiate (detonation, transform.position, transform.rotation);
- 			}
- 
-          }
-		transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		if (target != null)
- 			custom_look_at(target.collider.bounds.center);
- 		//}
-        if (transform.position.y < 0.0f)
+        if (projectilePaused == false)
         {
-            Destroy(gameObject);
-
-            if (detonation != null)
+            if (Time.time > destructionTime)
             {
-                Instantiate(detonation, transform.position, transform.rotation);
+                Destroy(gameObject);
+
+                if (detonation != null)
+                {
+                    Instantiate(detonation, transform.position, transform.rotation);
+                }
+
             }
-        }
-		transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		//if (target != null && transform.InverseTransformPoint(target.transform.position).z > 0) {
-		if (track == true)
-           custom_look_at(target.collider.bounds.center);
-		//}
-        if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
-        {
-            track = false;
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            if (target != null)
+                custom_look_at(target.collider.bounds.center);
+            //}
+            if (transform.position.y < 0.0f)
+            {
+                Destroy(gameObject);
+
+                if (detonation != null)
+                {
+                    Instantiate(detonation, transform.position, transform.rotation);
+                }
+            }
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            //if (target != null && transform.InverseTransformPoint(target.transform.position).z > 0) {
+            if (track == true)
+                custom_look_at(target.collider.bounds.center);
+            //}
+            if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
+            {
+                track = false;
+            }
         }
 	}
 }

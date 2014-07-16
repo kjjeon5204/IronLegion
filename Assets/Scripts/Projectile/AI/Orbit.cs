@@ -38,11 +38,16 @@ public class Orbit : MyProjectile {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Time.time > destructionTime) {
-            Destroy(gameObject);
-		}
-        else {
-			transform.RotateAround(target.transform.position, Vector3.up, speed * Time.deltaTime);
+        if (projectilePaused == false)
+        {
+            if (Time.time > destructionTime)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.RotateAround(target.transform.position, Vector3.up, speed * Time.deltaTime);
+            }
         }
 	}
 }

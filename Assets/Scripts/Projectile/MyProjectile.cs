@@ -23,6 +23,12 @@ public class MyProjectile : MonoBehaviour {
 	public GameObject radarIcon;
 	public bool isStealth = true;
 	public float rotSpeed = 180.0f;
+    protected bool projectilePaused = false;
+
+    public void pause_projectile(bool inputOption)
+    {
+        projectilePaused = inputOption;
+    }
 
 	public void set_projectile(Character inTargetScript, GameObject inOwner, float inDamage, GameObject radarTrack) {
 		damage = inDamage;

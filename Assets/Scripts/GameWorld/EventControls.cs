@@ -71,6 +71,7 @@ public struct WaveBattleRunData
 
 
 
+
 [System.Serializable]
 public enum BattleType
 {
@@ -89,6 +90,9 @@ public struct PlayerLevelReadData
 }
 
 public class EventControls : MonoBehaviour {
+    public bool tutorialStage = false;
+    bool tutorialPhase;
+
     public EngageData curEngageData;
     WaveBattleRunData[] waveRunData;
     int curWave = 0;
@@ -124,6 +128,8 @@ public class EventControls : MonoBehaviour {
     Character[] allCharacterScripts;
     int targetPathUpdater = 0;
 
+
+    bool gamePaused = false;
     bool mapCleared = false;
 
 	public int[] close_index() {
@@ -142,16 +148,35 @@ public class EventControls : MonoBehaviour {
 		return retVal;
 	}
 
+    public void pause_game()
+    {
+        Time.timeScale = 0.0f;
+        gamePaused = true;
+        MyProjectile[] bullets = FindObjectsOfType<MyProjectile>();
+        foreach (MyProjectile bullet in bullets)
+        {
+            bullet.pause_projectile(true);
+        }
+    }
+
+    public void unpause_game()
+    {
+        Time.timeScale = 1.0f;
+        gamePaused = false;
+        MyProjectile[] bullets = FindObjectsOfType<MyProjectile>();
+        foreach (MyProjectile bullet in bullets)
+        {
+            bullet.pause_projectile(false);
+        }
+    }
+
+
     public bool is_win()
     {
         if (check_wave_ended(waveRunData[curWave]) && 
 		    curWave >= waveRunData.Length && waveRunData[curWave].thisStoryEnd == null)
         {
-            /*
-            advCombatGUI = GameObject.Find("GUICam");
-            combatGUIScript = advCombatGUI.GetComponent<CombatGUILogic>();
-            combatGUIScript.end_battle_win(mapDataStorage);
-             */
+            
             end_battle_win();
             enabled = false;
             
@@ -206,45 +231,7 @@ public class EventControls : MonoBehaviour {
 
     
     
-    /*Changes player target*/
-    /*
-    void change_target(bool incre) {
-        if (incre)
-        {
-            curPlayerTarget--;
-            if (curPlayerTarget < 0)
-            {
-                curPlayerTarget = curGame.numEnemies - 1;
-            }
-            while (enemyList[curPlayerTarget] == null)
-            {
-                curPlayerTarget--;
-                if (curPlayerTarget < 0)
-                {
-                    curPlayerTarget = curGame.numEnemies - 1;
-                } 
-            }
-        }
-        else
-        {
-            curPlayerTarget++;
-            if (curPlayerTarget == curGame.numEnemies)
-            {
-                curPlayerTarget = 0;
-            }
-            while (enemyList[curPlayerTarget] == null)
-            {
-                curPlayerTarget++;
-                if (curPlayerTarget == curGame.numEnemies)
-                {
-                    curPlayerTarget = 0;
-                }
-            }
-        }
-		playerScript.set_target(enemyScripts[curPlayerTarget]);
-    }
-     * */
-
+  
 
 
     void start_wave(WaveBattleRunData instatiateWave)
@@ -260,6 +247,19 @@ public class EventControls : MonoBehaviour {
 
 		playerScript.set_target(instatiateWave.enemyListScript[0]);
         radarScript.initialize_radar(waveRunData[curWave].enemyList, player);
+
+        if (curWave == 0 && tutorialStage)
+        {
+            enable_tutorial(curWave);
+        }
+        else if (curWave == 1 && tutorialStage)
+        {
+            enable_tutorial(curWave);
+        }
+        else if (curWave == 2 && tutorialStage)
+        {
+            enable_tutorial(curWave);
+        }
     }
 
     bool check_wave_ended(WaveBattleRunData instantiateWave)
@@ -449,14 +449,66 @@ public class EventControls : MonoBehaviour {
         waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
     }
 
+    void enable_tutorial(int tutorialStep)
+    {
+        tutorialPhase = true;
+        if (tutorialStep == 0)
+        {
+            combatScript.activate_skill_button_tutorial(true);
+            pause_game();
+        }
+        else if (tutorialStep == 1)
+        {
+            combatScript.activate_state_tutorial(true);
+            pause_game();
+        }
+        else if (tutorialStep == 2)
+        {
+            combatScript.activate_left_right_dodge_tutorial(true);
+            pause_game();
+        }
+    }
+
+    void disable_tutorial()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (curWave == 0)
+            {
+                combatScript.activate_skill_button_tutorial(false);
+                unpause_game();
+            }
+            else if (curWave == 1)
+            {
+                combatScript.activate_state_tutorial(false);
+                unpause_game();
+            }
+            else if (curWave == 2)
+            {
+                combatScript.activate_left_right_dodge_tutorial(false);
+                unpause_game();
+            }
+            tutorialPhase = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (tutorialPhase == true)
+            disable_tutorial();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (gamePaused == false)
+                pause_game();
+            else unpause_game();
+        }
         if (playerScript.return_cur_stats().baseHp <= 0.0f)
         {
             enabled = false;
             Application.LoadLevel(0);
         }
+        //Checking wave clear/win conditions
         if (mapCleared == false && curWave < waveRunData.Length)
         {
             if (waveRunData[curWave].eventRunPhase == false)
@@ -536,15 +588,18 @@ public class EventControls : MonoBehaviour {
 
 
 
-                
+      
                 /*Event Handle*/
-                playerScript.manual_update();
-                
-                for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
+                if (gamePaused == false)
                 {
-                    if (waveRunData[curWave].enemyList[ctr] != null)
+                    playerScript.manual_update();
+
+                    for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
                     {
-                        waveRunData[curWave].enemyListScript[ctr].manual_update();
+                        if (waveRunData[curWave].enemyList[ctr] != null)
+                        {
+                            waveRunData[curWave].enemyListScript[ctr].manual_update();
+                        }
                     }
                 }
             }

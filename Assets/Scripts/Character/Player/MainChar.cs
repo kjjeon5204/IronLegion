@@ -176,6 +176,7 @@ public class MainChar : Character {
         }
         target = enemyList[currentTargetIndex].gameObject;
         targetScript = enemyList[currentTargetIndex];
+        autoAdjustEnabled = true;
     }
 
     public void reset_player_pos()
@@ -607,19 +608,24 @@ public class MainChar : Character {
             return;
         }
 
-		currentFlag = targetScript.mapFlag;
-
-        if (target != null)
-        {
-            currentTargetIndex = targetScript.get_enemy_index();
-        }
+        float distToTarget = 0;
+        
+        
         if (inputReady == true)
             temp_input();
 
         if (target == null || targetScript.return_cur_stats().baseHp <= 0)
             get_next_target();
         /*Check Events*/
-        float distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
+
+
+        if (targetScript != null)
+        {
+            currentFlag = targetScript.mapFlag;
+            currentTargetIndex = targetScript.get_enemy_index();
+            distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
+        }
+
         //Check if player is facing a valid target
         if (curStats.baseHp <= 0 && curState != "DEATH")
         {
@@ -637,7 +643,7 @@ public class MainChar : Character {
         if (stateSwitched == true || autoAdjustEnabled == true)
         {
             stateSwitched = false;
-			
+            Debug.Log("Distance to move: " + distToTarget);
             float distanceToMove;
             if (isClose == true)
             {
@@ -745,12 +751,11 @@ public class MainChar : Character {
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
             inputReady = false;
-            autoAdjustEnabled = false;
-            inputReady = true;
             if (!movementScript.run_movement())
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";
+                autoAdjustEnabled = false;
             }
             //regAttackCtr = 0;
         }
@@ -793,8 +798,6 @@ public class MainChar : Character {
         }
         booster_controls();
         previousPos = transform.position;
-
-
 	}
 
 }

@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+public struct TutorialData {
+    public bool abilityActive;
+    public bool dodgeActive;
+    public bool switchStateActive;
+}
 
 
 
@@ -73,6 +78,13 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject[] debuffIcons;
     IList<IconPoolData>[] debuffIconPool;
+
+    public GameObject abilityTutorial;
+    public GameObject dodgeTutorial;
+    public GameObject stateTutorial;
+
+    TutorialData tutorialData;
+    bool tutorialActive = false;
   
     public void initialize_buttons()
     {
@@ -107,10 +119,38 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
+    public void activate_tutorial_mode()
+    {
+        tutorialActive = true;
+        tutorialData.abilityActive = false;
+        tutorialData.dodgeActive = false;
+        tutorialData.switchStateActive = false;
+    }
 
 
+    public void activate_skill_button_tutorial(bool switchInput)
+    {
+        abilityTutorial.SetActive(switchInput);
+        if (switchInput)
+            tutorialActive = true;
+        else tutorialActive = false;
+    }
 
+    public void activate_left_right_dodge_tutorial(bool switchInput)
+    {
+        dodgeTutorial.SetActive(switchInput);
+        if (switchInput)
+            tutorialActive = true;
+        else tutorialActive = false;
+    }
 
+    public void activate_state_tutorial(bool switchInput)
+    {
+        stateTutorial.SetActive(switchInput);
+        if (switchInput)
+            tutorialActive = true;
+        else tutorialActive = false;
+    }
    
 
 
@@ -390,6 +430,8 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
+    
+
     void texture_resize(GameObject target, Rect targetSize)
     {
         SpriteRenderer targetSprite = target.GetComponent<SpriteRenderer>();
@@ -456,18 +498,24 @@ public class CombatScript : MonoBehaviour {
         }
 		endGameScript = endGameWindow.GetComponent<EndBattleLogic>();
 		endGameWindow.SetActive(false);
+
+
+        abilityTutorial.SetActive(false);
+        dodgeTutorial.SetActive(false);
+        stateTutorial.SetActive(false);
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if (isInitialized)
+        if (isInitialized && tutorialActive == false)
         {
             for (int ctr = 0; ctr < Input.touchCount; ctr++)
             {
                 input_commands(Input.GetTouch(ctr));
             }
         }
+
 
         if (battleStopped == false)
         {

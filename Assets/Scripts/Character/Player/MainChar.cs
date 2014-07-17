@@ -126,6 +126,11 @@ public class MainChar : Character {
 
     //Temporary testing variable
 
+    public void enable_auto_adjust()
+    {
+        autoAdjustEnabled = true;
+    }
+
     public void switch_hero_state()
     {
         stateSwitched = true;
@@ -158,6 +163,9 @@ public class MainChar : Character {
             Destroy(target);
             return;
         }
+        if (enemyList.Length == 0) {
+            return;
+        }
         currentTargetIndex++;
         if (currentTargetIndex >= enemyList.Length)
         {
@@ -176,12 +184,8 @@ public class MainChar : Character {
         }
         target = enemyList[currentTargetIndex].gameObject;
         targetScript = enemyList[currentTargetIndex];
-<<<<<<< HEAD
         autoAdjustEnabled = true;
-=======
-		
-		autoAdjustEnabled = false;
->>>>>>> origin/master
+
     }
 
     public void reset_player_pos()
@@ -346,7 +350,7 @@ public class MainChar : Character {
         }
     }
 
-    void turn_off_effect()
+    public void turn_off_effect()
     {
         for (int ctr = 0; ctr < miscEffect.Length; ctr++)
         {
@@ -565,12 +569,13 @@ public class MainChar : Character {
         abilityNames = new string[8];
         abilityNames[0] = "GATTLING_GUN";
         abilityNames[1] = "SHATTER";
-        abilityNames[2] = "BLUTSAUGER";
-        abilityNames[3] = "ENERGY_BLADE";
+        if (curLevelData.get_player_level() > 4) 
+            abilityNames[2] = "BLUTSAUGER";
+        //abilityNames[3] = "ENERGY_BLADE";
         abilityNames[4] = "SHOTGUN";
         abilityNames[5] = "BARRAGE";
-        abilityNames[6] = "AEGIS";
-        abilityNames[7] = "BEAM_CANNON";
+        //abilityNames[6] = "AEGIS";
+        //abilityNames[7] = "BEAM_CANNON";
 
         abilityList = GetComponents<Ability>();
 
@@ -697,11 +702,11 @@ public class MainChar : Character {
         }
      
 
-        if (curBattleType == BattleType.REGULAR)
+        if (curBattleType == BattleType.REGULAR && target != null)
             turning = custom_look_at();
-        else if (curBattleType == BattleType.AERIAL)
+        else if (curBattleType == BattleType.AERIAL && target != null)
             turning = custom_look_at_3D(target.transform.position);
-        else if (curBattleType == BattleType.BOSS && curState != "PATHING")
+        else if (curBattleType == BattleType.BOSS && curState != "PATHING" && target!= null)
             turning = custom_look_at_3D(target.transform.position);
 
 
@@ -756,13 +761,9 @@ public class MainChar : Character {
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
             inputReady = false;
-<<<<<<< HEAD
-=======
-            inputReady = true;
->>>>>>> origin/master
+
             if (!movementScript.run_movement())
             {
-				autoAdjustEnabled = false;
                 curState = "IDLE";
                 curCharacterState = "IDLE";
                 autoAdjustEnabled = false;
@@ -796,6 +797,13 @@ public class MainChar : Character {
         {
             if (!abilityDictionary[curState].run_ability())
             {
+                if (curState == "REGULAR_ATTACK1" ||
+                    curState == "BLUTSAUGER" ||
+                    curState == "ENERGY_BLADE" ||
+                    curState == "SHATTTER")
+                {
+                    autoAdjustEnabled = true;
+                }
                 curState = "IDLE";
             }
             if (curState != "IDLE")

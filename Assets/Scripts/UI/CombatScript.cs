@@ -51,6 +51,10 @@ public class CombatScript : MonoBehaviour {
 	public GameObject endGameWindow;
 	public EndBattleLogic endGameScript;
 
+    public GameObject pauseGameMenu;
+    public GameObject endGame;
+    public GameObject resumeGame;
+
     public ItemPoolData itemPool;
 
     Camera GUICam;
@@ -85,6 +89,10 @@ public class CombatScript : MonoBehaviour {
 
     TutorialData tutorialData;
     bool tutorialActive = false;
+
+    bool gamePaused = false;
+
+
   
     public void initialize_buttons()
     {
@@ -93,28 +101,42 @@ public class CombatScript : MonoBehaviour {
         {
             buttonAccess = closeSkillSlots[ctr].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
-            if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
+            if (mainCharacter.abilityNames[ctr] != null)
             {
-                buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, coolDown);
+                float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
+                if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
+                {
+                    buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, coolDown);
+                }
+                else
+                {
+                    buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, 0.0f);
+                }
             }
             else
             {
-                buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, 0.0f);
+                buttonAccess.initialize_button(null, 0.0f, 0.0f);
             }
         }
         for (int ctr = 4; ctr < 8; ctr ++)
         {
             buttonAccess = rangeSkillSlots[ctr - 4].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
-            if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
+            if (mainCharacter.abilityNames[ctr] != null)
             {
-                buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, coolDown);
+                float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
+                if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
+                {
+                    buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, coolDown);
+                }
+                else
+                {
+                    buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, 0.0f);
+                }
             }
             else
             {
-                buttonAccess.initialize_button(mainCharacter.abilityNames[ctr], coolDown, 0.0f);
+                buttonAccess.initialize_button(null, 0.0f, 0.0f);
             }
         }
     }
@@ -312,7 +334,8 @@ public class CombatScript : MonoBehaviour {
         if (hitButton.collider != null)
         {
             //Combat related input
-            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready())
+            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
+                && gamePaused == false)
             {
                 if (mainCharacter.isClose == true)
                 {/*
@@ -348,8 +371,31 @@ public class CombatScript : MonoBehaviour {
             {
                 mainCharacter.reset_player_pos();
             }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready())
+            else if (hitButton.collider.gameObject == pauseButton && acc.phase == TouchPhase.Ended)
             {
+                if (gamePaused == false)
+                {
+                    turn_off_combat_ui();
+                    pauseGameMenu.SetActive(true);
+                    eventControlScript.pause_game();
+                    gamePaused = true;
+                }
+            }
+            else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
+            {
+                eventControlScript.unpause_game();
+                Application.LoadLevel(0);
+            }
+            else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
+            {
+                turn_on_combat_ui();
+                pauseGameMenu.SetActive(false);
+                eventControlScript.unpause_game();
+                gamePaused = false;
+            }
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && gamePaused == false)
+            {
+                mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready() && mainCharacter.player_input_ready())
                 {
@@ -357,7 +403,7 @@ public class CombatScript : MonoBehaviour {
                 }
             }
             else if (hitButton.collider.name == changeTargetButton.name && acc.phase == TouchPhase.Ended
-			         && mainCharacter.player_input_ready())
+                     && mainCharacter.player_input_ready() && gamePaused == false)
             {
                 mainCharacter.get_next_target();
             }
@@ -503,6 +549,8 @@ public class CombatScript : MonoBehaviour {
         abilityTutorial.SetActive(false);
         dodgeTutorial.SetActive(false);
         stateTutorial.SetActive(false);
+        resetPlayerPos.SetActive(false);
+        pauseGameMenu.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -515,7 +563,6 @@ public class CombatScript : MonoBehaviour {
                 input_commands(Input.GetTouch(ctr));
             }
         }
-
 
         if (battleStopped == false)
         {
@@ -550,7 +597,8 @@ public class CombatScript : MonoBehaviour {
                     else energyBar[ctr].SetActive(false);
                 }
             }
-            modify_enemy_buff();
+            if (mainCharacter.target != null)
+                modify_enemy_buff();
         }
 	}
 }

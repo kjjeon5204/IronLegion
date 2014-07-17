@@ -92,6 +92,8 @@ public struct PlayerLevelReadData
 public class EventControls : MonoBehaviour {
     public bool tutorialStage = false;
     bool tutorialPhase;
+    bool endBattle = false;
+    bool waveReadyPhase;
 
     public EngageData curEngageData;
     WaveBattleRunData[] waveRunData;
@@ -148,6 +150,11 @@ public class EventControls : MonoBehaviour {
 		return retVal;
 	}
 
+    public void end_battle()
+    {
+        endBattle = true;
+    }
+
     public void pause_game()
     {
         Time.timeScale = 0.0f;
@@ -189,6 +196,7 @@ public class EventControls : MonoBehaviour {
     void end_battle_win()
     {
         //end battle
+        combatScriptObject.SetActive(true);
         MapData curMap = new MapData(System.Convert.ToInt32(gameObject.name[1].ToString()));
         curMap.clear_level(curEngageData.levelNum);
 
@@ -205,16 +213,11 @@ public class EventControls : MonoBehaviour {
 		Vector3 spawnPoint = Vector3.zero;
 		int xSide = Random.Range (0,2);
         //Debug.Log("Appear poll " + xSide);
-		if (xSide == 0) {
-			spawnPoint.x = Random.Range (mapBoundary.center.x - 0.5f * mapBoundary.extents.x,
-			                             mapBoundary.center.x - 5.0f);
-		}
-		else if (xSide == 1) {
-			spawnPoint.x = Random.Range (mapBoundary.center.x + 5.0f, 
-			                             mapBoundary.center.x + 0.5f * mapBoundary.extents.x);
-		}
-		spawnPoint.z = Random.Range (mapBoundary.center.z + 5.0f,
-		                             mapBoundary.center.z + 0.5f * mapBoundary.extents.z);
+		spawnPoint.x = Random.Range (mapBoundary.center.x - 1.0f * mapBoundary.extents.x,
+			                             mapBoundary.center.x + 1.0f * mapBoundary.extents.x);
+
+		spawnPoint.z = Random.Range (mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
+		                             mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
 		return spawnPoint;
 	}
 	
@@ -229,24 +232,56 @@ public class EventControls : MonoBehaviour {
 	Character mainCharacter;
 
 
-    
-    
-  
+    void wave_ready_phase(WaveBattleRunData instatiateWave)
+    {
+        Debug.Log("Prep wave");
+        for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
+        {
+            
+            instatiateWave.enemyList[ctr].SetActive(true);
+            instatiateWave.enemyListScript[ctr].set_player(player);
+            instatiateWave.enemyListScript[ctr].manual_start();
+        }
+        playerScript.enemyList = instatiateWave.enemyListScript;
+        combatScriptObject.SetActive(false);
+        waveReadyPhase = true;
+    }
+
+    bool all_landed(WaveBattleRunData checkWave)
+    {
+        for (int ctr = 0; ctr < checkWave.enemyListScript.Length; ctr++)
+        {
+            if (!checkWave.enemyListScript[ctr].is_landed())
+            {
+                return false;
+            }
+        }
+        start_wave(checkWave);
+        return true;
+    }
+
+
 
 
     void start_wave(WaveBattleRunData instatiateWave)
     {
+        Debug.Log("Wave started!");
+        waveReadyPhase = false;
         combatScriptObject.SetActive(true);
+        /*
         for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
         {
             instatiateWave.enemyList[ctr].SetActive(true);
             instatiateWave.enemyListScript[ctr].set_player(player);
             instatiateWave.enemyListScript[ctr].manual_start();
         }
+         */ 
 		playerScript.enemyList = instatiateWave.enemyListScript;
 
 		playerScript.set_target(instatiateWave.enemyListScript[0]);
         radarScript.initialize_radar(waveRunData[curWave].enemyList, player);
+
+        playerScript.enable_auto_adjust();
 
         if (curWave == 0 && tutorialStage)
         {
@@ -301,9 +336,9 @@ public class EventControls : MonoBehaviour {
 
         waveRunData = new WaveBattleRunData[curEngageData.waveData.Length];
 
-        Vector3 playerStartPos = curEngageData.playerStartPos.transform.position;
+        Transform playerStartPos = curEngageData.playerStartPos.transform;
         loadPlayer = (GameObject)Resources.Load("heromech");
-        player = (GameObject)Instantiate(loadPlayer, playerStartPos, Quaternion.identity);
+        player = (GameObject)Instantiate(loadPlayer, playerStartPos.position, playerStartPos.rotation);
         playerScript = player.GetComponent<MainChar>();
         playerScript.battleBoundary = boundaryObject.collider;
         playerScript.worldObject = gameObject;
@@ -417,15 +452,18 @@ public class EventControls : MonoBehaviour {
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
+            Debug.Log("Has story");
             if (waveRunData[0].loadBeforeStory == true)
-                start_wave(waveRunData[0]);
+                wave_ready_phase(waveRunData[curWave]);
             waveRunData[0].eventRunPhase = true;
             waveRunData[0].waveEnded = false;
             waveRunData[0].storyInitialized = false;
         }
         else
         {
-            start_wave(waveRunData[0]);
+            //start_wave(waveRunData[0]);
+            Debug.Log("No story");
+            wave_ready_phase(waveRunData[0]);
             waveRunData[0].eventRunPhase = false;
             waveRunData[0].waveEnded = false;
             waveRunData[0].storyInitialized = false;
@@ -471,7 +509,7 @@ public class EventControls : MonoBehaviour {
 
     void disable_tutorial()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) || Input.touchCount > 0)
         {
             if (curWave == 0)
             {
@@ -503,7 +541,7 @@ public class EventControls : MonoBehaviour {
                 pause_game();
             else unpause_game();
         }
-        if (playerScript.return_cur_stats().baseHp <= 0.0f)
+        if (playerScript.return_cur_stats().baseHp <= 0.0f || endBattle == true)
         {
             enabled = false;
             Application.LoadLevel(0);
@@ -517,7 +555,8 @@ public class EventControls : MonoBehaviour {
 
                 playerScript.enable_player_camera();
 
-                if (combatScriptObject.activeInHierarchy == false)
+                if (combatScriptObject.activeInHierarchy == false
+                    && waveReadyPhase == false)
                 {
                     combatScriptObject.SetActive(true);
                 }
@@ -564,7 +603,7 @@ public class EventControls : MonoBehaviour {
                                 }
                                 else
                                 {
-                                    start_wave(waveRunData[curWave]);
+                                    wave_ready_phase(waveRunData[curWave]);
                                     waveRunData[curWave].eventRunPhase = true;
                                     waveRunData[curWave].storyInitialized = false;
                                     waveRunData[curWave].waveEnded = false;
@@ -573,7 +612,8 @@ public class EventControls : MonoBehaviour {
                             //If there is no beginning storyline at next wave.
                             else
                             {
-                                start_wave(waveRunData[curWave]);
+
+                                wave_ready_phase(waveRunData[curWave]);
                                 waveRunData[curWave].eventRunPhase = false;
                                 waveRunData[curWave].storyInitialized = false;
                                 waveRunData[curWave].waveEnded = false;
@@ -586,11 +626,17 @@ public class EventControls : MonoBehaviour {
                 }
 
 
+                if (waveReadyPhase == true)
+                {
+                    playerScript.animation.CrossFade("idle");
+                    Debug.Log("wave not ready");
+                    all_landed(waveRunData[curWave]);
+                }
 
 
-      
+                
                 /*Event Handle*/
-                if (gamePaused == false)
+                if (gamePaused == false && waveReadyPhase == false)
                 {
                     playerScript.manual_update();
 
@@ -648,7 +694,8 @@ public class EventControls : MonoBehaviour {
                         waveRunData[curWave].storyEnded = false;
                         if (waveRunData[curWave].loadBeforeStory == false)
                         {
-                            start_wave(waveRunData[curWave]);
+                            wave_ready_phase(waveRunData[curWave]);
+                            //start_wave(waveRunData[curWave]);
                         }
                     }
                     if (waveRunData[curWave].waveEnded == false)

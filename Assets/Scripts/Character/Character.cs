@@ -70,9 +70,12 @@ public class Character : MonoBehaviour
 	bool unitCollision;
 
     GameObject characterFacing;
+    public DropShip dropShipScript;
 
     protected Vector3 movement = Vector3.zero;
     public bool modifyPath = false;
+
+    bool enemyLanded = false;
 
 
     protected int initLevel;
@@ -83,6 +86,16 @@ public class Character : MonoBehaviour
     }
 
 	bool deathPhasedPlayed = false;
+
+    public bool is_landed()
+    {
+        return enemyLanded;
+    }
+
+    public void unit_successfully_landed()
+    {
+        enemyLanded = true;
+    }
 
 	/*
 	 **Important**
@@ -472,6 +485,14 @@ public class Character : MonoBehaviour
         else
         {
             characterDebuffScript.initialize_script();
+        }
+        if (dropShipScript != null)
+        {
+            dropShipScript.position_in_the_air();
+        }
+        else
+        {
+            enemyLanded = true;
         }
         /*
         curStats.baseHp = baseHp;

@@ -65,19 +65,25 @@ public class Arc : MyProjectile {
     // Update is called once per frame
     void Update()
     {
-		if (destroyTime + travelTime > Time.time){
-			Vector3 move = new Vector3(fireDirection.x, velvertical, fireDirection.z);
-			transform.LookAt(transform.position + move);
-			move = transform.InverseTransformDirection(move);
-			transform.Translate(move * Time.deltaTime);
-			velvertical -= gravity * Time.deltaTime;
-		} else {
-			transform.Translate(Vector3.forward);
-			transform.LookAt(targetPos);
-		}
-		if (hitOntheGround() && destroyTime + 2.0f < Time.time)
-		{
-			Destroy(this.gameObject);
-		}
+        if (projectilePaused == false)
+        {
+            if (destroyTime + travelTime > Time.time)
+            {
+                Vector3 move = new Vector3(fireDirection.x, velvertical, fireDirection.z);
+                transform.LookAt(transform.position + move);
+                move = transform.InverseTransformDirection(move);
+                transform.Translate(move * Time.deltaTime);
+                velvertical -= gravity * Time.deltaTime;
+            }
+            else
+            {
+                transform.Translate(Vector3.forward);
+                transform.LookAt(targetPos);
+            }
+            if (hitOntheGround() && destroyTime + 2.0f < Time.time)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

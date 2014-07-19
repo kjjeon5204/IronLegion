@@ -448,7 +448,7 @@ public class CombatScript : MonoBehaviour {
                         }
                     }
                 }
-                else
+                else if (mainCharacter.is_ready())
                 {
                     mainCharacter.switch_hero_state();
                     mainCharacter.curEnergy -= 10.0f;
@@ -458,6 +458,7 @@ public class CombatScript : MonoBehaviour {
                         enable_ability_button(rangeSkillSlots);
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
+                        mainCharacter.switch_hero_state();
                     }
                     else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
                     {
@@ -466,6 +467,8 @@ public class CombatScript : MonoBehaviour {
                         enable_ability_button(closeSkillSlots);
                         disable_ability_button(rangeSkillSlots);
                         mainCharacter.isClose = true;
+
+                        mainCharacter.switch_hero_state();
                     }
                 }
             }

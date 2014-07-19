@@ -107,7 +107,6 @@ public class EventControls : MonoBehaviour {
 	GameObject[] enemies; /*List of possible enemies*/
 	Character[] enemyScripts; /*Scripts of spawned enemies*/
 	GameObject[] enemyList; /*List of spawned enemies*/
-	public int numEnemy;
     GameObject player; /*Player model*/
     public MainChar playerScript;
     GameObject loadPlayer;
@@ -209,7 +208,7 @@ public class EventControls : MonoBehaviour {
 
     }
    
-    Vector3 generate_spawn_coordinate() {
+    Vector3 generate_spawn_coordinate(BattleType battleType) {
 		Vector3 spawnPoint = Vector3.zero;
 		int xSide = Random.Range (0,2);
         //Debug.Log("Appear poll " + xSide);
@@ -218,7 +217,13 @@ public class EventControls : MonoBehaviour {
 
 		spawnPoint.z = Random.Range (mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
 		                             mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
-		return spawnPoint;
+        if (battleType == BattleType.AERIAL)
+        {
+            spawnPoint.y = Random.Range(-5.0f, 5.0f);
+        }
+        
+        
+        return spawnPoint;
 	}
 	
 
@@ -240,6 +245,7 @@ public class EventControls : MonoBehaviour {
             
             instatiateWave.enemyList[ctr].SetActive(true);
             instatiateWave.enemyListScript[ctr].set_player(player);
+            instatiateWave.enemyListScript[ctr].set_target(player);
             instatiateWave.enemyListScript[ctr].manual_start();
         }
         playerScript.enemyList = instatiateWave.enemyListScript;
@@ -251,7 +257,7 @@ public class EventControls : MonoBehaviour {
     {
         for (int ctr = 0; ctr < checkWave.enemyListScript.Length; ctr++)
         {
-            if (!checkWave.enemyListScript[ctr].is_landed())
+            if (!checkWave.enemyListScript[ctr].is_ready())
             {
                 return false;
             }
@@ -278,7 +284,7 @@ public class EventControls : MonoBehaviour {
          */ 
 		playerScript.enemyList = instatiateWave.enemyListScript;
 
-		playerScript.set_target(instatiateWave.enemyListScript[0]);
+		playerScript.set_target(instatiateWave.enemyList[0]);
         radarScript.initialize_radar(waveRunData[curWave].enemyList, player);
 
         playerScript.enable_auto_adjust();
@@ -380,7 +386,8 @@ public class EventControls : MonoBehaviour {
 
             waveRunData[waveCtr].player = player;
             waveRunData[waveCtr].playerScript = playerScript;
-            if (curEngageData.waveData[waveCtr].battleType == BattleType.REGULAR)
+            if (curEngageData.waveData[waveCtr].battleType == BattleType.REGULAR ||
+                curEngageData.waveData[waveCtr].battleType == BattleType.AERIAL)
             {
                 //Create must enemy
                 waveRunData[waveCtr].enemyList = new GameObject[curEngageData.waveData[waveCtr].requiredEnemy.Length +
@@ -395,8 +402,10 @@ public class EventControls : MonoBehaviour {
                 for (int enemyCtr = 0; enemyCtr < curEngageData.waveData[waveCtr].requiredEnemy.Length; enemyCtr++)
                 {
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
-                        curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit, generate_spawn_coordinate(),
+                        curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit,
+                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType),
                         Quaternion.identity);
+
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] =
                         waveRunData[waveCtr].enemyList[enemyStoreCtr].GetComponent<Character>();
 
@@ -416,8 +425,10 @@ public class EventControls : MonoBehaviour {
                 {
                     int randPool = Random.Range(0, curEngageData.waveData[waveCtr].randomEnemy.Length);
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
-                        curEngageData.waveData[waveCtr].randomEnemy[randPool].enemyUnit, generate_spawn_coordinate(),
+                        curEngageData.waveData[waveCtr].randomEnemy[randPool].enemyUnit,
+                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType),
                         Quaternion.identity);
+
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] = waveRunData[waveCtr].enemyList[enemyStoreCtr].GetComponent<Character>();
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].mapFlag = mapChargeFlags[0];
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_enemy_unit_index(enemyStoreCtr);
@@ -437,13 +448,14 @@ public class EventControls : MonoBehaviour {
             }
             else if (curEngageData.waveData[waveCtr].battleType == BattleType.BOSS)
             {
-				waveRunData[waveCtr].enemyList = new GameObject[curEngageData.waveData[waveCtr].requiredEnemy.Length];
-				waveRunData[waveCtr].enemyListScript = new Character[curEngageData.waveData[waveCtr].requiredEnemy.Length];
-				for (int enemyCtr = 0; enemyCtr < waveRunData[waveCtr].enemyList.Length; enemyCtr ++) {
-                	waveRunData[waveCtr].enemyList[enemyCtr] = curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit;
-					waveRunData[waveCtr].enemyListScript[enemyCtr] = waveRunData[waveCtr].enemyList	[enemyCtr].GetComponent<Character>();
-					waveRunData[waveCtr].enemyListScript[enemyCtr].set_enemy_unit_index(enemyCtr);
-				}
+                waveRunData[waveCtr].enemyList = new GameObject[curEngageData.waveData[waveCtr].requiredEnemy.Length];
+                waveRunData[waveCtr].enemyListScript = new Character[curEngageData.waveData[waveCtr].requiredEnemy.Length];
+                for (int enemyCtr = 0; enemyCtr < waveRunData[waveCtr].enemyList.Length; enemyCtr++)
+                {
+                    waveRunData[waveCtr].enemyList[enemyCtr] = curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit;
+                    waveRunData[waveCtr].enemyListScript[enemyCtr] = waveRunData[waveCtr].enemyList[enemyCtr].GetComponent<Character>();
+                    waveRunData[waveCtr].enemyListScript[enemyCtr].set_enemy_unit_index(enemyCtr);
+                }
 
             }
         }

@@ -51,7 +51,8 @@ public class Character : MonoBehaviour
 
 
     //Detonator variable
-    public GameObject detonator;
+    public GameObject detonatorFlinch;
+    public GameObject detonatorDeath;
 
     //Set boundary of movement
     public Collider battleBoundary;
@@ -68,6 +69,7 @@ public class Character : MonoBehaviour
     public Debuff characterDebuffScript;
 
 	bool unitCollision;
+    public bool isNonPlayer = true;
 
     GameObject characterFacing;
     public DropShip dropShipScript;
@@ -75,7 +77,7 @@ public class Character : MonoBehaviour
     protected Vector3 movement = Vector3.zero;
     public bool modifyPath = false;
 
-    bool enemyLanded = false;
+    bool enemyReady = false;
 
 
     protected int initLevel;
@@ -87,14 +89,14 @@ public class Character : MonoBehaviour
 
 	bool deathPhasedPlayed = false;
 
-    public bool is_landed()
+    public bool is_ready()
     {
-        return enemyLanded;
+        return enemyReady;
     }
 
     public void unit_successfully_landed()
     {
-        enemyLanded = true;
+        enemyReady = true;
     }
 
 	/*
@@ -226,9 +228,9 @@ public class Character : MonoBehaviour
         playerScript = player.GetComponent<Character>();
     }
     
-    public void set_target(Character inTarget) {
-    	target = inTarget.gameObject;
-        targetScript = inTarget;
+    public void set_target(GameObject inTarget) {
+    	target = inTarget;
+        targetScript = inTarget.GetComponent<Character>();
    	}
 
     public Stats return_cur_stats()
@@ -413,8 +415,8 @@ public class Character : MonoBehaviour
             }
             curStats.baseHp -= (int)damageDone;
 
-            if (detonator != null)
-                Instantiate(detonator, transform.position, Quaternion.identity);
+            if (detonatorFlinch != null)
+                Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
 
             if (hitAnimation != null)
             {
@@ -443,6 +445,9 @@ public class Character : MonoBehaviour
 		}
 		else {
 			if (!animation.IsPlaying (deathAnimation.name)) {
+                if (detonatorDeath)
+                    Instantiate(detonatorDeath, collider.bounds.center, Quaternion.identity);
+                
 				Destroy (gameObject);
 			}
 		}
@@ -492,8 +497,17 @@ public class Character : MonoBehaviour
         }
         else
         {
-            enemyLanded = true;
+            enemyReady = true;
         }
+        if (isNonPlayer == true)
+        {
+            AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
+            curStats.armor = aiStat.baseArmor;
+            curStats.baseHp = aiStat.hp;
+            curStats.baseDamage = aiStat.baseAttack;
+            baseStats = curStats;
+        }
+
         /*
         curStats.baseHp = baseHp;
         curStats.baseDamage = baseDamage;
@@ -502,7 +516,8 @@ public class Character : MonoBehaviour
         */
     }
 
-	public virtual void manual_update() {}
+	public virtual void manual_update() {
+    }
 
 
 }

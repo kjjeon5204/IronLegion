@@ -546,10 +546,7 @@ public class ai : Character {
 	{
         AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
 		curState = AIState.IDLE;
-		curStats.armor = aiStat.baseArmor;
-		curStats.baseHp = aiStat.hp;
-		curStats.baseDamage = aiStat.baseAttack;
-		baseStats = curStats;
+        base.manual_start();
 		starttime = Time.time;
 		gameObject.transform.LookAt(player.transform);
 		base.manual_start();
@@ -573,7 +570,6 @@ public class ai : Character {
 				}
 			}
 		}
-        base.manual_start();
 	}
 	public override void manual_update(){
 			if (curStats.baseHp <= 0){

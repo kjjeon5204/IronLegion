@@ -17,7 +17,7 @@ public class AIStatScript : MonoBehaviour {
     {
         if (level > aiStatTable.Length)
         {
-            level = 0;
+            level = 1;
         }
         return aiStatTable[level - 1];
     }

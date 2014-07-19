@@ -546,7 +546,6 @@ public class ai : Character {
 	{
         AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
 		curState = AIState.IDLE;
-        base.manual_start();
 		starttime = Time.time;
 		gameObject.transform.LookAt(player.transform);
 		base.manual_start();

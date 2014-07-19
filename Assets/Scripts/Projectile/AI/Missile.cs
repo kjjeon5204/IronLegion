@@ -127,9 +127,6 @@ public class Missile : MyProjectile {
 
             }
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            if (target != null)
-                custom_look_at(target.collider.bounds.center);
-            //}
             if (transform.position.y < 0.0f)
             {
                 Destroy(gameObject);
@@ -144,6 +141,9 @@ public class Missile : MyProjectile {
             if (track == true)
                 custom_look_at(target.collider.bounds.center);
             //}
+
+            if (target == null)
+                Debug.LogError("Null Target!");
             if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
             {
                 track = false;

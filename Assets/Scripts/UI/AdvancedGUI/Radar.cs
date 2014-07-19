@@ -82,7 +82,6 @@ public class Radar : MonoBehaviour {
         radarOuterRing.transform.Rotate(Vector3.forward * Time.deltaTime * 15.0f);
         if (scriptActive == true)
         {
-            Debug.Log("radar updating!");
             update_radar();
         }
 	}

@@ -22,7 +22,8 @@ public class Character : MonoBehaviour
 	protected Stats curStats; /*This keep's track of character's current stats*/
 	protected Stats baseStats; /*All values within this keeps track of all the base stats
 	                  *THIS SHOULD NEVER BE MODIFIED*/
-    
+
+    bool isUnitActive = true;
 
     //Variables shared by all character
     //**IDLE does not mean Character is not doing anything. Non idle means that the actor is doing something due to external commands**
@@ -98,6 +99,7 @@ public class Character : MonoBehaviour
     {
         enemyReady = true;
     }
+
 
 	/*
 	 **Important**
@@ -396,43 +398,47 @@ public class Character : MonoBehaviour
 	 default, rawDamage is applied directly*/
 	public float hit (float rawDamage) 
     {
-        if (rawDamage > 0)
+        if (isUnitActive == true)
         {
-			//curCharacterState = "HIT";
-            messageReceived = true;
-            float damageDone = rawDamage;
-            if (curStats.armor < 90.0f && curStats.armor > 0.0f)
+            if (rawDamage > 0)
             {
-                damageDone = (1.0f * rawDamage * (1.0f - 1.0f * baseStats.armor / 100.0f));
-            }
-            if (curStats.armor >= 90.0f)
-            {
-                damageDone = (1.0f * rawDamage * (0.1f));
-            }
-            if (curStats.armor <= 0.0f)
-            {
-                damageDone = rawDamage;
-            }
-            curStats.baseHp -= (int)damageDone;
+                //curCharacterState = "HIT";
+                messageReceived = true;
+                float damageDone = rawDamage;
+                if (curStats.armor < 90.0f && curStats.armor > 0.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (1.0f - 1.0f * baseStats.armor / 100.0f));
+                }
+                if (curStats.armor >= 90.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (0.1f));
+                }
+                if (curStats.armor <= 0.0f)
+                {
+                    damageDone = rawDamage;
+                }
+                curStats.baseHp -= (int)damageDone;
 
-            if (detonatorFlinch != null)
-                Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
+                if (detonatorFlinch != null)
+                    Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
 
-            if (hitAnimation != null)
-            {
-                animation.Play(hitAnimation.name);
+                if (hitAnimation != null)
+                {
+                    animation.Play(hitAnimation.name);
+                }
+                return damageDone;
             }
-            return damageDone;
-        }
-        else
-        {
-            curStats.baseHp -= (int)rawDamage;
-            if (curStats.baseHp > baseStats.baseHp)
+            else
             {
-                curStats.baseHp = baseStats.baseHp;
+                curStats.baseHp -= (int)rawDamage;
+                if (curStats.baseHp > baseStats.baseHp)
+                {
+                    curStats.baseHp = baseStats.baseHp;
+                }
+                return rawDamage;
             }
-            return rawDamage;
         }
+        return 0.0f;
 	}
 
 	protected void death_state() {
@@ -477,6 +483,9 @@ public class Character : MonoBehaviour
         return destroyReady;
 	}
 
+    public virtual void first_wave()
+    {
+    }
 
 	/*Use this update! DO NOT USE Update() function!
 	 use this function instead.*/

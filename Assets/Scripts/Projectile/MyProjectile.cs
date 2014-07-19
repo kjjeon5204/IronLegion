@@ -15,7 +15,7 @@ public class MyProjectile : MonoBehaviour {
     public GameObject detonation;
     protected float damage;
     protected Character targetScript;
-    protected GameObject target;
+    public GameObject target;
 	protected GameObject owner;
 	protected GameObject Aimingsquare;
 	protected float angle;
@@ -24,6 +24,8 @@ public class MyProjectile : MonoBehaviour {
 	public bool isStealth = true;
 	public float rotSpeed = 180.0f;
     protected bool projectilePaused = false;
+    public bool activateProjectile = false;
+    public float delayTime;
 
     public void pause_projectile(bool inputOption)
     {
@@ -51,6 +53,14 @@ public class MyProjectile : MonoBehaviour {
         targetScript = inTargetScript;
         owner = inOwner;
         target = targetScript.gameObject;
+        if (target == null)
+        {
+            Debug.LogError("Null target failed to initialize!");
+        }
+        else
+        {
+            Debug.Log(name + "succesfully initialized, set to target: " + target.name);
+        }
     }
 
 	public void set_projectile(ProjectileDataInput myInput, GameObject radarTrack) {

@@ -110,6 +110,7 @@ public class MainChar : Character {
     HeroLevelData curLevelData;
 
     
+  
 
 
     float farDist = 12.0f;
@@ -556,7 +557,7 @@ public class MainChar : Character {
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
-        curStats.armor = 0.0f;
+        curStats.armor = 20.0f;
         curStats.baseDamage = curLevelData.get_player_stat().damage;
         curStats.baseHp = curLevelData.get_player_stat().HP;
         Debug.Log("Player HP: " + curStats.baseHp);
@@ -663,7 +664,6 @@ public class MainChar : Character {
             curState != "PATHING")
         {
             stateSwitched = false;
-            Debug.Log("Distance to move: " + distToTarget);
             float distanceToMove;
             if (isClose == true)
             {

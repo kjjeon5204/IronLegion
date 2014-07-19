@@ -209,6 +209,40 @@ public class Character : MonoBehaviour
         return true;
     }
 
+
+    protected bool custom_look_at(Vector3 position)
+    {
+        float rotAngle = Vector3.Angle(transform.forward, position - transform.position);
+
+        if (Mathf.Abs(rotAngle) < 0.04)
+        {
+            return false;
+        }
+        float rotDirection = transform.InverseTransformPoint(position).x;
+        if (rotAngle > rotSpeed * Time.deltaTime)
+        {
+            if (rotDirection > 0)
+            {
+                transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+            }
+            else if (rotDirection < 0)
+            {
+                transform.Rotate(Vector3.up * -rotSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+
+            if (rotDirection > 0)
+                transform.Rotate(Vector3.up * rotAngle);
+            else if (rotDirection < 0)
+                transform.Rotate(Vector3.down * rotAngle);
+
+            //transform.LookAt(target.transform.position);
+        }
+        return true;
+    }
+
     public void set_enemy_unit_index(int indexInput)
     {
         enemyUnitIndex = indexInput;

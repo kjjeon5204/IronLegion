@@ -20,6 +20,8 @@ public class EquipControls : MonoBehaviour {
 	
 	private TextMesh[] inventory_description_text;
 	private TextMesh[] equipped_description_text;
+	private SpriteRenderer inventory_description_image;
+	private SpriteRenderer equipped_description_image;
 	
 	SpriteRenderer image;
 	// Use this for initialization
@@ -29,6 +31,9 @@ public class EquipControls : MonoBehaviour {
 		
 		inventory_description = GameObject.Find("InventoryItemDescription");
 		equipped_description = GameObject.Find("EquippedItemDescription");
+		
+		inventory_description_image = inventory_description.transform.Find("Icon").GetComponent<SpriteRenderer>();
+		equipped_description_image = equipped_description.transform.Find("Icon").GetComponent<SpriteRenderer>();
 		
 		inventory_description_text = new TextMesh[7];
 		equipped_description_text = new TextMesh[7];
@@ -50,6 +55,9 @@ public class EquipControls : MonoBehaviour {
 		equipped_description_text[6] = equipped_description.transform.Find("Luck").GetComponent<TextMesh>();
 	}
 	
+	void Start() {
+		ReloadDescription();
+	}
 	// Update is called once per frame
 	void Update () {
 		if ( CheckSwappable() )
@@ -68,7 +76,7 @@ public class EquipControls : MonoBehaviour {
 	void UpdateDescriptions() {
 		if (item_inventory != null)
 		{
-		
+			inventory_description_image.sprite = sprite_inventory;
 			inventory_description_text[0].text = item_inventory.itemName;
 			
 			if (item_inventory.hp < 0)
@@ -115,6 +123,7 @@ public class EquipControls : MonoBehaviour {
 		}
 		if (item_equipped != null)
 		{
+			equipped_description_image.sprite = sprite_equipped;
 			equipped_description_text[0].text = item_equipped.itemName;
 			
 			if (item_equipped.hp < 0)
@@ -159,6 +168,26 @@ public class EquipControls : MonoBehaviour {
 			else
 			equipped_description_text[6].text = "";
 		}
+	}
+	
+	public void ReloadDescription() {
+		inventory_description_image.sprite = null;
+		inventory_description_text[0].text = "";
+		inventory_description_text[1].text = "";
+		inventory_description_text[2].text = "Select a slot";
+		inventory_description_text[3].text = "to switch";
+		inventory_description_text[4].text = "between!";
+		inventory_description_text[5].text = "";
+		inventory_description_text[6].text = "";
+		
+		equipped_description_image.sprite = null;
+		equipped_description_text[0].text = "";
+		equipped_description_text[1].text = "";
+		equipped_description_text[2].text = "Select a slot";
+		equipped_description_text[3].text = "to switch";
+		equipped_description_text[4].text = "between!";
+		equipped_description_text[5].text = "";
+		equipped_description_text[6].text = "";
 	}
 	
 	void Clicked() {

@@ -41,7 +41,7 @@ public class MainChar : Character {
     int attackFrequency;
     float attackDelay;
     int muzzleTracker;
-    bool phasePlayed;
+    public bool phasePlayed;
     public string curState;
     /*
      Player States
@@ -110,6 +110,7 @@ public class MainChar : Character {
     HeroLevelData curLevelData;
 
     
+  
 
 
     float farDist = 12.0f;
@@ -185,7 +186,11 @@ public class MainChar : Character {
         target = enemyList[currentTargetIndex].gameObject;
         targetScript = enemyList[currentTargetIndex];
         autoAdjustEnabled = true;
-
+        if (curBattleType == BattleType.BOSS)
+        {
+            curState = "PATHING";
+            phasePlayed = false;
+        }
     }
 
     public void reset_player_pos()
@@ -233,7 +238,7 @@ public class MainChar : Character {
     {
         GameObject objectLookedAt = this.check_line_of_sight();
         if (objectLookedAt != null) {
-            if (objectLookedAt != target) {
+            if (objectLookedAt != target && curBattleType != BattleType.BOSS) {
                 target = objectLookedAt;
 				targetScript = objectLookedAt.GetComponent<Character>();
             }
@@ -552,7 +557,7 @@ public class MainChar : Character {
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
-        curStats.armor = 0.0f;
+        curStats.armor = 20.0f;
         curStats.baseDamage = curLevelData.get_player_stat().damage;
         curStats.baseHp = curLevelData.get_player_stat().HP;
         Debug.Log("Player HP: " + curStats.baseHp);
@@ -620,6 +625,8 @@ public class MainChar : Character {
 
         float distToTarget = 0;
         
+        if (targetScript != null && curState != "PATHING")
+            currentFlag = targetScript.mapFlag;
         
         if (inputReady == true)
             temp_input();
@@ -628,10 +635,13 @@ public class MainChar : Character {
             get_next_target();
         /*Check Events*/
 
+        if (target != null && targetScript == null)
+        {
+            targetScript.GetComponent<Character>();
+        }
 
         if (targetScript != null)
         {
-            currentFlag = targetScript.mapFlag;
             currentTargetIndex = targetScript.get_enemy_index();
             distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
         }
@@ -650,10 +660,10 @@ public class MainChar : Character {
 		}
 
         
-        if ((stateSwitched == true || autoAdjustEnabled == true) && curState == "IDLE")
+        if ((stateSwitched == true || autoAdjustEnabled == true) && curState == "IDLE" &&
+            curState != "PATHING")
         {
             stateSwitched = false;
-            Debug.Log("Distance to move: " + distToTarget);
             float distanceToMove;
             if (isClose == true)
             {
@@ -665,7 +675,7 @@ public class MainChar : Character {
                     phasePlayed = false;
                     distanceToMove = closeDist - distToTarget;
                     movementScript.initialize_movement("BACKWARD", 
-                        distanceToMove, 10.0f, Vector3.zero);
+                        distanceToMove, 20.0f, Vector3.zero);
                 }
                 if (distToTarget > closeDist + 2.0f)
                 {
@@ -674,7 +684,7 @@ public class MainChar : Character {
                     phasePlayed = false;
                     distanceToMove = distToTarget - closeDist;
                     movementScript.initialize_movement("FORWARD",
-                        distanceToMove, 10.0f, Vector3.zero);
+                        distanceToMove, 20.0f, Vector3.zero);
                 }
             }
             else
@@ -685,7 +695,7 @@ public class MainChar : Character {
                     phaseCtr = 0;
                     phasePlayed = false;
                     distanceToMove = farDist - distToTarget;
-                    movementScript.initialize_movement("BACKWARD", distanceToMove, 10.0f, 
+                    movementScript.initialize_movement("BACKWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
                 if (distToTarget > farDist + 2.0f)
@@ -694,7 +704,7 @@ public class MainChar : Character {
                     phaseCtr = 0;
                     phasePlayed = false;
                     distanceToMove = distToTarget - farDist;
-                    movementScript.initialize_movement("FORWARD", distanceToMove, 10.0f, 
+                    movementScript.initialize_movement("FORWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
             }
@@ -782,10 +792,26 @@ public class MainChar : Character {
         else if (curState == "PATHING")
         {
             if (phasePlayed == false) {
-				currentPath = currentFlag.GetComponent<BattleZone>().
+                if (currentFlag == null)
+                    Debug.LogError("No flag specified!");
+                else if (currentFlag.gameObject == targetScript.mapFlag.gameObject)
+                {
+                    curState = "IDLE";
+                }
+                else
+                    Debug.Log("Current flag: " + currentFlag.name);
+				    currentPath = currentFlag.GetComponent<BattleZone>().
 					get_path(targetScript.mapFlag.gameObject);
-				currentPath.initialize_path(this.gameObject);
-				phasePlayed = true;
+                if (currentPath != null)
+                {
+                    currentPath.initialize_path(this.gameObject);
+                    phasePlayed = true;
+                }
+                else
+                {
+                    autoAdjustEnabled = true;
+                    curState = "IDLE";
+                }
 			}
 			else {
 				if (currentPath.run_path()) {

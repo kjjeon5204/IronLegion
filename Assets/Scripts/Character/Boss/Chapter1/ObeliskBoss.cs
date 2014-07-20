@@ -7,6 +7,7 @@ public class ObeliskBoss : Character {
 	public enum CurrentStates
 	{
 		IDLE,
+        MOVE,
 		COOLDOWN,
 		ROCKET,
 		HOWITZER,
@@ -56,6 +57,12 @@ public class ObeliskBoss : Character {
 	int muzzleCtr = 0;
 
 	Vector3 heading; //for direction/distance vector
+
+    float moveTime;
+    int attackStack = 0;
+    bool movePhasePlayed;
+    int movePhaseCtr;
+
 	
 	// Use this for initialization
 	public override void manual_start () {
@@ -106,6 +113,63 @@ public class ObeliskBoss : Character {
 			hit.gameObject.GetComponent<Character>().hit (70);
 		}
 	}
+
+
+    void move_phase_one()
+    {
+        if (movePhasePlayed == false)
+        {
+            animation.Play("movestart");
+            movePhasePlayed = true;
+        }
+        else
+        {
+            if (!animation.IsPlaying("movestart"))
+            {
+
+                moveTime = Time.time + 3.0f;
+                movePhasePlayed = false;
+                movePhaseCtr++;
+            }
+        }
+    }
+
+    void move_phase_two()
+    {
+        if (movePhasePlayed == false)
+        {
+            animation.Play("move");
+            transform.Translate(Vector3.forward * 3.0f * Time.deltaTime);
+            Vector3 movementVector = find_movement_vector();
+            custom_look_at(transform.position + movementVector);
+            if (moveTime < Time.time || movementVector == Vector3.zero)
+            {
+                movePhasePlayed = true;
+            }
+        }
+        else
+        {
+            movePhasePlayed = false;
+            movePhaseCtr++;
+        }
+    }
+
+    void move_phase_three()
+    {
+        if (movePhasePlayed == false)
+        {
+            animation.Play("movestart");
+            movePhasePlayed = true;
+        }
+        else
+        {
+            if (!animation.IsPlaying("movestart"))
+            {
+                currentStates = CurrentStates.IDLE;
+            }
+        }
+    }
+
 	//Boss HP at 100-85%
 	void stageOne () {
 	Debug.Log ("Stage One");
@@ -138,6 +202,7 @@ public class ObeliskBoss : Character {
 				abilityList[8].initialize_ability();
 			}
 		}
+        attackStack++;
 	}
 	
 	//Boss HP at 85-50%
@@ -180,6 +245,7 @@ public class ObeliskBoss : Character {
 				abilityList[8].initialize_ability();
 			}
 		}
+        attackStack++;
 	}
 	
 	//Boss HP at 50-0%
@@ -241,6 +307,7 @@ public class ObeliskBoss : Character {
 				abilityList[3].initialize_ability();
 			}
 		}
+        attackStack++;
 	}
 	// Update is called once per frame
 	public override void manual_update () {
@@ -252,8 +319,19 @@ public class ObeliskBoss : Character {
 		else {
 			longRange = true;
 		}
+        Debug.Log("Attack stack " + attackStack);
+        if ((currentStates == CurrentStates.IDLE && moveTime < Time.time) || 
+             (currentStates == CurrentStates.IDLE && attackStack > 3)) {
+            int movePoll = Random.Range(0, 4);
+            if (movePoll <= attackStack)
+            {
+                currentStates = CurrentStates.MOVE;
+                attackStack = 0;
+            }
+            moveTime = Time.time + 1.0f;
+        }
 		
-		if (currentStates == CurrentStates.IDLE && globalCDTracker < Time.time) {
+		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time)) {
 			if (curStats.baseHp < baseStats.baseHp * .5) {
 				stageThree();
 			}
@@ -436,5 +514,15 @@ public class ObeliskBoss : Character {
 				globalCDTracker = Time.time + globalCD;
 			}
 		}
+        else if (currentStates == CurrentStates.MOVE)
+        {
+            Debug.Log("Move phase started!");
+            if (movePhaseCtr == 0)
+                move_phase_one();
+            else if (movePhaseCtr == 1)
+                move_phase_two();
+            else if (movePhaseCtr == 2)
+                move_phase_three();
+        }
 	}
 }

@@ -19,6 +19,7 @@ public class AIStatScript : MonoBehaviour {
         {
             level = 1;
         }
+        Debug.Log("Load enemy level: " + (level - 1));
         return aiStatTable[level - 1];
     }
 }

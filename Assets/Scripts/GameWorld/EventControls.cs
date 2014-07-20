@@ -133,6 +133,8 @@ public class EventControls : MonoBehaviour {
     bool gamePaused = false;
     bool mapCleared = false;
 
+    Character mainBody;
+
 	public int[] close_index() {
 		int[] retVal = new int[4];
 		for (int ctr = 0; ctr < 4; ctr ++) {
@@ -217,11 +219,12 @@ public class EventControls : MonoBehaviour {
 
 		spawnPoint.z = Random.Range (mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
 		                             mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
+        /*
         if (battleType == BattleType.AERIAL)
         {
             spawnPoint.y = Random.Range(-5.0f, 5.0f);
         }
-        
+        */
         
         return spawnPoint;
 	}
@@ -300,6 +303,13 @@ public class EventControls : MonoBehaviour {
         else if (curWave == 2 && tutorialStage)
         {
             enable_tutorial(curWave);
+        }
+
+        if (curEngageData.waveData[curWave].battleType == BattleType.BOSS &&
+            curWave == waveRunData.Length - 1)
+        {
+            playerScript.curState = "PATHING";
+            playerScript.phasePlayed = false;
         }
     }
 
@@ -454,9 +464,15 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].enemyList[enemyCtr] = curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit;
                     waveRunData[waveCtr].enemyListScript[enemyCtr] = waveRunData[waveCtr].enemyList[enemyCtr].GetComponent<Character>();
+                    waveRunData[waveCtr].enemyListScript[enemyCtr].set_level
+                        (curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].level);
                     waveRunData[waveCtr].enemyListScript[enemyCtr].set_enemy_unit_index(enemyCtr);
                 }
-
+                if (waveCtr == waveRunData.Length - 1)
+                {
+                    mainBody = waveRunData[waveCtr].enemyList[0].GetComponent<Character>();
+                    mainBody.set_target(player);
+                }
             }
         }
 
@@ -652,6 +668,12 @@ public class EventControls : MonoBehaviour {
                 {
                     playerScript.manual_update();
 
+                    if (curWave < waveRunData.Length - 1 &&
+                        curEngageData.waveData[curWave].battleType == BattleType.BOSS)
+                    {
+                        if (curWave == 0)
+                            mainBody.first_wave();
+                    }
                     for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
                     {
                         if (waveRunData[curWave].enemyList[ctr] != null)

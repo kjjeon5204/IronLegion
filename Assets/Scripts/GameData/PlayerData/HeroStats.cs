@@ -21,6 +21,16 @@ public struct Stats
 	public float item_luck;
 }
 
+public struct PlayerStat
+{
+	public int item_hp;
+	public float item_armor;
+	public float item_damage;
+	public float item_energy;
+	public float item_penetration;
+	public float item_luck;
+}
+
 
 public class HeroStats{
     Stats curStats;
@@ -215,5 +225,18 @@ public class HeroStats{
 		{
 			curStats.equipment[i] = items[i];
 		}
+	}
+	
+	public PlayerStat get_item_stats()
+	{
+		PlayerStat item_stat;
+		item_stat.item_hp = curStats.item_hp;
+		item_stat.item_armor = curStats.item_armor;
+		item_stat.item_damage = curStats.item_damage;
+		item_stat.item_energy = curStats.item_energy;
+		item_stat.item_penetration = curStats.item_penetration;
+		item_stat.item_luck = curStats.item_luck;
+		
+		return item_stat;
 	}
 }

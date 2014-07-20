@@ -205,6 +205,42 @@ public class Ability : MonoBehaviour {
                     myCharacter.hit(-1.0f * damageDone * currentPhaseData.hpLeech / 100.0f);
                 }
             }
+            if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.PROJECTILE)
+            {
+
+                foreach (GameObject curMuzzle in currentPhaseData.muzzle)
+                {
+                    if (currentPhaseData.forceTarget == true)
+                        curMuzzle.transform.LookAt(myCharacter.target.collider.bounds.center);
+                    GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
+                        curMuzzle.transform.position, curMuzzle.transform.rotation);
+                    MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
+                    ProjectileDataInput tempData;
+                    tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+
+                    if (currentPhaseData.selfTargetProjectile)
+                        projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
+                    else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
+                }
+            }
+            if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.HITBOX)
+            {
+
+                foreach (GameObject curMuzzle in currentPhaseData.muzzle)
+                {
+                    if (currentPhaseData.forceTarget == true)
+                        curMuzzle.transform.LookAt(myCharacter.target.collider.bounds.center);
+                    GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
+                        curMuzzle.transform.position, curMuzzle.transform.rotation);
+                    MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
+                    ProjectileDataInput tempData;
+                    tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+
+                    if (currentPhaseData.selfTargetProjectile)
+                        projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
+                    else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
+                }
+            }
         }
         else if (myData.ranged == true)
         {
@@ -220,15 +256,7 @@ public class Ability : MonoBehaviour {
                     MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
 					ProjectileDataInput tempData;
 					tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
-					/*
-					tempData.inOwner = gameObject;
-					tempData.inDamage = calc_damage(currentPhaseData.targetDam);
-					tempData.square = null;
-					tempData.aimAngle = Mathf.Abs(curMuzzle.transform.localRotation.x);
-					tempData.radius = 0;
 					
-                    projectileScript.set_projectile(tempData);
-                    */
                     if (currentPhaseData.selfTargetProjectile) 
 						projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
 					else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));

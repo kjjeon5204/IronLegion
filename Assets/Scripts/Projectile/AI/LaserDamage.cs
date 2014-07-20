@@ -3,14 +3,18 @@ using System.Collections;
 
 public class LaserDamage : MyProjectile {
 	public float damageInterval;
-	float damageIntervalTracker;
+	public float hitDamage;
+	float damageIntervalTracker = 0;
 	
 	void OnTriggerEnter (Collider hit) {
 		
-		if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner && hit.gameObject.tag != "Projectile" ) {
+		if (hit.gameObject.tag != "Boundary" && hit.gameObject.tag != "Projectile" &&
+            projectilePaused == false) {
 			if (damageIntervalTracker < Time.time) {
-				hit.gameObject.GetComponent<Character>().hit (damage);
-				damageIntervalTracker = Time.time + damageInterval;
+				if (hit.gameObject.tag == "Character") {
+					hit.gameObject.GetComponent<Character>().hit (hitDamage);
+					damageIntervalTracker = Time.time + damageInterval;
+				}
 			}
 		}
 		if (detonation != null)
@@ -18,6 +22,9 @@ public class LaserDamage : MyProjectile {
 	}
 
 	void Start() {
-		damageIntervalTracker = Time.time + damageInterval;
+        if (projectilePaused == false)
+        {
+            damageIntervalTracker = Time.time + damageInterval;
+        }
 	}
 }

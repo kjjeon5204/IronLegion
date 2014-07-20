@@ -42,6 +42,7 @@ public class AbilityButton : MonoBehaviour {
     Quaternion initialRotation;
 
     float timeDisabled;
+    bool noAbility = false;
 
     void OnDisable()
     {
@@ -66,22 +67,31 @@ public class AbilityButton : MonoBehaviour {
     public void initialize_button(string abilityName, float inMaxCoolDown, float inCurCoolDown)
     {
         TextMesh textAcc = skillText.GetComponent<TextMesh>();
-        initialRotation = coolDownBar.transform.rotation;
-        foreach (AbilityButtonData thisButton in abilityCollection)
+        if (abilityName != null)
         {
-            abilityButtonLibrary[thisButton.skillName] = thisButton;
+            
+            initialRotation = coolDownBar.transform.rotation;
+            foreach (AbilityButtonData thisButton in abilityCollection)
+            {
+                abilityButtonLibrary[thisButton.skillName] = thisButton;
+            }
+            curRenderer = GetComponent<SpriteRenderer>();
+            thisButtonInfo = abilityButtonLibrary[abilityName];
+            if (inCurCoolDown == 0.0f)
+                curRenderer.sprite = thisButtonInfo.buttonUp;
+            else
+                curRenderer.sprite = thisButtonInfo.buttonDown;
+
+            textAcc.text = thisButtonInfo.skillDescription;
+            maxCoolDown = inMaxCoolDown;
+            curCoolDown = inCurCoolDown;
         }
-        curRenderer = GetComponent<SpriteRenderer>();
-        thisButtonInfo = abilityButtonLibrary[abilityName];
-        if (inCurCoolDown == 0.0f)
-            curRenderer.sprite = thisButtonInfo.buttonUp;
         else
-            curRenderer.sprite = thisButtonInfo.buttonDown;
-
-        textAcc.text = thisButtonInfo.skillDescription;
-        maxCoolDown = inMaxCoolDown;
-        curCoolDown = inCurCoolDown;
-
+        {
+            textAcc.text = "No Ability";
+            coolDownBar.SetActive(false);
+            noAbility = true;
+        }
         eventControlScript = eventControlObject.GetComponent<EventControls>();
         mainPlayer = eventControlScript.playerScript;
     }
@@ -110,16 +120,19 @@ public class AbilityButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (curCoolDown > 0.0f)
+        if (noAbility == false)
         {
-            curCoolDown -= Time.deltaTime;
-            if (curCoolDown <= 0.0f)
+            if (curCoolDown > 0.0f)
             {
-                curCoolDown = 0.0f;
-                curRenderer.sprite = thisButtonInfo.buttonUp;
+                curCoolDown -= Time.deltaTime;
+                if (curCoolDown <= 0.0f)
+                {
+                    curCoolDown = 0.0f;
+                    curRenderer.sprite = thisButtonInfo.buttonUp;
+                }
             }
+            coolDownBar.transform.rotation = initialRotation;
+            coolDownBar.transform.Rotate(Vector3.back, 180.0f * (curCoolDown / maxCoolDown));
         }
-        coolDownBar.transform.rotation = initialRotation;
-        coolDownBar.transform.Rotate(Vector3.back, 180.0f * (curCoolDown / maxCoolDown));
-	}
+    }
 }

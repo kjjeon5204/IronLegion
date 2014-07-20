@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 4fcaacedb7a0c214ea4c20c25795f160
+guid: 9c488fd7a7fbfaa439fc390df9ab5379
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: body
     100002: body1
@@ -58,6 +58,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -284,7 +285,7 @@ ModelImporter:
     - serializedVersion: 16
       name: movestop
       takeName: Take 001
-      firstFrame: 149
+      firstFrame: 148
       lastFrame: 152
       wrapMode: 0
       orientationOffsetY: 0
@@ -911,4 +912,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 

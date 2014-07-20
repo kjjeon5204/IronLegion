@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 1c80f6399c4f3c1489f7dc2dd58af73c
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: core
+    100002: //RootNode
+    100004: part1
+    100006: part10
+    100008: part11
+    100010: part12
+    100012: part13
+    100014: part14
+    100016: part2
+    100018: part3
+    100020: part4
+    100022: part5
+    100024: part6
+    100026: part7
+    100028: part8
+    100030: part9
+    100032: shatterplane
+    400000: core
+    400002: //RootNode
+    400004: part1
+    400006: part10
+    400008: part11
+    400010: part12
+    400012: part13
+    400014: part14
+    400016: part2
+    400018: part3
+    400020: part4
+    400022: part5
+    400024: part6
+    400026: part7
+    400028: part8
+    400030: part9
+    400032: shatterplane
+    4300000: shatterplane
+    7400000: shatter
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: shatterplane
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: shatter
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: core
+        weight: 1
+      - path: core/part1
+        weight: 1
+      - path: core/part2
+        weight: 1
+      - path: core/part3
+        weight: 1
+      - path: core/part4
+        weight: 1
+      - path: core/part5
+        weight: 1
+      - path: core/part6
+        weight: 1
+      - path: core/part7
+        weight: 1
+      - path: core/part8
+        weight: 1
+      - path: core/part9
+        weight: 1
+      - path: core/part10
+        weight: 1
+      - path: core/part11
+        weight: 1
+      - path: core/part12
+        weight: 1
+      - path: core/part13
+        weight: 1
+      - path: core/part14
+        weight: 1
+      - path: shatterplane
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

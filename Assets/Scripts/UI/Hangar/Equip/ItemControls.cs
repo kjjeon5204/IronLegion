@@ -121,6 +121,7 @@ public class ItemControls : MonoBehaviour {
 		ids = hero.get_equipped_item();
 		for (int i = 0; i < 5; i++)
 		{
+			Debug.Log(ids[i]);
 			if (i == 0)
 			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
 			else if (i == 1)
@@ -158,6 +159,9 @@ public class ItemControls : MonoBehaviour {
 			stats.item_energy += equipped_item[i].energy;
 			stats.item_penetration += equipped_item[i].penetration;
 			stats.item_luck += equipped_item[i].luck;
+			
+			stats.equipment[i] = ids[i];
+			hero.save_data();
 		}
 	}
 }

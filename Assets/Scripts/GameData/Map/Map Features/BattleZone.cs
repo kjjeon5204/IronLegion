@@ -7,11 +7,11 @@ public class BattleZone : MapChargeFlag {
 
 	public MyPathing get_path(GameObject targetZone) {
 		if (pathLibrary.ContainsKey(targetZone)) {
-			//Debug.Log ("Path at " + name + " to " + targetZone.name + " found!");
+			Debug.Log ("Path at " + name + " to " + targetZone.name + " found!");
 			return pathLibrary[targetZone];
 		}
 		else {
-			//Debug.Log ("Path at " + name + " to " + targetZone.name + " not found!");
+			Debug.LogError ("Path at " + name + " to " + targetZone.name + " not found!");
 			return null;
 		}
 	}

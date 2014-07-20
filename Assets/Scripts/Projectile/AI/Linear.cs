@@ -37,11 +37,13 @@ public class Linear : MyProjectile {
 	
 	// Update is called once per frame
 	void Update () {
-
-        transform.Translate(bulletSpeed * Vector3.forward * Time.deltaTime);
-        if (destroyTime + 10.0f < Time.time)
+        if (projectilePaused == false)
         {
-            Destroy(this.gameObject);
+            transform.Translate(bulletSpeed * Vector3.forward * Time.deltaTime);
+            if (destroyTime + 10.0f < Time.time)
+            {
+                Destroy(this.gameObject);
+            }
         }
 	}
 }

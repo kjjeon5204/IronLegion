@@ -171,11 +171,11 @@ public class Movement : MonoBehaviour {
     }
 
 
-    public void deceleration_phase()
+    public void deceleration_phase(AnimationClip phaseClip)
     {
         if (phasePlayed == false)
         {
-            animation.CrossFade(curMovement.animationClips[2].name, 0.1f);
+            animation.CrossFade(phaseClip.name, 0.1f);
             //animation.Play(curMovement.animationClips[2].name);
             //animation[curMovement.animationClips[2].name].speed = curMovement.animationClips[2].length / curMovement.accDuration;
             /*
@@ -186,7 +186,7 @@ public class Movement : MonoBehaviour {
         }
         else
         {
-            if (!animation.IsPlaying(curMovement.animationClips[2].name))
+            if (!animation.IsPlaying(phaseClip.name))
             {
                 phaseCtr++;
             }
@@ -203,7 +203,7 @@ public class Movement : MonoBehaviour {
         /*
         curCharacterScript.custom_translate(curMovement.movementDirection * Time.deltaTime * curVelocity);
         remainingDist -= curVelocity * Time.deltaTime;
-         */ 
+        */
     }
 
 
@@ -247,7 +247,7 @@ public class Movement : MonoBehaviour {
         }
         else if (phaseCtr == 2)
         {
-            deceleration_phase();
+            deceleration_phase(curMovement.animationClips[2]);
         }
         else
         {
@@ -258,6 +258,9 @@ public class Movement : MonoBehaviour {
 
     public bool run_movement_2()
     {
+        if (remainingDist < 0.0f && remainingDist != -1.0f) {
+            return false;
+        }
         if (remainingDist != -1.0f)
         {
             if (phaseCtr == 0)
@@ -266,7 +269,7 @@ public class Movement : MonoBehaviour {
             }
             else if (phaseCtr == 1)
             {
-                deceleration_phase();
+                deceleration_phase(curMovement.animationClips[1]);
             }
             else
             {

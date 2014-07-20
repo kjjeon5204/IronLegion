@@ -22,7 +22,8 @@ public class Character : MonoBehaviour
 	protected Stats curStats; /*This keep's track of character's current stats*/
 	protected Stats baseStats; /*All values within this keeps track of all the base stats
 	                  *THIS SHOULD NEVER BE MODIFIED*/
-    
+
+    bool isUnitActive = true;
 
     //Variables shared by all character
     //**IDLE does not mean Character is not doing anything. Non idle means that the actor is doing something due to external commands**
@@ -51,7 +52,8 @@ public class Character : MonoBehaviour
 
 
     //Detonator variable
-    public GameObject detonator;
+    public GameObject detonatorFlinch;
+    public GameObject detonatorDeath;
 
     //Set boundary of movement
     public Collider battleBoundary;
@@ -68,11 +70,15 @@ public class Character : MonoBehaviour
     public Debuff characterDebuffScript;
 
 	bool unitCollision;
+    public bool isNonPlayer = true;
 
     GameObject characterFacing;
+    public DropShip dropShipScript;
 
     protected Vector3 movement = Vector3.zero;
     public bool modifyPath = false;
+
+    bool enemyReady = false;
 
 
     protected int initLevel;
@@ -83,6 +89,17 @@ public class Character : MonoBehaviour
     }
 
 	bool deathPhasedPlayed = false;
+
+    public bool is_ready()
+    {
+        return enemyReady;
+    }
+
+    public void unit_successfully_landed()
+    {
+        enemyReady = true;
+    }
+
 
 	/*
 	 **Important**
@@ -192,6 +209,40 @@ public class Character : MonoBehaviour
         return true;
     }
 
+
+    protected bool custom_look_at(Vector3 position)
+    {
+        float rotAngle = Vector3.Angle(transform.forward, position - transform.position);
+
+        if (Mathf.Abs(rotAngle) < 0.04)
+        {
+            return false;
+        }
+        float rotDirection = transform.InverseTransformPoint(position).x;
+        if (rotAngle > rotSpeed * Time.deltaTime)
+        {
+            if (rotDirection > 0)
+            {
+                transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+            }
+            else if (rotDirection < 0)
+            {
+                transform.Rotate(Vector3.up * -rotSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+
+            if (rotDirection > 0)
+                transform.Rotate(Vector3.up * rotAngle);
+            else if (rotDirection < 0)
+                transform.Rotate(Vector3.down * rotAngle);
+
+            //transform.LookAt(target.transform.position);
+        }
+        return true;
+    }
+
     public void set_enemy_unit_index(int indexInput)
     {
         enemyUnitIndex = indexInput;
@@ -213,9 +264,9 @@ public class Character : MonoBehaviour
         playerScript = player.GetComponent<Character>();
     }
     
-    public void set_target(Character inTarget) {
-    	target = inTarget.gameObject;
-        targetScript = inTarget;
+    public void set_target(GameObject inTarget) {
+    	target = inTarget;
+        targetScript = inTarget.GetComponent<Character>();
    	}
 
     public Stats return_cur_stats()
@@ -381,43 +432,47 @@ public class Character : MonoBehaviour
 	 default, rawDamage is applied directly*/
 	public float hit (float rawDamage) 
     {
-        if (rawDamage > 0)
+        if (isUnitActive == true)
         {
-			//curCharacterState = "HIT";
-            messageReceived = true;
-            float damageDone = rawDamage;
-            if (curStats.armor < 90.0f && curStats.armor > 0.0f)
+            if (rawDamage > 0)
             {
-                damageDone = (1.0f * rawDamage * (1.0f - 1.0f * baseStats.armor / 100.0f));
-            }
-            if (curStats.armor >= 90.0f)
-            {
-                damageDone = (1.0f * rawDamage * (0.1f));
-            }
-            if (curStats.armor <= 0.0f)
-            {
-                damageDone = rawDamage;
-            }
-            curStats.baseHp -= (int)damageDone;
+                //curCharacterState = "HIT";
+                messageReceived = true;
+                float damageDone = rawDamage;
+                if (curStats.armor < 90.0f && curStats.armor > 0.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (1.0f - 1.0f * baseStats.armor / 100.0f));
+                }
+                if (curStats.armor >= 90.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (0.1f));
+                }
+                if (curStats.armor <= 0.0f)
+                {
+                    damageDone = rawDamage;
+                }
+                curStats.baseHp -= (int)damageDone;
 
-            if (detonator != null)
-                Instantiate(detonator, transform.position, Quaternion.identity);
+                if (detonatorFlinch != null)
+                    Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
 
-            if (hitAnimation != null)
-            {
-                animation.Play(hitAnimation.name);
+                if (hitAnimation != null)
+                {
+                    animation.Play(hitAnimation.name);
+                }
+                return damageDone;
             }
-            return damageDone;
-        }
-        else
-        {
-            curStats.baseHp -= (int)rawDamage;
-            if (curStats.baseHp > baseStats.baseHp)
+            else
             {
-                curStats.baseHp = baseStats.baseHp;
+                curStats.baseHp -= (int)rawDamage;
+                if (curStats.baseHp > baseStats.baseHp)
+                {
+                    curStats.baseHp = baseStats.baseHp;
+                }
+                return rawDamage;
             }
-            return rawDamage;
         }
+        return 0.0f;
 	}
 
 	protected void death_state() {
@@ -430,6 +485,9 @@ public class Character : MonoBehaviour
 		}
 		else {
 			if (!animation.IsPlaying (deathAnimation.name)) {
+                if (detonatorDeath)
+                    Instantiate(detonatorDeath, collider.bounds.center, Quaternion.identity);
+                
 				Destroy (gameObject);
 			}
 		}
@@ -459,6 +517,9 @@ public class Character : MonoBehaviour
         return destroyReady;
 	}
 
+    public virtual void first_wave()
+    {
+    }
 
 	/*Use this update! DO NOT USE Update() function!
 	 use this function instead.*/
@@ -473,6 +534,23 @@ public class Character : MonoBehaviour
         {
             characterDebuffScript.initialize_script();
         }
+        if (dropShipScript != null)
+        {
+            dropShipScript.position_in_the_air();
+        }
+        else
+        {
+            enemyReady = true;
+        }
+        if (isNonPlayer == true)
+        {
+            AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
+            curStats.armor = aiStat.baseArmor;
+            curStats.baseHp = aiStat.hp;
+            curStats.baseDamage = aiStat.baseAttack;
+            baseStats = curStats;
+        }
+
         /*
         curStats.baseHp = baseHp;
         curStats.baseDamage = baseDamage;
@@ -481,7 +559,8 @@ public class Character : MonoBehaviour
         */
     }
 
-	public virtual void manual_update() {}
+	public virtual void manual_update() {
+    }
 
 
 }

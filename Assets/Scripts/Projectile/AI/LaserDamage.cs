@@ -8,7 +8,8 @@ public class LaserDamage : MyProjectile {
 	
 	void OnTriggerEnter (Collider hit) {
 		
-		if (hit.gameObject.tag != "Boundary" && hit.gameObject.tag != "Projectile" ) {
+		if (hit.gameObject.tag != "Boundary" && hit.gameObject.tag != "Projectile" &&
+            projectilePaused == false) {
 			if (damageIntervalTracker < Time.time) {
 				if (hit.gameObject.tag == "Character") {
 					hit.gameObject.GetComponent<Character>().hit (hitDamage);
@@ -21,6 +22,9 @@ public class LaserDamage : MyProjectile {
 	}
 
 	void Start() {
-		damageIntervalTracker = Time.time + damageInterval;
+        if (projectilePaused == false)
+        {
+            damageIntervalTracker = Time.time + damageInterval;
+        }
 	}
 }

@@ -542,27 +542,22 @@ public class ai : Character {
 		return 0;
 	}
 
-		public override void manual_start()
-		{
-            AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
-			curState = AIState.IDLE;
-			curStats.armor = aiStat.baseArmor;
-			curStats.baseHp = aiStat.hp;
-			curStats.baseDamage = aiStat.baseAttack;
-			baseStats = curStats;
-			starttime = Time.time;
-			gameObject.transform.LookAt(player.transform);
-			base.manual_start();
-			moveAnimationTemp = new movePhase[3];
-			squares = new GameObject[aoe.Length];
-			for (int i = 0; i < aoe.Length; i++) {
-				squares[i] = (GameObject)Instantiate (aoe[i].AoeSquare,
-		                       Vector3.zero, Quaternion.identity);
-				squares[i].SetActive (false);
-			}
-
+	public override void manual_start()
+	{
+        AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
+		curState = AIState.IDLE;
+		starttime = Time.time;
+		gameObject.transform.LookAt(player.transform);
+		base.manual_start();
+		moveAnimationTemp = new movePhase[3];
+		squares = new GameObject[aoe.Length];
+		for (int i = 0; i < aoe.Length; i++) {
+			squares[i] = (GameObject)Instantiate (aoe[i].AoeSquare,
+		                      Vector3.zero, Quaternion.identity);
+			squares[i].SetActive (false);
+		}
 		if (moveForms.Length != 0){
-			for (int i = 0; i < moveForms.Length; i++) {
+		    for (int i = 0; i < moveForms.Length; i++) {
 				if (moveForms[i].moveAnimation.Length != 0){
 					for (int k = 0 ; k < moveForms[i].moveAnimation.Length; k++){
 						if (moveForms[i].moveAnimation[k].moveEffect.Length != 0){

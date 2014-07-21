@@ -9,7 +9,6 @@ public class EquippedSlot : MonoBehaviour {
 	private EquipControls swapping;
 	// Use this for initialization
 	void Awake () {
-		item_id = "000000";
 		highlight = GameObject.Find("EquipHighlight");
 		sprite = GetComponent<SpriteRenderer>();
 		swapping = GameObject.Find("SwapButton").GetComponent<EquipControls>();
@@ -51,6 +50,7 @@ public class EquippedSlot : MonoBehaviour {
 		item_id = id;
 		GameObject current_item = (GameObject)Instantiate(item,transform.position,Quaternion.identity);
 		current_item.transform.parent = gameObject.transform;
+		current_item.transform.localScale = new Vector3(1f,1f,1f);
 		slot_item = current_item.GetComponent<Item>();
 		current_item.GetComponent<Item>().itemType = type;
 	}

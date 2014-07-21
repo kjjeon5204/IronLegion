@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EquippedSlot : MonoBehaviour {
 	public string item_id;
+	private Sprite item_image;
 	private Item slot_item;
 	private GameObject highlight;
 	private SpriteRenderer sprite;
@@ -40,6 +41,7 @@ public class EquippedSlot : MonoBehaviour {
 		highlight.transform.localScale = new Vector3(1f,1f,1f);
 		swapping.equipped_to_switch = GetComponent<EquippedSlot>();
 		swapping.item_equipped = slot_item;
+		swapping.sprite_equipped = item_image;
 	}
 	
 	public void SetItem(string id, GameObject item,Item.ItemType type) {
@@ -49,6 +51,7 @@ public class EquippedSlot : MonoBehaviour {
 		}
 		item_id = id;
 		GameObject current_item = (GameObject)Instantiate(item,transform.position,Quaternion.identity);
+		item_image = current_item.GetComponent<SpriteRenderer>().sprite;
 		current_item.transform.parent = gameObject.transform;
 		current_item.transform.localScale = new Vector3(1f,1f,1f);
 		slot_item = current_item.GetComponent<Item>();

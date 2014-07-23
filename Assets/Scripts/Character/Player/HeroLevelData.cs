@@ -93,6 +93,22 @@ public class HeroLevelData : MonoBehaviour {
         }
         return false;
     }
+	
+	public Stats get_player_stat_all () {
+		Stats baseStats = new Stats();
+		baseStats.level = playerLevel;
+		baseStats.curExp = playerExperience;
+		baseStats.totalExp = levelData[playerLevel - 1].experience;
+		baseStats.baseHp = levelData[playerLevel - 1].HP;
+		baseStats.item_energy = 100.0f;
+		baseStats.armor = 0.0f;
+		baseStats.equipment = null;
+		baseStats.item_hp = 0;
+		baseStats.item_armor = 0f;
+		baseStats.item_penetration = 0.0f;
+		baseStats.item_luck = 0.0f;
+		return baseStats;
+	}
 
     public PlayerLevelData get_player_stat()
     {

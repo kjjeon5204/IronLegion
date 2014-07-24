@@ -557,9 +557,14 @@ public class MainChar : Character {
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
-        curStats.armor = 20.0f;
-        curStats.baseDamage = curLevelData.get_player_stat().damage;
-        curStats.baseHp = curLevelData.get_player_stat().HP;
+        HeroStats heroStat = new HeroStats();
+        heroStat.load_data();
+        PlayerStat playerItemStat = heroStat.get_item_stats();
+        curStats.armor = playerItemStat.item_armor;
+        curStats.baseDamage = curLevelData.get_player_stat().damage + playerItemStat.item_damage;
+        curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
+        maxEnergy = 100.0f + playerItemStat.item_energy;
+        curEnergy = maxEnergy;
         Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
@@ -608,8 +613,6 @@ public class MainChar : Character {
         previousPos = transform.position;
         initialPos = transform.position;
 
-        curEnergy = 100.0f;
-        maxEnergy = 100.0f;
         base.manual_start();
 	}
 

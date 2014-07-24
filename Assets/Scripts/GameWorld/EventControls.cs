@@ -562,7 +562,7 @@ public class EventControls : MonoBehaviour {
     void Update()
     {
         //Check for last wave/win condition
-        if (curWave >= waveRunData.Length)
+        if (curWave >= waveRunData.Length && mapCleared == false)
         {
             Debug.Log("Current wave counter: " + curWave);
             end_battle_win();

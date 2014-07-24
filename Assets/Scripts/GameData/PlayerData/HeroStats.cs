@@ -35,7 +35,6 @@ public struct PlayerStat
 public class HeroStats{
     Stats curStats;
 
-
     public HeroStats()
     {
     }

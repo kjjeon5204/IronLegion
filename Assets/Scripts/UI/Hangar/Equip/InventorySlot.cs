@@ -4,6 +4,7 @@ using System.Collections;
 public class InventorySlot : MonoBehaviour {
 	
 	public string item_id;
+	private Sprite item_image;
 	private int index;
 	private Item slot_item;
 	private GameObject highlight;
@@ -43,6 +44,7 @@ public class InventorySlot : MonoBehaviour {
 		highlight.transform.localScale = new Vector3(1f,1f,1f);
 		swapping.inventory_to_switch = GetComponent<InventorySlot>();
 		swapping.item_inventory = slot_item;
+		swapping.sprite_inventory = item_image;
 	}
 	
 	public void SetItem(string id, GameObject item,int ind) {
@@ -52,7 +54,9 @@ public class InventorySlot : MonoBehaviour {
 		}
 		item_id = id;
 		GameObject current_item = (GameObject)Instantiate(item,transform.position,Quaternion.identity);
+		item_image = current_item.GetComponent<SpriteRenderer>().sprite;
 		current_item.transform.parent = gameObject.transform;
+		current_item.transform.localScale = new Vector3(1f,1f,1f);
 		slot_item = current_item.GetComponent<Item>();
 		index = ind;
 	}

@@ -14,6 +14,7 @@ public class EquipControls : MonoBehaviour {
 	
 	public bool swappable;
 	private ItemControls inventory;
+	public DisplayCurrentStats current_stats;
 	
 	private GameObject inventory_description;
 	private GameObject equipped_description;
@@ -208,6 +209,7 @@ public class EquipControls : MonoBehaviour {
 			
 			inventory.UpdateEquipped();
 			inventory.UpdateInventory();
+			current_stats.UpdateStats();
 			swappable = false;
 		}
 	}

@@ -1,7 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public struct Boundaries
+{
+	public GameObject left;
+	public GameObject right;
+	public GameObject top;
+	public GameObject bot;
+}
+
+
 public class MapControls : MonoBehaviour {
+
+	public Boundaries[] boundary_list;
+	public int boundary_index;
+
 
 	private ClickSpriteCONFIRM click;
 	public bool confirmingLevel;
@@ -46,6 +60,7 @@ public class MapControls : MonoBehaviour {
 		camRight = GameObject.Find("CamRight").GetComponent<CheckBoundary>();
 		camTop = GameObject.Find("CamTop").GetComponent<CheckBoundary>();
 		camBot = GameObject.Find("CamBot").GetComponent<CheckBoundary>();
+		ChangeMap(0);
 		
 		clicking = false;
 	}
@@ -212,5 +227,19 @@ public class MapControls : MonoBehaviour {
 			Camera.main.transform.position += camTop.returnDistance();
 		}
 		return true;
+	}
+	
+	
+	public void ChangeMap (int change) {
+		boundary_index += change;
+		if (boundary_index < 0)
+			boundary_index = boundary_list.Length-1;
+		else if (boundary_index >= boundary_list.Length)
+			boundary_index = 0;
+		
+		camLeft.boundary = boundary_list[boundary_index].left;
+		camRight.boundary = boundary_list[boundary_index].right;
+		camTop.boundary = boundary_list[boundary_index].top;
+		camBot.boundary = boundary_list[boundary_index].bot;
 	}
 }

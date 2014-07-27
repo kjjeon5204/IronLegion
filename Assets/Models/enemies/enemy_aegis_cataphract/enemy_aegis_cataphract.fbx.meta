@@ -1,0 +1,2745 @@
+fileFormatVersion: 2
+guid: 54cecb1ed5e73e64ba02c6ef33dda6f9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: back
+    100002: body
+    100004: body1
+    100006: //RootNode
+    100008: group3
+    100010: head
+    100012: Larm
+    100014: Lbracer
+    100016: Lbracer 1
+    100018: Lfoot
+    100020: Lhand
+    100022: Lknee
+    100024: Lleg
+    100026: Llegthruster
+    100028: Lshoulder
+    100030: Lshoulder 1
+    100032: Lshoulder 2
+    100034: Lwing
+    100036: Lwing 1
+    100038: Lwingpivot
+    100040: Lwingthruster
+    100042: Lwingthruster 1
+    100044: Lwingthruster 2
+    100046: pCube1
+    100048: pCube10
+    100050: pCube12
+    100052: pCube14
+    100054: pCube15
+    100056: pCube17
+    100058: pCube18
+    100060: pCube21
+    100062: pCube25
+    100064: pCube26
+    100066: pCube27
+    100068: pCube28
+    100070: pCube29
+    100072: pCube3
+    100074: pCube30
+    100076: pCube31
+    100078: pCube37
+    100080: pCube4
+    100082: pCube43
+    100084: pCube44
+    100086: pCube45
+    100088: pCube46
+    100090: pCube47
+    100092: pCube48
+    100094: pCube49
+    100096: pCube5
+    100098: pCube50
+    100100: pCube51
+    100102: pCube52
+    100104: pCube53
+    100106: pCube54
+    100108: pCube55
+    100110: pCube56
+    100112: pCube57
+    100114: pCube58
+    100116: pCube59
+    100118: pCube8
+    100120: pCube9
+    100122: pCylinder1
+    100124: pCylinder11
+    100126: pCylinder12
+    100128: pCylinder13
+    100130: pCylinder14
+    100132: pCylinder2
+    100134: pCylinder4
+    100136: pCylinder5
+    100138: pCylinder6
+    100140: pelvis
+    100142: pelvisaxis
+    100144: plate
+    100146: Rarm
+    100148: Rbracer
+    100150: Rbracer 1
+    100152: Rfoot
+    100154: Rhand
+    100156: Rknee
+    100158: Rleg
+    100160: Rlegthruster
+    100162: Rshoulder
+    100164: Rshoulder 1
+    100166: Rshoulder 2
+    100168: Rwing
+    100170: Rwing 1
+    100172: Rwingpivot
+    100174: Rwingthruster
+    100176: Rwingthruster 1
+    100178: Rwingthruster 2
+    100180: torso
+    100182: wingaxis
+    400000: back
+    400002: body
+    400004: body1
+    400006: //RootNode
+    400008: group3
+    400010: head
+    400012: Larm
+    400014: Lbracer
+    400016: Lbracer 1
+    400018: Lfoot
+    400020: Lhand
+    400022: Lknee
+    400024: Lleg
+    400026: Llegthruster
+    400028: Lshoulder
+    400030: Lshoulder 1
+    400032: Lshoulder 2
+    400034: Lwing
+    400036: Lwing 1
+    400038: Lwingpivot
+    400040: Lwingthruster
+    400042: Lwingthruster 1
+    400044: Lwingthruster 2
+    400046: pCube1
+    400048: pCube10
+    400050: pCube12
+    400052: pCube14
+    400054: pCube15
+    400056: pCube17
+    400058: pCube18
+    400060: pCube21
+    400062: pCube25
+    400064: pCube26
+    400066: pCube27
+    400068: pCube28
+    400070: pCube29
+    400072: pCube3
+    400074: pCube30
+    400076: pCube31
+    400078: pCube37
+    400080: pCube4
+    400082: pCube43
+    400084: pCube44
+    400086: pCube45
+    400088: pCube46
+    400090: pCube47
+    400092: pCube48
+    400094: pCube49
+    400096: pCube5
+    400098: pCube50
+    400100: pCube51
+    400102: pCube52
+    400104: pCube53
+    400106: pCube54
+    400108: pCube55
+    400110: pCube56
+    400112: pCube57
+    400114: pCube58
+    400116: pCube59
+    400118: pCube8
+    400120: pCube9
+    400122: pCylinder1
+    400124: pCylinder11
+    400126: pCylinder12
+    400128: pCylinder13
+    400130: pCylinder14
+    400132: pCylinder2
+    400134: pCylinder4
+    400136: pCylinder5
+    400138: pCylinder6
+    400140: pelvis
+    400142: pelvisaxis
+    400144: plate
+    400146: Rarm
+    400148: Rbracer
+    400150: Rbracer 1
+    400152: Rfoot
+    400154: Rhand
+    400156: Rknee
+    400158: Rleg
+    400160: Rlegthruster
+    400162: Rshoulder
+    400164: Rshoulder 1
+    400166: Rshoulder 2
+    400168: Rwing
+    400170: Rwing 1
+    400172: Rwingpivot
+    400174: Rwingthruster
+    400176: Rwingthruster 1
+    400178: Rwingthruster 2
+    400180: torso
+    400182: wingaxis
+    2300000: Lbracer 1
+    2300002: Lshoulder 2
+    2300004: Lwing 1
+    2300006: Lwingthruster
+    2300008: Lwingthruster 2
+    2300010: pCube1
+    2300012: pCube10
+    2300014: pCube12
+    2300016: pCube14
+    2300018: pCube15
+    2300020: pCube17
+    2300022: pCube18
+    2300024: pCube21
+    2300026: pCube25
+    2300028: pCube26
+    2300030: pCube27
+    2300032: pCube28
+    2300034: pCube29
+    2300036: pCube3
+    2300038: pCube30
+    2300040: pCube31
+    2300042: pCube37
+    2300044: pCube4
+    2300046: pCube43
+    2300048: pCube44
+    2300050: pCube45
+    2300052: pCube46
+    2300054: pCube47
+    2300056: pCube48
+    2300058: pCube49
+    2300060: pCube5
+    2300062: pCube50
+    2300064: pCube51
+    2300066: pCube52
+    2300068: pCube53
+    2300070: pCube54
+    2300072: pCube55
+    2300074: pCube56
+    2300076: pCube57
+    2300078: pCube58
+    2300080: pCube59
+    2300082: pCube8
+    2300084: pCube9
+    2300086: pCylinder1
+    2300088: pCylinder11
+    2300090: pCylinder12
+    2300092: pCylinder13
+    2300094: pCylinder14
+    2300096: pCylinder2
+    2300098: pCylinder4
+    2300100: pCylinder5
+    2300102: pCylinder6
+    2300104: pelvisaxis
+    2300106: Rbracer 1
+    2300108: Rshoulder 2
+    2300110: Rwing 1
+    2300112: Rwingthruster
+    2300114: Rwingthruster 2
+    2300116: wingaxis
+    3300000: Lbracer 1
+    3300002: Lshoulder 2
+    3300004: Lwing 1
+    3300006: Lwingthruster
+    3300008: Lwingthruster 2
+    3300010: pCube1
+    3300012: pCube10
+    3300014: pCube12
+    3300016: pCube14
+    3300018: pCube15
+    3300020: pCube17
+    3300022: pCube18
+    3300024: pCube21
+    3300026: pCube25
+    3300028: pCube26
+    3300030: pCube27
+    3300032: pCube28
+    3300034: pCube29
+    3300036: pCube3
+    3300038: pCube30
+    3300040: pCube31
+    3300042: pCube37
+    3300044: pCube4
+    3300046: pCube43
+    3300048: pCube44
+    3300050: pCube45
+    3300052: pCube46
+    3300054: pCube47
+    3300056: pCube48
+    3300058: pCube49
+    3300060: pCube5
+    3300062: pCube50
+    3300064: pCube51
+    3300066: pCube52
+    3300068: pCube53
+    3300070: pCube54
+    3300072: pCube55
+    3300074: pCube56
+    3300076: pCube57
+    3300078: pCube58
+    3300080: pCube59
+    3300082: pCube8
+    3300084: pCube9
+    3300086: pCylinder1
+    3300088: pCylinder11
+    3300090: pCylinder12
+    3300092: pCylinder13
+    3300094: pCylinder14
+    3300096: pCylinder2
+    3300098: pCylinder4
+    3300100: pCylinder5
+    3300102: pCylinder6
+    3300104: pelvisaxis
+    3300106: Rbracer 1
+    3300108: Rshoulder 2
+    3300110: Rwing 1
+    3300112: Rwingthruster
+    3300114: Rwingthruster 2
+    3300116: wingaxis
+    4300000: pCylinder1
+    4300002: pCube1
+    4300004: pCube3
+    4300006: pCube4
+    4300008: pCube5
+    4300010: pCylinder2
+    4300012: pCube8
+    4300014: pCube9
+    4300016: pCube10
+    4300018: pCube12
+    4300020: pCube14
+    4300022: pCube15
+    4300024: pCylinder4
+    4300026: pCube17
+    4300028: pCube18
+    4300030: pCube21
+    4300032: pCube25
+    4300034: pCylinder5
+    4300036: pCylinder6
+    4300038: pCube26
+    4300040: pCube27
+    4300042: pCube28
+    4300044: pCube29
+    4300046: pCube30
+    4300048: pCube31
+    4300050: pCube37
+    4300052: pCube43
+    4300054: pCube44
+    4300056: pCube45
+    4300058: pCube46
+    4300060: pCube47
+    4300062: pCylinder11
+    4300064: pCylinder12
+    4300066: pCube48
+    4300068: pCube49
+    4300070: pCube50
+    4300072: pCube51
+    4300074: pCylinder13
+    4300076: pCube52
+    4300078: pCube53
+    4300080: pCylinder14
+    4300082: pCube54
+    4300084: pCube55
+    4300086: pCube56
+    4300088: pCube57
+    4300090: pCube58
+    4300092: pCube59
+    4300094: Lbracer
+    4300096: Lshoulder
+    4300098: Lwingthruster
+    4300100: Lwing
+    4300102: Rwingthruster
+    4300104: Rwing
+    4300106: wingaxis
+    4300108: Rbracer
+    4300110: Rshoulder
+    4300112: Rwingthruster
+    4300114: Lwingthruster
+    4300116: pelvisaxis
+    4300118: body1
+    7400000: idle
+    7400002: movestart
+    7400004: move
+    7400006: movestop
+    7400008: shootaim
+    7400010: shootaimfire
+    7400012: shootstop
+    7400014: slashstart
+    7400016: slashend
+    7400018: flinch
+    7400020: death
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: body1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestop
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shootaim
+      takeName: Take 001
+      firstFrame: 85
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shootaimfire
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shootstop
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashstart
+      takeName: Take 001
+      firstFrame: 111
+      lastFrame: 115
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashend
+      takeName: Take 001
+      firstFrame: 115
+      lastFrame: 118
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 165
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/pelvis
+        weight: 1
+      - path: body/pelvis/Lleg
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee
+        weight: 1
+      - path: body/pelvis/Lleg/Lknee/Lfoot
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster
+        weight: 1
+      - path: body/pelvis/Lleg/Llegthruster/Rwingthruster
+        weight: 1
+      - path: body/pelvis/pelvisaxis
+        weight: 1
+      - path: body/pelvis/plate
+        weight: 1
+      - path: body/pelvis/Rleg
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee
+        weight: 1
+      - path: body/pelvis/Rleg/Rknee/Rfoot
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster
+        weight: 1
+      - path: body/pelvis/Rleg/Rlegthruster/Lwingthruster
+        weight: 1
+      - path: body/torso
+        weight: 1
+      - path: body/torso/back
+        weight: 1
+      - path: body/torso/back/Lwingpivot
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwing 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1
+        weight: 1
+      - path: body/torso/back/Lwingpivot/Lwing/Lwingthruster 1/Lwingthruster 2
+        weight: 1
+      - path: body/torso/back/Rwingpivot
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwing 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1
+        weight: 1
+      - path: body/torso/back/Rwingpivot/Rwing/Rwingthruster 1/Rwingthruster 2
+        weight: 1
+      - path: body/torso/back/wingaxis
+        weight: 1
+      - path: body/torso/head
+        weight: 1
+      - path: body/torso/Lshoulder
+        weight: 1
+      - path: body/torso/Lshoulder/Larm
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lbracer/Lbracer 1
+        weight: 1
+      - path: body/torso/Lshoulder/Larm/Lhand
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1
+        weight: 1
+      - path: body/torso/Lshoulder/Lshoulder 1/Lshoulder 2
+        weight: 1
+      - path: body/torso/Rshoulder
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rbracer/Rbracer 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rarm/Rhand
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1
+        weight: 1
+      - path: body/torso/Rshoulder/Rshoulder 1/Rshoulder 2
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: group3
+        weight: 1
+      - path: group3/pCube1
+        weight: 1
+      - path: group3/pCube3
+        weight: 1
+      - path: group3/pCube4
+        weight: 1
+      - path: group3/pCube5
+        weight: 1
+      - path: group3/pCube8
+        weight: 1
+      - path: group3/pCube9
+        weight: 1
+      - path: group3/pCube10
+        weight: 1
+      - path: group3/pCube12
+        weight: 1
+      - path: group3/pCube14
+        weight: 1
+      - path: group3/pCube15
+        weight: 1
+      - path: group3/pCube17
+        weight: 1
+      - path: group3/pCube18
+        weight: 1
+      - path: group3/pCube21
+        weight: 1
+      - path: group3/pCube25
+        weight: 1
+      - path: group3/pCube26
+        weight: 1
+      - path: group3/pCube27
+        weight: 1
+      - path: group3/pCube28
+        weight: 1
+      - path: group3/pCube29
+        weight: 1
+      - path: group3/pCube30
+        weight: 1
+      - path: group3/pCube31
+        weight: 1
+      - path: group3/pCube37
+        weight: 1
+      - path: group3/pCube43
+        weight: 1
+      - path: group3/pCube44
+        weight: 1
+      - path: group3/pCube45
+        weight: 1
+      - path: group3/pCube46
+        weight: 1
+      - path: group3/pCube47
+        weight: 1
+      - path: group3/pCube48
+        weight: 1
+      - path: group3/pCube49
+        weight: 1
+      - path: group3/pCube50
+        weight: 1
+      - path: group3/pCube51
+        weight: 1
+      - path: group3/pCube52
+        weight: 1
+      - path: group3/pCube53
+        weight: 1
+      - path: group3/pCube54
+        weight: 1
+      - path: group3/pCube55
+        weight: 1
+      - path: group3/pCube56
+        weight: 1
+      - path: group3/pCube57
+        weight: 1
+      - path: group3/pCube58
+        weight: 1
+      - path: group3/pCube59
+        weight: 1
+      - path: group3/pCylinder1
+        weight: 1
+      - path: group3/pCylinder2
+        weight: 1
+      - path: group3/pCylinder4
+        weight: 1
+      - path: group3/pCylinder5
+        weight: 1
+      - path: group3/pCylinder6
+        weight: 1
+      - path: group3/pCylinder11
+        weight: 1
+      - path: group3/pCylinder12
+        weight: 1
+      - path: group3/pCylinder13
+        weight: 1
+      - path: group3/pCylinder14
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

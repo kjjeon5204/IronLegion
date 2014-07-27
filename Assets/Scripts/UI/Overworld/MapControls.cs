@@ -67,6 +67,23 @@ public class MapControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			ChangeCameraPosition(new Vector2(1f,0));
+		}
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			ChangeCameraPosition(new Vector2(-1f,0));
+		}
+		if (Input.GetKey(KeyCode.UpArrow))
+		{
+			ChangeCameraPosition(new Vector2(0,-1f));
+		}
+		if (Input.GetKey(KeyCode.DownArrow))
+		{
+			ChangeCameraPosition(new Vector2(0,1f));
+		}
+		
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{
@@ -128,9 +145,9 @@ public class MapControls : MonoBehaviour {
 		Vector3 moveX = Camera.main.ScreenToWorldPoint(new Vector3(change.x*-2f,0,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
 		Vector3 moveY = Camera.main.ScreenToWorldPoint(new Vector3(0,change.y*-2f,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
 		
-		if ( ((change.x < 0f && !rightBound) || (change.x > 0f && !leftBound)) && !WillGoOutOfMap(moveX,"X"))
+		if ( ((change.x < 0f && !rightBound) || (change.x > 0f && !leftBound)) && !WillGoOutOfMap(moveX))
 		Camera.main.transform.position = Camera.main.transform.position+moveX;
-		if ( ((change.y < 0f && !topBound) || (change.y > 0f && !botBound)) && !WillGoOutOfMap(moveY,"Y"))
+		if ( ((change.y < 0f && !topBound) || (change.y > 0f && !botBound)) && !WillGoOutOfMap(moveY))
 		Camera.main.transform.position = Camera.main.transform.position+moveY;
 	}
 	
@@ -201,32 +218,29 @@ public class MapControls : MonoBehaviour {
 		return false;
 	}
 	
-	bool WillGoOutOfMap(Vector3 movement,string direction) {
-		if (direction == "X")
+	bool WillGoOutOfMap(Vector3 movement) {
+		if (camLeft.CheckOutOfBounds(movement))
 		{
-			if (!camLeft.CheckOutOfBounds(movement))
-			return false;
-			else
-			Camera.main.transform.position += camLeft.returnDistance();
-			
-			if (!camRight.CheckOutOfBounds(movement))
-			return false;
-			else
-			Camera.main.transform.position += camRight.returnDistance();
+			leftBound = true;
+			return true;
 		}
-		else if (direction == "Y")
+		if (camRight.CheckOutOfBounds(movement))
 		{
-			if (!camBot.CheckOutOfBounds(movement))
-			return false;
-			else
-			Camera.main.transform.position += camBot.returnDistance();
-			
-			if (!camTop.CheckOutOfBounds(movement))
-			return false;
-			else
-			Camera.main.transform.position += camTop.returnDistance();
+			rightBound = true;
+			return true;
 		}
-		return true;
+		if (camBot.CheckOutOfBounds(movement))
+		{
+			botBound = true;
+			return true;
+		}
+		if (camTop.CheckOutOfBounds(movement))
+		{
+			topBound = true;
+			return true;
+		}
+			
+		return false;
 	}
 	
 	

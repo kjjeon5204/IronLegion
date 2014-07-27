@@ -164,4 +164,23 @@ public class ItemControls : MonoBehaviour {
 			hero.save_data();
 		}
 	}
+	
+	public void InventorySlotClicked(string type) {
+		if (type == "H")
+		{
+			equipped[0].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
+		}
+		if (type == "W")
+		{
+			equipped[1].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
+		}
+		if (type == "B")
+		{
+			equipped[2].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
+		}
+		if  (type == "C")
+		{
+			equipped[3].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
+		}
+	}
 }

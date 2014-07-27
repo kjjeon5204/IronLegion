@@ -6,6 +6,7 @@ public class TileActive : MonoBehaviour {
 	public bool isBoss;
 	public int level;
 	public bool isUsable;
+	public bool second_tile_type;
 
 	private MapData mapdata;
 	private Animator anim;
@@ -15,6 +16,7 @@ public class TileActive : MonoBehaviour {
 	
 	int isBossHASH = Animator.StringToHash("isBoss");
 	int isUsableHASH = Animator.StringToHash("isUsable");
+	int tile_typeHASH = Animator.StringToHash("secondTileType");
 	
 	void Awake()
 	{
@@ -25,7 +27,7 @@ public class TileActive : MonoBehaviour {
 	void Start() 
 	{
 		anim = gameObject.GetComponent<Animator>();
-		
+		anim.SetBool(tile_typeHASH,second_tile_type);
 		anim.SetBool(isBossHASH,isBoss);
 	}
 	void Clicked()

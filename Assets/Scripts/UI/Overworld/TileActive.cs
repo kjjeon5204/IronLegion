@@ -11,6 +11,9 @@ public class TileActive : MonoBehaviour {
 	private MapData mapdata;
 	private Animator anim;
 
+	private DialogueControls dialogue;
+	private DialogueData attached_dialogue;
+	
     public string mapID;
     public int[] unlockedLevels;
 	
@@ -21,6 +24,8 @@ public class TileActive : MonoBehaviour {
 	void Awake()
 	{
 		isUsable = false;
+		dialogue = GameObject.Find("Dialogue").GetComponent<DialogueControls>();
+		attached_dialogue = gameObject.GetComponent<OverworldDialogue>().dialogue;
 	}
 	
 	// Use this for initialization
@@ -37,6 +42,7 @@ public class TileActive : MonoBehaviour {
 			ActivateConfirmation confirm = GameObject.Find("Confirm Level").GetComponent<ActivateConfirmation>();
 			confirm.Confirm( mapID, level,"LEVEL");
 		}
+		dialogue.SetDialogue(attached_dialogue);
 	}
 
 	public void TileOn()

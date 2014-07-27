@@ -11,7 +11,7 @@ public class ActivateConfirmation : MonoBehaviour {
 	private GameObject camTran;
 	
 	private GameObject waiting;
-	private GameObject onScreen;
+	public GameObject onScreen;
 	private MapControls controls;
 	private YesConfirm yes;
 	private GameObject settings;
@@ -24,7 +24,6 @@ public class ActivateConfirmation : MonoBehaviour {
 		cam = camTran.GetComponent<Camera>();
 		
 		waiting = GameObject.Find("Waiting Area");
-		onScreen = GameObject.Find("On Screen");
 		
 		controls = GameObject.Find("UI").GetComponent<MapControls>();
 		yes = GameObject.Find("ConfirmRight").GetComponent<YesConfirm>();

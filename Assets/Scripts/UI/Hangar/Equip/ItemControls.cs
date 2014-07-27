@@ -3,8 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class ItemControls : MonoBehaviour {
+[System.Serializable]
+public struct ItemList
+{
 	public GameObject[] items;
+}
+
+public class ItemControls : MonoBehaviour {
+	public ItemList[] item_tier;
+
+	//public GameObject[] items;
 	public GameObject inventory_slot;
 	private Inventory inventory;
 	public int num_of_items;
@@ -21,9 +29,12 @@ public class ItemControls : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		inventory = new Inventory();
-		foreach (GameObject this_item in items) 
+		for (int i = 0; i < item_tier.Length; i++) 
 		{
-			itemLibrary[this_item.name] = this_item;
+			foreach (GameObject this_item in item_tier[i].items)
+			{
+				itemLibrary[this_item.name] = this_item;
+			}
 		}
 		itemLibrary["000000"] = empty_slot;
 		num_of_items = -1;

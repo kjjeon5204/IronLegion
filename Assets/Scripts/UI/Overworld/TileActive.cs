@@ -12,7 +12,7 @@ public class TileActive : MonoBehaviour {
 	private Animator anim;
 
 	private DialogueControls dialogue;
-	private DialogueData attached_dialogue;
+	private DialogueData[] attached_dialogue;
 	
     public string mapID;
     public int[] unlockedLevels;

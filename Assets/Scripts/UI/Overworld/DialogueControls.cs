@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DialogueControls : MonoBehaviour {
-	private DialogueData current_dialogue;
+	private DialogueData[] current_dialogue;
 	public SpriteRenderer icon_sprite_renderer;
 	public TextMesh dialogue_text;
 	public TextMesh name;
@@ -22,15 +22,15 @@ public class DialogueControls : MonoBehaviour {
 	*/
 
 	void UpdateDialogue () {
-		icon_sprite_renderer.sprite = current_dialogue.characterSprite;
-		dialogue_text.text = current_dialogue.text;
-		name.text = current_dialogue.characterName;
+		icon_sprite_renderer.sprite = current_dialogue[0].characterSprite;
+		dialogue_text.text = current_dialogue[0].text;
+		name.text = current_dialogue[0].characterName;
 	}
 	
-	public void SetDialogue(DialogueData data) {
+	public void SetDialogue(DialogueData[] data) {
 		current_dialogue = data;
 		
-		if (current_dialogue.dialogueDescription != "")
+		if (current_dialogue[0].dialogueDescription != "")
 		{
 			//Debug.Log("Enabled");
 			current_spriteRenderer.enabled = true;

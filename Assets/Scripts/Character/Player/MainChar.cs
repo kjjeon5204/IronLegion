@@ -125,7 +125,11 @@ public class MainChar : Character {
 
     public GameObject playerCamera;
 
+    public TargetingIndicator targetIndicatorScript;
+    public Camera targetIndicatorCam;
+
     //Temporary testing variable
+
 
     public void enable_auto_adjust()
     {
@@ -455,6 +459,10 @@ public class MainChar : Character {
                 lKneeExhaustScript.instant_thruster(3.5f);
                 lLegExhaustScript.instant_thruster(3.5f);
             }
+            else
+            {
+                
+            }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -640,13 +648,34 @@ public class MainChar : Character {
 
         if (target != null && targetScript == null)
         {
-            targetScript.GetComponent<Character>();
+            target.GetComponent<Character>();
         }
 
         if (targetScript != null)
         {
             currentTargetIndex = targetScript.get_enemy_index();
             distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
+
+            //Targeting indicator
+            float playerTargetAngle = Vector3.Angle(transform.InverseTransformPoint
+                (target.transform.position), Vector3.forward);
+
+            if (playerTargetAngle < 5.0f && curState == "IDLE")
+            {
+                Vector3 tempPos = playerCamera.GetComponent<Camera>().
+                    WorldToViewportPoint(target.collider.bounds.center);
+                tempPos = targetIndicatorCam.ViewportToWorldPoint(tempPos);
+                targetIndicatorScript.gameObject.transform.position = tempPos;
+                if (targetIndicatorScript.gameObject.activeInHierarchy == false)
+                {
+                    targetIndicatorScript.gameObject.SetActive(true);
+                    targetIndicatorScript.initialize_indicator();
+                }
+            }
+            else
+            {
+                targetIndicatorScript.gameObject.SetActive(false);
+            }
         }
 
         //Check if player is facing a valid target

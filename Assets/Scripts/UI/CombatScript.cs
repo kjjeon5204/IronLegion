@@ -18,6 +18,12 @@ public class CombatScript : MonoBehaviour {
         public bool isUse;
     }
 
+    
+
+    public struct TutorialProgress {
+
+    }
+
     bool isInitialized = false;
     public GameObject lowerRightFrame;
     public GameObject skillButtons;
@@ -89,10 +95,16 @@ public class CombatScript : MonoBehaviour {
 
     TutorialData tutorialData;
     bool tutorialActive = false;
+    int tutorialStage = 0;
 
     bool gamePaused = false;
+    public GameObject lowEnergyWarning;
 
 
+    public void activate_low_energy()
+    {
+        lowEnergyWarning.SetActive(true);
+    }
   
     public void initialize_buttons()
     {
@@ -278,6 +290,8 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
+    
+
     void modify_enemy_buff()
     {
         Debuff targetDebuffScript = mainCharacter.target.GetComponent<Debuff>();
@@ -338,11 +352,7 @@ public class CombatScript : MonoBehaviour {
                 && gamePaused == false)
             {
                 if (mainCharacter.isClose == true)
-                {/*
-                    enable_ability_button(rangeSkillSlots);
-                    disable_ability_button(closeSkillSlots);
-                    mainCharacter.isClose = false;
-                  */
+                {
                     if (mainCharacter.regAttackCtr == 0 && mainCharacter.curState != "REGULAR_ATTACK1")
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK1"].initialize_ability())
@@ -436,6 +446,10 @@ public class CombatScript : MonoBehaviour {
                             mainCharacter.lKneeExhaustScript.instant_thruster(3.5f);
                             mainCharacter.lLegExhaustScript.instant_thruster(3.5f);
                         }
+                        else
+                        {
+                            activate_low_energy();
+                        }
                     }
                     if (curRecord.x < 0.0f)
                     {
@@ -446,6 +460,9 @@ public class CombatScript : MonoBehaviour {
                             mainCharacter.rKneeExhaustScript.instant_thruster(3.5f);
                             mainCharacter.rLegExhaustScript.instant_thruster(3.5f);
                         }
+                        else {
+                            activate_low_energy();
+                        }
                     }
                 }
                 else if (mainCharacter.is_ready())
@@ -454,7 +471,7 @@ public class CombatScript : MonoBehaviour {
                     mainCharacter.curEnergy -= 10.0f;
                     if (mainCharacter.isClose == true && curRecord.y < 0.0f)
                     {
-                        stateChangeTextMod.initialize_text("Chest\nLazer");
+                        stateChangeTextMod.initialize_text("Phaser\nAttack");
                         enable_ability_button(rangeSkillSlots);
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
@@ -554,6 +571,8 @@ public class CombatScript : MonoBehaviour {
         stateTutorial.SetActive(false);
         resetPlayerPos.SetActive(false);
         pauseGameMenu.SetActive(false);
+
+        lowEnergyWarning.SetActive(false);
 	}
 
     // Update is called once per frame

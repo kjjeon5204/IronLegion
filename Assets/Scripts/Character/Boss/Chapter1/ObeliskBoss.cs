@@ -343,63 +343,7 @@ public class ObeliskBoss : Character {
 			}
 			Debug.Log (currentStates);
 		}
-			/*randomNum = Random.Range(1, 101);
-			if (randomNum >= 0 && randomNum < 0) {
-				currentStates = CurrentStates.LANCEBEAM;
-				abilityList[8].initialize_ability();
-			}
-			else if (randomNum >= 0 && randomNum < 0) {
-				currentStates = CurrentStates.LASERWHEEL;
-				abilityList[9].initialize_ability();
-				lasermade = false;
-			}
-			else { //if no default ability is used, use secondary based on range
-				randomNum = Random.Range(1, 101);
-				if (longRange == false) {				
-					if (randomNum >= 0 && randomNum < 0) {
-						currentStates = CurrentStates.SONICCHARGE;
-						abilityList[7].initialize_ability();
-					}
-					else if (randomNum >= 0 && randomNum < 0) {
-						currentStates = CurrentStates.TRISLASH;
-						abilityList[6].initialize_ability();
-					}
-					else if (randomNum >= 0 && randomNum < 0) {
-						currentStates = CurrentStates.MACHINEGUN;
-						abilityList[5].initialize_ability();
-					}
-					else if (randomNum >= 0 && randomNum < 0) {
-						currentStates = CurrentStates.CRUSH;
-						abilityList[4].initialize_ability();
-					}
-				}
-				else {
-                    if (randomNum >= 0 && randomNum < 100 && baseStats.baseHp < baseStats.baseHp * .2) {
-						currentStates = CurrentStates.OBLIVION;
-						muzzleCtr = 0;
-						abilityList[3].initialize_ability();
-					}
-					else if (randomNum < 0 && rocketCDTracker < Time.time) {
-						currentStates = CurrentStates.ROCKET;
-						abilityList[0].initialize_ability();
-					}
-					else if (randomNum >= 0 &&  randomNum < 0 && howitzerCDTracker < Time.time) {
-						currentStates = CurrentStates.HOWITZER;
-						abilityList[1].initialize_ability();
-					}
-					else if (randomNum >= 0 && randomNum < 0 && barrageCDTracker < Time.time) {
-						currentStates = CurrentStates.BARRAGE;
-						abilityList[2].initialize_ability();
-					}
-					else {
-						globalCDTracker = Time.time + globalCD;
-					}
-				}
-			Debug.Log (currentStates);
-			}
-		}
-		*/
-	
+
 		//Event Handle
 		if (currentStates != CurrentStates.SONICCHARGE && currentStates != CurrentStates.LASERWHEEL) {
 			custom_look_at();

@@ -10,12 +10,14 @@ public class InventorySlot : MonoBehaviour {
 	private GameObject highlight;
 	private SpriteRenderer sprite;
 	private EquipControls swapping;
+	private ItemControls item_controls;
 	// Use this for initialization
 	void Awake () {
 		item_id = "000000";
 		highlight = GameObject.Find("InventoryHighlight");
 		sprite = GetComponent<SpriteRenderer>();
 		swapping = GameObject.Find("SwapButton").GetComponent<EquipControls>();
+		item_controls = GameObject.Find("InventoryStart").GetComponent<ItemControls>();
 	}
 	
 	void Update() {
@@ -45,6 +47,8 @@ public class InventorySlot : MonoBehaviour {
 		swapping.inventory_to_switch = GetComponent<InventorySlot>();
 		swapping.item_inventory = slot_item;
 		swapping.sprite_inventory = item_image;
+		
+		item_controls.InventorySlotClicked(item_id.Substring(2,3));
 	}
 	
 	public void SetItem(string id, GameObject item,int ind) {

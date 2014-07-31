@@ -1,0 +1,985 @@
+fileFormatVersion: 2
+guid: 1c723e908991d55459e09153b42955fb
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: backpack
+    100002: chest
+    100004: //RootNode
+    100006: head
+    100008: lance
+    100010: lancetip
+    100012: Lelbow
+    100014: Lfoot
+    100016: Lhand
+    100018: Lhip
+    100020: Lknee
+    100022: Lshoulder
+    100024: Lshoulderplate
+    100026: pelvis
+    100028: polySurface6
+    100030: Relbow
+    100032: Rfoot
+    100034: Rhand
+    100036: Rhip
+    100038: Rknee
+    100040: Rshoulder
+    100042: Rshoulderplate
+    100044: waist
+    400000: backpack
+    400002: chest
+    400004: //RootNode
+    400006: head
+    400008: lance
+    400010: lancetip
+    400012: Lelbow
+    400014: Lfoot
+    400016: Lhand
+    400018: Lhip
+    400020: Lknee
+    400022: Lshoulder
+    400024: Lshoulderplate
+    400026: pelvis
+    400028: polySurface6
+    400030: Relbow
+    400032: Rfoot
+    400034: Rhand
+    400036: Rhip
+    400038: Rknee
+    400040: Rshoulder
+    400042: Rshoulderplate
+    400044: waist
+    4300000: polySurface6
+    7400000: idle
+    7400002: flinch
+    7400004: chargestart
+    7400006: chargeloop
+    7400008: chargestop
+    7400010: attackstart
+    7400012: attackfire
+    7400014: attackend
+    7400016: movestart
+    7400018: move
+    7400020: movestop
+    7400022: death
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: polySurface6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chargestart
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chargeloop
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: chargestop
+      takeName: Take 001
+      firstFrame: 125
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackstart
+      takeName: Take 001
+      firstFrame: 151
+      lastFrame: 156
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackfire
+      takeName: Take 001
+      firstFrame: 157
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: attackend
+      takeName: Take 001
+      firstFrame: 161
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestop
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 259
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 286
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/chest
+        weight: 1
+      - path: pelvis/waist/chest/backpack
+        weight: 1
+      - path: pelvis/waist/chest/head
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/chest/Lshoulder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Relbow/Rhand/lance/lancetip
+        weight: 1
+      - path: pelvis/waist/chest/Rshoulder/Rshoulderplate
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .449999988
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

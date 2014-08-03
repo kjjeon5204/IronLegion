@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SetTiles : MonoBehaviour {
+	public SetOverworldUI ui;
+	public TutorialControls tutorial;
+	
 	private MapData map;
 	public int levelsCompleted;
-	private GameObject Tiles;
+	//private GameObject Tiles;
 	private GameObject Hero;
 
 
@@ -42,9 +45,24 @@ public class SetTiles : MonoBehaviour {
         {
             tileDataAccess[unlockedLevels[ctr]].TileOn();
             //Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
-			Camera.main.transform.position = new Vector3(Hero.transform.position.x,Hero.transform.position.y,-10f);
+			Camera.main.transform.position = new Vector3(tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.x,tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.y,-10f);
+			
+			if (true)//tileDataAccess[unlockedLevels[ctr]].level == 3)
+			{
+				ui.ActivateHangar();
+				tutorial.tutorials_on[0] = true;
+			}
+			if (tileDataAccess[unlockedLevels[ctr]].level == 6)
+			{
+				tutorial.tutorials_on[1] = true;
+			}
+			if (tileDataAccess[unlockedLevels[ctr]].level == 7)
+			{
+				ui.ActivateStore();
+				tutorial.tutorials_on[2] = true;
+			}
         }
-
+		tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

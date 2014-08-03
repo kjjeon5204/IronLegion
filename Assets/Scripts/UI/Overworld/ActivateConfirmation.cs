@@ -63,7 +63,7 @@ public class ActivateConfirmation : MonoBehaviour {
 			LevelNumber.text = "Reset?";
 		}
 		this.transform.position = onScreen.transform.position;
-		cam.enabled = true;
+		//cam.enabled = true;
 	}
 	
 	public void Reject()
@@ -73,7 +73,7 @@ public class ActivateConfirmation : MonoBehaviour {
 		if (yes.behavior == "RESET DATA" || yes.behavior == "RESET DATA CONFIRM")
 			settings.transform.position = onScreen.transform.position;
 		this.transform.position = waiting.transform.position;
-		cam.enabled = false;
+		//cam.enabled = false;
 	}
 	/*
 	void Update()

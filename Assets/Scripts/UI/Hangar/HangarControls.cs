@@ -7,15 +7,13 @@ public class HangarControls : MonoBehaviour {
 	private bool clicking;
 	private ClickSpriteCONFIRM click;
 	
-	private GameObject frameOnScreen;
-	private GameObject waiting;
+	public GameObject frameOnScreen;
+	public GameObject waiting;
 	private Vector3 onScreen;
 	
 	void Start () {
-		waiting = GameObject.Find("WaitingArea");
 		onScreen = GameObject.Find("OnScreen").transform.position;
 		click = GetComponent<ClickSpriteCONFIRM>();
-		frameOnScreen = GameObject.Find("Blank");
 	}
 	
 	// Update is called once per frame

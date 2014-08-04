@@ -49,6 +49,13 @@ public class TutorialCutScene : BattleStory
     public Radar radarScript;
     public Character[] enemies;
 
+    public GameObject horizontalFingerSlide;
+
+    public GameObject verticalFingerSlide;
+
+    public ShockWaveControl[] skillButtonControls;
+    public ShockWaveControl regularAttackButton;
+
     UIStringModifier textModifier;
 
     int dialogueCtr;
@@ -128,7 +135,7 @@ public class TutorialCutScene : BattleStory
     {
         base.manual_start();
         cutSceneCam = cutSceneCamObject.GetComponent<Camera>();
-        Rect dialogueBoxSize = new Rect(0.1f, 0.76f, 0.8f, 0.24f);
+        Rect dialogueBoxSize = new Rect(0.1f, 0.6f, 0.8f, 0.3f);
         texture_resize(cutSceneDialogueBoxObject, dialogueBoxSize);
 
         Rect uiButtonSize = new Rect(0.7f, 0.55f, 0.3f, 0.45f);
@@ -148,6 +155,15 @@ public class TutorialCutScene : BattleStory
 
         uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.15f);
         texture_resize(hpBar, uiButtonSize);
+        /*
+        uiButtonSize = new Rect(0.4f, 0.2f, 0.2f, 0.35f);
+        texture_resize(verticalFingerSlide, uiButtonSize);
+
+        uiButtonSize = new Rect(0.3f, 0.3f, 0.4f, 0.15f);
+        texture_resize(horizontalFingerSlide, uiButtonSize);
+        */
+        horizontalFingerSlide.SetActive(false);
+        verticalFingerSlide.SetActive(false);
 
         //get dialogue text mesh
         cutSceneDialogueText = cutSceneDialogueTextObject.GetComponent<TextMesh>();
@@ -168,6 +184,12 @@ public class TutorialCutScene : BattleStory
         playerScript.worldObject = eventControls;
         playerScript.set_battle_type(BattleType.REGULAR);
         playerScript.manual_start();
+        playerScript.enemyList = enemies;
+        foreach (Character enemy in enemies)
+        {
+            enemy.set_level(1);
+            enemy.manual_start();
+        }
 
         initialize_buttons();
 
@@ -178,7 +200,7 @@ public class TutorialCutScene : BattleStory
         lowerRightFrame.SetActive(false);
         lowerLeftFrame.SetActive(false);
         enemyDisplay.SetActive(false);
-        hpBar.SetActive(false);
+        //hpBar.SetActive(false);
     }
 
     void enable_combat_ui()
@@ -260,13 +282,13 @@ public class TutorialCutScene : BattleStory
 
     void tutorial_input(Touch acc)
     {
-        int layerMask = 1 << 9;
+        int layerMask = 1 << 14;
         Vector3 touchPos = cutSceneCam.ScreenToWorldPoint(acc.position);
         RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
         if (hitButton.collider != null)
         {
             if (hitButton.collider.gameObject == skillButtons && playerScript.curState == "IDLE"
-                && tutorialPhase == 2 && conditionMet == false)
+                 && conditionMet == false)
             {
                 if (playerScript.isClose == true)
                 {
@@ -302,17 +324,21 @@ public class TutorialCutScene : BattleStory
                 AbilityButton pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready() && playerScript.player_input_ready())
                 {
-                    pressAbilityButton.button_pressed();
+                    string skillName = pressAbilityButton.button_pressed();
+                    playerScript.curState = skillName;
+                    playerScript.abilityDictionary[skillName].initialize_ability();
                 }
                 conditionMet = true;
             }
         }
         else
         {
+
+            Debug.Log("Attack triggered");
             curRecord += acc.deltaPosition;
             if (acc.phase == TouchPhase.Ended && curRecord != Vector2.zero && playerScript.curState == "IDLE")
             {
-                if (Mathf.Abs(curRecord.x) > Mathf.Abs(curRecord.y) && tutorialPhase == 6)
+                if (Mathf.Abs(curRecord.x) > Mathf.Abs(curRecord.y) && tutorialPhase == 8)
                 {
                     if (curRecord.x > 0.0f)
                     {
@@ -337,7 +363,7 @@ public class TutorialCutScene : BattleStory
                     conditionMet = true;
                 }
 
-                else if (playerScript.curState == "IDLE" && tutorialPhase == 8)
+                else if (playerScript.curState == "IDLE" && tutorialPhase == 6)
                 {
                     playerScript.switch_hero_state();
                     playerScript.curEnergy -= 10.0f;
@@ -359,6 +385,7 @@ public class TutorialCutScene : BattleStory
 
                         playerScript.switch_hero_state();
                     }
+                    conditionMet = true;
                 }
             }
         }
@@ -399,6 +426,21 @@ public class TutorialCutScene : BattleStory
     public override bool manual_update()
     {
         //PC
+        //update player data
+        float playerHP = 1.0f * playerScript.return_cur_stats().baseHp / playerScript.return_base_stats().baseHp;
+        if (playerHP < 0.0f)
+        {
+            playerHP = 0.0f;
+        }
+        playerHpBar.transform.localScale = new Vector3(playerHP, 1.0f, 1.0f);
+        int bar = (int)(playerScript.energyPercentage * energyBar.Length);
+        for (int ctr = 0; ctr < energyBar.Length; ctr++)
+        {
+            if (ctr < bar)
+                energyBar[ctr].SetActive(true);
+            else energyBar[ctr].SetActive(false);
+        }
+
         //Initial dialogue
         if (tutorialPhase == 0)
         {
@@ -419,7 +461,7 @@ public class TutorialCutScene : BattleStory
                 }
             }
         }
-        //Regular
+        //Regular attack
         else if (tutorialPhase == 1)
         {
             if (uiModified == false)
@@ -432,7 +474,7 @@ public class TutorialCutScene : BattleStory
                 Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 get_next_text();
-                if (dialogueCtr == 16)
+                if (dialogueCtr == 15)
                 {
                     tutorialPhase++;
                     uiModified = false;
@@ -442,6 +484,8 @@ public class TutorialCutScene : BattleStory
         //Regular player input
         else if (tutorialPhase == 2)
         {
+            playerScript.manual_update();
+
             //regular attack tutorial
             if (uiModified == false)
             {
@@ -449,6 +493,7 @@ public class TutorialCutScene : BattleStory
                 combat_stage1_enable();
                 disable_dialogue();
                 conditionMet = false;
+                regularAttackButton.activate_button();
             }
             
             if (Input.touchCount > 0)
@@ -461,6 +506,7 @@ public class TutorialCutScene : BattleStory
             {
                 tutorialPhase++;
                 uiModified = false;
+                regularAttackButton.deactivate_button_shock();
             }
         }
         //Ability
@@ -486,6 +532,7 @@ public class TutorialCutScene : BattleStory
         //ability input
         else if (tutorialPhase == 4)
         {
+            playerScript.manual_update();
             //regular attack tutorial
             if (uiModified == false)
             {
@@ -493,6 +540,10 @@ public class TutorialCutScene : BattleStory
                 combat_stage2_enable();
                 disable_dialogue();
                 conditionMet = false;
+                foreach (ShockWaveControl myControl in skillButtonControls)
+                {
+                    myControl.activate_button();
+                }
             }
 
             if (Input.touchCount > 0)
@@ -505,6 +556,10 @@ public class TutorialCutScene : BattleStory
             {
                 tutorialPhase++;
                 uiModified = false;
+                foreach (ShockWaveControl myControl in skillButtonControls)
+                {
+                    myControl.deactivate_button_shock();
+                }
             }
         }
         //Change State
@@ -530,9 +585,11 @@ public class TutorialCutScene : BattleStory
         //Change state input
         else if (tutorialPhase == 6)
         {
+            playerScript.manual_update();
             //regular attack tutorial
             if (uiModified == false)
             {
+                verticalFingerSlide.SetActive(true);
                 uiModified = true;
                 combat_stage3_enable();
                 disable_dialogue();
@@ -547,6 +604,7 @@ public class TutorialCutScene : BattleStory
 
             if (conditionMet == true && playerScript.curState == "IDLE")
             {
+                verticalFingerSlide.SetActive(false);
                 tutorialPhase++;
                 uiModified = false;
             }
@@ -564,7 +622,7 @@ public class TutorialCutScene : BattleStory
                 Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 get_next_text();
-                if (dialogueCtr == 27)
+                if (dialogueCtr == 30)
                 {
                     tutorialPhase++;
                     uiModified = false;
@@ -574,9 +632,11 @@ public class TutorialCutScene : BattleStory
         //Dodge Dialogue input
         else if (tutorialPhase == 8)
         {
+            playerScript.manual_update();
             //regular attack tutorial
             if (uiModified == false)
             {
+                horizontalFingerSlide.SetActive(true);
                 uiModified = true;
                 combat_stage1_enable();
                 disable_dialogue();
@@ -591,6 +651,7 @@ public class TutorialCutScene : BattleStory
 
             if (conditionMet == true && playerScript.curState == "IDLE")
             {
+                horizontalFingerSlide.SetActive(false);
                 tutorialPhase++;
                 uiModified = false;
             }
@@ -622,4 +683,3 @@ public class TutorialCutScene : BattleStory
         return false;
     }
 }
-

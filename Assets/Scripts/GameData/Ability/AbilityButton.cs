@@ -38,6 +38,9 @@ public class AbilityButton : MonoBehaviour {
     MainChar mainPlayer;
 
 
+    public ShockWaveControl touchDetector;
+
+
     public GameObject coolDownBar;
     Quaternion initialRotation;
 
@@ -105,12 +108,15 @@ public class AbilityButton : MonoBehaviour {
         return false;
     }
 
-    public void button_pressed()
+    public string button_pressed()
     {
         mainPlayer.curState = thisButtonInfo.skillName;
         mainPlayer.abilityDictionary[thisButtonInfo.skillName].initialize_ability();
         curRenderer.sprite = thisButtonInfo.buttonDown;
         curCoolDown = maxCoolDown;
+        if (touchDetector != null)
+            touchDetector.activate_button();
+        return thisButtonInfo.skillName;
     }
     
 	// Use this for initialization

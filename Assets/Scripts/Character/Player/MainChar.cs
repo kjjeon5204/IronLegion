@@ -108,7 +108,7 @@ public class MainChar : Character {
     public GameObject targetingIndicator;
 
     HeroLevelData curLevelData;
-
+    public AudioSource thrusterSound;
     
   
 
@@ -130,6 +130,11 @@ public class MainChar : Character {
 
     //Temporary testing variable
 
+
+    public bool is_switching_state()
+    {
+        return stateSwitched;
+    }
 
     public void enable_auto_adjust()
     {
@@ -517,7 +522,7 @@ public class MainChar : Character {
         lKneeExhaustScript.turn_off_booster();
         rLegExhaustScript.turn_off_booster();
         rKneeExhaustScript.turn_off_booster();
-
+        thrusterSound.enabled = true;
         if (previousMovement.z > 0)
         {
             LexhaustScript.turn_on_booster(previousMovement.z / totalDist);
@@ -543,6 +548,9 @@ public class MainChar : Character {
             RexhaustScript.turn_on_booster(-previousMovement.x / totalDist);
             rLegExhaustScript.turn_on_booster(previousMovement.x / totalDist);
             rKneeExhaustScript.turn_on_booster(previousMovement.x / totalDist);
+        }
+        if (previousMovement.magnitude == 0) {
+            thrusterSound.enabled = false;
         }
     }
 
@@ -780,7 +788,6 @@ public class MainChar : Character {
         }
 
         energyPercentage = 1.0f * curEnergy / maxEnergy;
-
 
 
 

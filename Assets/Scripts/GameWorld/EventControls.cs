@@ -45,6 +45,7 @@ public class WaveData
 public struct EnemyData
 {
     public GameObject enemyUnit;
+    public bool landingCraftActive;
     public int level;
 }
 
@@ -421,7 +422,12 @@ public class EventControls : MonoBehaviour {
                     //Set level
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_level
                         (curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].level);
-                    waveRunData[waveCtr].characterScriptCollection[enemyStoreCtr + 1] = waveRunData[waveCtr].enemyListScript[enemyStoreCtr];
+                    waveRunData[waveCtr].enemyListScript[enemyStoreCtr].landCraftActive = 
+                        curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].landingCraftActive;
+
+                    waveRunData[waveCtr].characterScriptCollection[enemyStoreCtr + 1] =
+                        waveRunData[waveCtr].enemyListScript[enemyStoreCtr];
+
                     waveRunData[waveCtr].enemyList[enemyStoreCtr].SetActive(false);
                     enemyStoreCtr++;
                 }
@@ -441,6 +447,8 @@ public class EventControls : MonoBehaviour {
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_enemy_unit_index(enemyStoreCtr);
                     //set level
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr].set_level(curEngageData.waveData[waveCtr].randomEnemy[randPool].level);
+                    waveRunData[waveCtr].enemyListScript[enemyStoreCtr].landCraftActive = curEngageData.waveData[waveCtr].
+                        randomEnemy[randPool].landingCraftActive;
 
                     waveRunData[waveCtr].characterScriptCollection[enemyStoreCtr + 1] = waveRunData[waveCtr].enemyListScript[enemyStoreCtr];
                     waveRunData[waveCtr].enemyList[enemyStoreCtr].SetActive(false);

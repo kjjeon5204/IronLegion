@@ -100,6 +100,8 @@ public class CombatScript : MonoBehaviour {
     bool gamePaused = false;
     public GameObject lowEnergyWarning;
 
+    public ShockWaveControl regularAttackShock;
+    public ShockWaveControl changeTargetShock;
 
     public void activate_low_energy()
     {
@@ -241,6 +243,11 @@ public class CombatScript : MonoBehaviour {
 
     public void turn_off_buff_icon(int buffType, int buffSlot)
     {
+        Debug.Log("buffType: " + buffType + " " + debuffIconPool.Length);
+        Debug.Log("buffSlot: " + buffSlot + " " + debuffIconPool[buffType].Count);
+        if (buffType >= debuffIconPool.Length || buffSlot >= debuffIconPool[buffType].Count
+            || buffType < 0 || buffSlot < 0)
+            return;
         IconPoolData temp = debuffIconPool[buffType][buffSlot];
         temp.isUse = false;
         temp.icon.SetActive(false);
@@ -296,6 +303,13 @@ public class CombatScript : MonoBehaviour {
     {
         Debuff targetDebuffScript = mainCharacter.target.GetComponent<Debuff>();
         Vector3 position = Vector3.zero;
+        for (int ctr = 0; ctr < debuffIconPool.Length; ctr++)
+        {
+            for (int ctr1 = 0; ctr1 < debuffIconPool[ctr].Count; ctr1++)
+            {
+                debuffIconPool[ctr][ctr1].icon.SetActive(false);
+            }
+        }
         for (int ctr = 0; ctr < targetDebuffScript.numOfActiveDebuff; ctr++)
         {
             if (targetDebuffScript.trackDebuff[ctr].buffIconSlot == -1)
@@ -351,6 +365,8 @@ public class CombatScript : MonoBehaviour {
             if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
                 && gamePaused == false)
             {
+                if (acc.phase == TouchPhase.Began)
+                    regularAttackShock.activate_button(); ;
                 if (mainCharacter.isClose == true)
                 {
                     if (mainCharacter.regAttackCtr == 0 && mainCharacter.curState != "REGULAR_ATTACK1")
@@ -415,6 +431,7 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.name == changeTargetButton.name && acc.phase == TouchPhase.Ended
                      && mainCharacter.player_input_ready() && gamePaused == false)
             {
+                changeTargetShock.activate_button();
                 mainCharacter.get_next_target();
             }
             //*****************************

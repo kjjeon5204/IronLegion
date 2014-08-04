@@ -47,7 +47,7 @@ public class SetTiles : MonoBehaviour {
             //Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
 			Camera.main.transform.position = new Vector3(tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.x,tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.y,-10f);
 			
-			if (true)//tileDataAccess[unlockedLevels[ctr]].level == 3)
+			if (tileDataAccess[unlockedLevels[ctr]].level == 3)
 			{
 				ui.ActivateHangar();
 				tutorial.tutorials_on[0] = true;

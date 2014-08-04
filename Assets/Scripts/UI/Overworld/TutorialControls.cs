@@ -14,6 +14,8 @@ public class TutorialControls : MonoBehaviour {
 	public GameObject notice;
 	private Vector3 notice_position;
 	public GameObject waiting;
+	public GameObject hangar_activate;
+	public GameObject store_activate;
 	
 	void Awake () {
 		tutorials_on = new bool[3];
@@ -33,6 +35,7 @@ public class TutorialControls : MonoBehaviour {
 			dialogue_text.text = notice_dialogue[0].text;
 			name.text = notice_dialogue[0].characterName;
 			NoticeOnScreen();
+			hangar_activate.transform.position = notice_position;
 		}
 		if (tutorials_on[1] && !tutorial_data.check_event_played("hangar_second"))
 		{
@@ -47,6 +50,7 @@ public class TutorialControls : MonoBehaviour {
 			dialogue_text.text = notice_dialogue[2].text;
 			name.text = notice_dialogue[2].characterName;
 			NoticeOnScreen();
+			store_activate.transform.position = notice_position;
 		}
 	}
 	

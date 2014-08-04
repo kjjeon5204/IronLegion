@@ -33,7 +33,7 @@ public class PlayerDataReader {
         string dataPath = Application.persistentDataPath + "/PlayerData.txt";
     }
 
-    PlayerDataReader() {
+    public PlayerDataReader() {
         string dataPath = Application.persistentDataPath + "/PlayerData.txt";
         if (File.Exists(dataPath))
         {

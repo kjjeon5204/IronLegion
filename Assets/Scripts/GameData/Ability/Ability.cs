@@ -315,7 +315,8 @@ public class Ability : MonoBehaviour {
                 curEffect.SetActive(false);
             }
         }
-        currentPhaseData.phaseSound.Stop();
+        if (currentPhaseData.phaseSound != null)
+            currentPhaseData.phaseSound.Stop();
     }
     
     float calculate_distance(Transform object1, Transform object2)

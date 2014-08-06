@@ -47,6 +47,7 @@ public class EquippedSlot : MonoBehaviour {
 	public void SetItem(string id, GameObject item,Item.ItemType type) {
 		foreach (Transform child in transform)
 		{
+			if (child.name != "Title")
 			GameObject.Destroy(child.gameObject);
 		}
 		item_id = id;

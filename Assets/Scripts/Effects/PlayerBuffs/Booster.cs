@@ -15,9 +15,12 @@ public class Booster : MonoBehaviour {
     public void turn_on_booster(float boosterPercentageIncrease)
     {
         boosterOn = true;
-        for (int ctr = 0; ctr < boosterPercentage.Length; ctr++)
+        if (boosterPercentage != null)
         {
-            boosterPercentage[ctr] += boosterPercentageIncrease;
+            for (int ctr = 0; ctr < boosterPercentage.Length; ctr++)
+            {
+                boosterPercentage[ctr] += boosterPercentageIncrease;
+            }
         }
     }
 
@@ -50,9 +53,12 @@ public class Booster : MonoBehaviour {
     public void turn_off_booster()
     {
         boosterOn = false;
-        for (int ctr = 0; ctr < boosterPercentage.Length; ctr++)
+        if (boosterPercentage != null)
         {
-            boosterPercentage[ctr] = 0.0f;
+            for (int ctr = 0; ctr < boosterPercentage.Length; ctr++)
+            {
+                boosterPercentage[ctr] = 0.0f;
+            }
         }
     }
 

@@ -1,0 +1,8 @@
+#Version Number
+v0.5b
+#Combat Tutorial(0 = played, 1 = not played)
+1
+#Hangar Tutorial
+1
+#Overworld Tutorial
+1

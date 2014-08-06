@@ -79,6 +79,7 @@ public class Character : MonoBehaviour
     public bool modifyPath = false;
 
     bool enemyReady = false;
+    public bool landCraftActive;
 
 
     protected int initLevel;
@@ -536,7 +537,13 @@ public class Character : MonoBehaviour
         }
         if (dropShipScript != null)
         {
-            dropShipScript.position_in_the_air();
+            if (landCraftActive == true)
+                dropShipScript.position_in_the_air();
+            else
+            {
+                unit_successfully_landed();
+                Destroy(dropShipScript.gameObject);
+            }
         }
         else
         {

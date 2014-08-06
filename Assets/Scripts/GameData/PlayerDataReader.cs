@@ -107,9 +107,9 @@ public class PlayerDataReader {
             return false;
         }
     }
-	
-	public bool check_event_played(string eventID)
-	{
-		return false;
-	}
+
+    public bool check_event_played(string eventID)
+    {
+        return false;
+    }
 }

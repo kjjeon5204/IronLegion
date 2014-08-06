@@ -108,7 +108,7 @@ public class MainChar : Character {
     public GameObject targetingIndicator;
 
     HeroLevelData curLevelData;
-
+    public AudioSource thrusterSound;
     
   
 
@@ -125,7 +125,16 @@ public class MainChar : Character {
 
     public GameObject playerCamera;
 
+    public TargetingIndicator targetIndicatorScript;
+    public Camera targetIndicatorCam;
+
     //Temporary testing variable
+
+
+    public bool is_switching_state()
+    {
+        return stateSwitched;
+    }
 
     public void enable_auto_adjust()
     {
@@ -455,6 +464,10 @@ public class MainChar : Character {
                 lKneeExhaustScript.instant_thruster(3.5f);
                 lLegExhaustScript.instant_thruster(3.5f);
             }
+            else
+            {
+                
+            }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -509,7 +522,7 @@ public class MainChar : Character {
         lKneeExhaustScript.turn_off_booster();
         rLegExhaustScript.turn_off_booster();
         rKneeExhaustScript.turn_off_booster();
-
+        thrusterSound.enabled = true;
         if (previousMovement.z > 0)
         {
             LexhaustScript.turn_on_booster(previousMovement.z / totalDist);
@@ -536,6 +549,9 @@ public class MainChar : Character {
             rLegExhaustScript.turn_on_booster(previousMovement.x / totalDist);
             rKneeExhaustScript.turn_on_booster(previousMovement.x / totalDist);
         }
+        if (previousMovement.magnitude == 0) {
+            thrusterSound.enabled = false;
+        }
     }
 
 
@@ -557,9 +573,14 @@ public class MainChar : Character {
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
-        curStats.armor = 20.0f;
-        curStats.baseDamage = curLevelData.get_player_stat().damage;
-        curStats.baseHp = curLevelData.get_player_stat().HP;
+        HeroStats heroStat = new HeroStats();
+        heroStat.load_data();
+        PlayerStat playerItemStat = heroStat.get_item_stats();
+        curStats.armor = playerItemStat.item_armor;
+        curStats.baseDamage = curLevelData.get_player_stat().damage + playerItemStat.item_damage;
+        curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
+        maxEnergy = 100.0f + playerItemStat.item_energy;
+        curEnergy = maxEnergy;
         Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
@@ -608,8 +629,6 @@ public class MainChar : Character {
         previousPos = transform.position;
         initialPos = transform.position;
 
-        curEnergy = 100.0f;
-        maxEnergy = 100.0f;
         base.manual_start();
 	}
 
@@ -637,13 +656,34 @@ public class MainChar : Character {
 
         if (target != null && targetScript == null)
         {
-            targetScript.GetComponent<Character>();
+            target.GetComponent<Character>();
         }
 
         if (targetScript != null)
         {
             currentTargetIndex = targetScript.get_enemy_index();
             distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
+
+            //Targeting indicator
+            float playerTargetAngle = Vector3.Angle(transform.InverseTransformPoint
+                (target.transform.position), Vector3.forward);
+
+            if (playerTargetAngle < 5.0f && curState == "IDLE")
+            {
+                Vector3 tempPos = playerCamera.GetComponent<Camera>().
+                    WorldToViewportPoint(target.collider.bounds.center);
+                tempPos = targetIndicatorCam.ViewportToWorldPoint(tempPos);
+                targetIndicatorScript.gameObject.transform.position = tempPos;
+                if (targetIndicatorScript.gameObject.activeInHierarchy == false)
+                {
+                    targetIndicatorScript.gameObject.SetActive(true);
+                    targetIndicatorScript.initialize_indicator();
+                }
+            }
+            else
+            {
+                targetIndicatorScript.gameObject.SetActive(false);
+            }
         }
 
         //Check if player is facing a valid target
@@ -748,7 +788,6 @@ public class MainChar : Character {
         }
 
         energyPercentage = 1.0f * curEnergy / maxEnergy;
-
 
 
 

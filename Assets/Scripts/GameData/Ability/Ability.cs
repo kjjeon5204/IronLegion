@@ -48,6 +48,7 @@ public class AbilityPhase
     public float radius;
     public GameObject[] effect;
     public bool isCancellable;
+    public AudioSource phaseSound;
 
     //**ONLY USED BY MAIN CHARACTER
     public bool isMoving;
@@ -262,29 +263,7 @@ public class Ability : MonoBehaviour {
 					else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
-			/*
-			else if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.PROJECTILE_AOE_CONE) {
-				foreach (GameObject curMuzzle in currentPhaseData.muzzle) {
-					GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
-				                      		   	curMuzzle.transform.position, curMuzzle.transform.rotation);
-					MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
-
-					//Get target
-					while (myCharacter.targets[currentTarget] == null ||
-				       	(myCharacter.targets[currentTarget] != null && 
-				       	!check_within_cone(myCharacter.targets[currentTarget]))) {
-						currentTarget++;
-						if (currentTarget >= myCharacter.targets.animationLength) {
-							currentTarget = 0;
-						}
-					}
-
-					//t
-					projectileScript.set_projectile(myCharacter.targets[currentTarget], gameObject, 
-					                                calc_damage(currentPhaseData.targetDam));
-				}
-			}
-			*/
+			
             else
             {
                 if (currentPhaseData.targetDam > 0.0f)
@@ -336,6 +315,8 @@ public class Ability : MonoBehaviour {
                 curEffect.SetActive(false);
             }
         }
+        if (currentPhaseData.phaseSound != null)
+            currentPhaseData.phaseSound.Stop();
     }
     
     float calculate_distance(Transform object1, Transform object2)
@@ -389,6 +370,14 @@ public class Ability : MonoBehaviour {
         return true;
     }
 
+    public void sound_parser()
+    {
+        if (currentPhaseData.phaseSound != null)
+        {
+            currentPhaseData.phaseSound.Play();
+        }
+    }
+
 
 
     //If ability is not done playing, return true, if ability is done  playing, return false
@@ -416,6 +405,8 @@ public class Ability : MonoBehaviour {
             {
                 movement_parser();
             }
+
+            sound_parser();
 
             phasePlayed = true;
             return true;

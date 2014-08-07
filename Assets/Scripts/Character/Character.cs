@@ -569,5 +569,8 @@ public class Character : MonoBehaviour
 	public virtual void manual_update() {
     }
 
+    public virtual void precombat_phase()
+    {
 
+    }
 }

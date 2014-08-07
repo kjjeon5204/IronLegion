@@ -32,6 +32,8 @@ public class WaveData
     public GameObject storyObjectEnd;
     public BattleType battleType;
 
+    public Collider[] spawnPoints;
+
     //Used by regular battle
     public EnemyData[] requiredEnemy;
     public EnemyData[] randomEnemy;
@@ -67,7 +69,7 @@ public struct WaveBattleRunData
     public Character[] characterScriptCollection;
     public GameObject player;
     public MainChar playerScript;
-
+    public int remainingEnemy;
 }
 
 
@@ -78,6 +80,7 @@ public enum BattleType
 {
     REGULAR,
     AERIAL,
+    AERIAL_MULTI_SPAWN_POINT,
     BOSS
 }
 
@@ -213,22 +216,52 @@ public class EventControls : MonoBehaviour {
    
     Vector3 generate_spawn_coordinate(BattleType battleType) {
 		Vector3 spawnPoint = Vector3.zero;
-		int xSide = Random.Range (0,2);
+		//int xSide = Random.Range (0,2);
         //Debug.Log("Appear poll " + xSide);
-		spawnPoint.x = Random.Range (mapBoundary.center.x - 1.0f * mapBoundary.extents.x,
-			                             mapBoundary.center.x + 1.0f * mapBoundary.extents.x);
-
-		spawnPoint.z = Random.Range (mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
-		                             mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
-        /*
-        if (battleType == BattleType.AERIAL)
+        if (battleType == BattleType.AERIAL || battleType == BattleType.REGULAR)
         {
-            spawnPoint.y = Random.Range(-5.0f, 5.0f);
+            spawnPoint.x = Random.Range(mapBoundary.center.x - 1.0f * mapBoundary.extents.x,
+                                         mapBoundary.center.x + 1.0f * mapBoundary.extents.x);
+
+            spawnPoint.z = Random.Range(mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
+                                     mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
         }
-        */
         
         return spawnPoint;
 	}
+
+    Vector3 generate_spawn_coordinate(BattleType battleType, Collider[] availablePoints)
+    {
+       Vector3 spawnPoint = Vector3.zero;
+		//int xSide = Random.Range (0,2);
+        //Debug.Log("Appear poll " + xSide);
+        if (battleType == BattleType.AERIAL || battleType == BattleType.REGULAR)
+        {
+            spawnPoint.x = Random.Range(mapBoundary.center.x - 1.0f * mapBoundary.extents.x,
+                                         mapBoundary.center.x + 1.0f * mapBoundary.extents.x);
+
+            spawnPoint.z = Random.Range(mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
+                                     mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
+        }
+        /*
+        if (battleType == BattleType.AERIAL)
+        {
+        }
+        */
+        else if (battleType == BattleType.AERIAL_MULTI_SPAWN_POINT)
+        {
+            int spawnAccessPoint = Random.Range(0, availablePoints.Length);
+            Bounds spawnBounds = availablePoints[spawnAccessPoint].bounds;
+            spawnPoint.x = Random.Range(spawnBounds.center.x - 1.0f * spawnBounds.extents.x,
+                                         spawnBounds.center.x + 1.0f * spawnBounds.extents.x);
+
+            spawnPoint.z = Random.Range(mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
+                                     spawnBounds.center.z + 1.0f * spawnBounds.extents.z);
+
+        }
+        
+        return spawnPoint;
+    }
 	
 
     
@@ -316,12 +349,18 @@ public class EventControls : MonoBehaviour {
 
     bool check_wave_ended(WaveBattleRunData instantiateWave)
     {
+        int remainingEnemy = 0;
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
             if (instantiateWave.enemyListScript[ctr].return_cur_stats().baseHp > 0)
             {
-                return false;
+                //return false;
+                remainingEnemy++;
             }
+        }
+        if (remainingEnemy > 0)
+        {
+            waveRunData[curWave].remainingEnemy = remainingEnemy;
         }
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
@@ -333,6 +372,17 @@ public class EventControls : MonoBehaviour {
         return true;
     }
 
+
+    void run_aerial_prewave(WaveBattleRunData nextWaveData)
+    {
+        for (int ctr = 0; ctr < nextWaveData.enemyListScript.Length;
+            ctr++)
+        {
+            if (nextWaveData.enemyListScript[ctr].gameObject.activeInHierarchy == false)
+                nextWaveData.enemyListScript[ctr].gameObject.SetActive(true);
+            nextWaveData.enemyListScript[ctr].precombat_phase();
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -699,6 +749,11 @@ public class EventControls : MonoBehaviour {
                         {
                             waveRunData[curWave].enemyListScript[ctr].manual_update();
                         }
+                    }
+                    if (curEngageData.waveData[curWave].battleType == BattleType.AERIAL_MULTI_SPAWN_POINT &&
+                        waveRunData[curWave].remainingEnemy == 1 && curWave < waveRunData.Length - 1 )
+                    {
+                        run_aerial_prewave(waveRunData[curWave]);
                     }
                 }
             }

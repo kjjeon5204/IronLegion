@@ -25,6 +25,7 @@ public class AerialType1NoTurret : Character {
     {
         IDLE,
         ATTACKING,
+        MOVING,
         DEATH
     }
     public AerialType1Attacks[] attackTypes;
@@ -43,6 +44,9 @@ public class AerialType1NoTurret : Character {
     int currentlyPolledAttack = 0;
     int attackFrequencyTracker;
 
+    int spawnPhase = 0;
+
+    Vector3 easingDirection;
 
 	// Use this for initialization
     public override void manual_start()
@@ -50,6 +54,7 @@ public class AerialType1NoTurret : Character {
         base.manual_start();
     }
 	
+
 	// Update is called once per frame
     public override void manual_update()
     {
@@ -80,6 +85,14 @@ public class AerialType1NoTurret : Character {
                 nextPollTime = Time.time + 1.0f;
             }
         }
+        if (aerialState == AerialState.IDLE)
+        {
+            float distFromTarget = (target.transform.position - transform.position).magnitude;
+            if (distFromTarget > 15.0f)
+            {
+                aerialState = AerialState.MOVING;
+            }
+        }
 
 
         if (curStats.baseHp <= 0.0f && aerialState != AerialState.DEATH)
@@ -98,6 +111,10 @@ public class AerialType1NoTurret : Character {
         else if (aerialState == AerialState.DEATH)
         {
             death_state();
+        }
+        else if (aerialState == AerialState.MOVING)
+        {
+            transform.Translate(10.0f * Vector3.forward * Time.deltaTime);
         }
         else if (aerialState == AerialState.ATTACKING)
         {
@@ -135,14 +152,14 @@ public class AerialType1NoTurret : Character {
                             attackTypes[currentlyPolledAttack].projectile,
                             muzzle.transform.position, muzzle.transform.rotation);
 
-                        
+
                         MyProjectile projectileScript = bulletObject.GetComponent<MyProjectile>();
                         projectileScript.set_projectile(targetScript, gameObject, rawDamage);
 
                         foreach (GameObject muzzleEffect in
                             attackTypes[currentlyPolledAttack].destroyEffect)
                         {
-                            GameObject effectHolder = (GameObject)Instantiate(muzzleEffect, 
+                            GameObject effectHolder = (GameObject)Instantiate(muzzleEffect,
                                 muzzle.transform.position,
                                 muzzle.transform.rotation);
                             if (attackTypes[currentlyPolledAttack].parentEffectToMuzzle == true)
@@ -156,8 +173,9 @@ public class AerialType1NoTurret : Character {
                 else
                 {
                     if (!animation.IsPlaying(attackTypes[currentlyPolledAttack].
-                        attackAnimations[1].name) && attackFrequencyTracker >= 
-                        attackTypes[currentlyPolledAttack].attackFrequency) {
+                        attackAnimations[1].name) && attackFrequencyTracker >=
+                        attackTypes[currentlyPolledAttack].attackFrequency)
+                    {
                         phasePlayed = false;
                         phaseCtr++;
                     }
@@ -190,6 +208,34 @@ public class AerialType1NoTurret : Character {
                     }
                 }
             }
+        }
+    }
+
+    public override void precombat_phase()
+    {
+        if (spawnPhase == 0)
+        {
+            custom_look_at_3D(mapFlag.transform.position);
+            transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
+
+            if ((mapFlag.transform.position - transform.position).magnitude > 40.0f)
+            {
+                spawnPhase++;
+                easingDirection = transform.position + transform.right;
+            }
+        }
+        //Condition to pause precombat phase.
+        else if (spawnPhase == 1)
+        {
+            if (custom_look_at_3D(easingDirection))
+            {
+                spawnPhase++;
+            }
+        }
+        else if (spawnPhase == 2)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 5.0f);
+            transform.Rotate(Vector3.up * 10.0f * Time.deltaTime);
         }
     }
 }

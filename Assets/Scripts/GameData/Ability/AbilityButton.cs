@@ -28,6 +28,7 @@ public class AbilityButton : MonoBehaviour {
     public float curCoolDown;
 
     //Skill description
+    public GameObject skillDescriptionBox;
     public GameObject skillText;
 
     //Event Control
@@ -91,7 +92,8 @@ public class AbilityButton : MonoBehaviour {
         }
         else
         {
-            textAcc.text = "No Ability";
+            //textAcc.text = "No Ability";
+            skillDescriptionBox.SetActive(false);
             coolDownBar.SetActive(false);
             noAbility = true;
         }

@@ -138,13 +138,13 @@ public class Missile : MyProjectile {
             }
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             //if (target != null && transform.InverseTransformPoint(target.transform.position).z > 0) {
-            if (track == true)
+            if (track == true && target != null)
                 custom_look_at(target.collider.bounds.center);
             //}
 
             if (target == null)
                 Debug.LogError("Null Target!");
-            if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
+            else if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
             {
                 track = false;
             }

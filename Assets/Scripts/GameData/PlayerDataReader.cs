@@ -34,7 +34,8 @@ public class PlayerDataReader {
         string rawString;
         rawString = textToRead.ReadLine();
         textFileRecord.Add(rawString);
-        while (rawString[0] == '#' || rawString == null)
+        while (rawString[0] == '#' || rawString == null
+            || rawString.Length == 0)
         {
             rawString = textToRead.ReadLine();
             textFileRecord.Add(rawString);
@@ -76,6 +77,7 @@ public class PlayerDataReader {
                     curStatus.overWorldTutorial = 0;
                  
                 */
+                /*
                 string rawString = get_next_line(inFile);
                 curVersionNumber = rawString;
                 while (rawString != "END")
@@ -98,6 +100,7 @@ public class PlayerDataReader {
                     }
                     eventTracker[curProgress.eventID] = curProgress;
                 }
+                 * */
             }
         }
         else
@@ -151,6 +154,8 @@ public class PlayerDataReader {
         textFileRecord[myEvent.recordAccNum] = "0";
     }
 
+
+    //Returns false if even has not been played!
     public bool check_event_played(string eventID)
     {
         return false;

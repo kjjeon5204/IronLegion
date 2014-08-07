@@ -250,6 +250,7 @@ public class EventControls : MonoBehaviour {
         */
         else if (battleType == BattleType.AERIAL_MULTI_SPAWN_POINT)
         {
+            Debug.Log("Generated modified coordinate");
             int spawnAccessPoint = Random.Range(0, availablePoints.Length);
             Bounds spawnBounds = availablePoints[spawnAccessPoint].bounds;
             spawnPoint.x = Random.Range(spawnBounds.center.x - 1.0f * spawnBounds.extents.x,
@@ -361,6 +362,7 @@ public class EventControls : MonoBehaviour {
         if (remainingEnemy > 0)
         {
             waveRunData[curWave].remainingEnemy = remainingEnemy;
+            return false;
         }
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
@@ -445,7 +447,8 @@ public class EventControls : MonoBehaviour {
             waveRunData[waveCtr].player = player;
             waveRunData[waveCtr].playerScript = playerScript;
             if (curEngageData.waveData[waveCtr].battleType == BattleType.REGULAR ||
-                curEngageData.waveData[waveCtr].battleType == BattleType.AERIAL)
+                curEngageData.waveData[waveCtr].battleType == BattleType.AERIAL
+                ||curEngageData.waveData[waveCtr].battleType == BattleType.AERIAL_MULTI_SPAWN_POINT)
             {
                 //Create must enemy
                 waveRunData[waveCtr].enemyList = new GameObject[curEngageData.waveData[waveCtr].requiredEnemy.Length +
@@ -461,7 +464,8 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
                         curEngageData.waveData[waveCtr].requiredEnemy[enemyCtr].enemyUnit,
-                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType),
+                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType, 
+                        curEngageData.waveData[waveCtr].spawnPoints),
                         Quaternion.identity);
 
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] =
@@ -489,7 +493,8 @@ public class EventControls : MonoBehaviour {
                     int randPool = Random.Range(0, curEngageData.waveData[waveCtr].randomEnemy.Length);
                     waveRunData[waveCtr].enemyList[enemyStoreCtr] = (GameObject)Instantiate(
                         curEngageData.waveData[waveCtr].randomEnemy[randPool].enemyUnit,
-                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType),
+                        generate_spawn_coordinate(curEngageData.waveData[waveCtr].battleType,
+                        curEngageData.waveData[waveCtr].spawnPoints),
                         Quaternion.identity);
 
                     waveRunData[waveCtr].enemyListScript[enemyStoreCtr] = waveRunData[waveCtr].enemyList[enemyStoreCtr].GetComponent<Character>();
@@ -750,11 +755,14 @@ public class EventControls : MonoBehaviour {
                             waveRunData[curWave].enemyListScript[ctr].manual_update();
                         }
                     }
-                    if (curEngageData.waveData[curWave].battleType == BattleType.AERIAL_MULTI_SPAWN_POINT &&
-                        waveRunData[curWave].remainingEnemy == 1 && curWave < waveRunData.Length - 1 )
+                    
+                    if ( curWave < waveRunData.Length - 1 && 
+                        curEngageData.waveData[curWave + 1].battleType == BattleType.AERIAL_MULTI_SPAWN_POINT &&
+                        waveRunData[curWave].remainingEnemy == 1)
                     {
-                        run_aerial_prewave(waveRunData[curWave]);
+                        run_aerial_prewave(waveRunData[curWave + 1]);
                     }
+                     
                 }
             }
             else

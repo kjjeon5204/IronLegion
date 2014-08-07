@@ -56,6 +56,7 @@ public class SetTiles : MonoBehaviour {
             {
                 if (nextMap != null)
                     nextMap.enabled = true;
+                Debug.Log("Next map enabled");
             }
 
             //Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
@@ -90,12 +91,9 @@ public class SetTiles : MonoBehaviour {
 				done_once = true;
 			}
         }
-<<<<<<< HEAD
 		//tutorial.ActivateTutorials();
-=======
 		if (chapter == 1)
-		tutorial.ActivateTutorials();
->>>>>>> origin/master
+		    tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

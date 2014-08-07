@@ -58,6 +58,7 @@ public class AerialType1NoTurret : Character {
 	// Update is called once per frame
     public override void manual_update()
     {
+        float distFromTarget = (target.transform.position - transform.position).magnitude;
         if (aerialState == AerialState.IDLE)
         {
             if (currentAggressiveness < 100)
@@ -87,8 +88,7 @@ public class AerialType1NoTurret : Character {
         }
         if (aerialState == AerialState.IDLE)
         {
-            float distFromTarget = (target.transform.position - transform.position).magnitude;
-            if (distFromTarget > 15.0f)
+            if (distFromTarget > 50.0f)
             {
                 aerialState = AerialState.MOVING;
             }
@@ -115,6 +115,10 @@ public class AerialType1NoTurret : Character {
         else if (aerialState == AerialState.MOVING)
         {
             transform.Translate(10.0f * Vector3.forward * Time.deltaTime);
+            if (distFromTarget < 50.0f)
+            {
+                aerialState = AerialState.IDLE;
+            }
         }
         else if (aerialState == AerialState.ATTACKING)
         {
@@ -218,7 +222,7 @@ public class AerialType1NoTurret : Character {
             custom_look_at_3D(mapFlag.transform.position);
             transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
 
-            if ((mapFlag.transform.position - transform.position).magnitude > 40.0f)
+            if ((mapFlag.transform.position - transform.position).magnitude < 40.0f)
             {
                 spawnPhase++;
                 easingDirection = transform.position + transform.right;
@@ -234,8 +238,8 @@ public class AerialType1NoTurret : Character {
         }
         else if (spawnPhase == 2)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 5.0f);
-            transform.Rotate(Vector3.up * 10.0f * Time.deltaTime);
+            transform.Translate(Vector3.forward * Time.deltaTime * 20.0f);
+            transform.Rotate(Vector3.up * 45.0f * Time.deltaTime);
         }
     }
 }

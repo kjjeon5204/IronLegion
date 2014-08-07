@@ -46,6 +46,8 @@ public class SetTiles : MonoBehaviour {
         IList<int> unlockedLevels = new List<int>();
         unlockedLevels = map.get_unlocked_levels();
 
+		
+		bool done_once = false; //So that you only ActivateArrows once
         for (int ctr = 0; ctr < unlockedLevels.Count; ctr++)
         {
             tileDataAccess[unlockedLevels[ctr]].TileOn();
@@ -59,22 +61,41 @@ public class SetTiles : MonoBehaviour {
             //Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
 			Camera.main.transform.position = new Vector3(tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.x,tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.y,-10f);
 			
-			if (tileDataAccess[unlockedLevels[ctr]].level == 3)
+			if (chapter == 1 && tileDataAccess[unlockedLevels[ctr]].level == 3)
 			{
 				ui.ActivateHangar();
 				tutorial.tutorials_on[0] = true;
 			}
-			if (tileDataAccess[unlockedLevels[ctr]].level == 6)
+			else if (chapter == 1 && tileDataAccess[unlockedLevels[ctr]].level == 6)
 			{
 				tutorial.tutorials_on[1] = true;
 			}
-			if (tileDataAccess[unlockedLevels[ctr]].level == 7)
+			else if (chapter == 1 && tileDataAccess[unlockedLevels[ctr]].level == 7)
 			{
 				ui.ActivateStore();
 				tutorial.tutorials_on[2] = true;
 			}
+			else if (chapter == 1 &&  tileDataAccess[unlockedLevels[ctr]].level == 0)
+			{
+				tutorial.tutorials_on[3] = true;
+			}
+			else if (chapter == 1 &&  tileDataAccess[unlockedLevels[ctr]].level == 1)
+			{
+				tutorial.tutorials_on[4] = true;
+			}
+			
+			if (chapter != 1 && !done_once) //done_once is so you only ActivateArrows once
+			{
+				ui.ActivateArrows();
+				done_once = true;
+			}
         }
+<<<<<<< HEAD
 		//tutorial.ActivateTutorials();
+=======
+		if (chapter == 1)
+		tutorial.ActivateTutorials();
+>>>>>>> origin/master
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

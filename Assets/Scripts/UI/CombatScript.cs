@@ -45,6 +45,8 @@ public class CombatScript : MonoBehaviour {
     public GameObject enemyDisplay;
     public GameObject enemyDistplayText;
     public GameObject enemyHealthBar;
+    public TextMesh enemyDamage;
+    public TextMesh enemyArmor;
 
     public GameObject resetPlayerPos;
 
@@ -638,6 +640,8 @@ public class CombatScript : MonoBehaviour {
                     enemyHP = 0.0f;
                 //Debug.Log("target hp: " + targetScript.return_cur_stats().baseHp);
                 enemyHealthBar.transform.localScale = new Vector3(enemyHP, 1.0f, 1.0f);
+                enemyArmor.text = "Armor: " + targetScript.return_cur_stats().armor + "%";
+                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().baseDamage;
             }
             skillButtons.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
             changeTargetButton.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);

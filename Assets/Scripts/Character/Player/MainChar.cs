@@ -590,7 +590,7 @@ public class MainChar : Character {
         //LexhaustReverse.SetActive(false);
         //RexhaustReverse.SetActive(false);
 
-
+        /*
         //Skill name temporary initialization
         abilityNames = new string[8];
         abilityNames[0] = "GATTLING_GUN";
@@ -602,7 +602,11 @@ public class MainChar : Character {
         abilityNames[5] = "BARRAGE";
         //abilityNames[6] = "AEGIS";
         //abilityNames[7] = "BEAM_CANNON";
+        */
 
+        HeroData myAbilityData = new HeroData();
+        abilityNames = myAbilityData.load_data();
+        
         abilityList = GetComponents<Ability>();
 
         //Ability Dictionary initialization
@@ -814,8 +818,8 @@ public class MainChar : Character {
             inputReady = false;
 
             if (!movementScript.run_movement() || 
-                curState == "ADJUSTFAR" && distToTarget > targetDist ||
-                curState == "AdJUSTCLOSE" && distToTarget < targetDist)
+                curState == "ADJUSTFAR" && distToTarget < targetDist ||
+                curState == "AdJUSTCLOSE" && distToTarget > targetDist)
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";

@@ -508,8 +508,8 @@ public class Character : MonoBehaviour
 
     public void modify_stat(float armorMod, float attackMod)
     {
-        baseStats.armor += armorMod;
-        baseStats.baseDamage += attackMod;
+        curStats.armor += armorMod;
+        curStats.baseDamage += attackMod;
     }
 
 	/*Returns true when object is ready to be destroyed*/

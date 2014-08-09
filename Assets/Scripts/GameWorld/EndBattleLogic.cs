@@ -43,51 +43,53 @@ public class EndBattleLogic : MonoBehaviour
         experienceString.text = "Exp: " + inputData.curExperience + "/" + 
             inputData.expRequired;
         creditString.text = "Credits: " + creditReceived.ToString();
-
-        Item curItem = itemPolled.GetComponent<Item>();
-		Inventory myInventory = new Inventory();
-		myInventory.load_inventory();
-		myInventory.add_item(curItem.name);
-		myInventory.store_inventory();
-        itemNameString.text = curItem.itemName;
-
-        itemIcon.sprite = itemPolled.GetComponent<SpriteRenderer>().sprite;
-
-        int itemStatSlotAcc = 0;
-        if (curItem.hp != 0)
+        if (itemPolled != null)
         {
-            set_stat_text(itemStatString[itemStatSlotAcc], curItem.hp, "HP");
-            itemStatSlotAcc++;
-        }
+            Item curItem = itemPolled.GetComponent<Item>();
+            Inventory myInventory = new Inventory();
+            myInventory.load_inventory();
+            myInventory.add_item(curItem.name);
+            myInventory.store_inventory();
+            itemNameString.text = curItem.itemName;
 
-        if (curItem.armor != 0)
-        {
-            set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.armor, "Armor");
-            itemStatSlotAcc++;
-        }
+            itemIcon.sprite = itemPolled.GetComponent<SpriteRenderer>().sprite;
 
-        if (curItem.damage != 0)
-        {
-            set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.damage, "Damage");
-            itemStatSlotAcc++;
-        }
+            int itemStatSlotAcc = 0;
+            if (curItem.hp != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], curItem.hp, "HP");
+                itemStatSlotAcc++;
+            }
 
-        if (curItem.energy != 0)
-        {
-            set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.energy, "Energy");
-            itemStatSlotAcc++;
-        }
+            if (curItem.armor != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.armor, "Armor");
+                itemStatSlotAcc++;
+            }
 
-        if (curItem.penetration != 0)
-        {
-            set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.penetration, "Penetration");
-            itemStatSlotAcc++;
-        }
+            if (curItem.damage != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.damage, "Damage");
+                itemStatSlotAcc++;
+            }
 
-        if (curItem.energy != 0)
-        {
-            set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.luck, "Luck");
-            itemStatSlotAcc++;
+            if (curItem.energy != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.energy, "Energy");
+                itemStatSlotAcc++;
+            }
+
+            if (curItem.penetration != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.penetration, "Penetration");
+                itemStatSlotAcc++;
+            }
+
+            if (curItem.energy != 0)
+            {
+                set_stat_text(itemStatString[itemStatSlotAcc], (int)curItem.luck, "Luck");
+                itemStatSlotAcc++;
+            }
         }
 
     }

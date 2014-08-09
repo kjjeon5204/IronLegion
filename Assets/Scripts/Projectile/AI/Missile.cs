@@ -142,9 +142,7 @@ public class Missile : MyProjectile {
                 custom_look_at(target.collider.bounds.center);
             //}
 
-            if (target == null)
-                Debug.LogError("Null Target!");
-            else if ((target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
+            else if (target != null && (target.collider.bounds.center - collider.bounds.center).magnitude < trackDist)
             {
                 track = false;
             }

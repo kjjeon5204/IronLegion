@@ -268,6 +268,17 @@ public class CombatScript : MonoBehaviour {
 	public void turn_on_combat_ui() {
 		lowerLeftFrame.SetActive(true);
 		lowerRightFrame.SetActive(true);
+
+        if (mainCharacter.isClose == true)
+        {
+            enable_ability_button(closeSkillSlots);
+            disable_ability_button(rangeSkillSlots);
+        }
+        else
+        {
+            enable_ability_button(rangeSkillSlots);
+            disable_ability_button(closeSkillSlots);
+        }
         hpBar.SetActive(true);
         radarDisplay.SetActive(true);
 		upperRightFrame.SetActive(true);
@@ -363,6 +374,7 @@ public class CombatScript : MonoBehaviour {
         RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
         if (hitButton.collider != null)
         {
+            Debug.Log("Button " + hitButton.collider.name + "pressed!");
             //Combat related input
             if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
                 && gamePaused == false)
@@ -421,16 +433,18 @@ public class CombatScript : MonoBehaviour {
                 eventControlScript.unpause_game();
                 gamePaused = false;
             }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && gamePaused == false)
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
+                gamePaused == false)
             {
+                regularAttackShock.activate_button();
                 mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
-                if (pressAbilityButton.is_button_ready() && mainCharacter.player_input_ready())
+                if (pressAbilityButton.is_button_ready())
                 {
                     pressAbilityButton.button_pressed();
                 }
             }
-            else if (hitButton.collider.name == changeTargetButton.name && acc.phase == TouchPhase.Ended
+            else if (hitButton.collider.gameObject == changeTargetButton && acc.phase == TouchPhase.Ended
                      && mainCharacter.player_input_ready() && gamePaused == false)
             {
                 changeTargetShock.activate_button();
@@ -440,7 +454,7 @@ public class CombatScript : MonoBehaviour {
             //*******End battle Inputs*****
             //*****************************
 
-            else if (hitButton.collider.gameObject == retryButton)
+            else if (hitButton.collider.gameObject == retryButton )
             {
                 Application.LoadLevel(2);
             }

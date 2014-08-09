@@ -383,7 +383,7 @@ public class Ability : MonoBehaviour {
     //If ability is not done playing, return true, if ability is done  playing, return false
     public bool run_ability()
     {
-        if (phaseCtr == myData.abilityPhase.Length)
+        if (phaseCtr >= myData.abilityPhase.Length)
         {
             return false;
         }
@@ -429,6 +429,16 @@ public class Ability : MonoBehaviour {
                 turn_effect_off();
                 phaseCtr++;
                 phasePlayed = false;
+            }
+            else if (currentPhaseData.isMoving == true && currentPhaseData.movementDirection == Vector3.forward)
+            {
+                float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
+                if (distToMove < currentPhaseData.distFromTarget / 2.0f)
+                {
+                    turn_effect_off();
+                    phaseCtr++;
+                    phasePlayed = false;
+                }
             }
 
             //animation based condition

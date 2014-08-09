@@ -699,12 +699,12 @@ public class MainChar : Character {
 			event_checker();
 		}
 
-        
+        float targetDist = 0.0f;
         if ((stateSwitched == true || autoAdjustEnabled == true) && curState == "IDLE" &&
             curState != "PATHING")
         {
             stateSwitched = false;
-            float distanceToMove;
+            float distanceToMove = 0.0f;
             if (isClose == true)
             {
                 if (distToTarget < closeDist - 2.0f)
@@ -726,6 +726,7 @@ public class MainChar : Character {
                     movementScript.initialize_movement("FORWARD",
                         distanceToMove, 20.0f, Vector3.zero);
                 }
+                targetDist = distanceToMove;
             }
             else
             {
@@ -747,6 +748,7 @@ public class MainChar : Character {
                     movementScript.initialize_movement("FORWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
+                targetDist = distanceToMove;
             }
             
         }
@@ -811,7 +813,9 @@ public class MainChar : Character {
         {
             inputReady = false;
 
-            if (!movementScript.run_movement())
+            if (!movementScript.run_movement() || 
+                curState == "ADJUSTFAR" && distToTarget > targetDist ||
+                curState == "AdJUSTCLOSE" && distToTarget < targetDist)
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";

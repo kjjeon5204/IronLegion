@@ -103,7 +103,7 @@ public class AbilityButton : MonoBehaviour {
 
     public bool is_button_ready()
     {
-        if (curCoolDown == 0.0f)
+        if (curCoolDown <= 0.0f)
         {
             return true;
         }

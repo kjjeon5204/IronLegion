@@ -92,8 +92,8 @@ public class SetTiles : MonoBehaviour {
 			}
         }
 		//tutorial.ActivateTutorials();
-		if (chapter == 1)
-		    tutorial.ActivateTutorials();
+		//if (chapter == 1)
+		   // tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

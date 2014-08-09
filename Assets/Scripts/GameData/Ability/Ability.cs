@@ -45,6 +45,7 @@ public class AbilityPhase
     public bool selfTargetProjectile;
     public bool childEffectToMuzzle;
     public GameObject muzzleEffects;
+    public GameObject hitEffectAutoDeactivate;
     public float radius;
     public GameObject[] effect;
     public bool isCancellable;
@@ -199,6 +200,10 @@ public class Ability : MonoBehaviour {
                     myCharacter.target.GetComponent<Character>().
                         characterDebuffScript.apply_debuff(abilityName, currentPhaseData.targetArmor,
                         0.0f, currentPhaseData.targetArmorDuration , myData.debuffIcon);
+                    if (currentPhaseData.hitEffectAutoDeactivate != null)
+                    {
+                        currentPhaseData.hitEffectAutoDeactivate.SetActive(true);
+                    }
                 }
                 float damageDone = myCharacter.target.GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
                 if (currentPhaseData.hpLeech > 0)

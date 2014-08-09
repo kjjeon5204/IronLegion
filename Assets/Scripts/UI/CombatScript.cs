@@ -33,10 +33,12 @@ public class CombatScript : MonoBehaviour {
     public GameObject lowerLeftFrame;
     public GameObject changeTargetButton;
     public GameObject changeTargetText;
+    public ChangeStateText curPlayerState;
 
     public GameObject hpBar;
     public GameObject playerHpBar;
     public GameObject[] energyBar;
+    public GameObject playerDebuffIconHolder;
 
     public GameObject upperRightFrame;
     public GameObject pauseButton;
@@ -47,6 +49,7 @@ public class CombatScript : MonoBehaviour {
     public GameObject enemyHealthBar;
     public TextMesh enemyDamage;
     public TextMesh enemyArmor;
+    public GameObject enemyDebuffIconHolder;
 
     public GameObject resetPlayerPos;
 
@@ -54,7 +57,6 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject targetIndicator;
 
-    public GameObject enemyDebuffIconHolder;
 
 	public GameObject endGameWindow;
 	public EndBattleLogic endGameScript;
@@ -90,6 +92,8 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject[] debuffIcons;
     IList<IconPoolData>[] debuffIconPool;
+
+    IList<IconPoolData>[] debuffIconPoolPlayer;
 
     public GameObject abilityTutorial;
     public GameObject dodgeTutorial;
@@ -295,8 +299,6 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-
-
 	}
 
     public void disable_all_icon(Debuff targetDebuffScript)
@@ -312,7 +314,62 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
-    
+
+
+    void modify_player_buff()
+    {
+        Debuff playerDebuffScript = mainCharacter.GetComponent<Debuff>();
+        Vector3 position = Vector3.zero;
+        for (int ctr = 0; ctr < debuffIconPoolPlayer.Length; ctr++)
+        {
+            for (int ctr1 = 0; ctr1 < debuffIconPool[ctr].Count; ctr1++)
+            {
+                debuffIconPoolPlayer[ctr][ctr1].icon.SetActive(false);
+            }
+        }
+        for (int ctr = 0; ctr < playerDebuffScript.numOfActiveDebuff; ctr++)
+        {
+            if (playerDebuffScript.trackDebuff[ctr].buffIconSlot == -1)
+            {
+                int typeAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int buffSlotAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int openSpot = search_available_icon(debuffIconPool[typeAcc]);
+                if (openSpot == -1)
+                {
+                    IconPoolData temp;
+                    temp.icon = (GameObject)Instantiate(debuffIconPoolPlayer[typeAcc][0].icon,
+                        Vector3.zero, Quaternion.identity);
+                    temp.icon.transform.parent = playerDebuffIconHolder.transform;
+                    temp.icon.transform.localPosition = position;
+                    temp.isUse = true;
+                    playerDebuffScript.trackDebuff[ctr].buffIconSlot = debuffIconPool[typeAcc].Count;
+                    debuffIconPoolPlayer[typeAcc].Add(temp);
+                }
+                else
+                {
+                    playerDebuffScript.trackDebuff[typeAcc].buffIconSlot = openSpot;
+                    IconPoolData temp = debuffIconPool[typeAcc][openSpot];
+                    temp.icon.SetActive(true);
+                    temp.isUse = true;
+                    temp.icon.transform.localPosition = position;
+                    debuffIconPool[typeAcc][openSpot] = temp;
+
+                }
+            }
+            else if (playerDebuffScript.trackDebuff[ctr].buffIconSlot != -1)
+            {
+                int typeAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int buffSlotAcc = playerDebuffScript.trackDebuff[ctr].buffIconSlot;
+                if (debuffIconPoolPlayer[typeAcc][buffSlotAcc].icon.activeInHierarchy == false)
+                    debuffIconPoolPlayer[typeAcc][buffSlotAcc].icon.SetActive(true);
+                debuffIconPool[typeAcc][buffSlotAcc].icon.SetActive(true);
+                debuffIconPool[typeAcc][buffSlotAcc].icon.transform.localPosition = position;
+            }
+            position.x += 3.0f;
+        }
+    }
+
+
 
     void modify_enemy_buff()
     {
@@ -336,7 +393,8 @@ public class CombatScript : MonoBehaviour {
                 {
                     Debug.Log("Create Debuff Icon");
                     IconPoolData temp;
-                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon, Vector3.zero, Quaternion.identity);
+                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon, 
+                        Vector3.zero, Quaternion.identity);
                     temp.icon.transform.parent = enemyDebuffIconHolder.transform;
                     temp.icon.transform.localPosition = position;
                     temp.isUse = true;
@@ -512,6 +570,8 @@ public class CombatScript : MonoBehaviour {
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
                         mainCharacter.switch_hero_state();
+                        curPlayerState.change_state_text("Far");
+
                     }
                     else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
                     {
@@ -520,8 +580,8 @@ public class CombatScript : MonoBehaviour {
                         enable_ability_button(closeSkillSlots);
                         disable_ability_button(rangeSkillSlots);
                         mainCharacter.isClose = true;
-
                         mainCharacter.switch_hero_state();
+                        curPlayerState.change_state_text("Close");
                     }
                 }
             }

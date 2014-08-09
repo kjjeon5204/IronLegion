@@ -103,6 +103,8 @@ public class CombatScript : MonoBehaviour {
     public ShockWaveControl regularAttackShock;
     public ShockWaveControl changeTargetShock;
 
+    public GameObject loadingScreen;
+
     public void activate_low_energy()
     {
         lowEnergyWarning.SetActive(true);
@@ -444,6 +446,7 @@ public class CombatScript : MonoBehaviour {
             }
             else if (hitButton.collider.gameObject == overworldButton)
             {
+                loadingScreen.SetActive(true);
                 Application.LoadLevel(0);
             }
         }
@@ -590,6 +593,7 @@ public class CombatScript : MonoBehaviour {
         pauseGameMenu.SetActive(false);
 
         lowEnergyWarning.SetActive(false);
+        loadingScreen.SetActive(false);
 	}
 
     // Update is called once per frame

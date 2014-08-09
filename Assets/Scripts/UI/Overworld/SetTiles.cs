@@ -17,6 +17,11 @@ public class SetTiles : MonoBehaviour {
     TileActive[] tileDataAccess;
     public int chapter;
 
+    //map progression add on
+    public int keyTile;
+    public SetTiles nextMap;
+    
+
 	// Use this for initialization
 	void Start () {
 		Hero = GameObject.Find("Hero Location");
@@ -46,6 +51,14 @@ public class SetTiles : MonoBehaviour {
         for (int ctr = 0; ctr < unlockedLevels.Count; ctr++)
         {
             tileDataAccess[unlockedLevels[ctr]].TileOn();
+            /*add on*/
+            if (unlockedLevels[ctr] == keyTile)
+            {
+                if (nextMap != null)
+                    nextMap.enabled = true;
+                Debug.Log("Next map enabled");
+            }
+
             //Hero.transform.position = tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position;
 			Camera.main.transform.position = new Vector3(tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.x,tileDataAccess[unlockedLevels[ctr]].gameObject.transform.position.y,-10f);
 			
@@ -78,8 +91,9 @@ public class SetTiles : MonoBehaviour {
 				done_once = true;
 			}
         }
+		//tutorial.ActivateTutorials();
 		if (chapter == 1)
-		tutorial.ActivateTutorials();
+		    tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

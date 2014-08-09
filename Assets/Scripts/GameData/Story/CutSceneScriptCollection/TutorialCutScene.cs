@@ -65,6 +65,9 @@ public class TutorialCutScene : BattleStory
 
     Vector2 curRecord;
 
+    public SpriteRenderer[] uiSprites;
+    public TextMesh[] uiTexts;
+
 
     void texture_resize(GameObject target, Rect targetSize)
     {
@@ -254,7 +257,7 @@ public class TutorialCutScene : BattleStory
 
     void combat_stage2_enable()
     {
-        disable_combat_ui();
+        //disable_combat_ui();
         lowerRightFrame.SetActive(true);
         skillButtons.SetActive(true);
         enable_close_buttons();
@@ -263,7 +266,7 @@ public class TutorialCutScene : BattleStory
 
     void combat_stage3_enable()
     {
-        disable_combat_ui();
+        //disable_combat_ui();
         lowerRightFrame.SetActive(true);
         lowerLeftFrame.SetActive(true);
     }
@@ -276,6 +279,39 @@ public class TutorialCutScene : BattleStory
     void enable_dialogue()
     {
         cutSceneDialogueBoxObject.SetActive(true);
+    }
+
+    void reduce_ui_alpha()
+    {
+        foreach (SpriteRenderer uiSprite in uiSprites)
+        {
+            Color tempStore = uiSprite.color;
+            tempStore.a = 0.5f;
+            uiSprite.color = tempStore;
+            Debug.Log("Reduced alph to " + uiSprite.color.a);
+        }
+        foreach (TextMesh uiText in uiTexts)
+        {
+            Color tempStore = uiText.color;
+            tempStore.a = 0.5f;
+            uiText.color = tempStore;
+        }
+    }
+
+    void restore_ui_alpha()
+    {
+        foreach (SpriteRenderer uiSprite in uiSprites)
+        {
+            Color tempStore = uiSprite.color;
+            tempStore.a = 1.0f;
+            uiSprite.color = tempStore;
+        }
+        foreach (TextMesh uiText in uiTexts)
+        {
+            Color tempStore = uiText.color;
+            tempStore.a = 1.0f;
+            uiText.color = tempStore;
+        }
     }
 
 
@@ -446,6 +482,7 @@ public class TutorialCutScene : BattleStory
         {
             if (uiModified == false)
             {
+                reduce_ui_alpha();
                 playerMainCam.SetActive(false);
                 disable_combat_ui();
                 uiModified = true;
@@ -489,6 +526,7 @@ public class TutorialCutScene : BattleStory
             //regular attack tutorial
             if (uiModified == false)
             {
+                restore_ui_alpha();
                 uiModified = true;
                 combat_stage1_enable();
                 disable_dialogue();
@@ -514,7 +552,8 @@ public class TutorialCutScene : BattleStory
         {
             if (uiModified == false)
             {
-                disable_combat_ui();
+                reduce_ui_alpha();
+                //disable_combat_ui();
                 enable_dialogue();
                 uiModified = true;
             }
@@ -528,6 +567,7 @@ public class TutorialCutScene : BattleStory
                     uiModified = false;
                 }
             }
+
         }
         //ability input
         else if (tutorialPhase == 4)
@@ -536,6 +576,7 @@ public class TutorialCutScene : BattleStory
             //regular attack tutorial
             if (uiModified == false)
             {
+                restore_ui_alpha();
                 uiModified = true;
                 combat_stage2_enable();
                 disable_dialogue();
@@ -567,7 +608,8 @@ public class TutorialCutScene : BattleStory
         {
             if (uiModified == false)
             {
-                disable_combat_ui();
+                reduce_ui_alpha();
+                //disable_combat_ui();
                 enable_dialogue();
                 uiModified = true;
             }
@@ -589,6 +631,7 @@ public class TutorialCutScene : BattleStory
             //regular attack tutorial
             if (uiModified == false)
             {
+                restore_ui_alpha();
                 verticalFingerSlide.SetActive(true);
                 uiModified = true;
                 combat_stage3_enable();
@@ -614,7 +657,8 @@ public class TutorialCutScene : BattleStory
         {
             if (uiModified == false)
             {
-                disable_combat_ui();
+                reduce_ui_alpha();
+                //disable_combat_ui();
                 enable_dialogue();
                 uiModified = true;
             }
@@ -636,6 +680,7 @@ public class TutorialCutScene : BattleStory
             //regular attack tutorial
             if (uiModified == false)
             {
+                restore_ui_alpha();
                 horizontalFingerSlide.SetActive(true);
                 uiModified = true;
                 combat_stage1_enable();
@@ -661,7 +706,8 @@ public class TutorialCutScene : BattleStory
         {
             if (uiModified == false)
             {
-                disable_combat_ui();
+                reduce_ui_alpha();
+                //disable_combat_ui();
                 enable_dialogue();
                 uiModified = true;
             }

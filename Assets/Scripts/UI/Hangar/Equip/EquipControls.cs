@@ -216,8 +216,8 @@ public class EquipControls : MonoBehaviour {
 			sprite_equipped = sprite_inventory;
 			sprite_inventory = temp_sprite;
 			
-			inventory.UpdateEquipped();
 			inventory.UpdateInventory();
+			inventory.UpdateEquipped();
 			current_stats.UpdateStats();
 			swappable = false;
 			

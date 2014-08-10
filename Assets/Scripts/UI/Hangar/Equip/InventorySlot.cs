@@ -48,12 +48,14 @@ public class InventorySlot : MonoBehaviour {
 		swapping.item_inventory = slot_item;
 		swapping.sprite_inventory = item_image;
 		
-		item_controls.InventorySlotClicked(item_id.Substring(2,3));
+		Debug.Log(item_id.Substring(2,1));
+		item_controls.InventorySlotClicked(item_id.Substring(2,1));
 	}
 	
 	public void SetItem(string id, GameObject item,int ind) {
 		foreach (Transform child in transform)
 		{
+			if (child.name != "InventoryHighlight")
 			GameObject.Destroy(child.gameObject);
 		}
 		item_id = id;

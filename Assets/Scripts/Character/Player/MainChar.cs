@@ -202,6 +202,14 @@ public class MainChar : Character {
         }
     }
 
+    public void cancel_player_ability()
+    {
+        if (abilityDictionary.ContainsKey(curState))
+        {
+            abilityDictionary[curState].cancel_ability();
+        }
+    }
+
     public void reset_player_pos()
     {
         transform.position = initialPos;
@@ -375,7 +383,7 @@ public class MainChar : Character {
     //Temporary debug functions
     void temp_input()
     {
-        turn_off_effect();
+        //turn_off_effect();
         if (Input.GetKeyDown(KeyCode.Space) && curState != "PATHING")
         { 
             get_next_target();
@@ -494,6 +502,14 @@ public class MainChar : Character {
                 if (abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
                 {
                     curState = "REGULAR_ATTACK2";
+                    regAttackCtr = 2;
+                }
+            }
+            else if (regAttackCtr == 2 && isClose == true)
+            {
+                if (abilityDictionary["REGULAR_ATTACK3"].initialize_ability())
+                {
+                    curState = "REGULAR_ATTACK3";
                     regAttackCtr = 0;
                 }
             }
@@ -708,20 +724,24 @@ public class MainChar : Character {
             curState != "PATHING")
         {
             stateSwitched = false;
+            autoAdjustEnabled = false;
+            inputReady = false;
             float distanceToMove = 0.0f;
             if (isClose == true)
             {
-                if (distToTarget < closeDist - 2.0f)
+                if (distToTarget < closeDist)
                 {
+
                     //Move away from target
                     curState = "ADJUSTFAR";
                     phaseCtr = 0;
                     phasePlayed = false;
                     distanceToMove = closeDist - distToTarget;
+                    Debug.Log("Distance to move: " + distanceToMove);
                     movementScript.initialize_movement("BACKWARD", 
                         distanceToMove, 20.0f, Vector3.zero);
                 }
-                if (distToTarget > closeDist + 2.0f)
+                if (distToTarget > closeDist)
                 {
                     curState = "ADJUSTCLOSE";
                     phaseCtr = 0;
@@ -734,7 +754,7 @@ public class MainChar : Character {
             }
             else
             {
-                if (distToTarget < farDist - 2.0f)
+                if (distToTarget < farDist)
                 {
                     curState = "ADJUSTFAR";
                     phaseCtr = 0;
@@ -743,7 +763,7 @@ public class MainChar : Character {
                     movementScript.initialize_movement("BACKWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
-                if (distToTarget > farDist + 2.0f)
+                if (distToTarget > farDist)
                 {
                     curState = "ADJUSTCLOSE";
                     phaseCtr = 0;
@@ -818,8 +838,12 @@ public class MainChar : Character {
             inputReady = false;
 
             if (!movementScript.run_movement() || 
-                curState == "ADJUSTFAR" && distToTarget < targetDist ||
-                curState == "AdJUSTCLOSE" && distToTarget > targetDist)
+                //Close state distance checkers
+                (isClose == true && curState == "ADJUSTFAR" && distToTarget > closeDist) ||
+                (isClose == true && curState == "ADJUSTCLOSE" && distToTarget < closeDist) ||
+                //Far state distance checkers
+                (isClose == false && curState == "ADJUSTFAR" && distToTarget > farDist) ||
+                (isClose == false && curState == "ADJUSTCLOSE" && distToTarget < farDist))
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";
@@ -871,9 +895,11 @@ public class MainChar : Character {
             if (!abilityDictionary[curState].run_ability())
             {
                 if (curState == "REGULAR_ATTACK1" ||
+                    curState == "REGULAR_ATTACK2" ||
+                    curState == "REGULAR_ATTACK3" ||
                     curState == "BLUTSAUGER" ||
                     curState == "ENERGY_BLADE" ||
-                    curState == "SHATTTER")
+                    curState == "SHATTER")
                 {
                     autoAdjustEnabled = true;
                 }

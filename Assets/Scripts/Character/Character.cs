@@ -455,7 +455,7 @@ public class Character : MonoBehaviour
                 curStats.baseHp -= (int)damageDone;
 
                 if (detonatorFlinch != null)
-                    Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
+                    Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
 
                 if (hitAnimation != null)
                 {

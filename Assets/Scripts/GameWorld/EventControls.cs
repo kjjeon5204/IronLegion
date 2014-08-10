@@ -280,7 +280,8 @@ public class EventControls : MonoBehaviour {
         Debug.Log("Prep wave");
         for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
         {
-            
+            if (instatiateWave.enemyList[ctr] == null)
+				Debug.LogError (ctr + " contains an empty unit!");
             instatiateWave.enemyList[ctr].SetActive(true);
             instatiateWave.enemyListScript[ctr].set_player(player);
             instatiateWave.enemyListScript[ctr].set_target(player);
@@ -368,6 +369,7 @@ public class EventControls : MonoBehaviour {
         {
             if (instantiateWave.enemyList[ctr] != null)
             {
+				Debug.Log ("Enemy Unit Destroyed!");
                 Destroy(instantiateWave.enemyList[ctr]);
             }
         }
@@ -670,7 +672,6 @@ public class EventControls : MonoBehaviour {
                     enabled = false;
                     return;
                 }
-
                 if (check_wave_ended(waveRunData[curWave]))
                 {
                     //If there is an ending storyline
@@ -810,12 +811,14 @@ public class EventControls : MonoBehaviour {
                             enabled = false;
                             return;
                         }
+						Debug.Log ("Code reached here!");
                         waveRunData[curWave].eventRunPhase = false;
                         waveRunData[curWave].storyEnded = true;
                         wave_ready_phase(waveRunData[curWave]);
                     }
                     else
                     {
+						Debug.Log ("Code reached here!");
                         waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
                         waveRunData[curWave].eventRunPhase = false;
                         waveRunData[curWave].storyEnded = false;

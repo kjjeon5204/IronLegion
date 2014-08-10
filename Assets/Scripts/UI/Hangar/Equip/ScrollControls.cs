@@ -12,6 +12,11 @@ public class ScrollControls : MonoBehaviour {
 	public GameObject slider;
 	public float scroll_speed;
 	private float scrollbar_offset = 1.85f;
+	private Vector3 speed;
+	
+	void Awake() {
+		speed = new Vector3(0,scroll_speed,0);
+	}
 	
 	public void Input(Vector2 position) {
 		Vector3 new_position = Camera.main.ScreenToWorldPoint(new Vector3(position.x,position.y,0));
@@ -45,14 +50,16 @@ public class ScrollControls : MonoBehaviour {
 		}
 	}
 	//------------------------------------------
-	public void ScrollBox(float percentage) {
-		if (percentage  > 0 && inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
+	public void ScrollBox(float per) {
+		if (per  > 0 && inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
 		{
 			//Things to scroll
+			inventory_top.transform.position += speed*(per*Time.deltaTime);
 		}
 		else if (inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
 		{
 			//Things to scroll
+			inventory_top.transform.position -= speed*(per*Time.deltaTime);
 		}
 	}
 }

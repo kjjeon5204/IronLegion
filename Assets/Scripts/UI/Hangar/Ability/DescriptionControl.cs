@@ -17,6 +17,8 @@ public class DescriptionControl : MonoBehaviour {
 	private TextMesh message;
 	
 	public Abilities ability_info;
+	private string color_start = "<color=lime>";
+	private string color_end = "</color>";
 	// Use this for initialization
 	void Start () {
 		icon = transform.Find("Icon").GetComponent<SpriteRenderer>();
@@ -42,40 +44,40 @@ public class DescriptionControl : MonoBehaviour {
 		name.text = output_string;
 		
 		if (ability_info.isClose)
-		output_string = "Range: Close";
+		output_string = color_start+"Range: " + color_end + "Close";
 		else
-		output_string = "Range: Long";
+		output_string = color_start+"Range: " + color_end + "Long";
 		range.text = output_string;
 		
-		output_string = "Target: "+ability_info.target.Replace("SINGLE","ENEMY");
+		output_string = color_start+"Target: "+color_end+ability_info.target.Replace("SINGLE","ENEMY");
 		target.text = output_string;
 		
 		if (ability_info.damage_percent != 0)
-		output_string = "Damage: "+ ability_info.damage_percent.ToString() + "%";
+		output_string = color_start+"Damage: "+color_end+ ability_info.damage_percent.ToString() + "%";
 		else
-		output_string = "Heal: " + ability_info.hp_modifier.ToString();
+		output_string = color_start+"Heal: "+color_end + ability_info.hp_modifier.ToString();
 		if (ability_info.frequency > 1)
 		output_string = output_string + " x "+ability_info.frequency.ToString();
 		damage.text = output_string;
 		
 		if (ability_info.hp_leech > 0)
-		output_string = "Leech: "+ ability_info.hp_leech.ToString() + "%";
+		output_string = color_start+"Leech: "+color_end+ ability_info.hp_leech.ToString() + "%";
 		else
 		output_string = "";
 		leech.text = output_string;
 		
 		if (ability_info.armor_modifier > 0)
-		output_string = "Armor: +" + ability_info.armor_modifier.ToString() + " for " + ability_info.armor_mod_duration.ToString() + "sec";
+		output_string = color_start+"Armor:" +color_end + "+" + ability_info.armor_modifier.ToString() + " for " + ability_info.armor_mod_duration.ToString() + "sec";
 		else if (ability_info.armor_modifier < 0)
-		output_string = "Armor: -" + ability_info.armor_modifier.ToString() + " for " + ability_info.armor_mod_duration.ToString() + "sec";
+		output_string = color_start+"Armor: "+color_end+ "-" + ability_info.armor_modifier.ToString() + " for " + ability_info.armor_mod_duration.ToString() + "sec";
 		else
 		output_string = "";
 		armor.text = output_string;
 		
-		output_string = "Cooldown: "+ ability_info.cooldown.ToString() + " sec";
+		output_string = color_start+"Cooldown: "+color_end+ ability_info.cooldown.ToString() + " sec";
 		cooldown.text = output_string;
 		
-		output_string = "Level: "+ability_info.level.ToString();
+		output_string = color_start+"Level: "+color_end+ability_info.level.ToString();
 		level.text = output_string;
 		
 		output_string = "Select slot to put in";

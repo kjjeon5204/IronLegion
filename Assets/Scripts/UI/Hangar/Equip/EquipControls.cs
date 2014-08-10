@@ -24,6 +24,15 @@ public class EquipControls : MonoBehaviour {
 	private SpriteRenderer inventory_description_image;
 	private SpriteRenderer equipped_description_image;
 	
+	public GameObject highlight_item;
+	public GameObject highlight_equip;
+	public GameObject waiting;
+	
+	private string color_start = "<color=lime>";
+	private string color_end = "</color>";
+	
+	
+	
 	SpriteRenderer image;
 	// Use this for initialization
 	void Awake () {
@@ -81,44 +90,44 @@ public class EquipControls : MonoBehaviour {
 			inventory_description_text[0].text = item_inventory.itemName;
 			
 			if (item_inventory.hp < 0)
-			inventory_description_text[1].text = "HP: -" + item_inventory.hp;
+			inventory_description_text[1].text = color_start+"HP: -"+color_end + item_inventory.hp;
 			else if (item_inventory.hp > 0)
-			inventory_description_text[1].text = "HP: +" + item_inventory.hp;
+			inventory_description_text[1].text = color_start+"HP: +"+color_end + item_inventory.hp;
 			else
 			inventory_description_text[1].text = "";
 			
 			if (item_inventory.armor < 0)
-			inventory_description_text[2].text = "Armor: -" + item_inventory.armor;
+			inventory_description_text[2].text = color_start+"Armor: -"+color_end + item_inventory.armor;
 			else if (item_inventory.armor > 0)
-			inventory_description_text[2].text = "Armor: +" + item_inventory.armor;
+			inventory_description_text[2].text = color_start+"Armor: +"+color_end + item_inventory.armor;
 			else
 			inventory_description_text[2].text = "";
 			
 			if (item_inventory.damage < 0)
-			inventory_description_text[3].text = "Damage: -"+item_inventory.damage;
+			inventory_description_text[3].text = color_start+"Damage: -"+color_end+item_inventory.damage;
 			else if (item_inventory.damage > 0)
-			inventory_description_text[3].text = "Damage: +"+item_inventory.damage;
+			inventory_description_text[3].text = color_start+"Damage: +"+color_end+item_inventory.damage;
 			else
 			inventory_description_text[3].text = "";
 			
 			if (item_inventory.energy < 0)
-			inventory_description_text[4].text = "Energy: -"+item_inventory.energy;
+			inventory_description_text[4].text = color_start+"Energy: -"+color_end+item_inventory.energy;
 			else if (item_inventory.energy > 0)
-			inventory_description_text[4].text = "Energy: +"+item_inventory.energy;
+			inventory_description_text[4].text = color_start+"Energy: +"+color_end+item_inventory.energy;
 			else
 			inventory_description_text[4].text = "";
 			
 			if (item_inventory.penetration < 0)
-			inventory_description_text[5].text = "Penetration: -" + item_inventory.penetration;
+			inventory_description_text[5].text = color_start+"Penetration: -"+color_end + item_inventory.penetration;
 			else if (item_inventory.penetration > 0)
-			inventory_description_text[5].text = "Penetration: +" + item_inventory.penetration;
+			inventory_description_text[5].text = color_start+"Penetration: +"+color_end + item_inventory.penetration;
 			else
 			inventory_description_text[5].text = "";
 			
 			if (item_inventory.luck < 0)
-			inventory_description_text[6].text = "Luck: -" + item_inventory.luck;
+			inventory_description_text[6].text = color_start+"Luck: -"+color_end + item_inventory.luck;
 			else if (item_inventory.luck > 0)
-			inventory_description_text[6].text = "Luck: +" + item_inventory.luck;
+			inventory_description_text[6].text = color_start+"Luck: +"+color_end + item_inventory.luck;
 			else
 			inventory_description_text[6].text = "";
 		}
@@ -128,44 +137,44 @@ public class EquipControls : MonoBehaviour {
 			equipped_description_text[0].text = item_equipped.itemName;
 			
 			if (item_equipped.hp < 0)
-			equipped_description_text[1].text = "HP: -" + item_equipped.hp;
+			equipped_description_text[1].text = color_start+"HP: -"+color_end + item_equipped.hp;
 			else if (item_equipped.hp > 0)
-			equipped_description_text[1].text = "HP: +" + item_equipped.hp;
+			equipped_description_text[1].text = color_start+"HP: +"+color_end + item_equipped.hp;
 			else
 			equipped_description_text[1].text = "";
 			
 			if (item_equipped.armor < 0)
-			equipped_description_text[2].text = "Armor: -" + item_equipped.armor;
+			equipped_description_text[2].text = color_start+"Armor: -"+color_end + item_equipped.armor;
 			else if (item_equipped.armor > 0)
-			equipped_description_text[2].text = "Armor: +" + item_equipped.armor;
+			equipped_description_text[2].text = color_start+"Armor: +"+color_end + item_equipped.armor;
 			else
 			equipped_description_text[2].text = "";
 			
 			if (item_equipped.damage < 0)
-			equipped_description_text[3].text = "Damage: -"+item_equipped.damage;
+			equipped_description_text[3].text = color_start+"Damage: -"+color_end+item_equipped.damage;
 			else if (item_equipped.damage > 0)
-			equipped_description_text[3].text = "Damage: +"+item_equipped.damage;
+			equipped_description_text[3].text = color_start+"Damage: +"+color_end+item_equipped.damage;
 			else
 			equipped_description_text[3].text = "";
 			
 			if (item_equipped.energy < 0)
-			equipped_description_text[4].text = "Energy: -"+item_equipped.energy;
+			equipped_description_text[4].text = color_start+"Energy: -"+color_end+item_equipped.energy;
 			else if (item_equipped.energy > 0)
-			equipped_description_text[4].text = "Energy: +"+item_equipped.energy;
+			equipped_description_text[4].text = color_start+"Energy: +"+color_end+item_equipped.energy;
 			else
 			equipped_description_text[4].text = "";
 			
 			if (item_equipped.penetration < 0)
-			equipped_description_text[5].text = "Penetration: -" + item_equipped.penetration;
+			equipped_description_text[5].text = color_start+"Penetration: -"+color_end + item_equipped.penetration;
 			else if (item_equipped.penetration > 0)
-			equipped_description_text[5].text = "Penetration: +" + item_equipped.penetration;
+			equipped_description_text[5].text = color_start+"Penetration: +"+color_end + item_equipped.penetration;
 			else
 			equipped_description_text[5].text = "";
 			
 			if (item_equipped.luck < 0)
-			equipped_description_text[6].text = "Luck: -" + item_equipped.luck;
+			equipped_description_text[6].text = color_start+"Luck: -"+color_end + item_equipped.luck;
 			else if (item_equipped.luck > 0)
-			equipped_description_text[6].text = "Luck: +" + item_equipped.luck;
+			equipped_description_text[6].text = color_start+"Luck: +"+color_end + item_equipped.luck;
 			else
 			equipped_description_text[6].text = "";
 		}
@@ -211,6 +220,13 @@ public class EquipControls : MonoBehaviour {
 			inventory.UpdateInventory();
 			current_stats.UpdateStats();
 			swappable = false;
+			
+			highlight_item.transform.position = waiting.transform.position;
+			highlight_item.transform.parent = null;
+			highlight_equip.transform.position = waiting.transform.position;
+			highlight_equip.transform.parent = null;
+			
+			ReloadDescription();
 		}
 	}
 	

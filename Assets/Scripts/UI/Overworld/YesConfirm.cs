@@ -5,6 +5,8 @@ public class YesConfirm : MonoBehaviour {
 	public string behavior;
 	private ActivateConfirmation active;
 	private FirstLogIn data;
+	public GameObject loading_screen;
+	public GameObject on_screen;
 	
 	void Awake() {
 		behavior = "";
@@ -16,6 +18,7 @@ public class YesConfirm : MonoBehaviour {
 		switch (behavior) {
 			case "LEVEL":
 				active.Reject();
+				loading_screen.transform.position = on_screen.transform.position;
 				Application.LoadLevel(2);
 				break;
 			case "RESET DATA":

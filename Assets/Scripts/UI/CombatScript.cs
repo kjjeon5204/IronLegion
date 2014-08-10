@@ -33,10 +33,12 @@ public class CombatScript : MonoBehaviour {
     public GameObject lowerLeftFrame;
     public GameObject changeTargetButton;
     public GameObject changeTargetText;
+    public ChangeStateText curPlayerState;
 
     public GameObject hpBar;
     public GameObject playerHpBar;
     public GameObject[] energyBar;
+    public GameObject playerDebuffIconHolder;
 
     public GameObject upperRightFrame;
     public GameObject pauseButton;
@@ -45,6 +47,9 @@ public class CombatScript : MonoBehaviour {
     public GameObject enemyDisplay;
     public GameObject enemyDistplayText;
     public GameObject enemyHealthBar;
+    public TextMesh enemyDamage;
+    public TextMesh enemyArmor;
+    public GameObject enemyDebuffIconHolder;
 
     public GameObject resetPlayerPos;
 
@@ -52,7 +57,6 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject targetIndicator;
 
-    public GameObject enemyDebuffIconHolder;
 
 	public GameObject endGameWindow;
 	public EndBattleLogic endGameScript;
@@ -88,6 +92,8 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject[] debuffIcons;
     IList<IconPoolData>[] debuffIconPool;
+
+    IList<IconPoolData>[] debuffIconPoolPlayer;
 
     public GameObject abilityTutorial;
     public GameObject dodgeTutorial;
@@ -268,6 +274,17 @@ public class CombatScript : MonoBehaviour {
 	public void turn_on_combat_ui() {
 		lowerLeftFrame.SetActive(true);
 		lowerRightFrame.SetActive(true);
+
+        if (mainCharacter.isClose == true)
+        {
+            enable_ability_button(closeSkillSlots);
+            disable_ability_button(rangeSkillSlots);
+        }
+        else
+        {
+            enable_ability_button(rangeSkillSlots);
+            disable_ability_button(closeSkillSlots);
+        }
         hpBar.SetActive(true);
         radarDisplay.SetActive(true);
 		upperRightFrame.SetActive(true);
@@ -282,8 +299,6 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-
-
 	}
 
     public void disable_all_icon(Debuff targetDebuffScript)
@@ -299,7 +314,62 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
-    
+
+
+    void modify_player_buff()
+    {
+        Debuff playerDebuffScript = mainCharacter.GetComponent<Debuff>();
+        Vector3 position = Vector3.zero;
+        for (int ctr = 0; ctr < debuffIconPoolPlayer.Length; ctr++)
+        {
+            for (int ctr1 = 0; ctr1 < debuffIconPool[ctr].Count; ctr1++)
+            {
+                debuffIconPoolPlayer[ctr][ctr1].icon.SetActive(false);
+            }
+        }
+        for (int ctr = 0; ctr < playerDebuffScript.numOfActiveDebuff; ctr++)
+        {
+            if (playerDebuffScript.trackDebuff[ctr].buffIconSlot == -1)
+            {
+                int typeAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int buffSlotAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int openSpot = search_available_icon(debuffIconPool[typeAcc]);
+                if (openSpot == -1)
+                {
+                    IconPoolData temp;
+                    temp.icon = (GameObject)Instantiate(debuffIconPoolPlayer[typeAcc][0].icon,
+                        Vector3.zero, Quaternion.identity);
+                    temp.icon.transform.parent = playerDebuffIconHolder.transform;
+                    temp.icon.transform.localPosition = position;
+                    temp.isUse = true;
+                    playerDebuffScript.trackDebuff[ctr].buffIconSlot = debuffIconPool[typeAcc].Count;
+                    debuffIconPoolPlayer[typeAcc].Add(temp);
+                }
+                else
+                {
+                    playerDebuffScript.trackDebuff[typeAcc].buffIconSlot = openSpot;
+                    IconPoolData temp = debuffIconPool[typeAcc][openSpot];
+                    temp.icon.SetActive(true);
+                    temp.isUse = true;
+                    temp.icon.transform.localPosition = position;
+                    debuffIconPool[typeAcc][openSpot] = temp;
+
+                }
+            }
+            else if (playerDebuffScript.trackDebuff[ctr].buffIconSlot != -1)
+            {
+                int typeAcc = playerDebuffScript.trackDebuff[ctr].buffType;
+                int buffSlotAcc = playerDebuffScript.trackDebuff[ctr].buffIconSlot;
+                if (debuffIconPoolPlayer[typeAcc][buffSlotAcc].icon.activeInHierarchy == false)
+                    debuffIconPoolPlayer[typeAcc][buffSlotAcc].icon.SetActive(true);
+                debuffIconPool[typeAcc][buffSlotAcc].icon.SetActive(true);
+                debuffIconPool[typeAcc][buffSlotAcc].icon.transform.localPosition = position;
+            }
+            position.x += 3.0f;
+        }
+    }
+
+
 
     void modify_enemy_buff()
     {
@@ -323,7 +393,8 @@ public class CombatScript : MonoBehaviour {
                 {
                     Debug.Log("Create Debuff Icon");
                     IconPoolData temp;
-                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon, Vector3.zero, Quaternion.identity);
+                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon, 
+                        Vector3.zero, Quaternion.identity);
                     temp.icon.transform.parent = enemyDebuffIconHolder.transform;
                     temp.icon.transform.localPosition = position;
                     temp.isUse = true;
@@ -363,6 +434,7 @@ public class CombatScript : MonoBehaviour {
         RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
         if (hitButton.collider != null)
         {
+            Debug.Log("Button " + hitButton.collider.name + "pressed!");
             //Combat related input
             if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
                 && gamePaused == false)
@@ -421,16 +493,18 @@ public class CombatScript : MonoBehaviour {
                 eventControlScript.unpause_game();
                 gamePaused = false;
             }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && gamePaused == false)
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
+                gamePaused == false)
             {
+                regularAttackShock.activate_button();
                 mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
-                if (pressAbilityButton.is_button_ready() && mainCharacter.player_input_ready())
+                if (pressAbilityButton.is_button_ready())
                 {
                     pressAbilityButton.button_pressed();
                 }
             }
-            else if (hitButton.collider.name == changeTargetButton.name && acc.phase == TouchPhase.Ended
+            else if (hitButton.collider.gameObject == changeTargetButton && acc.phase == TouchPhase.Ended
                      && mainCharacter.player_input_ready() && gamePaused == false)
             {
                 changeTargetShock.activate_button();
@@ -440,7 +514,7 @@ public class CombatScript : MonoBehaviour {
             //*******End battle Inputs*****
             //*****************************
 
-            else if (hitButton.collider.gameObject == retryButton)
+            else if (hitButton.collider.gameObject == retryButton )
             {
                 Application.LoadLevel(2);
             }
@@ -496,6 +570,8 @@ public class CombatScript : MonoBehaviour {
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
                         mainCharacter.switch_hero_state();
+                        curPlayerState.change_state_text("Far");
+
                     }
                     else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
                     {
@@ -504,8 +580,8 @@ public class CombatScript : MonoBehaviour {
                         enable_ability_button(closeSkillSlots);
                         disable_ability_button(rangeSkillSlots);
                         mainCharacter.isClose = true;
-
                         mainCharacter.switch_hero_state();
+                        curPlayerState.change_state_text("Close");
                     }
                 }
             }
@@ -624,6 +700,8 @@ public class CombatScript : MonoBehaviour {
                     enemyHP = 0.0f;
                 //Debug.Log("target hp: " + targetScript.return_cur_stats().baseHp);
                 enemyHealthBar.transform.localScale = new Vector3(enemyHP, 1.0f, 1.0f);
+                enemyArmor.text = "Armor: " + targetScript.return_cur_stats().armor + "%";
+                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().baseDamage;
             }
             skillButtons.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
             changeTargetButton.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);

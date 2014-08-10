@@ -627,6 +627,7 @@ public class EventControls : MonoBehaviour {
         //Check for last wave/win condition
         if (curWave >= waveRunData.Length && mapCleared == false)
         {
+            mapCleared = true;
             Debug.Log("Current wave counter: " + curWave);
             end_battle_win();
             enabled = false;
@@ -676,6 +677,7 @@ public class EventControls : MonoBehaviour {
                     if (waveRunData[curWave].thisStoryEnd != null)
                     {
                         combatScript.turn_off_combat_ui();
+                        playerScript.gameObject.SetActive(false);
                         waveRunData[curWave].thisStoryEnd.gameObject.SetActive(true);
                         waveRunData[curWave].eventRunPhase = true;
                         waveRunData[curWave].waveEnded = true;
@@ -697,6 +699,7 @@ public class EventControls : MonoBehaviour {
                             if (waveRunData[curWave].loadBeforeStory == true)
                             {
                                 combatScript.turn_off_combat_ui();
+                                playerScript.gameObject.SetActive(false);
                                 waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
                                 waveRunData[curWave].eventRunPhase = true;
                                 waveRunData[curWave].storyInitialized = false;
@@ -706,6 +709,7 @@ public class EventControls : MonoBehaviour {
                             {
                                 //wave_ready_phase(waveRunData[curWave]);
                                 combatScript.turn_off_combat_ui();
+                                playerScript.gameObject.SetActive(false);
                                 waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
                                 waveRunData[curWave].eventRunPhase = true;
                                 waveRunData[curWave].storyInitialized = false;

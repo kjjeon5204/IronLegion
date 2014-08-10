@@ -590,7 +590,7 @@ public class MainChar : Character {
         //LexhaustReverse.SetActive(false);
         //RexhaustReverse.SetActive(false);
 
-
+        /*
         //Skill name temporary initialization
         abilityNames = new string[8];
         abilityNames[0] = "GATTLING_GUN";
@@ -602,7 +602,11 @@ public class MainChar : Character {
         abilityNames[5] = "BARRAGE";
         //abilityNames[6] = "AEGIS";
         //abilityNames[7] = "BEAM_CANNON";
+        */
 
+        HeroData myAbilityData = new HeroData();
+        abilityNames = myAbilityData.load_data();
+        
         abilityList = GetComponents<Ability>();
 
         //Ability Dictionary initialization
@@ -699,25 +703,29 @@ public class MainChar : Character {
 			event_checker();
 		}
 
-        
+        float targetDist = 0.0f;
         if ((stateSwitched == true || autoAdjustEnabled == true) && curState == "IDLE" &&
             curState != "PATHING")
         {
             stateSwitched = false;
-            float distanceToMove;
+            autoAdjustEnabled = false;
+            inputReady = false;
+            float distanceToMove = 0.0f;
             if (isClose == true)
             {
-                if (distToTarget < closeDist - 2.0f)
+                if (distToTarget < closeDist)
                 {
+
                     //Move away from target
                     curState = "ADJUSTFAR";
                     phaseCtr = 0;
                     phasePlayed = false;
                     distanceToMove = closeDist - distToTarget;
+                    Debug.Log("Distance to move: " + distanceToMove);
                     movementScript.initialize_movement("BACKWARD", 
                         distanceToMove, 20.0f, Vector3.zero);
                 }
-                if (distToTarget > closeDist + 2.0f)
+                if (distToTarget > closeDist)
                 {
                     curState = "ADJUSTCLOSE";
                     phaseCtr = 0;
@@ -726,10 +734,11 @@ public class MainChar : Character {
                     movementScript.initialize_movement("FORWARD",
                         distanceToMove, 20.0f, Vector3.zero);
                 }
+                targetDist = distanceToMove;
             }
             else
             {
-                if (distToTarget < farDist - 2.0f)
+                if (distToTarget < farDist)
                 {
                     curState = "ADJUSTFAR";
                     phaseCtr = 0;
@@ -738,7 +747,7 @@ public class MainChar : Character {
                     movementScript.initialize_movement("BACKWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
-                if (distToTarget > farDist + 2.0f)
+                if (distToTarget > farDist)
                 {
                     curState = "ADJUSTCLOSE";
                     phaseCtr = 0;
@@ -747,6 +756,7 @@ public class MainChar : Character {
                     movementScript.initialize_movement("FORWARD", distanceToMove, 20.0f, 
                         Vector3.zero);
                 }
+                targetDist = distanceToMove;
             }
             
         }
@@ -811,7 +821,13 @@ public class MainChar : Character {
         {
             inputReady = false;
 
-            if (!movementScript.run_movement())
+            if (!movementScript.run_movement() || 
+                //Close state distance checkers
+                (isClose == true && curState == "ADJUSTFAR" && distToTarget > closeDist) ||
+                (isClose == true && curState == "ADJUSTCLOSE" && distToTarget < closeDist) ||
+                //Far state distance checkers
+                (isClose == false && curState == "ADJUSTFAR" && distToTarget > farDist) ||
+                (isClose == false && curState == "ADJUSTCLOSE" && distToTarget < farDist))
             {
                 curState = "IDLE";
                 curCharacterState = "IDLE";
@@ -863,16 +879,15 @@ public class MainChar : Character {
             if (!abilityDictionary[curState].run_ability())
             {
                 if (curState == "REGULAR_ATTACK1" ||
+                    curState == "REGULAR_ATTACK2" ||
                     curState == "BLUTSAUGER" ||
                     curState == "ENERGY_BLADE" ||
-                    curState == "SHATTTER")
+                    curState == "SHATTER")
                 {
                     autoAdjustEnabled = true;
                 }
                 curState = "IDLE";
             }
-            if (curState != "IDLE")
-                inputReady = abilityDictionary[curState].is_cancellable();
         }
         curCharacterState = curState;
         if (target != null)

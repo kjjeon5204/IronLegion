@@ -45,6 +45,7 @@ public class AbilityPhase
     public bool selfTargetProjectile;
     public bool childEffectToMuzzle;
     public GameObject muzzleEffects;
+    public GameObject hitEffectAutoDeactivate;
     public float radius;
     public GameObject[] effect;
     public bool isCancellable;
@@ -199,6 +200,10 @@ public class Ability : MonoBehaviour {
                     myCharacter.target.GetComponent<Character>().
                         characterDebuffScript.apply_debuff(abilityName, currentPhaseData.targetArmor,
                         0.0f, currentPhaseData.targetArmorDuration , myData.debuffIcon);
+                    if (currentPhaseData.hitEffectAutoDeactivate != null)
+                    {
+                        currentPhaseData.hitEffectAutoDeactivate.SetActive(true);
+                    }
                 }
                 float damageDone = myCharacter.target.GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
                 if (currentPhaseData.hpLeech > 0)
@@ -383,7 +388,7 @@ public class Ability : MonoBehaviour {
     //If ability is not done playing, return true, if ability is done  playing, return false
     public bool run_ability()
     {
-        if (phaseCtr == myData.abilityPhase.Length)
+        if (phaseCtr >= myData.abilityPhase.Length)
         {
             return false;
         }
@@ -429,6 +434,16 @@ public class Ability : MonoBehaviour {
                 turn_effect_off();
                 phaseCtr++;
                 phasePlayed = false;
+            }
+            else if (currentPhaseData.isMoving == true && currentPhaseData.movementDirection == Vector3.forward)
+            {
+                float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
+                if (distToMove < currentPhaseData.distFromTarget / 2.0f)
+                {
+                    turn_effect_off();
+                    phaseCtr++;
+                    phasePlayed = false;
+                }
             }
 
             //animation based condition

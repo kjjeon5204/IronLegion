@@ -29,6 +29,7 @@ public class AbilityData {
 	
 	public AbilityData()
 	{
+
 	}
 	
 	public void save_data() {

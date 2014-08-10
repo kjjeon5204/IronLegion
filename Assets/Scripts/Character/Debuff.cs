@@ -50,6 +50,7 @@ public class Debuff : MonoBehaviour {
             curDebuff.buffType = buffIconType;
             curDebuff.buffIconSlot = -1;
             trackDebuff.Add(curDebuff);
+            Debug.Log("Debuff applied!");
             thisUnit.modify_stat(curDebuff.armorModifier, curDebuff.attackModifier);
         }
         else

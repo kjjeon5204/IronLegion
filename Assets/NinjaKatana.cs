@@ -1,31 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HopliteAI : Character {
+public class NinjaKatana : Character {
 	
 	public enum CurrentStates {
 		IDLE,
 		MOVE,
-		SLASH,
-		SONICCHARGE,
-		COOLDOWN
+		DUALSLASH,
+		OMNISLASH
 	}
 	
 	Ability[] abilityList;
 	CurrentStates currentStates;
 	
 	int randomNum;
-	float globalCD = .5f;
+	float globalCD = 2f;
 	float globalCDTracker;
-
-	float chargeCD = 1.2f;
-	float chargeCDTracker;
-	int chargeCount = 0;
-
+	
 	int attackStack = 3;
 	float moveTime;
 	bool movePhasePlayed;
 	int movePhaseCtr;
+	
 	
 	// Use this for initialization
 	public override void manual_start () {
@@ -37,7 +33,6 @@ public class HopliteAI : Character {
 		currentStates = CurrentStates.IDLE;
 		targetScript = target.GetComponent<MainChar>();
 		globalCDTracker = Time.time + globalCD;
-		chargeCDTracker = Time.time + chargeCD;
 
 		abilityList = GetComponents<Ability>();
 		GetComponent<Movement>().initialize_script();
@@ -46,7 +41,7 @@ public class HopliteAI : Character {
 	
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag != "Boundary" && hit.gameObject.tag != "Projectile"
-		    && hit.gameObject.tag == "Character" && currentStates == CurrentStates.SONICCHARGE) {
+		    && hit.gameObject.tag == "Character" && currentStates == CurrentStates.OMNISLASH) {
 			hit.gameObject.GetComponent<Character>().hit (30);
 		}
 	}
@@ -88,9 +83,8 @@ public class HopliteAI : Character {
 	
 	void move_phase_two(){
 		if (movePhasePlayed == false){
-			animation.Play("move");
-			animation["move"].speed = 3.0f;
-			transform.Translate(Vector3.forward * 2.0f * Time.deltaTime);
+			animation.Play("moveloop");
+			transform.Translate(Vector3.forward * 3.0f * Time.deltaTime);
 			Vector3 movementVector = find_movement_vector();
 			custom_look_at(transform.position + movementVector);
 			if (moveTime < Time.time || movementVector == Vector3.zero) {
@@ -117,31 +111,34 @@ public class HopliteAI : Character {
 			}
 		}
 	}
-	
-	
+
 	// Update is called once per frame
 	public override void manual_update () {
 		//Event Checker
 		if (currentStates == CurrentStates.IDLE && attackStack >= 3) {
-			currentStates = CurrentStates.MOVE;
+			randomNum = Random.Range (1, 101);
+			if (randomNum >= 0 && randomNum <= 20) {  
+				currentStates = CurrentStates.MOVE;
+			}
 		}
 		
 		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time)) {
 			randomNum = Random.Range (1, 101);
-			if (randomNum >= 0 && randomNum < 50) {
-				currentStates = CurrentStates.SLASH;
+			if (randomNum >= 0 && randomNum < 65) {
+				currentStates = CurrentStates.DUALSLASH;
 				abilityList[0].initialize_ability();
 			}
-			else if (randomNum >= 50 && randomNum < 100) {
-				currentStates = CurrentStates.SONICCHARGE;
+			else if (randomNum >= 65 && randomNum < 80) {
+				currentStates = CurrentStates.OMNISLASH;
 				abilityList[1].initialize_ability();
+				curStats.armor = 10000;
 			}
 			attackStack++;
 			Debug.Log(attackStack);
 		}
 		
 		//Event Handler
-		if (currentStates != CurrentStates.MOVE && currentStates != CurrentStates.SONICCHARGE) {
+		if (currentStates != CurrentStates.MOVE && currentStates != CurrentStates.OMNISLASH) {
 			custom_look_at();
 		}
 		else if (currentStates == CurrentStates.MOVE) {
@@ -159,32 +156,18 @@ public class HopliteAI : Character {
 			animation.CrossFade ("idle");
 		}
 		
-		else if (currentStates == CurrentStates.SLASH) {
+		else if (currentStates == CurrentStates.DUALSLASH) {
 			if (!abilityList[0].run_ability()) {
 				currentStates = CurrentStates.IDLE;
 				globalCDTracker = Time.time + globalCD;
 			}
 		}
 		
-		else if (currentStates == CurrentStates.SONICCHARGE) {
-			if (chargeCount < 2) {
-				if (!abilityList[1].run_ability ()) {
-					currentStates = CurrentStates.COOLDOWN;
-					chargeCount++;
-					chargeCDTracker = Time.time + chargeCD;
-				}
-			}
-			else {
-				chargeCount = 0;
+		else if (currentStates == CurrentStates.OMNISLASH) {
+			if (!abilityList[1].run_ability ()) {
 				currentStates = CurrentStates.IDLE;
+				curStats.armor = baseStats.armor;
 				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.COOLDOWN) {
-			animation.CrossFade("idle");
-			if (chargeCDTracker < Time.time) {
-				currentStates = CurrentStates.SONICCHARGE;
-				abilityList[1].initialize_ability ();
 			}
 		}
 	}

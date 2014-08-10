@@ -59,16 +59,19 @@ public class AbilityControls : MonoBehaviour {
 		description.UpdateDescription();
 	}
 	
-	public void SlotClicked(int index) {
-		bool switched = hero.SetAbility(index,saved_id);
-		if (saved_id != -1 && !switched)
+	public void SlotClicked(int index, bool close) {
+		if ((saved_id < 100 && saved_id >= 0 && close) || (saved_id >= 100 && !close))
 		{
-			//Tell person not good slot
-		}
-		else if (saved_id != -1)
-		{
-			hero.save_data();
-			UpdateSlots();
+			bool switched = hero.SetAbility(index,saved_id);
+			if (saved_id != -1 && !switched)
+			{
+				//Tell person not good slot
+			}
+			else if (saved_id != -1)
+			{
+				hero.save_data();
+				UpdateSlots();
+			}
 		}
 	}
 	

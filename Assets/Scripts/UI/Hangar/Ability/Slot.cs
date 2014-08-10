@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour {
 	
 	private AbilityControls controls;
 	private int slot_index;
+	public bool close;
 	// Use this for initialization
 	
 	void Awake() {
@@ -34,7 +35,7 @@ public class Slot : MonoBehaviour {
 	}
 	
 	void Clicked() {
-		controls.SlotClicked(slot_index);
+		controls.SlotClicked(slot_index,close);
 	}
 	
 	public void UpdateImage() {

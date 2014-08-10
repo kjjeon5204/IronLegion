@@ -10,6 +10,9 @@ public class DisplayCurrentStats : MonoBehaviour {
 	private HeroStats hero;
 	private Stats item_stats;
 	
+	public GameObject[] equipped_slots;
+	private Item item_to_add;
+	
 	private float level;
 	private float cur_xp;
 	private float tot_xp;
@@ -42,21 +45,36 @@ public class DisplayCurrentStats : MonoBehaviour {
 	}
 	
 	public void UpdateStats() {
+	
 		hero_stats = hero_info.get_player_stat_all();
 		item_stats = stat_controller.stats;
-		
-		if (armor != item_stats.item_armor)
-		Debug.Log("Stuff changed");
 		
 		level = hero_stats.level;
 		cur_xp = hero_stats.curExp;
 		tot_xp = hero_stats.totalExp;
-		hp = hero_stats.baseHp+item_stats.item_hp;
+		/*hp = hero_stats.baseHp+item_stats.item_hp;
 		armor = item_stats.item_armor;
 		damage = hero_stats.item_damage+item_stats.item_damage;
 		energy = hero_stats.item_energy + item_stats.item_energy;
 		penetration = item_stats.item_penetration;
-		luck = item_stats.item_luck;
+		luck = item_stats.item_luck;*/
+		hp = hero_stats.baseHp;
+		armor = 0;
+		damage = hero_stats.item_damage;
+		energy = hero_stats.item_energy;
+		penetration = 0;
+		luck = 0;
+		
+		for (int i = 0; i < 5; i++)
+		{
+			item_to_add = equipped_slots[i].GetComponentInChildren<Item>();
+			hp += item_to_add.hp;
+			armor += item_to_add.armor;
+			damage += item_to_add.damage;
+			energy += item_to_add.energy;
+			penetration += item_to_add.penetration;
+			luck += item_to_add.luck;
+		}
 		
 		UpdateImage();
 	}

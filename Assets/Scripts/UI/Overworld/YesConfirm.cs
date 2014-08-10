@@ -17,8 +17,8 @@ public class YesConfirm : MonoBehaviour {
 	void Clicked() {
 		switch (behavior) {
 			case "LEVEL":
-				active.Reject();
 				loading_screen.transform.position = on_screen.transform.position;
+				active.Reject();
 				Application.LoadLevel(2);
 				break;
 			case "RESET DATA":
@@ -26,6 +26,7 @@ public class YesConfirm : MonoBehaviour {
 				break;
 			case "RESET DATA CONFIRM":
 				data.reset_data();
+				loading_screen.transform.position = on_screen.transform.position;
 				Application.LoadLevel(Application.loadedLevelName);
 				break;
 			default:

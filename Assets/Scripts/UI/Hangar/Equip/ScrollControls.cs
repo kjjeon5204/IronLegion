@@ -13,7 +13,7 @@ public class ScrollControls : MonoBehaviour {
 	public float scroll_speed;
 	private float scrollbar_offset = 1.85f;
 	private Vector3 speed;
-	
+	public bool clicking;
 	void Awake() {
 		speed = new Vector3(0,scroll_speed,0);
 	}
@@ -32,14 +32,17 @@ public class ScrollControls : MonoBehaviour {
 		{
 			slider.transform.position = new Vector3(slider.transform.position.x,new_position.y,slider.transform.position.z);
 		}
+		clicking = true;
 	}
 	
 	void EndClick() {
 		slider.transform.position = gameObject.transform.position;
+		clicking = false;
 	}
 	
 	void CanceledClick() {
 		slider.transform.position = gameObject.transform.position;
+		clicking = false;
 	}
 	//------------------------------------------
 	void Update() {
@@ -48,15 +51,22 @@ public class ScrollControls : MonoBehaviour {
 		{
 			ScrollBox(percentage);
 		}
+		if (!clicking)
+		{
+			slider.transform.position = gameObject.transform.position;
+		}
 	}
 	//------------------------------------------
 	public void ScrollBox(float per) {
+		Debug.Log("Scrolling: "+per);
 		if (per  > 0 && inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
 		{
+			Debug.Log(inventory_top.transform.position.y);
+			Debug.Log(inventory_top_bound.transform.position.y);
 			//Things to scroll
-			inventory_top.transform.position += speed*(per*Time.deltaTime);
+			inventory_top.transform.position -= speed*(per*Time.deltaTime);
 		}
-		else if (inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
+		else if (per < 0 && inventory_bot.transform.position.y < inventory_bot_bound.transform.position.y)
 		{
 			//Things to scroll
 			inventory_top.transform.position -= speed*(per*Time.deltaTime);

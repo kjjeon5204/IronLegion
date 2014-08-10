@@ -168,11 +168,7 @@ public class MainChar : Character {
 
     public void get_next_target()
     {
-        if (worldScript.is_win())
-        {
-            Destroy(target);
-            return;
-        }
+        
         if (enemyList.Length == 0) {
             return;
         }
@@ -657,11 +653,12 @@ public class MainChar : Character {
     // Update is called once per frame
     public override void manual_update()
     {
+		/*
         if (worldScript.is_win())
         {
             return;
         }
-
+		*/
         float distToTarget = 0;
         
         if (targetScript != null && curState != "PATHING")

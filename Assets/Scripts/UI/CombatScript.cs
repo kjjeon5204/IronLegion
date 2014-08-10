@@ -111,6 +111,8 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject loadingScreen;
 
+    public TextMesh frameRateDisplay;
+
     public void activate_low_energy()
     {
         lowEnergyWarning.SetActive(true);
@@ -455,6 +457,14 @@ public class CombatScript : MonoBehaviour {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
                         {
                             mainCharacter.curState = "REGULAR_ATTACK2";
+                            mainCharacter.regAttackCtr = 2;
+                        }
+                    }
+                    else if (mainCharacter.regAttackCtr == 2 && mainCharacter.isClose == true)
+                    {
+                        if (mainCharacter.abilityDictionary["REGULAR_ATTACK3"].initialize_ability())
+                        {
+                            mainCharacter.curState = "REGULAR_ATTACK3";
                             mainCharacter.regAttackCtr = 0;
                         }
                     }
@@ -629,7 +639,7 @@ public class CombatScript : MonoBehaviour {
         textModifier.initialize_text("Change\nTarget");
 
         //Change hp bar size&place
-        uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.15f);
+        uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.135f);
         texture_resize(hpBar, uiButtonSize);
 
 
@@ -721,5 +731,9 @@ public class CombatScript : MonoBehaviour {
             if (mainCharacter.target != null)
                 modify_enemy_buff();
         }
+
+        int frameRate = (int)(1.0f / Time.deltaTime);
+        Debug.Log("Framerate: " + Time.deltaTime);
+        frameRateDisplay.text = "Framerate: " + frameRate.ToString();
 	}
 }

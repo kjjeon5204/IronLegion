@@ -202,6 +202,14 @@ public class MainChar : Character {
         }
     }
 
+    public void cancel_player_ability()
+    {
+        if (abilityDictionary.ContainsKey(curState))
+        {
+            abilityDictionary[curState].cancel_ability();
+        }
+    }
+
     public void reset_player_pos()
     {
         transform.position = initialPos;
@@ -375,7 +383,7 @@ public class MainChar : Character {
     //Temporary debug functions
     void temp_input()
     {
-        turn_off_effect();
+        //turn_off_effect();
         if (Input.GetKeyDown(KeyCode.Space) && curState != "PATHING")
         { 
             get_next_target();
@@ -494,6 +502,14 @@ public class MainChar : Character {
                 if (abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
                 {
                     curState = "REGULAR_ATTACK2";
+                    regAttackCtr = 2;
+                }
+            }
+            else if (regAttackCtr == 2 && isClose == true)
+            {
+                if (abilityDictionary["REGULAR_ATTACK3"].initialize_ability())
+                {
+                    curState = "REGULAR_ATTACK3";
                     regAttackCtr = 0;
                 }
             }
@@ -880,6 +896,7 @@ public class MainChar : Character {
             {
                 if (curState == "REGULAR_ATTACK1" ||
                     curState == "REGULAR_ATTACK2" ||
+                    curState == "REGULAR_ATTACK3" ||
                     curState == "BLUTSAUGER" ||
                     curState == "ENERGY_BLADE" ||
                     curState == "SHATTER")
@@ -888,6 +905,8 @@ public class MainChar : Character {
                 }
                 curState = "IDLE";
             }
+            if (curState != "IDLE")
+                inputReady = abilityDictionary[curState].is_cancellable();
         }
         curCharacterState = curState;
         if (target != null)

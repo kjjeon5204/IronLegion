@@ -293,7 +293,7 @@ public class TutorialCutScene : BattleStory
         foreach (TextMesh uiText in uiTexts)
         {
             Color tempStore = uiText.color;
-            tempStore.a = 0.5f;
+            tempStore.a = 0.0f;
             uiText.color = tempStore;
         }
     }

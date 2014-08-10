@@ -22,8 +22,10 @@ public class ItemControls : MonoBehaviour {
 	private GameObject[] equipped;
 	private Item[] equipped_item;
 	private string[] ids;
-	private Stats stats;
+	public Stats stats;
 	private InventorySlot[] inventory_slots;
+	
+	public GameObject inventory_end;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
@@ -51,9 +53,6 @@ public class ItemControls : MonoBehaviour {
 		stats = hero.get_current_stats();
 		StartEquipped();
 		StartInventory();
-	}
-	
-	void Update() {
 	}
 	
 	void StartInventory() {
@@ -114,6 +113,8 @@ public class ItemControls : MonoBehaviour {
 			current_slot.transform.parent = gameObject.transform;
 			current_slot.transform.localScale = new Vector3(1f,1f,1f);
 			current_slot_script = current_slot.GetComponent<InventorySlot>();
+			//Place inventory_end at the last slot position for space determining
+			inventory_end.transform.position = position + Vector3.down;
 			if (i < num_of_items)
 			{
 				current_slot_script.SetItem(inventory.items[i], itemLibrary[inventory.items[i]], i);

@@ -11,6 +11,14 @@ public class FakeControls : MonoBehaviour {
 	private /*ActivateAbilities*/ GameObject abilities;
 	private /*ActivateAllies*/ GameObject allies;
 	GameObject tile_stuff;
+	
+	
+	public GameObject alpha_1;
+	public GameObject alpha_2;
+	public GameObject alpha_3;
+	public GameObject alpha_4;
+	
+	public GameObject dialogue;
 	// Use this for initialization
 	void Start () {
 		id = 100;
@@ -59,6 +67,7 @@ public class FakeControls : MonoBehaviour {
 		{
 			map.ChangeCameraPosition(Vector2.up);
 		}*/
+		/*
 		if (Input.GetKeyDown(KeyCode.O))
 		{
 			dialogue_check--;
@@ -89,7 +98,31 @@ public class FakeControls : MonoBehaviour {
 			
 			tile_stuff.SendMessage("Clicked");
 			//map.ChangeCameraPosition(-1*Vector2.right);
+		}*/
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			dialogue.SendMessage("Clicked");
 		}
 		
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			Debug.Log(1);
+			alpha_1.SendMessage("Clicked");
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			Debug.Log(2);
+			alpha_2.SendMessage("Clicked");
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			Debug.Log(3);
+			alpha_3.SendMessage("Clicked");
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			Debug.Log(4);
+			alpha_4.SendMessage("Clicked");
+		}
 	}
 }

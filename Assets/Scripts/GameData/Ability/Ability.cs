@@ -45,9 +45,11 @@ public class AbilityPhase
     public bool selfTargetProjectile;
     public bool childEffectToMuzzle;
     public GameObject muzzleEffects;
+    public GameObject hitEffectAutoDeactivate;
     public float radius;
     public GameObject[] effect;
     public bool isCancellable;
+    public AudioSource phaseSound;
 
     //**ONLY USED BY MAIN CHARACTER
     public bool isMoving;
@@ -198,6 +200,10 @@ public class Ability : MonoBehaviour {
                     myCharacter.target.GetComponent<Character>().
                         characterDebuffScript.apply_debuff(abilityName, currentPhaseData.targetArmor,
                         0.0f, currentPhaseData.targetArmorDuration , myData.debuffIcon);
+                    if (currentPhaseData.hitEffectAutoDeactivate != null)
+                    {
+                        currentPhaseData.hitEffectAutoDeactivate.SetActive(true);
+                    }
                 }
                 float damageDone = myCharacter.target.GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
                 if (currentPhaseData.hpLeech > 0)
@@ -262,29 +268,7 @@ public class Ability : MonoBehaviour {
 					else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
-			/*
-			else if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.PROJECTILE_AOE_CONE) {
-				foreach (GameObject curMuzzle in currentPhaseData.muzzle) {
-					GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
-				                      		   	curMuzzle.transform.position, curMuzzle.transform.rotation);
-					MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
-
-					//Get target
-					while (myCharacter.targets[currentTarget] == null ||
-				       	(myCharacter.targets[currentTarget] != null && 
-				       	!check_within_cone(myCharacter.targets[currentTarget]))) {
-						currentTarget++;
-						if (currentTarget >= myCharacter.targets.animationLength) {
-							currentTarget = 0;
-						}
-					}
-
-					//t
-					projectileScript.set_projectile(myCharacter.targets[currentTarget], gameObject, 
-					                                calc_damage(currentPhaseData.targetDam));
-				}
-			}
-			*/
+			
             else
             {
                 if (currentPhaseData.targetDam > 0.0f)
@@ -336,6 +320,8 @@ public class Ability : MonoBehaviour {
                 curEffect.SetActive(false);
             }
         }
+        if (currentPhaseData.phaseSound != null)
+            currentPhaseData.phaseSound.Stop();
     }
     
     float calculate_distance(Transform object1, Transform object2)
@@ -389,12 +375,20 @@ public class Ability : MonoBehaviour {
         return true;
     }
 
+    public void sound_parser()
+    {
+        if (currentPhaseData.phaseSound != null)
+        {
+            currentPhaseData.phaseSound.Play();
+        }
+    }
+
 
 
     //If ability is not done playing, return true, if ability is done  playing, return false
     public bool run_ability()
     {
-        if (phaseCtr == myData.abilityPhase.Length)
+        if (phaseCtr >= myData.abilityPhase.Length)
         {
             return false;
         }
@@ -417,6 +411,8 @@ public class Ability : MonoBehaviour {
                 movement_parser();
             }
 
+            sound_parser();
+
             phasePlayed = true;
             return true;
         }
@@ -438,6 +434,16 @@ public class Ability : MonoBehaviour {
                 turn_effect_off();
                 phaseCtr++;
                 phasePlayed = false;
+            }
+            else if (currentPhaseData.isMoving == true && currentPhaseData.movementDirection == Vector3.forward)
+            {
+                float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
+                if (distToMove < currentPhaseData.distFromTarget / 2.0f)
+                {
+                    turn_effect_off();
+                    phaseCtr++;
+                    phasePlayed = false;
+                }
             }
 
             //animation based condition

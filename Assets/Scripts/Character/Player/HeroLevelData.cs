@@ -104,7 +104,7 @@ public class HeroLevelData : MonoBehaviour {
 		baseStats.equipment = null;
 		baseStats.item_hp = 0;
 		baseStats.item_armor = 0f;
-		baseStats.item_damage = 0f;
+		baseStats.item_damage = levelData[playerLevel - 1].damage;
 		baseStats.item_penetration = 0.0f;
 		baseStats.item_luck = 0.0f;
 		return baseStats;

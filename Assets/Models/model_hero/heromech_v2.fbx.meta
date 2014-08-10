@@ -10462,7 +10462,7 @@ ModelImporter:
       name: impalestart
       takeName: Take 001
       firstFrame: 600
-      lastFrame: 606
+      lastFrame: 607
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -10704,7 +10704,7 @@ ModelImporter:
       name: impalefire
       takeName: Take 001
       firstFrame: 607
-      lastFrame: 609
+      lastFrame: 610
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

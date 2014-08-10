@@ -79,6 +79,7 @@ public class Character : MonoBehaviour
     public bool modifyPath = false;
 
     bool enemyReady = false;
+    public bool landCraftActive;
 
 
     protected int initLevel;
@@ -454,7 +455,7 @@ public class Character : MonoBehaviour
                 curStats.baseHp -= (int)damageDone;
 
                 if (detonatorFlinch != null)
-                    Instantiate(detonatorFlinch, transform.position, Quaternion.identity);
+                    Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
 
                 if (hitAnimation != null)
                 {
@@ -507,8 +508,8 @@ public class Character : MonoBehaviour
 
     public void modify_stat(float armorMod, float attackMod)
     {
-        baseStats.armor += armorMod;
-        baseStats.baseDamage += attackMod;
+        curStats.armor += armorMod;
+        curStats.baseDamage += attackMod;
     }
 
 	/*Returns true when object is ready to be destroyed*/
@@ -536,7 +537,13 @@ public class Character : MonoBehaviour
         }
         if (dropShipScript != null)
         {
-            dropShipScript.position_in_the_air();
+            if (landCraftActive == true)
+                dropShipScript.position_in_the_air();
+            else
+            {
+                unit_successfully_landed();
+                Destroy(dropShipScript.gameObject);
+            }
         }
         else
         {
@@ -562,5 +569,8 @@ public class Character : MonoBehaviour
 	public virtual void manual_update() {
     }
 
+    public virtual void precombat_phase()
+    {
 
+    }
 }

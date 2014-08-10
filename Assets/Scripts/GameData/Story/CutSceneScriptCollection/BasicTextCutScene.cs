@@ -18,6 +18,12 @@ public class BasicTextCutScene : BattleStory {
     public GameObject cutSceneDialogueObject;
     CombatDialogue cutSceneDialogue;
 
+
+
+
+
+    UIStringModifier textModifier;
+
     int dialogueCtr;
 
 
@@ -39,15 +45,14 @@ public class BasicTextCutScene : BattleStory {
 
 
 
-
 	// Use this for initialization
 	public override void manual_start () {
         base.manual_start();
         cutSceneCam = cutSceneCamObject.GetComponent<Camera>();
-        Rect dialogueBoxSize = new Rect(0.2f, 0.75f, 0.6f, 0.25f);
+        Rect dialogueBoxSize = new Rect(0.1f, 0.76f, 0.8f, 0.24f);
         texture_resize(cutSceneDialogueBoxObject, dialogueBoxSize);
 
-       
+        
 
         //get dialogue text mesh
         cutSceneDialogueText = cutSceneDialogueTextObject.GetComponent<TextMesh>();
@@ -63,7 +68,21 @@ public class BasicTextCutScene : BattleStory {
         dialogueCtr = 0;
         get_next_text();
 
+
+
+
 	}
+
+    
+    void disable_dialogue()
+    {
+        cutSceneDialogueBoxObject.SetActive(false);
+    }
+
+    void enable_dialogu()
+    {
+        cutSceneDialogueBoxObject.SetActive(true);
+    }
 
     //true successful
     //false no dialogue remaining
@@ -83,6 +102,7 @@ public class BasicTextCutScene : BattleStory {
         }
 
     }
+
 
     // Update is called once per frame
     public override bool manual_update()

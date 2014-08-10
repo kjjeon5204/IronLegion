@@ -3,10 +3,12 @@ using System.Collections;
 
 public class DisplayCurrentStats : MonoBehaviour {
 	
+	public ItemControls stat_controller;
+	
 	public HeroLevelData hero_info;
 	private Stats hero_stats;
 	private HeroStats hero;
-	private PlayerStat item_stats;
+	private Stats item_stats;
 	
 	private float level;
 	private float cur_xp;
@@ -41,15 +43,17 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	public void UpdateStats() {
 		hero_stats = hero_info.get_player_stat_all();
-		hero.load_data();
-		item_stats = hero.get_item_stats();
+		item_stats = stat_controller.stats;
+		
+		if (armor != item_stats.item_armor)
+		Debug.Log("Stuff changed");
 		
 		level = hero_stats.level;
 		cur_xp = hero_stats.curExp;
 		tot_xp = hero_stats.totalExp;
 		hp = hero_stats.baseHp+item_stats.item_hp;
 		armor = item_stats.item_armor;
-		damage = item_stats.item_damage;
+		damage = hero_stats.item_damage+item_stats.item_damage;
 		energy = hero_stats.item_energy + item_stats.item_energy;
 		penetration = item_stats.item_penetration;
 		luck = item_stats.item_luck;
@@ -63,7 +67,10 @@ public class DisplayCurrentStats : MonoBehaviour {
 		exp_indicator.text = (int)cur_xp + "<b>/</b>" + (int)tot_xp;
 		level_indicator.text = "<b><color=lime>Level: </color></b>" + (int)level;
 		hp_indicator.text = "<b><color=lime>HP: </color></b>" + (int)hp;
+		if (armor >= 0)
 		armor_indicator.text = "<b><color=lime>Armor: </color></b>" + (int)armor;
+		else
+		armor_indicator.text = "<b><color=lime>Armor: </color></b>0";
 		damage_indicator.text = "<b><color=lime>Damage: </color></b>" + (int)damage;
 		energy_indicator.text = "<b><color=lime>Energy: </color></b>" + (int)energy;
 		penetration_indicator.text = "<b><color=lime>Penetration: </color></b>" + (int)penetration;

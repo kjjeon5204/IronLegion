@@ -20,7 +20,7 @@ public class EquippedSlot : MonoBehaviour {
 		bool isClicked = false;
 		foreach (Transform child in transform)
 		{
-			if (child.name == "InventoryHighlight")
+			if (child.name == "EquipHighlight")
 			{
 				isClicked = true;
 			}
@@ -47,6 +47,7 @@ public class EquippedSlot : MonoBehaviour {
 	public void SetItem(string id, GameObject item,Item.ItemType type) {
 		foreach (Transform child in transform)
 		{
+			if (child.name != "Title" && child.name != "EquipHighlight")
 			GameObject.Destroy(child.gameObject);
 		}
 		item_id = id;

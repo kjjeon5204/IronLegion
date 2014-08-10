@@ -28,6 +28,7 @@ public class AbilityButton : MonoBehaviour {
     public float curCoolDown;
 
     //Skill description
+    public GameObject skillDescriptionBox;
     public GameObject skillText;
 
     //Event Control
@@ -36,6 +37,9 @@ public class AbilityButton : MonoBehaviour {
 
     //Player
     MainChar mainPlayer;
+
+
+    public ShockWaveControl touchDetector;
 
 
     public GameObject coolDownBar;
@@ -67,7 +71,7 @@ public class AbilityButton : MonoBehaviour {
     public void initialize_button(string abilityName, float inMaxCoolDown, float inCurCoolDown)
     {
         TextMesh textAcc = skillText.GetComponent<TextMesh>();
-        if (abilityName != null)
+        if (abilityName != null || abilityName != "NONE")
         {
             
             initialRotation = coolDownBar.transform.rotation;
@@ -88,7 +92,8 @@ public class AbilityButton : MonoBehaviour {
         }
         else
         {
-            textAcc.text = "No Ability";
+            //textAcc.text = "No Ability";
+            skillDescriptionBox.SetActive(false);
             coolDownBar.SetActive(false);
             noAbility = true;
         }
@@ -98,19 +103,22 @@ public class AbilityButton : MonoBehaviour {
 
     public bool is_button_ready()
     {
-        if (curCoolDown == 0.0f)
+        if (curCoolDown <= 0.0f)
         {
             return true;
         }
         return false;
     }
 
-    public void button_pressed()
+    public string button_pressed()
     {
         mainPlayer.curState = thisButtonInfo.skillName;
         mainPlayer.abilityDictionary[thisButtonInfo.skillName].initialize_ability();
         curRenderer.sprite = thisButtonInfo.buttonDown;
         curCoolDown = maxCoolDown;
+        if (touchDetector != null)
+            touchDetector.activate_button();
+        return thisButtonInfo.skillName;
     }
     
 	// Use this for initialization

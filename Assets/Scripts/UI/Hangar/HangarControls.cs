@@ -5,17 +5,17 @@ public class HangarControls : MonoBehaviour {
 
 	private ClickSpriteCONFIRM.Clicked clicked_object;
 	private bool clicking;
+	private bool scrolling;
 	private ClickSpriteCONFIRM click;
 	
-	private GameObject frameOnScreen;
-	private GameObject waiting;
-	private Vector3 onScreen;
+	public GameObject frameOnScreen;
+	public GameObject waiting;
+	public GameObject onScreen;
+	
+	public ScrollControls inventory_scrolling;
 	
 	void Start () {
-		waiting = GameObject.Find("WaitingArea");
-		onScreen = GameObject.Find("OnScreen").transform.position;
 		click = GetComponent<ClickSpriteCONFIRM>();
-		frameOnScreen = GameObject.Find("Blank");
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,12 @@ public class HangarControls : MonoBehaviour {
 			{
 			case TouchPhase.Began:
 				clicked_object = click.Click(touches[0].position);
-				if (clicked_object.isClicked)
+				if (clicked_object.isClicked && clicked_object.clicked_object.name == "Scrollbar")
+				{
+					inventory_scrolling.Input(touches[0].position);
+					scrolling = true;
+				}
+				else if (clicked_object.isClicked)
 				{
 					clicked_object.clicked_object.SendMessage("BeginClick",SendMessageOptions.DontRequireReceiver);
 					clicking = true;
@@ -39,26 +44,45 @@ public class HangarControls : MonoBehaviour {
 				break;
 			case TouchPhase.Moved:
 			case TouchPhase.Stationary:
-				if (clicking && clicked_object.clicked_object.name != click.Click(touches[0].position).clicked_object.name)
+				if (scrolling && click.Click(touches[0].position).clicked_object.name == "Scrollbar")
+				{
+					inventory_scrolling.Input(touches[0].position);
+				}
+				else if (!scrolling && clicked_object.clicked_object.name == "Scrollbar")
+				{
+					clicked_object.clicked_object.SendMessage("CanceledClick",SendMessageOptions.DontRequireReceiver);
+					scrolling = false;
+				}
+				else if (clicking && clicked_object.clicked_object.name != click.Click(touches[0].position).clicked_object.name)
 				{
 					clicked_object.clicked_object.SendMessage("CanceledClick",SendMessageOptions.DontRequireReceiver);
 					clicking = false;
 				}
 				else if (!clicking)
 				{
+					scrolling = false;
 				}
 				break;
 			case TouchPhase.Ended:
-				if (clicking && clicked_object.clicked_object == click.Click(touches[0].position).clicked_object)
+				if (scrolling  && clicked_object.clicked_object.name == "Scrollbar")
+				{
+					clicked_object.clicked_object.SendMessage("EndClick",SendMessageOptions.DontRequireReceiver);
+					scrolling = false;
+				}
+				else if (clicking && clicked_object.clicked_object == click.Click(touches[0].position).clicked_object)
 				{
 					clicked_object.clicked_object.SendMessage("EndClick",SendMessageOptions.DontRequireReceiver);
 					clicking = false;
 				}
 				else if (!clicking) 
 				{
+					scrolling = false;
 				}
 				else
+				{
+					scrolling = false;
 					clicking = false;
+				}
 				break;
 			default:
 				break;
@@ -68,7 +92,7 @@ public class HangarControls : MonoBehaviour {
 	
 	public void SetObjectOnScreen(GameObject obj) {
 		frameOnScreen = obj;
-		obj.transform.position = onScreen;
+		obj.transform.position = onScreen.transform.position;
 		Debug.Log(frameOnScreen);
 	}
 	

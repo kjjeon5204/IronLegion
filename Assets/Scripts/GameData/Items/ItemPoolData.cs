@@ -36,7 +36,7 @@ public class ItemPoolData : MonoBehaviour {
 		int rarePoll = uncommonPoll + (int)(1000.0f * itemData[tierAcc].itemTypePool[2].dropRatio);
 		int legendaryPoll = rarePoll + (int)(1000.0f * itemData[tierAcc].itemTypePool[3].dropRatio);
 
-		int curPoll = Random.Range (0, 100001);
+		int curPoll = Random.Range (0 + luck * 1000, 100001);
 
 		if (curPoll < commonPoll) {//common
 			if (itemData[tierAcc].itemTypePool[0].itemsData.Length == 0) 

@@ -124,6 +124,7 @@ ModelImporter:
     7400110: sonicsmashfire
     7400112: sonicbladeend
     7400114: death
+    7400116: spinattackstart
     9500000: //RootNode
     11100000: //RootNode
     13700000: body
@@ -4194,7 +4195,7 @@ ModelImporter:
     - serializedVersion: 16
       name: kickfire
       takeName: Take 001
-      firstFrame: 111
+      firstFrame: 1110
       lastFrame: 1115
       wrapMode: 0
       orientationOffsetY: 0

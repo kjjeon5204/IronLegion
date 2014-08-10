@@ -365,9 +365,11 @@ public class ai : Character {
 		{
 			for (int i =0 ; i < attackForms[numOfAtt].attphases[phase].eff.Length; i ++)
 			{
-				GameObject tempObject = (GameObject)Instantiate(attackForms[numOfAtt].attphases[phase].eff[i].gunEffect, attackForms[numOfAtt].attphases[phase].eff[i].muzzle.transform.position,
+				if (attackForms[numOfAtt].attphases[phase].eff[i].gunEffect != null) {
+					GameObject tempObject = (GameObject)Instantiate(attackForms[numOfAtt].attphases[phase].eff[i].gunEffect, attackForms[numOfAtt].attphases[phase].eff[i].muzzle.transform.position,
 				            attackForms[numOfAtt].attphases[phase].eff[i].muzzle.transform.rotation);
-				tempObject.transform.parent = null;
+					tempObject.transform.parent = null;
+				}
 			}
 			effectDone = true;
 		}

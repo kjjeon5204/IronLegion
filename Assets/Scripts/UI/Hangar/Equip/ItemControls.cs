@@ -22,7 +22,7 @@ public class ItemControls : MonoBehaviour {
 	private GameObject[] equipped;
 	private Item[] equipped_item;
 	private string[] ids;
-	private Stats stats;
+	public Stats stats;
 	private InventorySlot[] inventory_slots;
 	
 	public GameObject inventory_end;

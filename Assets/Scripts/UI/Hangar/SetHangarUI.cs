@@ -3,32 +3,23 @@ using System.Collections;
 
 public class SetHangarUI : MonoBehaviour {
 	
-	GameObject hangarsign;
-	GameObject exit;
-	GameObject equip;
-	GameObject abilities;
-	GameObject armory;
-	GameObject allies;
-	GameObject equipwindow;
-	GameObject decoration;
-	GameObject on_screen;
+	public GameObject hangarsign;
+	public GameObject exit;
+	public GameObject equip;
+	public GameObject abilities;
+	public GameObject armory;
+	public GameObject allies;
+	public GameObject equipwindow;
+	public GameObject decoration;
+	public GameObject on_screen;
 	
-	Camera camera;
-	public float zValue = 10f;
+	public Camera camera;
+	public float zValue;
 	// Use this for initialization
+	
+	private PlayerDataReader tutorial_data;
 	void Awake () {
-		exit = GameObject.Find("Exit");
-		hangarsign = GameObject.Find("Hangar");
-		equip = GameObject.Find("Equip");
-		abilities = GameObject.Find("Abilities");
-		armory = GameObject.Find("Armory");
-		allies = GameObject.Find ("Allies");
-		equipwindow = GameObject.Find ("EquipWindow");
-		decoration = GameObject.Find("Decoration");
-		on_screen = GameObject.Find("OnScreen");
 		zValue = 10f;
-		
-		camera = GameObject.Find("Main Camera").GetComponent<Camera>();
 		
 		Vector3 positionExit = camera.ViewportToWorldPoint(new Vector3(1f,0f,zValue));
 		exit.transform.position = positionExit;
@@ -42,17 +33,34 @@ public class SetHangarUI : MonoBehaviour {
 		Vector3 positionAbilities = equip.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
 		abilities.transform.position = positionAbilities;
 		
-		Vector3 positionArmory = abilities.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
-		armory.transform.position = positionArmory;
-		
-		Vector3 positionAllies = armory.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
-		allies.transform.position = positionAllies;
-		
 		Vector3 positionWindow = camera.ViewportToWorldPoint(new Vector3 (.5f, .48f, zValue));
 		equipwindow.transform.position = positionWindow;
 		on_screen.transform.position = equipwindow.transform.position;
 		
 		decoration.transform.position = camera.ViewportToWorldPoint(new Vector3(1f,1f,zValue));
 		
+	}
+	
+	void Start() {
+		tutorial_data = new PlayerDataReader();
+		
+		if (tutorial_data.check_event_played("hangar_second"))
+		{
+			ActivateAllies();
+		}
+		if (tutorial_data.check_event_played("store"))
+		{
+			ActivateArmory();
+		}
+	}
+	
+	public void ActivateArmory() {
+		Vector3 positionArmory = allies.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
+		armory.transform.position = positionArmory;
+	}
+	
+	public void ActivateAllies() {
+		Vector3 positionAllies = abilities.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
+		allies.transform.position = positionAllies;
 	}
 }

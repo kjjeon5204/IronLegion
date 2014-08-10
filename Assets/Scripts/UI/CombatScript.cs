@@ -731,9 +731,10 @@ public class CombatScript : MonoBehaviour {
             if (mainCharacter.target != null)
                 modify_enemy_buff();
         }
-
-        int frameRate = (int)(1.0f / Time.deltaTime);
-        Debug.Log("Framerate: " + Time.deltaTime);
-        frameRateDisplay.text = "Framerate: " + frameRate.ToString();
+		if (frameRateDisplay != null) {
+        	int frameRate = (int)(1.0f / Time.deltaTime);
+        	Debug.Log("Framerate: " + Time.deltaTime);
+        	frameRateDisplay.text = "Framerate: " + frameRate.ToString();
+		}
 	}
 }

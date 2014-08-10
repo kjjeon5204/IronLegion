@@ -48,8 +48,8 @@ public class BasicTextCutScene : BattleStory {
 	// Use this for initialization
 	public override void manual_start () {
         base.manual_start();
-        cutSceneCam = cutSceneCamObject.GetComponent<Camera>();
-        Rect dialogueBoxSize = new Rect(0.1f, 0.76f, 0.8f, 0.24f);
+		cutSceneCam = cutSceneCamObject.GetComponent<Camera>();
+		Rect dialogueBoxSize = new Rect(0.1f, 0.6f, 0.8f, 0.35f);
         texture_resize(cutSceneDialogueBoxObject, dialogueBoxSize);
 
         

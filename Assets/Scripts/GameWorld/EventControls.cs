@@ -158,6 +158,8 @@ public class EventControls : MonoBehaviour {
 
     public void wave_end_cutscene_fade_process()
     {
+
+        playerScript.target_indicator_switch(false);
         combatScript.turn_off_combat_ui();
         playerScript.gameObject.SetActive(false);
         waveRunData[curWave].eventRunPhase = true;
@@ -170,6 +172,7 @@ public class EventControls : MonoBehaviour {
 
     public void wave_start_cutscene_fade_process()
     {
+        playerScript.target_indicator_switch(false);
         Debug.Log("Current wave number " + curWave);
         combatScript.turn_off_combat_ui();
         waveRunData[curWave].eventRunPhase = true;
@@ -182,10 +185,23 @@ public class EventControls : MonoBehaviour {
 
     public void wave_start_cutscene_end()
     {
+
+        playerScript.target_indicator_switch(true);
         waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
         waveRunData[curWave].eventRunPhase = false;
         waveRunData[curWave].storyEnded = false;
         wave_ready_phase(waveRunData[curWave]);
+    }
+
+    public void start_battle_immediate()
+    {
+
+        playerScript.target_indicator_switch(true);
+        wave_ready_phase(waveRunData[0]);
+        waveRunData[0].eventRunPhase = false;
+        waveRunData[0].waveEnded = false;
+        waveRunData[0].storyInitialized = false;
+        combatScript.loadingScreen.SetActive(false);
     }
 
 
@@ -613,12 +629,16 @@ public class EventControls : MonoBehaviour {
         }
         else
         {
+            /*
             //start_wave(waveRunData[0]);
             Debug.Log("No story");
             wave_ready_phase(waveRunData[0]);
             waveRunData[0].eventRunPhase = false;
             waveRunData[0].waveEnded = false;
             waveRunData[0].storyInitialized = false;
+            */
+            faderActive = true;
+            myScreenFadeScript.screen_fade_active(start_battle_immediate);
         }
 
         

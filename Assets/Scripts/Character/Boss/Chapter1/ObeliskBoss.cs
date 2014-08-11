@@ -345,7 +345,10 @@ public class ObeliskBoss : Character {
 		}
 
 		//Event Handle
-		if (currentStates != CurrentStates.SONICCHARGE && currentStates != CurrentStates.LASERWHEEL) {
+		if (currentStates != CurrentStates.SONICCHARGE && currentStates != CurrentStates.LASERWHEEL &&
+            !animation.IsPlaying("meleeaim") && !animation.IsPlaying("meleefire") && !animation.IsPlaying("meleefire1")
+            && !animation.IsPlaying("meleefire2") && !animation.IsPlaying("meleefire3"))
+        {
 			custom_look_at();
 		}
 

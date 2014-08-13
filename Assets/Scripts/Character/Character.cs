@@ -541,6 +541,7 @@ public class Character : MonoBehaviour
                 dropShipScript.position_in_the_air();
             else
             {
+
                 unit_successfully_landed();
                 Destroy(dropShipScript.gameObject);
             }

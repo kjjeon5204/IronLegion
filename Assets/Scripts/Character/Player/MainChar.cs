@@ -130,6 +130,14 @@ public class MainChar : Character {
 
     //Temporary testing variable
 
+    public void target_indicator_switch(bool inputChoice)
+    {
+        if (inputChoice == true)
+            targetingIndicator.SetActive(true);
+        else
+            targetingIndicator.SetActive(false);
+    }
+
 
     public bool is_switching_state()
     {

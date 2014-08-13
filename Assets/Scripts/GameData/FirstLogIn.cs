@@ -11,6 +11,7 @@ public class FirstLogIn : MonoBehaviour {
 	public TextAsset heroDataFile;
 	public TextAsset abilityDataFile;
     public TextAsset playerDataFile;
+	public TextAsset settingsDataFile;
     public int myFlag;//non zero value will always cause all data to be reset.
     
 
@@ -41,6 +42,10 @@ public class FirstLogIn : MonoBehaviour {
         {
             return false;
         }
+		if (!File.Exists(path + "/Settings.txt"))
+		{
+			return false;
+		}
         return true;
     }
 
@@ -72,10 +77,14 @@ public class FirstLogIn : MonoBehaviour {
         {
             outfile.Write(playerDataFile.text);
         }
+		using (StreamWriter outfile = File.CreateText(path + "/Settings.txt"))
+		{
+			outfile.Write(settingsDataFile.text);
+		}
     }
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         if (!check_data())
         {
             create_data_file();

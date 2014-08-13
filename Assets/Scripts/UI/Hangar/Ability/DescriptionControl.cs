@@ -34,9 +34,9 @@ public class DescriptionControl : MonoBehaviour {
 		message = transform.Find("Message").GetComponent<TextMesh>();
 	}
 	
-	// Update is called once per frame
 	public void UpdateDescription () {
 		icon.sprite = icon_sprite;
+		icon.color = Color.white;
 	
 		string output_string;
 		

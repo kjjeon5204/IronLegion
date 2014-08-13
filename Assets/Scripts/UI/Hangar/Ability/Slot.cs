@@ -14,10 +14,11 @@ public class Slot : MonoBehaviour {
 	
 	private AbilityControls controls;
 	private int slot_index;
+	public bool close;
 	// Use this for initialization
 	
 	void Awake() {
-		ability_name = "-";
+		ability_name = "EMPTY";
 		id_num = -1;
 	}
 	
@@ -34,14 +35,13 @@ public class Slot : MonoBehaviour {
 	}
 	
 	void Clicked() {
-		controls.SlotClicked(slot_index);
+		controls.SlotClicked(slot_index,close);
 	}
 	
 	public void UpdateImage() {
-		if (ability_name == "-")
+		if (ability_name == "EMPTY")
 		{
-			filler.color = Color.clear;
-			icon.color = Color.clear;
+			icon.color = Color.black;
 		}
 		else
 		{

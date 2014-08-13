@@ -133,7 +133,6 @@ public class ItemControls : MonoBehaviour {
 		ids = hero.get_equipped_item();
 		for (int i = 0; i < 5; i++)
 		{
-			Debug.Log(ids[i]);
 			if (i == 0)
 			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
 			else if (i == 1)
@@ -147,6 +146,7 @@ public class ItemControls : MonoBehaviour {
 	}
 	public void UpdateEquipped() {
 		stats.item_hp = 0;
+		stats.item_armor = 0;
 		stats.item_damage = 0;
 		stats.item_energy = 0;
 		stats.item_penetration = 0;
@@ -194,5 +194,18 @@ public class ItemControls : MonoBehaviour {
 		{
 			equipped[3].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
 		}
+	}
+	
+	public void AddCurrency(int num) {
+		inventory.change_currency(num);
+		UpdateInventory();
+	}
+	
+	public int ReturnCurrency() {
+		return inventory.get_currency();
+	}
+	
+	public int ReturnPaidCurrency() {
+		return inventory.get_paid_currency();
 	}
 }

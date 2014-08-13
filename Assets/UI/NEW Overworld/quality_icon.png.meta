@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 69a1b85f656dd7a47a4d2e06f9f21820
+guid: 3172abcaa3dd33f488c638c359a3df4b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: quality_icon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +25,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 2
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -39,11 +41,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Android
-    maxTextureSize: 128
-    textureFormat: -1
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
     sprites: []
   spritePackingTag: 

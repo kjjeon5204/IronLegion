@@ -40,7 +40,6 @@ public class AbilityControls : MonoBehaviour {
 				ability_slots[i].id_num = hero.ReturnAbilityID(i);
 				if (ability_slots[i].id_num == -1)
 				{
-					ability_slots[i].icon_sprite = null;
 				}
 				else if (ability_slots[i].id_num < 100)
 				ability_slots[i].icon_sprite = close_range_sprites[ability_slots[i].id_num];
@@ -59,16 +58,19 @@ public class AbilityControls : MonoBehaviour {
 		description.UpdateDescription();
 	}
 	
-	public void SlotClicked(int index) {
-		bool switched = hero.SetAbility(index,saved_id);
-		if (saved_id != -1 && !switched)
+	public void SlotClicked(int index, bool close) {
+		if ((saved_id < 100 && saved_id >= 0 && close) || (saved_id >= 100 && !close))
 		{
-			//Tell person not good slot
-		}
-		else if (saved_id != -1)
-		{
-			hero.save_data();
-			UpdateSlots();
+			bool switched = hero.SetAbility(index,saved_id);
+			if (saved_id != -1 && !switched)
+			{
+				//Tell person not good slot
+			}
+			else if (saved_id != -1)
+			{
+				hero.save_data();
+				UpdateSlots();
+			}
 		}
 	}
 	

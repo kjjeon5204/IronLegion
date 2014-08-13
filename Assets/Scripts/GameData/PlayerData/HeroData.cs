@@ -101,6 +101,8 @@ public class HeroData {
 		return false;
 		else if (id >= 100 && index < 4)
 		return false;
+		else if (id == -1)
+		return false;
 		
 		for (int i = 0; i < 8; i++)
 		{

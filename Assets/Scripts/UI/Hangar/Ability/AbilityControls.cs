@@ -40,7 +40,6 @@ public class AbilityControls : MonoBehaviour {
 				ability_slots[i].id_num = hero.ReturnAbilityID(i);
 				if (ability_slots[i].id_num == -1)
 				{
-					ability_slots[i].icon_sprite = null;
 				}
 				else if (ability_slots[i].id_num < 100)
 				ability_slots[i].icon_sprite = close_range_sprites[ability_slots[i].id_num];

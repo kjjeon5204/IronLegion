@@ -198,6 +198,12 @@ public class EquipControls : MonoBehaviour {
 		equipped_description_text[4].text = "between!";
 		equipped_description_text[5].text = "";
 		equipped_description_text[6].text = "";
+		
+		highlight_item.transform.position = waiting.transform.position;
+		highlight_item.transform.parent = null;
+		highlight_equip.transform.position = waiting.transform.position;
+		highlight_equip.transform.parent = null;
+		swappable = false;
 	}
 	
 	void Clicked() {
@@ -247,5 +253,18 @@ public class EquipControls : MonoBehaviour {
 			return false;
 		}
 		return false;
+	}
+	
+	public bool CheckSellable() {
+		if (item_inventory.itemID != "000000")
+		return true;
+		
+		return false;
+	}
+	
+	public void SellSelectedItem() {
+		inventory_to_switch.item_id = "000000";
+		inventory.AddCurrency(item_inventory.sell_price);
+		ReloadDescription();
 	}
 }

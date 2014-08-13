@@ -18,7 +18,7 @@ public class Slot : MonoBehaviour {
 	// Use this for initialization
 	
 	void Awake() {
-		ability_name = "-";
+		ability_name = "EMPTY";
 		id_num = -1;
 	}
 	
@@ -39,10 +39,9 @@ public class Slot : MonoBehaviour {
 	}
 	
 	public void UpdateImage() {
-		if (ability_name == "-")
+		if (ability_name == "EMPTY")
 		{
-			filler.color = Color.clear;
-			icon.color = Color.clear;
+			icon.color = Color.black;
 		}
 		else
 		{

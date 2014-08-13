@@ -9,7 +9,8 @@ using System;
 public class Inventory  {
     public string[] items;
     public int numItems;
-    float curRecycleProcess;
+    public int currency;
+	public int paid_currency;
     
 	public Inventory() {
 	
@@ -24,7 +25,9 @@ public class Inventory  {
         using (StreamReader inFile = File.OpenText(path))
         {
             rawFileData = inFile.ReadLine();
-            curRecycleProcess = (float)Convert.ToDecimal(rawFileData);
+            currency = Convert.ToInt32(rawFileData);
+			rawFileData = inFile.ReadLine();
+            paid_currency = Convert.ToInt32(rawFileData);
             rawFileData = inFile.ReadLine();
             numItems = Convert.ToInt32(rawFileData);
             items = new string[numItems];
@@ -43,7 +46,8 @@ public class Inventory  {
 
         using (StreamWriter outfile = File.CreateText(path))
         {
-            outfile.WriteLine(curRecycleProcess);
+            outfile.WriteLine(currency);
+			outfile.WriteLine(paid_currency);
             outfile.WriteLine(itemList.Length);
             for (int ctr = 0; ctr < itemList.Length; ctr++)
             {
@@ -60,7 +64,8 @@ public class Inventory  {
 
         using (StreamWriter outfile = File.CreateText(path))
         {
-            outfile.WriteLine(curRecycleProcess);
+            outfile.WriteLine(currency);
+			outfile.WriteLine(paid_currency);
             outfile.WriteLine(items.Length);
             for (int ctr = 0; ctr < items.Length; ctr++)
             {
@@ -82,14 +87,13 @@ public class Inventory  {
 
     public float get_recycle_progress()
     {
-        return curRecycleProcess;
+        return (float)currency;
     }
 
     public void save_recycle_progress(float progress)
     {
-        curRecycleProcess = progress;
+        currency = (int)progress;
     }
-
 
     public string[] get_inventory()
     {
@@ -99,6 +103,26 @@ public class Inventory  {
 	public void set_inventory(string[] new_inv)
 	{
 		items = new_inv;
+	}
+	
+	public int get_currency()
+	{
+		return currency;
+	}
+	
+	public int get_paid_currency() 
+	{
+		return paid_currency;
+	}
+	
+	public void change_currency(int num)
+	{
+		currency += num;
+	}
+	
+	public void change_paid_currency(int num)
+	{
+		paid_currency += num;
 	}
 }
 

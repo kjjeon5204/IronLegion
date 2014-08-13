@@ -8,7 +8,8 @@ public class HopliteAI : Character {
 		MOVE,
 		SLASH,
 		SONICCHARGE,
-		COOLDOWN
+		COOLDOWN,
+        DEATH
 	}
 	
 	Vector3 exhaustScale;
@@ -173,9 +174,15 @@ public class HopliteAI : Character {
 			attackStack++;
 			Debug.Log(attackStack);
 		}
+
 		
 		//Event Handler
 		exhaust_check();
+
+        if (curStats.baseHp <= 0.0f)
+        {
+            currentStates = CurrentStates.DEATH;
+        }
 		
 		if (currentStates != CurrentStates.MOVE && currentStates != CurrentStates.SONICCHARGE) {
 			custom_look_at();
@@ -223,5 +230,9 @@ public class HopliteAI : Character {
 				abilityList[1].initialize_ability ();
 			}
 		}
+        else if (currentStates == CurrentStates.DEATH)
+        {
+            death_state();
+        }
 	}
 }

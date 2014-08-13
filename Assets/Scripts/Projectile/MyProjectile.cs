@@ -44,10 +44,24 @@ public class MyProjectile : MonoBehaviour {
 		}
 	}
 
+    public virtual void set_projectile(GameObject targetObject, GameObject inOwner, float inDamage)
+    {
+        damage = inDamage;
+        targetScript = targetObject.GetComponent<Character>();
+        owner = inOwner;
+        target = targetScript.gameObject;
+        if (target == null)
+        {
+            Debug.LogError("Null target failed to initialize!");
+        }
+        else
+        {
+            Debug.Log(name + "succesfully initialized, set to target: " + target.name);
+        }
+    }
 
 
-
-    public void set_projectile(Character inTargetScript, GameObject inOwner, float inDamage)
+    public virtual void set_projectile(Character inTargetScript, GameObject inOwner, float inDamage)
     {
         damage = inDamage;
         targetScript = inTargetScript;

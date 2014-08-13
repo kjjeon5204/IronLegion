@@ -29,4 +29,6 @@ public class Item : MonoBehaviour {
     public float energy;
     public float penetration;
     public float luck;
+	public int buy_price;
+	public int sell_price;
 }

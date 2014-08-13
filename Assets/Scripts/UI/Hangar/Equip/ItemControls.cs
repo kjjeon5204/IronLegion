@@ -195,4 +195,17 @@ public class ItemControls : MonoBehaviour {
 			equipped[3].SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
 		}
 	}
+	
+	public void AddCurrency(int num) {
+		inventory.change_currency(num);
+		UpdateInventory();
+	}
+	
+	public int ReturnCurrency() {
+		return inventory.get_currency();
+	}
+	
+	public int ReturnPaidCurrency() {
+		return inventory.get_paid_currency();
+	}
 }

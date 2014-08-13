@@ -22,6 +22,8 @@ public class DisplayCurrentStats : MonoBehaviour {
 	private float energy;
 	private float penetration;
 	private float luck;
+	private int currency;
+	private int paid_currency;
 	
 	public GameObject exp_bar_fill;
 	public TextMesh exp_indicator;
@@ -32,6 +34,11 @@ public class DisplayCurrentStats : MonoBehaviour {
 	public TextMesh energy_indicator;
 	public TextMesh penetration_indicator;
 	public TextMesh luck_indicator;
+	public TextMesh currency_indicator;
+	public TextMesh paid_currency_indicator;
+	
+	private string start_color = "<b><color=lime>";
+	private string end_color = "</color></b>";
 
 	// Use this for initialization
 	void Start () {
@@ -65,6 +72,9 @@ public class DisplayCurrentStats : MonoBehaviour {
 		penetration = 0;
 		luck = 0;
 		
+		currency = stat_controller.ReturnCurrency();
+		paid_currency = stat_controller.ReturnPaidCurrency();
+		
 		for (int i = 0; i < 5; i++)
 		{
 			item_to_add = equipped_slots[i].GetComponentInChildren<Item>();
@@ -83,15 +93,17 @@ public class DisplayCurrentStats : MonoBehaviour {
 		exp_bar_fill.transform.localScale = new Vector3(cur_xp/tot_xp,1f,1f);
 		
 		exp_indicator.text = (int)cur_xp + "<b>/</b>" + (int)tot_xp;
-		level_indicator.text = "<b><color=lime>Level: </color></b>" + (int)level;
-		hp_indicator.text = "<b><color=lime>HP: </color></b>" + (int)hp;
+		level_indicator.text = start_color+"Level: "+end_color + (int)level;
+		hp_indicator.text = start_color+"HP: "+end_color + (int)hp;
 		if (armor >= 0)
-		armor_indicator.text = "<b><color=lime>Armor: </color></b>" + (int)armor;
+		armor_indicator.text = start_color+"Armor: "+end_color+ (int)armor;
 		else
-		armor_indicator.text = "<b><color=lime>Armor: </color></b>0";
-		damage_indicator.text = "<b><color=lime>Damage: </color></b>" + (int)damage;
-		energy_indicator.text = "<b><color=lime>Energy: </color></b>" + (int)energy;
-		penetration_indicator.text = "<b><color=lime>Penetration: </color></b>" + (int)penetration;
-		luck_indicator.text = "<b><color=lime>Luck: </color></b>" + (int)luck;
+		armor_indicator.text = start_color+"Armor: "+end_color +"0";
+		damage_indicator.text = start_color+"Damage: "+end_color + (int)damage;
+		energy_indicator.text = start_color+"Energy: "+end_color+ (int)energy;
+		penetration_indicator.text = start_color+"Penetration: "+end_color + (int)penetration;
+		luck_indicator.text = start_color+"Luck: "+end_color + (int)luck;
+		currency_indicator.text = start_color+"Credits: "+end_color+ currency;
+		paid_currency_indicator.text = "<b><color=purple>"+"Cogentum Ore: "+end_color+ paid_currency;
 	}
 }

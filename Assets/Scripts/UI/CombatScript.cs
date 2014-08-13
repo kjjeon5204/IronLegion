@@ -521,7 +521,6 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
                 gamePaused == false)
             {
-                regularAttackShock.activate_button();
                 mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready())

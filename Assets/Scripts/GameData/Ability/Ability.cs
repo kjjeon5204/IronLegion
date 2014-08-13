@@ -197,7 +197,7 @@ public class Ability : MonoBehaviour {
                 || myData.attackType == AttackTypes.HITBOX) &&
                 ((myCharacter.transform.position - myCharacter.target.transform.position).magnitude 
                 < currentPhaseData.meleeAttackRange || currentPhaseData.meleeAttackRange == 0) &&
-                ((Vector3.Angle (Vector3.forward, transform.TransformPoint(myCharacter.target.transform.position)) < currentPhaseData.meleeAngleRange) ||
+                ((Vector3.Angle (Vector3.forward, transform.InverseTransformPoint(myCharacter.target.transform.position)) < currentPhaseData.meleeAngleRange) ||
                 currentPhaseData.meleeAngleRange == 0.0f))
             {
                 Debug.Log("Ability used");

@@ -30,7 +30,7 @@ public class SetHangarUI : MonoBehaviour {
 		Vector3 positionEquip = hangarsign.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
 		equip.transform.position = positionEquip;
 		
-		Vector3 positionAbilities = equip.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
+		Vector3 positionAbilities = equip.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
 		abilities.transform.position = positionAbilities;
 		
 		Vector3 positionWindow = camera.ViewportToWorldPoint(new Vector3 (.5f, .48f, zValue));
@@ -55,12 +55,12 @@ public class SetHangarUI : MonoBehaviour {
 	}
 	
 	public void ActivateArmory() {
-		Vector3 positionArmory = allies.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
+		Vector3 positionArmory = allies.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
 		armory.transform.position = positionArmory;
 	}
 	
 	public void ActivateAllies() {
-		Vector3 positionAllies = abilities.transform.position+new Vector3(3.1f,0,0);//.GetChild(0).position;
+		Vector3 positionAllies = abilities.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
 		allies.transform.position = positionAllies;
 	}
 }

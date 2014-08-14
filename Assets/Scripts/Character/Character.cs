@@ -476,6 +476,51 @@ public class Character : MonoBehaviour
         return 0.0f;
 	}
 
+    public float hit(float rawDamage, Vector3 hitPosition)
+    {
+        if (isUnitActive == true)
+        {
+            if (rawDamage > 0)
+            {
+                //curCharacterState = "HIT";
+                messageReceived = true;
+                float damageDone = rawDamage;
+                if (curStats.armor < 90.0f && curStats.armor > 0.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (1.0f - 1.0f * baseStats.armor / 100.0f));
+                }
+                if (curStats.armor >= 90.0f)
+                {
+                    damageDone = (1.0f * rawDamage * (0.1f));
+                }
+                if (curStats.armor <= 0.0f)
+                {
+                    damageDone = rawDamage;
+                }
+                curStats.baseHp -= (int)damageDone;
+
+                if (detonatorFlinch != null)
+                    Instantiate(detonatorFlinch, hitPosition, Quaternion.identity);
+
+                if (hitAnimation != null)
+                {
+                    animation.Play(hitAnimation.name);
+                }
+                return damageDone;
+            }
+            else
+            {
+                curStats.baseHp -= (int)rawDamage;
+                if (curStats.baseHp > baseStats.baseHp)
+                {
+                    curStats.baseHp = baseStats.baseHp;
+                }
+                return rawDamage;
+            }
+        }
+        return 0.0f;
+    }
+
 	protected void death_state() {
 		if (deathPhasedPlayed == false) {
 			deathPhasedPlayed = true;
@@ -541,6 +586,7 @@ public class Character : MonoBehaviour
                 dropShipScript.position_in_the_air();
             else
             {
+
                 unit_successfully_landed();
                 Destroy(dropShipScript.gameObject);
             }

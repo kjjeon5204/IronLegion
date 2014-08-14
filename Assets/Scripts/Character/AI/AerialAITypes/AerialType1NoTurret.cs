@@ -107,6 +107,7 @@ public class AerialType1NoTurret : Character {
         if (aerialState == AerialState.IDLE)
         {
             animation.CrossFade(idleClip.name);
+            transform.Translate(5.0f * Time.deltaTime * Vector3.forward);
         }
         else if (aerialState == AerialState.DEATH)
         {

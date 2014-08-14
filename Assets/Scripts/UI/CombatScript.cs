@@ -111,7 +111,16 @@ public class CombatScript : MonoBehaviour {
 
     public GameObject loadingScreen;
 
+
     public TextMesh frameRateDisplay;
+
+
+    bool screenFader = false;
+    int exitType;
+    //0 = overworld
+    //1 = retry
+    public ScreenFader screenFadeScript;
+
 
     public void activate_low_energy()
     {
@@ -125,8 +134,9 @@ public class CombatScript : MonoBehaviour {
         {
             buttonAccess = closeSkillSlots[ctr].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            if (mainCharacter.abilityNames[ctr] != null)
+            if (mainCharacter.abilityNames[ctr] != null && mainCharacter.abilityNames[ctr] != "EMPTY")
             {
+				Debug.Log ("Ability Name: " + mainCharacter.abilityNames[ctr]);
                 float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
                 if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
                 {
@@ -146,7 +156,7 @@ public class CombatScript : MonoBehaviour {
         {
             buttonAccess = rangeSkillSlots[ctr - 4].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            if (mainCharacter.abilityNames[ctr] != null)
+            if (mainCharacter.abilityNames[ctr] != null && mainCharacter.abilityNames[ctr] != "EMPTY")
             {
                 float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
                 if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
@@ -262,6 +272,12 @@ public class CombatScript : MonoBehaviour {
         temp.isUse = false;
         temp.icon.SetActive(false);
         debuffIconPool[buffType][buffSlot] = temp;
+    }
+
+    public void activate_loading_screen()
+    {
+        turn_off_combat_ui();
+        loadingScreen.SetActive(true);
     }
 
 	public void turn_off_combat_ui() {
@@ -506,7 +522,6 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
                 gamePaused == false)
             {
-                regularAttackShock.activate_button();
                 mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready())
@@ -526,12 +541,15 @@ public class CombatScript : MonoBehaviour {
 
             else if (hitButton.collider.gameObject == retryButton )
             {
-                Application.LoadLevel(2);
+                screenFader = true;
+                exitType = 1;
+                //Application.LoadLevel(2);
             }
             else if (hitButton.collider.gameObject == overworldButton)
             {
-                loadingScreen.SetActive(true);
-                Application.LoadLevel(0);
+                screenFader = true;
+                exitType = 0;
+               // Application.LoadLevel(0);
             }
         }
         else
@@ -679,7 +697,7 @@ public class CombatScript : MonoBehaviour {
         pauseGameMenu.SetActive(false);
 
         lowEnergyWarning.SetActive(false);
-        loadingScreen.SetActive(false);
+        //loadingScreen.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -731,9 +749,24 @@ public class CombatScript : MonoBehaviour {
             if (mainCharacter.target != null)
                 modify_enemy_buff();
         }
-
-        int frameRate = (int)(1.0f / Time.deltaTime);
-        Debug.Log("Framerate: " + Time.deltaTime);
-        frameRateDisplay.text = "Framerate: " + frameRate.ToString();
+        if (frameRateDisplay != null)
+        {
+            int frameRate = (int)(1.0f / Time.deltaTime);
+            Debug.Log("Framerate: " + Time.deltaTime);
+            frameRateDisplay.text = "Framerate: " + frameRate.ToString();
+        }
+        if (screenFader == true && !screenFadeScript.screen_fade_is_active())
+        {
+            if (exitType == 0)
+            {
+                loadingScreen.SetActive(true);
+                Application.LoadLevel(0);
+            }
+            if (exitType == 1)
+            {
+                loadingScreen.SetActive(true);
+                Application.LoadLevel(2);
+            }
+        }
 	}
 }

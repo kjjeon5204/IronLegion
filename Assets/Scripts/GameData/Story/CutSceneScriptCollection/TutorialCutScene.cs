@@ -138,7 +138,7 @@ public class TutorialCutScene : BattleStory
     {
         base.manual_start();
         cutSceneCam = cutSceneCamObject.GetComponent<Camera>();
-        Rect dialogueBoxSize = new Rect(0.1f, 0.6f, 0.8f, 0.3f);
+        Rect dialogueBoxSize = new Rect(0.1f, 0.6f, 0.8f, 0.35f);
         texture_resize(cutSceneDialogueBoxObject, dialogueBoxSize);
 
         Rect uiButtonSize = new Rect(0.7f, 0.55f, 0.3f, 0.45f);
@@ -293,7 +293,7 @@ public class TutorialCutScene : BattleStory
         foreach (TextMesh uiText in uiTexts)
         {
             Color tempStore = uiText.color;
-            tempStore.a = 0.5f;
+            tempStore.a = 0.0f;
             uiText.color = tempStore;
         }
     }

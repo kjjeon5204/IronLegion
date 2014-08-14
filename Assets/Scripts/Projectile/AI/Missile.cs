@@ -97,7 +97,7 @@ public class Missile : MyProjectile {
             && hit.gameObject.tag != "Projectile") {
             
             if (hit.gameObject.tag == "Character")
-			    hit.gameObject.GetComponent<Character>().hit (damage);
+			    hit.gameObject.GetComponent<Character>().hit (damage, transform.position);
 
             if (detonation != null)
                 GameObject.Instantiate(detonation, transform.position, Quaternion.identity);

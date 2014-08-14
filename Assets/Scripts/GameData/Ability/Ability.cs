@@ -6,7 +6,8 @@ public enum AttackTypes {
 	PROJECTILE,
 	PROJECTILE_AOE_CONE,
 	MELEE,
-	RANGED
+	RANGED,
+    MELEE_ANGLE
 }
 
 
@@ -35,6 +36,7 @@ public class AbilityPhase
     public float selfArmor;
     public float selfArmorDuration;
     public float meleeAttackRange;
+    public float meleeAngleRange;
 	public float aoeProjectileConeDegree;
     public float phaseDuration;
     public AnimationClip phaseAnimation;
@@ -191,10 +193,14 @@ public class Ability : MonoBehaviour {
 		}
         if (myData.ranged == false)
         {
-            if (currentPhaseData.targetDam > 0.0f &&
+            if (currentPhaseData.targetDam > 0.0f && (myData.attackType == AttackTypes.MELEE_ANGLE
+                || myData.attackType == AttackTypes.HITBOX) &&
                 ((myCharacter.transform.position - myCharacter.target.transform.position).magnitude 
-                < currentPhaseData.meleeAttackRange || currentPhaseData.meleeAttackRange == 0))
+                < currentPhaseData.meleeAttackRange || currentPhaseData.meleeAttackRange == 0) &&
+                ((Vector3.Angle (Vector3.forward, transform.InverseTransformPoint(myCharacter.target.transform.position)) < currentPhaseData.meleeAngleRange) ||
+                currentPhaseData.meleeAngleRange == 0.0f))
             {
+                Debug.Log("Ability used");
                 if (currentPhaseData.targetArmorDuration > 0.0f)
                 {
                     myCharacter.target.GetComponent<Character>().
@@ -335,7 +341,7 @@ public class Ability : MonoBehaviour {
         if (Physics.Raycast(rayData, out hitData, 100.0f))
         {
             dist = (object1.transform.position - hitData.point).magnitude;
-            Debug.Log("Calculated raycast distance: " + dist +  " checked against: " + hitData.collider.gameObject);
+            //Debug.Log("Calculated raycast distance: " + dist +  " checked against: " + hitData.collider.gameObject);
             dist -= object1.gameObject.collider.bounds.extents.z;
         }
         

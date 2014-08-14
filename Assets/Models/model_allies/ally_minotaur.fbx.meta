@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 6b7222266b923e64384e72ffb61d13c9
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
     100002: back
@@ -57,6 +57,7 @@ ModelImporter:
     7400020: death
     7400022: deathloop
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Minotaur:minotaur
   materials:
     importMaterials: 1
@@ -66,6 +67,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -900,5 +902,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
+  additionalBone: 0
   userData: 

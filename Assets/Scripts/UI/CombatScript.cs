@@ -134,8 +134,9 @@ public class CombatScript : MonoBehaviour {
         {
             buttonAccess = closeSkillSlots[ctr].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            if (mainCharacter.abilityNames[ctr] != null)
+            if (mainCharacter.abilityNames[ctr] != null && mainCharacter.abilityNames[ctr] != "EMPTY")
             {
+				Debug.Log ("Ability Name: " + mainCharacter.abilityNames[ctr]);
                 float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
                 if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
                 {
@@ -155,7 +156,7 @@ public class CombatScript : MonoBehaviour {
         {
             buttonAccess = rangeSkillSlots[ctr - 4].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
-            if (mainCharacter.abilityNames[ctr] != null)
+            if (mainCharacter.abilityNames[ctr] != null && mainCharacter.abilityNames[ctr] != "EMPTY")
             {
                 float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
                 if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
@@ -521,7 +522,6 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
                 gamePaused == false)
             {
-                regularAttackShock.activate_button();
                 mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready())

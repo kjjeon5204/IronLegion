@@ -128,6 +128,8 @@ public class MainChar : Character {
     public TargetingIndicator targetIndicatorScript;
     public Camera targetIndicatorCam;
 
+    bool approachPhase = false;
+
     //Temporary testing variable
 
     public void target_indicator_switch(bool inputChoice)
@@ -204,6 +206,8 @@ public class MainChar : Character {
             curState = "PATHING";
             phasePlayed = false;
         }
+        targetIndicatorScript.gameObject.SetActive(true);
+        targetIndicatorScript.initialize_indicator();
     }
 
     public void cancel_player_ability()
@@ -605,24 +609,7 @@ public class MainChar : Character {
         baseStats = curStats;
 
         energyEffect.SetActive(false);
-        //Lexhaust.SetActive(false);
-        //Rexhaust.SetActive(false);
-        //LexhaustReverse.SetActive(false);
-        //RexhaustReverse.SetActive(false);
-
-        /*
-        //Skill name temporary initialization
-        abilityNames = new string[8];
-        abilityNames[0] = "GATTLING_GUN";
-        abilityNames[1] = "SHATTER";
-        if (curLevelData.get_player_level() > 4) 
-            abilityNames[2] = "BLUTSAUGER";
-        //abilityNames[3] = "ENERGY_BLADE";
-        abilityNames[4] = "SHOTGUN";
-        abilityNames[5] = "BARRAGE";
-        //abilityNames[6] = "AEGIS";
-        //abilityNames[7] = "BEAM_CANNON";
-        */
+        
 
         HeroData myAbilityData = new HeroData();
         abilityNames = myAbilityData.load_data();
@@ -653,6 +640,8 @@ public class MainChar : Character {
         previousPos = transform.position;
         initialPos = transform.position;
 
+        if (curBattleType == BattleType.BOSS)
+            approachPhase = true;
         base.manual_start();
 	}
 
@@ -692,23 +681,26 @@ public class MainChar : Character {
             //Targeting indicator
             float playerTargetAngle = Vector3.Angle(transform.InverseTransformPoint
                 (target.transform.position), Vector3.forward);
-
-            if (playerTargetAngle < 5.0f && curState == "IDLE")
+            
+            //if (playerTargetAngle < 8.0f)
+            //{
+            
+            if (targetingIndicator.activeInHierarchy == false)
             {
+                targetIndicatorScript.gameObject.SetActive(true);
+                targetIndicatorScript.initialize_indicator();
+            }
                 Vector3 tempPos = playerCamera.GetComponent<Camera>().
                     WorldToViewportPoint(target.collider.bounds.center);
                 tempPos = targetIndicatorCam.ViewportToWorldPoint(tempPos);
                 targetIndicatorScript.gameObject.transform.position = tempPos;
-                if (targetIndicatorScript.gameObject.activeInHierarchy == false)
-                {
-                    targetIndicatorScript.gameObject.SetActive(true);
-                    targetIndicatorScript.initialize_indicator();
-                }
-            }
+            //}
+            /*
             else
             {
                 targetIndicatorScript.gameObject.SetActive(false);
             }
+             * */
         }
 
         //Check if player is facing a valid target
@@ -729,8 +721,15 @@ public class MainChar : Character {
             curState != "PATHING")
         {
             stateSwitched = false;
-            autoAdjustEnabled = false;
-            inputReady = false;
+            if (approachPhase == false)
+            {
+                inputReady = false;
+                Debug.Log("Input Disabled!");
+            }
+            else
+            {
+                inputReady = true;
+            }
             float distanceToMove = 0.0f;
             if (isClose == true)
             {
@@ -828,11 +827,6 @@ public class MainChar : Character {
 			animation.CrossFade ("idle");
 			curCharacterState = "IDLE";
 
-            //regAttackCtr = 0;
-
-            //Lexhaust.SetActive(false);
-            //Rexhaust.SetActive(false);
-            
 		}
         else if (curState == "DEATH")
         {
@@ -840,7 +834,6 @@ public class MainChar : Character {
         }
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
-            inputReady = false;
 
             if (!movementScript.run_movement() || 
                 //Close state distance checkers
@@ -853,6 +846,7 @@ public class MainChar : Character {
                 curState = "IDLE";
                 curCharacterState = "IDLE";
                 autoAdjustEnabled = false;
+                approachPhase = false;
             }
             //regAttackCtr = 0;
         }

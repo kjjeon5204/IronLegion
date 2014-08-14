@@ -17,7 +17,7 @@ public class Linear : MyProjectile {
         if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner
             && hit.gameObject.tag == "Character")
         {
-            hitEnemyScript.hit(damage);
+            hitEnemyScript.hit(damage, transform.position);
 
             if (detonation != null)
                 GameObject.Instantiate(detonation, transform.position, Quaternion.identity);

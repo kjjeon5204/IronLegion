@@ -71,7 +71,7 @@ public class AbilityButton : MonoBehaviour {
     public void initialize_button(string abilityName, float inMaxCoolDown, float inCurCoolDown)
     {
         TextMesh textAcc = skillText.GetComponent<TextMesh>();
-        if (abilityName != null || abilityName != "NONE")
+        if (abilityName != null && abilityName != "NONE")
         {
             
             initialRotation = coolDownBar.transform.rotation;

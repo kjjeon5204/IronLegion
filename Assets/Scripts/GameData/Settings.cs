@@ -56,5 +56,17 @@ public class Settings {
 		return options;
 	}
 	
+	public bool CheckMusic() {
+		return options.music;
+	}
+	
+	public int GetQuality() {
+		return options.quality;
+	}
+	
+	public void SetQuality(int qual) {
+		options.quality = qual;
+	}
+	
 	
 }

@@ -12,6 +12,7 @@ public struct Boundaries
 
 
 public class MapControls : MonoBehaviour {
+	public bool DISABLE_ZOOM;
 
 	public Boundaries[] boundary_list;
 	public int boundary_index;
@@ -152,26 +153,28 @@ public class MapControls : MonoBehaviour {
 	}
 	
 	void Zoom(Touch t1, Touch t2) {
-		
-		Vector2 t1_prev = t1.position-t1.deltaPosition;
-		Vector2 t2_prev = t2.position-t2.deltaPosition;
-		
-		float prevMag = (t1_prev-t2_prev).magnitude;
-		float newMag = (t1.position-t2.position).magnitude;
-		
-		float difference_in_mag = prevMag-newMag;
-		
-		if (Camera.main.orthographicSize != minZoom || Camera.main.orthographicSize != maxZoom)
+		if (!DISABLE_ZOOM)
 		{
-			Camera.main.orthographicSize += difference_in_mag*zoomSpeed;
-		}
-		if (Camera.main.orthographicSize > maxZoom)
-		{
-			Camera.main.orthographicSize = maxZoom;
-		}
-		if (Camera.main.orthographicSize < minZoom)
-		{
-			Camera.main.orthographicSize = minZoom;
+			Vector2 t1_prev = t1.position-t1.deltaPosition;
+			Vector2 t2_prev = t2.position-t2.deltaPosition;
+			
+			float prevMag = (t1_prev-t2_prev).magnitude;
+			float newMag = (t1.position-t2.position).magnitude;
+			
+			float difference_in_mag = prevMag-newMag;
+			
+			if (Camera.main.orthographicSize != minZoom || Camera.main.orthographicSize != maxZoom)
+			{
+				Camera.main.orthographicSize += difference_in_mag*zoomSpeed;
+			}
+			if (Camera.main.orthographicSize > maxZoom)
+			{
+				Camera.main.orthographicSize = maxZoom;
+			}
+			if (Camera.main.orthographicSize < minZoom)
+			{
+				Camera.main.orthographicSize = minZoom;
+			}
 		}
 	}
 	

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TileActive : MonoBehaviour {
 	
+	public string level_description;
 	public bool isBoss;
 	public int level;
 	public bool isUsable;

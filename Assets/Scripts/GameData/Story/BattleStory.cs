@@ -4,6 +4,7 @@ using System.Collections;
 
 /*base class for all story*/
 public class BattleStory : MonoBehaviour {
+    public string cutSceneID;
     public float cutSceneDuration;
     protected float cutSceneEndTime;
 

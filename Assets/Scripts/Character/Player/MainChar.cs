@@ -735,7 +735,6 @@ public class MainChar : Character {
             {
                 if (distToTarget < closeDist)
                 {
-
                     //Move away from target
                     curState = "ADJUSTFAR";
                     phaseCtr = 0;
@@ -804,9 +803,6 @@ public class MainChar : Character {
         {
             curState = "HIT";
         }
-
-
-        
 
         if (curEnergy < maxEnergy)
         {
@@ -915,5 +911,4 @@ public class MainChar : Character {
         booster_controls();
         previousPos = transform.position;
 	}
-
 }

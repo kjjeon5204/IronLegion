@@ -9,6 +9,8 @@ public class MainBodyBoss : Character {
     public GameObject[] group3MissileMuzzle;
     public GameObject[] group4MissileMuzzle;
 
+    public AutomatedMissilePodScript missilePodLeft;
+    public AutomatedMissilePodScript missilePodRight;
     
 
     int currentWaveNum;
@@ -27,6 +29,7 @@ public class MainBodyBoss : Character {
 
     public GameObject[] massiveMuzzle;
     public GameObject massiveProjectile;
+    public GameObject mainBodyCollider;
 
     public GameObject energyBallProjectile;
     public GameObject[] energyBallMuzzles;
@@ -156,7 +159,7 @@ public class MainBodyBoss : Character {
         }
         if (cannonTimeTracker < Time.time)
         {
-            cannonActive = true;
+            //scannonActive = true;
             cannonTimeTracker = Time.time + 5.0f;
         }
 
@@ -201,16 +204,19 @@ public class MainBodyBoss : Character {
     {
         base.manual_start();
         currentWaveNum = 0;
+        missilePodRight.initialize_pod(target, 15.0f, mainBodyCollider);
+        missilePodLeft.initialize_pod(target, 15.0f, mainBodyCollider);
     }
 	
 	// Update is called once per frame
     public override void manual_update()
     {
+        Vector3 playerRelativePos = transform.InverseTransformPoint(target.transform.position);
         if (missileTimeTracker < Time.time && missileActive == false)
         {
-            missileActive = true;
-            phasePlayedMissile = false;
-            curPhaseMissile = 0;
+            //missileActive = true;
+            //phasePlayedMissile = false;
+            //curPhaseMissile = 0;
         }
 
         if (energyBallTimeTracker < Time.time)
@@ -231,11 +237,17 @@ public class MainBodyBoss : Character {
         {
             foreach (GameObject energyMuzzle in energyBallMuzzles)
             {
-                GameObject tempProjectile = (GameObject)Instantiate(energyBallProjectile, energyMuzzle.transform.position, energyMuzzle.transform.rotation);
+                GameObject tempProjectile = (GameObject)Instantiate(energyBallProjectile, 
+                    energyMuzzle.transform.position, energyMuzzle.transform.rotation);
+
                 tempProjectile.GetComponent<MyProjectile>().set_projectile(target, gameObject, 50.0f);
             }
             energyBallActive = false;
         }
+        if (playerRelativePos.x > 0.0f)
+            missilePodLeft.update_pod();
+        if (playerRelativePos.x < 0.0f)
+            missilePodRight.update_pod();
         base.manual_update();
     }
 }

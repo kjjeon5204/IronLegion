@@ -124,6 +124,8 @@ public class MainChar : Character {
     public bool turning;
 
     public GameObject playerCamera;
+    public GameObject playerLandingTrackCam;
+    public GameObject enemyLandingCamPivotPoint;
 
     public TargetingIndicator targetIndicatorScript;
     public Camera targetIndicatorCam;
@@ -590,10 +592,26 @@ public class MainChar : Character {
         return curData;
     }
 
+    public void wave_transition_phase(GameObject trackedObject)
+    {
+        if (playerCamera.activeInHierarchy == true)
+        {
+            playerCamera.SetActive(false);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == false)
+        {
+            playerLandingTrackCam.SetActive(true);
+        }
+        Vector3 lookAtPointPosition = trackedObject.transform.position;
+        lookAtPointPosition.y = 0.0f;
+        transform.LookAt(lookAtPointPosition);
+        enemyLandingCamPivotPoint.transform.LookAt(trackedObject.transform.position);
+    }
+
     // Use this for initialization
     public override void manual_start()
     {
-
+        
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
@@ -656,6 +674,15 @@ public class MainChar : Character {
             return;
         }
 		*/
+        if (playerCamera.activeInHierarchy == false)
+        {
+            playerCamera.SetActive(true);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == true)
+        {
+            playerLandingTrackCam.SetActive(false);
+        }
+
         float distToTarget = 0;
         
         if (targetScript != null && curState != "PATHING")

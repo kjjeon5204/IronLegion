@@ -94,6 +94,7 @@ public struct PlayerLevelReadData
 }
 
 public class EventControls : MonoBehaviour {
+    PlayerDataReader eventRecord = new PlayerDataReader();
     public bool tutorialStage = false;
     bool tutorialPhase;
     bool endBattle = false;
@@ -494,21 +495,28 @@ public class EventControls : MonoBehaviour {
             waveRunData[waveCtr].waveEnded = false;
             if (curEngageData.waveData[waveCtr].storyObjectStart != null)
             {
-
-                waveRunData[waveCtr].thisStoryStart = curEngageData.waveData[waveCtr].storyObjectStart.
+                BattleStory tempHolder = curEngageData.waveData[waveCtr].storyObjectStart.
                     GetComponent<BattleStory>();
-                waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
+                if (tempHolder.cutSceneID.Length == 0|| !eventRecord.check_event_played(tempHolder.cutSceneID))
+                {
+                    waveRunData[waveCtr].thisStoryStart = tempHolder;
+                    waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
 
-                waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
+                    waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
+                }
             }
 
 
             if (curEngageData.waveData[waveCtr].storyObjectEnd != null)
             {
-
-                waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
+                BattleStory tempHolder = curEngageData.waveData[waveCtr].storyObjectEnd.
                     GetComponent<BattleStory>();
-                waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
+                if (tempHolder.cutSceneID.Length == 0 || !eventRecord.check_event_played(tempHolder.cutSceneID))
+                {
+                    waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
+                        GetComponent<BattleStory>();
+                    waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
+                }
                 
             }
 
@@ -834,6 +842,7 @@ public class EventControls : MonoBehaviour {
                 if (waveReadyPhase == true)
                 {
                     playerScript.animation.CrossFade("idle");
+                    playerScript.wave_transition_phase(waveRunData[curWave].enemyList[0]);
                     //Debug.Log("wave not ready");
                     all_landed(waveRunData[curWave]);
                 }

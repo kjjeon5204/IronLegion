@@ -1,24 +1,19 @@
 fileFormatVersion: 2
-guid: 696836660e2e65446a98b23ea6e5ed86
+guid: db8c9bae68a482a4399ae8d68fd1309f
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: body
     100002: body1
-    100004: //RootNode
-    100006: frames
-    100008: generator
-    100010: missileslides
-    100012: structure
+    100004: chassis
+    100006: //RootNode
     400000: body
     400002: body1
-    400004: //RootNode
-    400006: frames
-    400008: generator
-    400010: missileslides
-    400012: structure
+    400004: chassis
+    400006: //RootNode
     4300000: body
-    7400000: loop
+    7400000: idle
+    7400002: move
     9500000: //RootNode
     11100000: //RootNode
     13700000: body
@@ -39,10 +34,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: loop
+      name: idle
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 200
+      lastFrame: 500
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -68,13 +63,41 @@ ModelImporter:
         weight: 1
       - path: body1
         weight: 1
-      - path: body1/structure
+      - path: body1/chassis
         weight: 1
-      - path: body1/structure/frames
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 500
+      lastFrame: 1000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
         weight: 1
-      - path: body1/structure/generator
+      - path: body
         weight: 1
-      - path: body1/structure/missileslides
+      - path: body1
+        weight: 1
+      - path: body1/chassis
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}

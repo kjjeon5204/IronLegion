@@ -4,7 +4,11 @@ using System.Collections.Generic;
 
 
 
-
+public enum CollisionTypes
+{
+    NONE,
+    ENVIRONMENT
+}
 
 public class Character : MonoBehaviour 
 {
@@ -84,6 +88,8 @@ public class Character : MonoBehaviour
 
     protected int initLevel;
 
+    CollisionTypes collisionStatus;
+
     public void set_level(int level)
     {
         initLevel = level;
@@ -100,6 +106,8 @@ public class Character : MonoBehaviour
     {
         enemyReady = true;
     }
+    
+    
 
 
 	/*
@@ -128,8 +136,8 @@ public class Character : MonoBehaviour
     {
         Vector3 targetPosition = inPosition;
 		Vector3 playerPos = collider.bounds.center;
-        float rotAngleY = Vector3.Angle(get_xz_component(transform.forward), get_xz_component(targetPosition - transform.position));
-        float rotAngleX = Vector3.Angle(Vector3.forward , get_yz_component(transform.InverseTransformPoint(targetPosition)));
+        float rotAngleY = Vector3.Angle(Vector3.forward, get_xz_component(transform.InverseTransformPoint(targetPosition)));
+        float rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(transform.InverseTransformPoint(targetPosition)));
 
 
 
@@ -146,6 +154,7 @@ public class Character : MonoBehaviour
 		float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
 		float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
 
+        /*
         if (Mathf.Abs(rotAngleY) <= yRotationValue * Time.deltaTime &&
 		    Mathf.Abs(rotAngleX) <= xRotationValue * Time.deltaTime)
         {
@@ -153,7 +162,7 @@ public class Character : MonoBehaviour
 			transform.LookAt(targetPosition);
             return false;
         }
-
+        */
 		//Debug.Log ("rotation not completed");
         float rotDirectionY = transform.InverseTransformPoint(targetPosition).x;
         float rotDirectionX = transform.InverseTransformPoint(targetPosition).y;
@@ -407,14 +416,14 @@ public class Character : MonoBehaviour
 
 
 
-
-
-
-
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Character") {
 			unitCollision = true;
 		}
+        if (hit.collider.tag == "Environment")
+        {
+            collisionStatus = CollisionTypes.ENVIRONMENT;
+        }
 	}
 
 

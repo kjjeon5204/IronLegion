@@ -39,16 +39,18 @@ public class HellKiteTurret : MonoBehaviour {
     int machineGunAttackCount;
     float machineGunFireInterval;
 
-    public GameObject muzzle;
+    public GameObject[] muzzle;
     public GameObject projectile;
 
     float myDamage;
+    GameObject weaponOwner;
 
-    public void initialize_turret(GameObject target, float damage)
+    public void initialize_turret(GameObject target, float damage, GameObject owner)
     {
         myTarget = target;
         initialized = true;
         myDamage = damage;
+        weaponOwner = owner;
     }
 
 
@@ -63,6 +65,7 @@ public class HellKiteTurret : MonoBehaviour {
     {
         if (initialized == true)
         {
+            transform.LookAt(myTarget.transform.position);
             if (myState == TurretState.IDLE)
             {
                 aggressiveLevel += 100.0f / (float)maxAttackInterval * Time.deltaTime;
@@ -84,13 +87,16 @@ public class HellKiteTurret : MonoBehaviour {
             {
                 if (machineGunAttackCount < 5 && Time.time > machineGunFireInterval)
                 {
-                    GameObject projectileHolder = (GameObject)Instantiate(projectile,
-                        muzzle.transform.position, muzzle.transform.rotation);
+                    foreach (GameObject myMuzzle in muzzle)
+                    {
+                        GameObject projectileHolder = (GameObject)Instantiate(projectile,
+                            myMuzzle.transform.position, myMuzzle.transform.rotation);
 
-                    projectileHolder.GetComponent<MyProjectile>().set_projectile(myTarget,
-                        gameObject, myDamage);
-                    machineGunAttackCount++;
-                    machineGunFireInterval = Time.time + 0.2f;
+                        projectileHolder.GetComponent<MyProjectile>().set_projectile(myTarget,
+                            weaponOwner, myDamage);
+                        machineGunAttackCount++;
+                        machineGunFireInterval = Time.time + 0.2f;
+                    }
                 }
                 if (machineGunAttackCount >= 5)
                 {

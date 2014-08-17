@@ -13,12 +13,12 @@ public class Linear : MyProjectile {
     void OnTriggerEnter(Collider hit)
     {
         Character hitEnemyScript = hit.gameObject.GetComponent<Character>();
-        //Debug.Log("Hit " + hit.gameObject.name);
         if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner
-            && hit.gameObject.tag == "Character")
+            && hit.gameObject.tag == "Character" && hit.gameObject.tag != "Projectile")
         {
             hitEnemyScript.hit(damage, transform.position);
 
+            Debug.Log("Hit " + owner);
             if (detonation != null)
                 GameObject.Instantiate(detonation, transform.position, Quaternion.identity);
             Destroy(gameObject);

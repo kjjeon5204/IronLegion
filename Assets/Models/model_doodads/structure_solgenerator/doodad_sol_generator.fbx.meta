@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 696836660e2e65446a98b23ea6e5ed86
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: body
     100002: body1
@@ -18,8 +18,9 @@ ModelImporter:
     400010: missileslides
     400012: structure
     4300000: body
-    7400000: Take 001
+    7400000: loop
     9500000: //RootNode
+    11100000: //RootNode
     13700000: body
   materials:
     importMaterials: 1
@@ -29,13 +30,54 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: loop
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: body1/structure
+        weight: 1
+      - path: body1/structure/frames
+        weight: 1
+      - path: body1/structure/generator
+        weight: 1
+      - path: body1/structure/missileslides
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -71,5 +113,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
+  additionalBone: 0
   userData: 

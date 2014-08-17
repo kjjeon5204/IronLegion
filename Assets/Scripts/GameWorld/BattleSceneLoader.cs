@@ -22,5 +22,8 @@ public class BattleSceneLoader : MonoBehaviour {
 
         GameObject holder = (GameObject)Instantiate(Resources.Load<GameObject>(mapDirectory), Vector3.zero, Quaternion.identity);
         EventControls holderScript = holder.GetComponent<EventControls>(); 
+        PlayerDataReader playerEventRecord = new PlayerDataReader();
+        playerEventRecord.event_played("COMBAT_TUTORIAL");
+        playerEventRecord.save_data();
 	}
 }

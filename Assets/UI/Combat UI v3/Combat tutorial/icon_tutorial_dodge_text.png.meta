@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 70a51776bcde8694189d9378c9d220cf
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_tutorial_dodge_text
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

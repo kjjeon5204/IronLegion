@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 40681334d78a46444ba26aaf3a53f407
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_shotgun_legendary
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

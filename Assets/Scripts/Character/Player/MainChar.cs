@@ -109,8 +109,11 @@ public class MainChar : Character {
 
     HeroLevelData curLevelData;
     public AudioSource thrusterSound;
+
+    public GameObject rightAllyPositionPoint;
+    public GameObject leftAllyPositionPoint;
+    BaseAlly allyUnit;
     
-  
 
 
     float farDist = 12.0f;
@@ -142,6 +145,10 @@ public class MainChar : Character {
             targetingIndicator.SetActive(false);
     }
 
+    public void set_ally_unit(BaseAlly inAllyUnit)
+    {
+        allyUnit = inAllyUnit;
+    }
 
     public bool is_switching_state()
     {
@@ -674,6 +681,21 @@ public class MainChar : Character {
             return;
         }
 		*/
+        if (allyUnit != null)
+        {
+            if (target != null)
+                allyUnit.set_target(targetScript);
+            Vector3 allyRelativePos = transform.InverseTransformPoint(allyUnit.transform.position);
+            if (allyRelativePos.x > 0.0f)
+            {
+                allyUnit.set_movement_position(rightAllyPositionPoint.transform.position);
+            }
+            else
+            {
+                allyUnit.set_movement_position(leftAllyPositionPoint.transform.position);
+            }
+        }
+
         if (playerCamera.activeInHierarchy == false)
         {
             playerCamera.SetActive(true);

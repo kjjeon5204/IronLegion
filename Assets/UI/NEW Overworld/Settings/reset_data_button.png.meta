@@ -1,6 +1,9 @@
 fileFormatVersion: 2
 guid: 2f1555859e28cea4da9296d17faf1c7f
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: reset_data_button_0
+    21300002: reset_data_button_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

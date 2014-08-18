@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 4df91400c829f03449527be6938ba0e6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_torso_common
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 0082cf7109980f94e9efdf0f968a6dc9
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: topright_decoration
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

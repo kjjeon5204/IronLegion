@@ -112,9 +112,9 @@ public class SetTiles : MonoBehaviour {
         {
             activate_remaining_tiles(latestUnlocked[ctr]);
         }
-		//tutorial.ActivateTutorials();
+		tutorial.ActivateTutorials();
 		//if (chapter == 1)
-		   // tutorial.ActivateTutorials();
+		    //tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

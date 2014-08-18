@@ -310,13 +310,28 @@ public class CombatScript : MonoBehaviour {
 	}
 
 	public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
-        bool battleWon, int itemTier) {
+        bool battleWon, int itemTier, AllyData allyData, Character allyObject) {
         battleStopped = true;
         turn_off_combat_ui();
         Debug.Log("Activate end game window");
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
+        if (allyData.unitName != "NONE") {
+            float experienceRequired = allyObject.GetComponent<AIStatScript>().
+                get_experience_data(allyData.level);
+            float unitExperience = allyData.exp;
+            if (unitExperience > experienceRequired)
+            {
+                if (experienceRequired != 0)
+                {
+                    unitExperience -= experienceRequired;
+                    allyData.level++;
+                }
+            }
+            AllyDataList tempList = new AllyDataList();
+            tempList.save_equipped_ally_data(allyData);
+        }
 	}
 
     public void disable_all_icon(Debuff targetDebuffScript)

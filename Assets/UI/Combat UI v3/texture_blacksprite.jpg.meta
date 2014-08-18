@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 4e7d9ab59f73e7248ae09f71f6346f7b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: texture_blacksprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

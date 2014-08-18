@@ -148,7 +148,9 @@ public class EventControls : MonoBehaviour {
     //2 = start cutscene (battle -> cutscene);
     //3 = start wave(cutscene -> battle)
 
-
+    //Ally variables
+    Character allyUnit;
+    AllyData allyData;
 
     
 
@@ -272,9 +274,12 @@ public class EventControls : MonoBehaviour {
         MapData curMap = new MapData(System.Convert.ToInt32(gameObject.name[1].ToString()));
         curMap.clear_level(curEngageData.levelNum);
 
+        if (allyData.unitName != "NONE")
+            allyData.exp += (int)curEngageData.experience;
+
         combatScript.enable_end_battle_window(curEngageData.creditReceived,
             playerScript.player_add_experience((int)curEngageData.experience),
-            true, curEngageData.lootableItemTier);
+            true, curEngageData.lootableItemTier, allyData, allyUnit);
 
 
         mapCleared = true;
@@ -482,8 +487,24 @@ public class EventControls : MonoBehaviour {
         playerScript.worldObject = gameObject;
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
+        AllyDataList allyLoader = new AllyDataList();
+        allyData = allyLoader.get_cur_equipped_ally();
+        string allyDataPath = "Tier" + allyData.tier
+            + "/" + allyData.unitName;
+        GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
+        if (allyObjectLoad != null)
+        {
+            GameObject tempAllyObject = (GameObject)Instantiate(allyObjectLoad, Vector3.zero, Quaternion.identity);
+            allyUnit = tempAllyObject.GetComponent<BaseAlly>();
+            allyUnit.set_level(allyData.level);
+            allyUnit.manual_start();
+        }
+        else
+        {
+            Debug.LogError("Unit not found!");
+        }
 
-
+        playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
         radarScript = radar.GetComponent<Radar>();
 
 
@@ -853,6 +874,8 @@ public class EventControls : MonoBehaviour {
                 if (gamePaused == false && waveReadyPhase == false)
                 {
                     playerScript.manual_update();
+                    if (allyUnit != null)
+                        allyUnit.manual_update();
 
                     if (curWave < waveRunData.Length - 1 &&
                         curEngageData.waveData[curWave].battleType == BattleType.BOSS)

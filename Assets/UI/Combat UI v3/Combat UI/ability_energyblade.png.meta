@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 60fdc7cee1b99cc419b88aa905acbfc7
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_energyblade
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

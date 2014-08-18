@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 7000d370b934b524ea05ec6d8018fc32
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_combatpauseframe
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

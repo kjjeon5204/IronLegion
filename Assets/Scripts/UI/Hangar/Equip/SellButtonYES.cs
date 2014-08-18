@@ -5,6 +5,6 @@ public class SellButtonYES : MonoBehaviour {
 	public SellButton button;
 
 	void Clicked() {
-		button.SellItem();
+		button.ConfirmSell();
 	}
 }

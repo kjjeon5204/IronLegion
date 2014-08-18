@@ -106,4 +106,12 @@ public class DisplayCurrentStats : MonoBehaviour {
 		currency_indicator.text = start_color+"Credits: "+end_color+ currency;
 		paid_currency_indicator.text = "<b><color=purple>"+"Cogentum Ore: "+end_color+ paid_currency;
 	}
+	
+	public float GetDamage() {
+		return damage;
+	}
+	
+	public int GetCurrency() {
+		return currency;
+	}
 }

@@ -5,8 +5,8 @@ public class ActivateEquip : MonoBehaviour {
 	public GameObject equip;
 	
 	public HangarControls hangar;
-	private GameObject border_bot;
-	private GameObject border_top;
+	public GameObject border_bot;
+	public GameObject border_top;
 	
 	public GameObject scroll_top;
 	public GameObject scroll_bot;
@@ -15,9 +15,6 @@ public class ActivateEquip : MonoBehaviour {
 	void Clicked () {
 		hangar.MoveOffScreen();
 		hangar.SetObjectOnScreen(equip);
-		
-		border_bot = GameObject.Find("BorderBotEquip");
-		border_top = GameObject.Find("BorderTopEquip");
 		
 		Vector3 bottom_left = Camera.main.WorldToViewportPoint(border_bot.transform.position);
 		Vector3 top_right = Camera.main.WorldToViewportPoint(border_top.transform.position);

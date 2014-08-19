@@ -12,6 +12,8 @@ public class FirstLogIn : MonoBehaviour {
 	public TextAsset abilityDataFile;
     public TextAsset playerDataFile;
 	public TextAsset settingsDataFile;
+    public TextAsset allyListFile;
+    public TextAsset allyEquippedFile;
     public int myFlag;//non zero value will always cause all data to be reset.
     
 
@@ -46,6 +48,14 @@ public class FirstLogIn : MonoBehaviour {
 		{
 			return false;
 		}
+        if (!File.Exists(path + "/EquippedAllyList.txt"))
+        {
+            return false;
+        }
+        if (!File.Exists(path + "/AllyList.txt")) 
+        {
+            return false;
+        }
         return true;
     }
 
@@ -81,6 +91,14 @@ public class FirstLogIn : MonoBehaviour {
 		{
 			outfile.Write(settingsDataFile.text);
 		}
+        using (StreamWriter outfile = File.CreateText(path + "/EquippedAllyList.txt"))
+        {
+            outfile.Write(settingsDataFile.text);
+        }
+        using (StreamWriter outfile = File.CreateText(path + "/AllyList.txt"))
+        {
+            outfile.Write(settingsDataFile.text);
+        }
     }
 
 	// Use this for initialization

@@ -491,26 +491,28 @@ public class EventControls : MonoBehaviour {
         playerScript.worldObject = gameObject;
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
-        /*
-        AllyDataList allyLoader = new AllyDataList();
-        allyData = allyLoader.get_cur_equipped_ally();
-        string allyDataPath = "Tier" + allyData.tier
-            + "/" + allyData.unitName;
-        GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
-        if (allyObjectLoad != null)
+        if (eventRecord.check_event_played("ALLY_JONATHAN_UNLOCK"))
         {
-            GameObject tempAllyObject = (GameObject)Instantiate(allyObjectLoad, Vector3.zero, Quaternion.identity);
-            allyUnit = tempAllyObject.GetComponent<BaseAlly>();
-            allyUnit.set_level(allyData.level);
-            allyUnit.manual_start();
-        }
-        else
-        {
-            Debug.LogError("Unit not found!");
+            AllyDataList allyLoader = new AllyDataList();
+            allyData = allyLoader.get_cur_equipped_ally();
+            string allyDataPath = "Tier" + allyData.tier
+                + "/" + allyData.unitName;
+            GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
+            if (allyObjectLoad != null)
+            {
+                GameObject tempAllyObject = (GameObject)Instantiate(allyObjectLoad, Vector3.zero, Quaternion.identity);
+                allyUnit = tempAllyObject.GetComponent<BaseAlly>();
+                allyUnit.set_level(allyData.level);
+                allyUnit.manual_start();
+            }
+            else
+            {
+                Debug.LogError("Unit not found!");
+            }
         }
 
         playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
-         */ 
+         
         radarScript = radar.GetComponent<Radar>();
 
 

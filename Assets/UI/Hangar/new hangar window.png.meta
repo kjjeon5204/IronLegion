@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 9276f13ebe53f0343bcca588c8ce1f91
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: new hangar window
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

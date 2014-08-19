@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 76f1e790b5ccbd24d9c11d88ccdab358
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_herolocation
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

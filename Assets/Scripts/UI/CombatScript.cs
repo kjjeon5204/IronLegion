@@ -310,13 +310,28 @@ public class CombatScript : MonoBehaviour {
 	}
 
 	public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
-        bool battleWon, int itemTier) {
+        bool battleWon, int itemTier, AllyData allyData, Character allyObject) {
         battleStopped = true;
         turn_off_combat_ui();
         Debug.Log("Activate end game window");
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
+        if (allyData.unitName != "NONE") {
+            float experienceRequired = allyObject.GetComponent<AIStatScript>().
+                get_experience_data(allyData.level);
+            float unitExperience = allyData.exp;
+            if (unitExperience > experienceRequired)
+            {
+                if (experienceRequired != 0)
+                {
+                    unitExperience -= experienceRequired;
+                    allyData.level++;
+                }
+            }
+            AllyDataList tempList = new AllyDataList();
+            tempList.save_equipped_ally_data(allyData);
+        }
 	}
 
     public void disable_all_icon(Debuff targetDebuffScript)
@@ -738,6 +753,7 @@ public class CombatScript : MonoBehaviour {
             //update energy bar
             if (mainCharacter.gameObject != null)
             {
+                /*
                 int bar = (int)(mainCharacter.energyPercentage * energyBar.Length);
                 for (int ctr = 0; ctr < energyBar.Length; ctr++)
                 {
@@ -745,6 +761,7 @@ public class CombatScript : MonoBehaviour {
                         energyBar[ctr].SetActive(true);
                     else energyBar[ctr].SetActive(false);
                 }
+                 */ 
             }
             if (mainCharacter.target != null)
                 modify_enemy_buff();
@@ -752,7 +769,6 @@ public class CombatScript : MonoBehaviour {
         if (frameRateDisplay != null)
         {
             int frameRate = (int)(1.0f / Time.deltaTime);
-            Debug.Log("Framerate: " + Time.deltaTime);
             frameRateDisplay.text = "Framerate: " + frameRate.ToString();
         }
         if (screenFader == true && !screenFadeScript.screen_fade_is_active())

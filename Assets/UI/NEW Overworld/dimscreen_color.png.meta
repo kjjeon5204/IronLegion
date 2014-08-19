@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: b9f4a4f57226de441950ea7ecd04c8d2
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: dimscreen_color
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

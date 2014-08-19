@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 5ad85fcdea5875d4ebba7da0876a21b9
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_railgun_common
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

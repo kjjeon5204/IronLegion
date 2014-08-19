@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 85e67a2cb4849fe40b0877f8c796342a
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_sword_rare
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -109,8 +109,13 @@ public class MainChar : Character {
 
     HeroLevelData curLevelData;
     public AudioSource thrusterSound;
+
+    public GameObject rightAllyPositionPoint;
+    public GameObject leftAllyPositionPoint;
+    BaseAlly allyUnit;
+
+    bool environmentCollision;
     
-  
 
 
     float farDist = 12.0f;
@@ -124,6 +129,8 @@ public class MainChar : Character {
     public bool turning;
 
     public GameObject playerCamera;
+    public GameObject playerLandingTrackCam;
+    public GameObject enemyLandingCamPivotPoint;
 
     public TargetingIndicator targetIndicatorScript;
     public Camera targetIndicatorCam;
@@ -140,6 +147,10 @@ public class MainChar : Character {
             targetingIndicator.SetActive(false);
     }
 
+    public void set_ally_unit(BaseAlly inAllyUnit)
+    {
+        allyUnit = inAllyUnit;
+    }
 
     public bool is_switching_state()
     {
@@ -240,24 +251,7 @@ public class MainChar : Character {
         return damage;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "EnemyAI")
-        {
-            Character collidedEnemy = collision.collider.gameObject.GetComponent<Character>();
-            collidedEnemy.hit(10.0f);
-            this.hit(10.0f);
-            if (curState == "SWITCHCLOSE")
-            {
-                isClose = false;
-            }
-            else if (curState == "SWITCHFAR")
-            {
-                isClose = true;
-            }
-            curState = "IDLE";
-        }
-    }
+   
     
     void line_of_sight_handle()
     {
@@ -531,6 +525,22 @@ public class MainChar : Character {
         }
     }
 
+    void OnTriggerEnter(Collider hitCollider)
+    {
+        Debug.Log("Impact with environment!");
+        if (hitCollider.gameObject.tag == "Environment" && environmentCollision == false)
+        {
+            Vector3 hitDirection = (previousPos - transform.position);
+            curState = "IDLE";
+            transform.Translate(transform.InverseTransformDirection(hitDirection) * 3.0f);
+            environmentCollision = true;
+        }
+    }
+
+
+
+
+    
     
 
     void booster_controls()
@@ -590,10 +600,26 @@ public class MainChar : Character {
         return curData;
     }
 
+    public void wave_transition_phase(GameObject trackedObject)
+    {
+        if (playerCamera.activeInHierarchy == true)
+        {
+            playerCamera.SetActive(false);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == false)
+        {
+            playerLandingTrackCam.SetActive(true);
+        }
+        Vector3 lookAtPointPosition = trackedObject.transform.position;
+        lookAtPointPosition.y = 0.0f;
+        transform.LookAt(lookAtPointPosition);
+        enemyLandingCamPivotPoint.transform.LookAt(trackedObject.transform.position);
+    }
+
     // Use this for initialization
     public override void manual_start()
     {
-
+        
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
@@ -605,7 +631,7 @@ public class MainChar : Character {
         curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
         maxEnergy = 100.0f + playerItemStat.item_energy;
         curEnergy = maxEnergy;
-        Debug.Log("Player HP: " + curStats.baseHp);
+        //Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
         energyEffect.SetActive(false);
@@ -656,6 +682,30 @@ public class MainChar : Character {
             return;
         }
 		*/
+        if (allyUnit != null)
+        {
+            if (target != null)
+                allyUnit.set_target(targetScript);
+            Vector3 allyRelativePos = transform.InverseTransformPoint(allyUnit.transform.position);
+            if (allyRelativePos.x > 0.0f)
+            {
+                allyUnit.set_movement_position(rightAllyPositionPoint.transform.position);
+            }
+            else
+            {
+                allyUnit.set_movement_position(leftAllyPositionPoint.transform.position);
+            }
+        }
+
+        if (playerCamera.activeInHierarchy == false)
+        {
+            playerCamera.SetActive(true);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == true)
+        {
+            playerLandingTrackCam.SetActive(false);
+        }
+
         float distToTarget = 0;
         
         if (targetScript != null && curState != "PATHING")

@@ -17,6 +17,7 @@ public class MapData {
 	int chapter;
     int mapCount;
 	MapTileData[] tilesData;
+    IList<int> lastestTilesUnlocked = new List<int>();
     
 	public MapData(MapTileData[] inputMapData, int inChapter) {
 		tilesData = inputMapData;
@@ -98,6 +99,11 @@ public class MapData {
 		return recursively_check_levels (curUnlocked, 0);
 	}
 
+    public IList<int> get_latest_levels()
+    {
+        return lastestTilesUnlocked;
+    }
+
 
 	IList<int> recursively_check_levels(IList<int> inputLevels, int checkChapter) {
 		if (tilesData[checkChapter].clearCount > 0) {
@@ -108,6 +114,7 @@ public class MapData {
 			return inputLevels;
 		}
 		else {
+            lastestTilesUnlocked.Add(checkChapter);
 			return inputLevels;
 		}
 	}

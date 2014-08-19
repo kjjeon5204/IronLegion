@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f01b08dd3fd01ac42b4c35d0d1205028
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_shatter
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

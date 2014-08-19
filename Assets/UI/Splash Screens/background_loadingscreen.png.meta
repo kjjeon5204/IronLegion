@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 4c1ee4e5d7578e147832bc9882396db6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: background_loadingscreen
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

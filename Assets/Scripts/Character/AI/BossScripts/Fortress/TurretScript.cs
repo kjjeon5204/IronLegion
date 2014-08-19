@@ -10,6 +10,7 @@ public class TurretScript : Character {
     string currentState;
 
     float nextPollTime;
+    public float attackPercentage;
     public float pollTime;
 
     bool phasePlayed = false;
@@ -64,7 +65,7 @@ public class TurretScript : Character {
                             muzzleAcc.transform.position, muzzleAcc.transform.rotation)).
                             GetComponent<MyProjectile>();
 
-                        projectileScript.set_projectile(playerScript, gameObject, curStats.baseDamage);
+                        projectileScript.set_projectile(playerScript, gameObject, curStats.baseDamage * attackPercentage / 100.0f);
                     }
                 }
                 else

@@ -84,6 +84,7 @@ public class Character : MonoBehaviour
 
     bool enemyReady = false;
     public bool landCraftActive;
+    public GameObject unitIndicatorRing;
 
 
     protected int initLevel;
@@ -104,6 +105,9 @@ public class Character : MonoBehaviour
 
     public void unit_successfully_landed()
     {
+        if (unitIndicatorRing != null)
+            unitIndicatorRing.SetActive(true);
+
         enemyReady = true;
     }
     
@@ -592,7 +596,13 @@ public class Character : MonoBehaviour
         if (dropShipScript != null)
         {
             if (landCraftActive == true)
-                dropShipScript.position_in_the_air();
+            {
+                //if (unitIndicatorRing != null)
+                //{
+                    //unitIndicatorRing.SetActive(false);
+                    dropShipScript.position_in_the_air();
+                //}
+            }
             else
             {
 

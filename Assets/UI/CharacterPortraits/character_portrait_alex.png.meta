@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 56a3bc02d4b03054ba5d4a70edd7e7e6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_alex
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

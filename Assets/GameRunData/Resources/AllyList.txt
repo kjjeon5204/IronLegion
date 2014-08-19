@@ -1,0 +1,8 @@
+#Ally list
+
+#Format
+#NUMBER_OF_ALLY
+#ALLYLIST
+#END
+
+0

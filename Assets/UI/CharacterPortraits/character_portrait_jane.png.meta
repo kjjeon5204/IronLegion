@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 6d70813b568a40f4f807a6e901f9ed56
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_jane
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

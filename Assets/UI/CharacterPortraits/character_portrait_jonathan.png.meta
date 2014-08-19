@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: d9bb4e33779f82743a44e32e42600496
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_jonathan
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -69,11 +69,11 @@ public class MyProjectile : MonoBehaviour {
         target = targetScript.gameObject;
         if (target == null)
         {
-            Debug.LogError("Null target failed to initialize!");
+            //Debug.LogError("Null target failed to initialize!");
         }
         else
         {
-            Debug.Log(name + "succesfully initialized, set to target: " + target.name);
+            //Debug.Log(name + "succesfully initialized, set to target: " + target.name);
         }
     }
 

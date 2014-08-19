@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: e643c961a0b0efc498d1db10903115d4
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_sword_legendary
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

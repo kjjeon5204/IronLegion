@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: ec2b30faf298f0242a3572b97898745a
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_blutsauger
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

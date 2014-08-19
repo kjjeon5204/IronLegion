@@ -113,6 +113,8 @@ public class MainChar : Character {
     public GameObject rightAllyPositionPoint;
     public GameObject leftAllyPositionPoint;
     BaseAlly allyUnit;
+
+    bool environmentCollision;
     
 
 
@@ -249,24 +251,7 @@ public class MainChar : Character {
         return damage;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "EnemyAI")
-        {
-            Character collidedEnemy = collision.collider.gameObject.GetComponent<Character>();
-            collidedEnemy.hit(10.0f);
-            this.hit(10.0f);
-            if (curState == "SWITCHCLOSE")
-            {
-                isClose = false;
-            }
-            else if (curState == "SWITCHFAR")
-            {
-                isClose = true;
-            }
-            curState = "IDLE";
-        }
-    }
+   
     
     void line_of_sight_handle()
     {
@@ -540,6 +525,22 @@ public class MainChar : Character {
         }
     }
 
+    void OnTriggerEnter(Collider hitCollider)
+    {
+        Debug.Log("Impact with environment!");
+        if (hitCollider.gameObject.tag == "Environment" && environmentCollision == false)
+        {
+            Vector3 hitDirection = (previousPos - transform.position);
+            curState = "IDLE";
+            transform.Translate(transform.InverseTransformDirection(hitDirection) * 3.0f);
+            environmentCollision = true;
+        }
+    }
+
+
+
+
+    
     
 
     void booster_controls()
@@ -630,7 +631,7 @@ public class MainChar : Character {
         curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
         maxEnergy = 100.0f + playerItemStat.item_energy;
         curEnergy = maxEnergy;
-        Debug.Log("Player HP: " + curStats.baseHp);
+        //Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
         energyEffect.SetActive(false);

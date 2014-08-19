@@ -42,7 +42,7 @@ public class Missile : MyProjectile {
 
         float xRotationValue = rotSpeed * (rotAngleX / (rotAngleX + rotAngleY));
         float yRotationValue = rotSpeed * (rotAngleY / (rotAngleX + rotAngleY));
-        /*
+        
         if (Mathf.Abs(rotAngleY) <= yRotationValue * Time.deltaTime &&
             Mathf.Abs(rotAngleX) <= xRotationValue * Time.deltaTime)
         {
@@ -50,7 +50,7 @@ public class Missile : MyProjectile {
             //transform.LookAt(targetPosition);
             return false;
         }
-        */
+        
         //Debug.Log ("rotation not completed");
         float rotDirectionY = transform.InverseTransformPoint(targetPosition).x;
         float rotDirectionX = transform.InverseTransformPoint(targetPosition).y;
@@ -60,7 +60,7 @@ public class Missile : MyProjectile {
         //Debug.Log("X rotation: " + rotAngleX);
         if (Mathf.Abs(rotAngleY) > 0.0f)
         {
-            if (rotAngleY > rotSpeed * Time.deltaTime)
+            if (rotAngleY > yRotationValue * Time.deltaTime)
             {
                 //Debug.Log("Y axis Rotation Rate: " + rotSpeed * Time.deltaTime);
                 if (rotDirectionY > 0)
@@ -78,12 +78,12 @@ public class Missile : MyProjectile {
                 if (rotDirectionY > 0)
                     transform.Rotate(Vector3.down, rotAngleY, Space.World);
                 else if (rotDirectionY < 0)
-                    transform.Rotate(Vector3.up, rotAngleY, Space.World);
+                    transform.Rotate(Vector3.up,rotAngleY, Space.World);
             }
         }
         if (Mathf.Abs(rotAngleX) > 0.0f)
         {
-            if (rotAngleX > rotSpeed * Time.deltaTime)
+            if (rotAngleX > xRotationValue * Time.deltaTime)
             {
                 //Debug.Log("X axis Rotation Rate: " + rotSpeed * Time.deltaTime);
                 if (rotDirectionX > 0)
@@ -103,7 +103,6 @@ public class Missile : MyProjectile {
                     transform.Rotate(Vector3.right, rotAngleX/*, Space.World*/);
             }
         }
-
         return true;
     }
 	
@@ -116,7 +115,7 @@ public class Missile : MyProjectile {
 
             if (detonation != null)
                 GameObject.Instantiate(detonation, transform.position, Quaternion.identity);
-            Debug.Log("Hit gameobject: " + hit.gameObject);
+            //Debug.Log("Hit gameobject: " + hit.gameObject);
             Destroy (gameObject);
 		}
 	}

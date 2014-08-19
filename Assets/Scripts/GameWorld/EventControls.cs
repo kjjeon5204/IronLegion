@@ -151,6 +151,8 @@ public class EventControls : MonoBehaviour {
     //Ally variables
     Character allyUnit;
     AllyData allyData;
+    bool runPlayerSide;
+    int enemyScriptRunCtr;
 
     
 
@@ -461,6 +463,7 @@ public class EventControls : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Application.targetFrameRate = 60;
 		RenderSettings.skybox = curEngageData.skyBox;
         RenderSettings.fog = curEngageData.fogSettings.fogEnabled;
         RenderSettings.fogColor = curEngageData.fogSettings.fogColor;
@@ -487,6 +490,7 @@ public class EventControls : MonoBehaviour {
         playerScript.worldObject = gameObject;
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
+        /*
         AllyDataList allyLoader = new AllyDataList();
         allyData = allyLoader.get_cur_equipped_ally();
         string allyDataPath = "Tier" + allyData.tier
@@ -505,6 +509,7 @@ public class EventControls : MonoBehaviour {
         }
 
         playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
+         */ 
         radarScript = radar.GetComponent<Radar>();
 
 
@@ -677,13 +682,15 @@ public class EventControls : MonoBehaviour {
 
     void target_path_updater()
     {
-        waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
+        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+            waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
         targetPathUpdater++;
         if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
         {
             targetPathUpdater = 0;
         }
-        waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
+        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+            waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
     }
 
     void enable_tutorial(int tutorialStep)
@@ -793,14 +800,7 @@ public class EventControls : MonoBehaviour {
                     //If there is an ending storyline
                     if (waveRunData[curWave].thisStoryEnd != null)
                     {   
-                        /*
-                        combatScript.turn_off_combat_ui();
-                        playerScript.gameObject.SetActive(false);
-                        waveRunData[curWave].thisStoryEnd.gameObject.SetActive(true);
-                        waveRunData[curWave].eventRunPhase = true;
-                        waveRunData[curWave].waveEnded = true;
-                        waveRunData[curWave].storyInitialized = false;
-                         */
+                       
                         faderActive = true;
                         myScreenFadeScript.screen_fade_active(wave_end_cutscene_fade_process);
                         
@@ -814,32 +814,9 @@ public class EventControls : MonoBehaviour {
                         {
                             return;
                         }
-                        Debug.Log("Current wave number: " + curWave);
                         //If there is a beginning storyline at next wave.
                         if (waveRunData[curWave].thisStoryStart != null)
                         {
-                            /*
-                            if (waveRunData[curWave].loadBeforeStory == true)
-                            {
-                                combatScript.turn_off_combat_ui();
-                                playerScript.gameObject.SetActive(false);
-                                waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
-                                waveRunData[curWave].eventRunPhase = true;
-                                waveRunData[curWave].storyInitialized = false;
-                                waveRunData[curWave].waveEnded = false;
-                            }
-                            else
-                            {
-                                wave_ready_phase(waveRunData[curWave]);
-                                combatScript.turn_off_combat_ui();
-                                playerScript.gameObject.SetActive(false);
-                                waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
-                                waveRunData[curWave].eventRunPhase = true;
-                                waveRunData[curWave].storyInitialized = false;
-                                waveRunData[curWave].waveEnded = false;
-                            }
-                            */
-                            
                             faderActive = true;
                             myScreenFadeScript.screen_fade_active(wave_start_cutscene_fade_process);
                                
@@ -847,7 +824,6 @@ public class EventControls : MonoBehaviour {
                         //If there is no beginning storyline at next wave.
                         else
                         {
-                            Debug.Log("Story ended");
                             wave_ready_phase(waveRunData[curWave]);
                             waveRunData[curWave].eventRunPhase = false;
                             waveRunData[curWave].storyInitialized = false;
@@ -873,31 +849,54 @@ public class EventControls : MonoBehaviour {
                 /*Event Handle*/
                 if (gamePaused == false && waveReadyPhase == false)
                 {
-                    playerScript.manual_update();
-                    if (allyUnit != null)
-                        allyUnit.manual_update();
+                    //if (runPlayerSide == true) {
+                        playerScript.manual_update();
+                        if (allyUnit != null)
+                            allyUnit.manual_update();
 
+                        runPlayerSide = false;
+                    //}
+
+                    target_path_updater();
                     if (curWave < waveRunData.Length - 1 &&
                         curEngageData.waveData[curWave].battleType == BattleType.BOSS)
                     {
                         if (curWave == 0)
                             mainBody.first_wave();
                     }
-                    for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
+                    if (enemyScriptRunCtr >= waveRunData[curWave].enemyListScript.Length)
                     {
-                        if (waveRunData[curWave].enemyList[ctr] != null)
+                        enemyScriptRunCtr = 0;
+                    }
+                    if (runPlayerSide == false)
+                    {
+                        for (int ctr = 0; ctr < waveRunData[curWave].enemyList.Length; ctr++)
                         {
-                            waveRunData[curWave].enemyListScript[ctr].manual_update();
+
+                        //Debug.Log("Running enemy script: " + enemyScriptRunCtr);
+                            if (waveRunData[curWave].enemyList[ctr] != null)
+                            {
+                                //Debug.Log("Running enemy script: " + enemyScriptRunCtr);
+                                waveRunData[curWave].enemyListScript[ctr].manual_update();
+                            }
                         }
                     }
-
+                    
+                    if (enemyScriptRunCtr >= waveRunData[curWave].enemyListScript.Length)
+                    {
+                        enemyScriptRunCtr = 0;
+                        if (runPlayerSide == true)
+                            runPlayerSide = false;
+                        if (runPlayerSide == false)
+                            runPlayerSide = true;
+                    }
                     if (curWave < waveRunData.Length - 1 &&
                         curEngageData.waveData[curWave + 1].battleType == BattleType.AERIAL_MULTI_SPAWN_POINT &&
                         waveRunData[curWave].remainingEnemy == 1)
                     {
                         run_aerial_prewave(waveRunData[curWave + 1]);
                     }
-
+                    
                 }
             }
             else

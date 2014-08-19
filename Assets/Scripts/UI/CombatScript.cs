@@ -753,6 +753,7 @@ public class CombatScript : MonoBehaviour {
             //update energy bar
             if (mainCharacter.gameObject != null)
             {
+                /*
                 int bar = (int)(mainCharacter.energyPercentage * energyBar.Length);
                 for (int ctr = 0; ctr < energyBar.Length; ctr++)
                 {
@@ -760,6 +761,7 @@ public class CombatScript : MonoBehaviour {
                         energyBar[ctr].SetActive(true);
                     else energyBar[ctr].SetActive(false);
                 }
+                 */ 
             }
             if (mainCharacter.target != null)
                 modify_enemy_buff();
@@ -767,7 +769,6 @@ public class CombatScript : MonoBehaviour {
         if (frameRateDisplay != null)
         {
             int frameRate = (int)(1.0f / Time.deltaTime);
-            Debug.Log("Framerate: " + Time.deltaTime);
             frameRateDisplay.text = "Framerate: " + frameRate.ToString();
         }
         if (screenFader == true && !screenFadeScript.screen_fade_is_active())

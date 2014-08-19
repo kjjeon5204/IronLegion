@@ -597,11 +597,11 @@ public class Character : MonoBehaviour
         {
             if (landCraftActive == true)
             {
-                if (unitIndicatorRing != null)
-                {
-                    unitIndicatorRing.SetActive(false);
+                //if (unitIndicatorRing != null)
+                //{
+                    //unitIndicatorRing.SetActive(false);
                     dropShipScript.position_in_the_air();
-                }
+                //}
             }
             else
             {

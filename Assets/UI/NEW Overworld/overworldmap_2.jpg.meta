@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: bc3526c744531584a9f8d61291ab00f9
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: overworldmap_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

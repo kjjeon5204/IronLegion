@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: e3dab2e2020784f4aaab09990200f6fc
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_miki
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

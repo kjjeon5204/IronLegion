@@ -94,7 +94,7 @@ public struct PlayerLevelReadData
 }
 
 public class EventControls : MonoBehaviour {
-    PlayerDataReader eventRecord = new PlayerDataReader();
+    PlayerDataReader eventRecord;
     public bool tutorialStage = false;
     bool tutorialPhase;
     bool endBattle = false;
@@ -463,6 +463,7 @@ public class EventControls : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        eventRecord = new PlayerDataReader(Application.persistentDataPath);
         Application.targetFrameRate = 60;
 		RenderSettings.skybox = curEngageData.skyBox;
         RenderSettings.fog = curEngageData.fogSettings.fogEnabled;

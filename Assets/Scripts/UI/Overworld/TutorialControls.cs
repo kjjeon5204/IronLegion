@@ -33,7 +33,7 @@ public class TutorialControls : MonoBehaviour {
 		tutorials_on[3] = false;
 		tutorials_on[4] = false;
 		
-		tutorial_data = new PlayerDataReader();
+		tutorial_data = new PlayerDataReader(Application.persistentDataPath);
 		
 		notice_position = new Vector3(60f,-2.5f,5f);
 	}

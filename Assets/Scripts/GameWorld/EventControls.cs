@@ -504,6 +504,7 @@ public class EventControls : MonoBehaviour {
                 allyUnit = tempAllyObject.GetComponent<BaseAlly>();
                 allyUnit.set_level(allyData.level);
                 allyUnit.manual_start();
+                playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
             }
             else
             {
@@ -511,7 +512,6 @@ public class EventControls : MonoBehaviour {
             }
         }
 
-        playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
          
         radarScript = radar.GetComponent<Radar>();
 
@@ -778,6 +778,10 @@ public class EventControls : MonoBehaviour {
         {
             if (waveRunData[curWave].eventRunPhase == false)
             {
+                if (player.activeInHierarchy == false)
+                {
+                    player.SetActive(true);
+                }
                 //targetpath update
 
                 playerScript.enable_player_camera();
@@ -906,6 +910,10 @@ public class EventControls : MonoBehaviour {
             {
                 //Debug.Log("Run story");
                 //playerScript.disable_player_camera();
+                if (player.activeInHierarchy == true)
+                {
+                    player.SetActive(false);
+                }
                 if (waveRunData[curWave].waveEnded == false &&
                     waveRunData[curWave].storyEnded == false)
                 {

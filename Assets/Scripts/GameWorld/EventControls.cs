@@ -504,6 +504,7 @@ public class EventControls : MonoBehaviour {
                 allyUnit = tempAllyObject.GetComponent<BaseAlly>();
                 allyUnit.set_level(allyData.level);
                 allyUnit.manual_start();
+				playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
             }
             else
             {
@@ -511,7 +512,7 @@ public class EventControls : MonoBehaviour {
             }
         }
 
-        playerScript.set_ally_unit(allyUnit.GetComponent<BaseAlly>());
+        
          
         radarScript = radar.GetComponent<Radar>();
 
@@ -685,15 +686,18 @@ public class EventControls : MonoBehaviour {
 
     void target_path_updater()
     {
-        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+		if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
+		{
+			targetPathUpdater = 0;
+		}
+        if (waveRunData[curWave].enemyListScript.Length != 0 &&
+		    waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
             waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
         targetPathUpdater++;
         if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
         {
             targetPathUpdater = 0;
         }
-        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
-            waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
     }
 
     void enable_tutorial(int tutorialStep)

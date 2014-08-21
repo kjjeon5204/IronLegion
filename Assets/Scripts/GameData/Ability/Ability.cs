@@ -437,7 +437,7 @@ public class Ability : MonoBehaviour {
             }
             else if (currentPhaseData.isMoving == true && !customMovement.run_movement())
             {
-                //turn_effect_off();
+                turn_effect_off();
                 phaseCtr++;
                 phasePlayed = false;
             }
@@ -446,7 +446,7 @@ public class Ability : MonoBehaviour {
                 float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
                 if (distToMove < currentPhaseData.distFromTarget / 2.0f)
                 {
-                    //turn_effect_off();
+                    turn_effect_off();
                     phaseCtr++;
                     phasePlayed = false;
                 }
@@ -458,7 +458,7 @@ public class Ability : MonoBehaviour {
             {
                 if (!animation.IsPlaying(currentPhaseData.phaseAnimation.name))
                 {
-                    //turn_effect_off();
+                    turn_effect_off();
                     phaseCtr++;
                     phasePlayed = false;
                 }
@@ -469,7 +469,7 @@ public class Ability : MonoBehaviour {
             {
                 if (Time.time > phaseDuration)
                 {
-                    //turn_effect_off();
+                    turn_effect_off();
                     phaseCtr++;
                     phasePlayed = false;
                 }

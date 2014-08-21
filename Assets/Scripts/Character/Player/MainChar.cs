@@ -115,6 +115,9 @@ public class MainChar : Character {
     BaseAlly allyUnit;
 
     bool environmentCollision;
+
+    public PlayerCamControls playerCamEffectAccess;
+    bool bossApproachPhase = true;
     
 
 
@@ -136,6 +139,7 @@ public class MainChar : Character {
     public Camera targetIndicatorCam;
 
     bool approachPhase = false;
+    bool attackPathBuffer = false;
 
     //Temporary testing variable
 
@@ -214,8 +218,9 @@ public class MainChar : Character {
         autoAdjustEnabled = true;
         if (curBattleType == BattleType.BOSS)
         {
-            curState = "PATHING";
-            phasePlayed = false;
+            attackPathBuffer = true;
+            //curState = "PATHING";
+            //phasePlayed = false;
         }
         targetIndicatorScript.gameObject.SetActive(true);
         targetIndicatorScript.initialize_indicator();
@@ -531,9 +536,10 @@ public class MainChar : Character {
         if (hitCollider.gameObject.tag == "Environment" && environmentCollision == false)
         {
             Vector3 hitDirection = (previousPos - transform.position);
+            Debug.Log("Move direction" + hitDirection);
             curState = "IDLE";
-            transform.Translate(transform.InverseTransformDirection(hitDirection) * 3.0f);
-            environmentCollision = true;
+            transform.Translate(transform.InverseTransformDirection(hitDirection).normalized * 5.0f);
+            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.3f);
         }
     }
 
@@ -676,12 +682,19 @@ public class MainChar : Character {
     // Update is called once per frame
     public override void manual_update()
     {
+
+        previousPos = transform.position;
 		/*
         if (worldScript.is_win())
         {
             return;
         }
 		*/
+        if (curBattleType == BattleType.BOSS && bossApproachPhase == true)
+        {
+            transform.Translate(30.0f * Vector3.forward * Time.deltaTime);
+        }
+
         if (allyUnit != null)
         {
             if (target != null)
@@ -708,7 +721,7 @@ public class MainChar : Character {
 
         float distToTarget = 0;
         
-        if (targetScript != null && curState != "PATHING")
+        if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
             currentFlag = targetScript.mapFlag;
         
         if (inputReady == true)
@@ -893,6 +906,12 @@ public class MainChar : Character {
                 curCharacterState = "IDLE";
                 autoAdjustEnabled = false;
                 approachPhase = false;
+                bossApproachPhase = false;
+                if (curBattleType == BattleType.BOSS && attackPathBuffer == true)
+                {
+                    curState = "PATHING";
+                    phasePlayed = false;
+                }
             }
             //regAttackCtr = 0;
         }
@@ -927,11 +946,13 @@ public class MainChar : Character {
                 {
                     autoAdjustEnabled = true;
                     curState = "IDLE";
+                    attackPathBuffer = false;
                 }
 			}
 			else {
 				if (currentPath.run_path()) {
 					curState = "IDLE";
+                    attackPathBuffer = false;
 				}
 			}
         }
@@ -959,6 +980,5 @@ public class MainChar : Character {
             currentTargetIndex = targetScript.get_enemy_index();
         }
         booster_controls();
-        previousPos = transform.position;
 	}
 }

@@ -161,7 +161,7 @@ public class MainBodyBoss : Character {
         }
         if (cannonTimeTracker < Time.time)
         {
-            //scannonActive = true;
+            cannonActive = true;
             cannonTimeTracker = Time.time + 5.0f;
         }
 
@@ -173,7 +173,7 @@ public class MainBodyBoss : Character {
                 missileTimeTracker = Time.time + 3.0f;
             }
         }
-        if (cannonActive == true && (target.transform.position - transform.position).magnitude > 20.0f)
+        if (cannonActive == true && (target.transform.position - transform.position).magnitude > 30.0f)
         {
             foreach (GameObject mainGunMuzzle in massiveMuzzle)
             {

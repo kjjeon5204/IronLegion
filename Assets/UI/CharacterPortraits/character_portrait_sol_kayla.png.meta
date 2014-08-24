@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 00ec8744505626247af375dfa784f6d3
+guid: 1e31fbfa7c909454aa17b73ae1c3e893
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_SOL_Pilot_Male_1
+    21300000: character_portrait_solfemale
+    21300002: character_portrait_sol_kayla
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

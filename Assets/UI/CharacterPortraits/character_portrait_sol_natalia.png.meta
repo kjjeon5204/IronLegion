@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 1e31fbfa7c909454aa17b73ae1c3e893
+guid: 8ed85819f22875c4287d889918c62647
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_portrait_solfemale
+    21300000: SOL_Officer Female_3
+    21300002: character_portrait_solfemale_3
+    21300004: character_portrait_sol_natalia
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

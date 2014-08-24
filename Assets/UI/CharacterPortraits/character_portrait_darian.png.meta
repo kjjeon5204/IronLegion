@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f312ed645a601bd49bac9946b1c1760f
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_darian
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

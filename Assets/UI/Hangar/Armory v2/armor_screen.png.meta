@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: b17d3596774da2c49993786534da87af
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: armor_screen
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 5405511cb8c27ba4b83550ef5719fd5a
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_aegissoldier
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

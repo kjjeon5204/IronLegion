@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 40f69d0ba5b18a2419cbfdd6f6db76d3
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_shotgun
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

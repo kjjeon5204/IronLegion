@@ -42,16 +42,19 @@ public class SetHangarUI : MonoBehaviour {
 	}
 	
 	void Start() {
-		tutorial_data = new PlayerDataReader();
+		tutorial_data = new PlayerDataReader(Application.persistentDataPath);
 		
-		if (tutorial_data.check_event_played("hangar_second"))
+		if (tutorial_data.check_event_played("HANGAR_SECOND"))
 		{
+            tutorial_data.event_played("HANGAR_SECOND");
 			ActivateAllies();
 		}
-		if (tutorial_data.check_event_played("store"))
+		if (tutorial_data.check_event_played("STORE"))
 		{
+            tutorial_data.event_played("STORE");
 			ActivateArmory();
 		}
+        tutorial_data.save_data();
 	}
 	
 	public void ActivateArmory() {

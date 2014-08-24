@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: c475ee9f2d914f9498e7f4ef319bcc4a
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_tutorial_finger
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

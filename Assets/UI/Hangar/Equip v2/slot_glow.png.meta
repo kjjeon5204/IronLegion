@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 22e9ad6812cd1664e8c6435cdb761555
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: slot_glow
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

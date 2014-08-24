@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: aec21b5440046b54b818a95fd25497e2
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: icon_dialoguebox
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -29,6 +29,8 @@ public class PlayerDataReader {
     IDictionary<string, EventProgressionData> eventTracker = 
         new Dictionary<string, EventProgressionData>();
 
+    string persistentDataPath;
+
     public string get_next_line(StreamReader textToRead)
     {
         string rawString;
@@ -43,41 +45,15 @@ public class PlayerDataReader {
         return rawString;
     }
 
-
-    public PlayerDataReader()
-    {
-        string dataPath = Application.persistentDataPath + "/PlayerData.txt";
+    public void load_player_data_file(string persistentDataPath) {
+        string dataPath = persistentDataPath + "/PlayerData.txt";
         if (File.Exists(dataPath))
         {
-            
+
             using (StreamReader inFile = File.OpenText(dataPath))
             {
-                /*
-                string rawString = get_next_line(inFile);
-                curVersionNumber = rawString;
-                //combat tutorial
-                rawString = get_next_line(inFile);
-                if (rawString == "1")
-                    curStatus.combatTutorial = 1;
-                else
-                    curStatus.combatTutorial = 0;
 
-                //hanger tutorial
-                rawString = get_next_line(inFile);
-                if (rawString == "1")
-                    curStatus.hangerTutorial = 1;
-                else
-                    curStatus.hangerTutorial = 0;
 
-                //overworld tutorial
-                rawString = get_next_line(inFile);
-                if (rawString == "1")
-                    curStatus.overWorldTutorial = 1;
-                else
-                    curStatus.overWorldTutorial = 0;
-                 
-                */
-                
                 string rawString = get_next_line(inFile);
                 curVersionNumber = rawString;
                 while (rawString != "END")
@@ -100,7 +76,7 @@ public class PlayerDataReader {
                     }
                     eventTracker[curProgress.eventID] = curProgress;
                 }
-                
+
             }
         }
         else
@@ -110,6 +86,12 @@ public class PlayerDataReader {
             curStatus.hangerTutorial = 1;
             curStatus.overWorldTutorial = 1;
         }
+    }
+
+
+    public PlayerDataReader(string inPersistentDataPath)
+    {
+        persistentDataPath = inPersistentDataPath;
     }
 
     public bool combat_tutorial_played()
@@ -158,6 +140,7 @@ public class PlayerDataReader {
     //Returns false if even has not been played!
     public bool check_event_played(string eventID)
     {
+        load_player_data_file(persistentDataPath);
         return eventTracker[eventID].eventPlayed;
     }
 

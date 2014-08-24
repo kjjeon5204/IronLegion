@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: 41482962d8146ce47ba1c3048da86cf6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: tile_overworld_0
+    21300002: tile_overworld_1
+    21300004: tile_overworld_2
+    21300006: tile_overworld_3
+    21300008: tile_overworld_4
+    21300010: tile_overworld_5
+    21300012: tile_overworld_6
+    21300014: tile_overworld_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

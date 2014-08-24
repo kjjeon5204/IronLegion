@@ -20,7 +20,21 @@ public class SetTiles : MonoBehaviour {
     //map progression add on
     public int keyTile;
     public SetTiles nextMap;
-    
+
+    void activate_remaining_tiles(int curAcc)
+    {
+        int ctr = curAcc;
+        while (tileDataAccess[ctr].unlockedLevels.Length != 0 &&
+            tileDataAccess[ctr].isBoss == false)
+        {
+            tileDataAccess[ctr].gameObject.SetActive(true);
+            ctr++;
+        }
+        if (ctr < tileDataAccess.Length && tileDataAccess[ctr].isBoss == true)
+        {
+            tileDataAccess[ctr].gameObject.SetActive(true);
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -45,11 +59,13 @@ public class SetTiles : MonoBehaviour {
         map = new MapData(mapTileHolder, chapter);
         IList<int> unlockedLevels = new List<int>();
         unlockedLevels = map.get_unlocked_levels();
+        IList<int> latestUnlocked = map.get_latest_levels();
 
 		
 		bool done_once = false; //So that you only ActivateArrows once
         for (int ctr = 0; ctr < unlockedLevels.Count; ctr++)
         {
+            tileDataAccess[unlockedLevels[ctr]].gameObject.SetActive(true);
             tileDataAccess[unlockedLevels[ctr]].TileOn();
             /*add on*/
             if (unlockedLevels[ctr] == keyTile)
@@ -91,9 +107,14 @@ public class SetTiles : MonoBehaviour {
 				done_once = true;
 			}
         }
-		//tutorial.ActivateTutorials();
+
+        for (int ctr = 0; ctr < latestUnlocked.Count; ctr++)
+        {
+            activate_remaining_tiles(latestUnlocked[ctr]);
+        }
+		tutorial.ActivateTutorials();
 		//if (chapter == 1)
-		   // tutorial.ActivateTutorials();
+		    //tutorial.ActivateTutorials();
         /*
 		for (int i = 0; i <= levelsCompleted; i++)
 		{

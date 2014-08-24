@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 7cee698a495345641b9e3608ff3bce79
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_beamcannon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

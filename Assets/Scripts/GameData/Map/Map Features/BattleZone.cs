@@ -11,7 +11,8 @@ public class BattleZone : MapChargeFlag {
 			return pathLibrary[targetZone];
 		}
 		else {
-			Debug.LogError ("Path at " + name + " to " + targetZone.name + " not found!");
+            if (name != targetZone.name)
+			    Debug.LogError ("Path at " + name + " to " + targetZone.name + " not found!");
 			return null;
 		}
 	}

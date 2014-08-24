@@ -444,7 +444,7 @@ public class ai : Character {
 		}
 		if (hasTurret) custom_lookAt (transform.forward, turret.transform.forward, turret.transform, turretRotSpeed);
 		int tempPhase = transferPhase / 2 - 1;
-        modifyPath = true;
+        //modifyPath = true;
         //Debug.Log("use look at move");
 		if (modifyPath == true /*&& type != moveType.move_back*/) {
 			//Debug.Log ("Run algorithm");

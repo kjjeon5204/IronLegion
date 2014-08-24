@@ -223,7 +223,7 @@ public class MainBodyBoss : Character {
 
         if (energyBallTimeTracker < Time.time)
         {
-
+			energyBallActive = true;
         }
         
         if (missileActive == true)
@@ -244,6 +244,7 @@ public class MainBodyBoss : Character {
 
                 tempProjectile.GetComponent<MyProjectile>().set_projectile(target, gameObject, curStats.baseDamage * energyBallDamage / 100.0f);
             }
+			energyBallTimeTracker = Time.time + 5.0f;
             energyBallActive = false;
         }
         if (playerRelativePos.x > 0.0f)

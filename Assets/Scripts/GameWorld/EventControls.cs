@@ -685,7 +685,8 @@ public class EventControls : MonoBehaviour {
 
     void target_path_updater()
     {
-        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null && 
+            waveRunData[curWave].enemyListScript.Length != 0)
             waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
         targetPathUpdater++;
         if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)

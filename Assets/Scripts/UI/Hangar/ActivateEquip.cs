@@ -12,7 +12,7 @@ public class ActivateEquip : MonoBehaviour {
 	public GameObject scroll_bot;
 	public Camera second_cam;
 	
-	void Clicked () {
+	public void Clicked () {
 		hangar.MoveOffScreen();
 		hangar.SetObjectOnScreen(equip);
 		

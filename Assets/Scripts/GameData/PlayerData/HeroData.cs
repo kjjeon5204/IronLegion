@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 using System;
 
 public struct HeroAbilities {
@@ -12,6 +13,7 @@ public struct HeroAbilities {
 
 public class HeroData {
 	HeroAbilities[] hero;
+    IDictionary<string, HeroAbilities> heroAbilityEquipAcc = new Dictionary<string, HeroAbilities>();
 	
 	public HeroData()
 	{
@@ -73,6 +75,8 @@ public class HeroData {
 				hero[i].ability_number = -1;
 				else
 				hero[i].ability_number = Convert.ToInt32(rawFileData);
+                heroAbilityEquipAcc[hero[i].ability_name] =
+                    hero[i];
 			}
 		}
 		string[] names = new string[8];
@@ -112,13 +116,13 @@ public class HeroData {
 				
 			}
 		}
-		temp_name = hero[switch_index].ability_name;
-		hero[switch_index].ability_name = hero[index].ability_name;
-		hero[index].ability_name = temp_name;
-		
-		temp_num = hero[switch_index].ability_number;
-		hero[switch_index].ability_number = hero[index].ability_number;
-		hero[index].ability_number = temp_num;
+        temp_name = hero[switch_index].ability_name;
+        hero[switch_index].ability_name = hero[index].ability_name;
+        hero[index].ability_name = temp_name;
+
+        temp_num = hero[switch_index].ability_number;
+        hero[switch_index].ability_number = hero[index].ability_number;
+        hero[index].ability_number = temp_num;
 		return true;
 	}
 	

@@ -14,7 +14,7 @@ public struct ItemDB
 {
     public string type;
 	public float dropRatio;
-    public IndividualItem[] itemsData;
+    public GameObject[] itemsData;
 }
 
 [System.Serializable]
@@ -47,25 +47,25 @@ public class ItemPoolData : MonoBehaviour {
 			if (itemData[tierAcc].itemTypePool[0].itemsData.Length == 0) 
 				return null;
 			int itemPoll = Random.Range (0, itemData[tierAcc].itemTypePool[0].itemsData.Length);
-			return itemData[tierAcc].itemTypePool[0].itemsData[itemPoll].itemData;
+			return itemData[tierAcc].itemTypePool[0].itemsData[itemPoll];
 		}
 		else if (curPoll < uncommonPoll) {//uncommon
 			if (itemData[tierAcc].itemTypePool[1].itemsData.Length == 0) 
 				return null;
 			int itemPoll = Random.Range (0, itemData[tierAcc].itemTypePool[1].itemsData.Length);
-			return itemData[tierAcc].itemTypePool[1].itemsData[itemPoll].itemData;
+			return itemData[tierAcc].itemTypePool[1].itemsData[itemPoll];
 		}
 		else if (curPoll < rarePoll) {//rare
 			if (itemData[tierAcc].itemTypePool[2].itemsData.Length == 0) 
 				return null;
 			int itemPoll = Random.Range (0, itemData[tierAcc].itemTypePool[2].itemsData.Length);
-			return itemData[tierAcc].itemTypePool[2].itemsData[itemPoll].itemData;
+			return itemData[tierAcc].itemTypePool[2].itemsData[itemPoll];
 		}
 		else if ( curPoll < legendaryPoll) {//legendary
 			if (itemData[tierAcc].itemTypePool[3].itemsData.Length == 0) 
 				return null;
 			int itemPoll = Random.Range (0, itemData[tierAcc].itemTypePool[3].itemsData.Length);
-			return itemData[tierAcc].itemTypePool[3].itemsData[itemPoll].itemData;
+			return itemData[tierAcc].itemTypePool[3].itemsData[itemPoll];
 		}
 		else {
 			return null;

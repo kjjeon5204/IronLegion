@@ -683,19 +683,24 @@ public class EventControls : MonoBehaviour {
 
 	}
 
-    void target_path_updater()
-    {
-        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null && 
-            waveRunData[curWave].enemyListScript.Length != 0)
-            waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
-        targetPathUpdater++;
-        if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
-        {
-            targetPathUpdater = 0;
-        }
-        if (waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
-            waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
-    }
+	void target_path_updater()
+	{
+		if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
+		{
+			targetPathUpdater = 0;
+		}
+		if (waveRunData[curWave].enemyListScript.Length != 0 && 
+		    waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+			waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = false;
+		targetPathUpdater++;
+		if (targetPathUpdater >= waveRunData[curWave].enemyListScript.Length)
+		{
+			targetPathUpdater = 0;
+		}
+		if (waveRunData[curWave].enemyListScript.Length != 0 &&
+		    waveRunData[curWave].enemyListScript[targetPathUpdater] != null)
+			waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
+	}
 
     void enable_tutorial(int tutorialStep)
     {

@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 65ef84c8ff5ec1a40a570a1e8f3475df
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: armor_screen
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +25,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -35,6 +37,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8

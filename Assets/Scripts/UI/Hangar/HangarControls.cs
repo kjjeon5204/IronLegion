@@ -48,7 +48,7 @@ public class HangarControls : MonoBehaviour {
 				{
 					inventory_scrolling.Input(touches[0].position);
 				}
-				else if (!scrolling && clicked_object.clicked_object.name == "Scrollbar")
+				else if (clicked_object.clicked_object != null && !scrolling && clicked_object.clicked_object.name == "Scrollbar")
 				{
 					clicked_object.clicked_object.SendMessage("CanceledClick",SendMessageOptions.DontRequireReceiver);
 					scrolling = false;

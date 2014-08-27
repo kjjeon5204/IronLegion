@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: a5b21adf2542da3469e5df21d81ba548
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: music_off_icon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

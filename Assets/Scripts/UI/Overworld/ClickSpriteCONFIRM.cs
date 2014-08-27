@@ -27,10 +27,11 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
 		//if (Input.GetMouseButtonDown(0))
 		//{
 			// frontmostRaycastHit stores information about the RaycastHit2D that is returned by GetFrontmostRaycastHit()
-			frontmostRaycastHit = GetFrontmostRaycastHit(touch);
-			clickable.clicked_object = frontmostRaycastHit.rayCastHit2D.collider.gameObject;
-			clickable.isClicked = !frontmostRaycastHit.nothingClicked;
-			
+            frontmostRaycastHit = GetFrontmostRaycastHit(touch);
+            if (frontmostRaycastHit.rayCastHit2D.collider != null) {
+			    clickable.clicked_object = frontmostRaycastHit.rayCastHit2D.collider.gameObject;
+			    clickable.isClicked = !frontmostRaycastHit.nothingClicked;
+			}
 			return clickable;
 		//}
 	}
@@ -43,17 +44,23 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
 		Vector3 screenPosition = new Vector3(touch.x,touch.y,0f);
 		
 		// Store the point where the user has clicked as a Vector3.
-		Vector3 clickPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        Camera mainCam = Camera.main;
+		//Vector3 clickPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        Vector3 clickPosition = mainCam.ScreenToWorldPoint(screenPosition);
 		Camera cam2 = GameObject.Find("Camera").GetComponent<Camera>();
 		Vector3 clickPosition2 = cam2.ScreenToWorldPoint(screenPosition);
 		
 		// Retrieve all raycast hits from the click position and store them in an array called "hits".
 		RaycastHit2D[] hits = Physics2D.LinecastAll (clickPosition, clickPosition);
 		RaycastHit2D[] hits2 = Physics2D.LinecastAll(clickPosition2, clickPosition2);
-		
+
+        //Debug.Log(hits.Length);
+        //Debug.Log(hits2.Length);
+
 		// If the raycast hits something...
 		if (hits.Length+hits2.Length != 0)
 		{
+            //Debug.Log("Hit detected!");
 			// A variable that will store the frontmost sorting layer that contains an object that has been clicked on as an int.
 			int topSortingLayer = 0;
 			// A variable that will store the index of the top sorting layer as an int.

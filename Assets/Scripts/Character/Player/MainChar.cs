@@ -109,8 +109,16 @@ public class MainChar : Character {
 
     HeroLevelData curLevelData;
     public AudioSource thrusterSound;
+
+    public GameObject rightAllyPositionPoint;
+    public GameObject leftAllyPositionPoint;
+    BaseAlly allyUnit;
+
+    bool environmentCollision;
+
+    public PlayerCamControls playerCamEffectAccess;
+    bool bossApproachPhase = true;
     
-  
 
 
     float farDist = 12.0f;
@@ -124,11 +132,14 @@ public class MainChar : Character {
     public bool turning;
 
     public GameObject playerCamera;
+    public GameObject playerLandingTrackCam;
+    public GameObject enemyLandingCamPivotPoint;
 
     public TargetingIndicator targetIndicatorScript;
     public Camera targetIndicatorCam;
 
     bool approachPhase = false;
+    bool attackPathBuffer = false;
 
     //Temporary testing variable
 
@@ -140,6 +151,10 @@ public class MainChar : Character {
             targetingIndicator.SetActive(false);
     }
 
+    public void set_ally_unit(BaseAlly inAllyUnit)
+    {
+        allyUnit = inAllyUnit;
+    }
 
     public bool is_switching_state()
     {
@@ -203,8 +218,9 @@ public class MainChar : Character {
         autoAdjustEnabled = true;
         if (curBattleType == BattleType.BOSS)
         {
-            curState = "PATHING";
-            phasePlayed = false;
+            attackPathBuffer = true;
+            //curState = "PATHING";
+            //phasePlayed = false;
         }
         targetIndicatorScript.gameObject.SetActive(true);
         targetIndicatorScript.initialize_indicator();
@@ -240,24 +256,7 @@ public class MainChar : Character {
         return damage;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "EnemyAI")
-        {
-            Character collidedEnemy = collision.collider.gameObject.GetComponent<Character>();
-            collidedEnemy.hit(10.0f);
-            this.hit(10.0f);
-            if (curState == "SWITCHCLOSE")
-            {
-                isClose = false;
-            }
-            else if (curState == "SWITCHFAR")
-            {
-                isClose = true;
-            }
-            curState = "IDLE";
-        }
-    }
+   
     
     void line_of_sight_handle()
     {
@@ -531,6 +530,23 @@ public class MainChar : Character {
         }
     }
 
+    void OnTriggerEnter(Collider hitCollider)
+    {
+        Debug.Log("Impact with environment!");
+        if (hitCollider.gameObject.tag == "Environment" && environmentCollision == false)
+        {
+            Vector3 hitDirection = (previousPos - transform.position);
+            Debug.Log("Move direction" + hitDirection);
+            curState = "IDLE";
+            transform.Translate(transform.InverseTransformDirection(hitDirection).normalized * 5.0f);
+            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.3f);
+        }
+    }
+
+
+
+
+    
     
 
     void booster_controls()
@@ -590,10 +606,26 @@ public class MainChar : Character {
         return curData;
     }
 
+    public void wave_transition_phase(GameObject trackedObject)
+    {
+        if (playerCamera.activeInHierarchy == true)
+        {
+            playerCamera.SetActive(false);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == false)
+        {
+            playerLandingTrackCam.SetActive(true);
+        }
+        Vector3 lookAtPointPosition = trackedObject.transform.position;
+        lookAtPointPosition.y = 0.0f;
+        transform.LookAt(lookAtPointPosition);
+        enemyLandingCamPivotPoint.transform.LookAt(trackedObject.transform.position);
+    }
+
     // Use this for initialization
     public override void manual_start()
     {
-
+        
         curState = "IDLE";
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
@@ -605,7 +637,7 @@ public class MainChar : Character {
         curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
         maxEnergy = 100.0f + playerItemStat.item_energy;
         curEnergy = maxEnergy;
-        Debug.Log("Player HP: " + curStats.baseHp);
+        //Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
         energyEffect.SetActive(false);
@@ -650,18 +682,49 @@ public class MainChar : Character {
     // Update is called once per frame
     public override void manual_update()
     {
+
+        previousPos = transform.position;
 		/*
         if (worldScript.is_win())
         {
             return;
         }
 		*/
+        if (curBattleType == BattleType.BOSS && bossApproachPhase == true)
+        {
+            transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
+        }
+
+        if (allyUnit != null)
+        {
+            if (target != null)
+                allyUnit.set_target(targetScript);
+            Vector3 allyRelativePos = transform.InverseTransformPoint(allyUnit.transform.position);
+            if (allyRelativePos.x > 0.0f)
+            {
+                allyUnit.set_movement_position(rightAllyPositionPoint.transform.position);
+            }
+            else
+            {
+                allyUnit.set_movement_position(leftAllyPositionPoint.transform.position);
+            }
+        }
+
+        if (playerCamera.activeInHierarchy == false)
+        {
+            playerCamera.SetActive(true);
+        }
+        if (playerLandingTrackCam.activeInHierarchy == true)
+        {
+            playerLandingTrackCam.SetActive(false);
+        }
+
         float distToTarget = 0;
         
-        if (targetScript != null && curState != "PATHING")
+        if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
             currentFlag = targetScript.mapFlag;
         
-        if (inputReady == true)
+        if (inputReady == true && attackPathBuffer == false)
             temp_input();
 
         if (target == null || targetScript.return_cur_stats().baseHp <= 0)
@@ -723,7 +786,7 @@ public class MainChar : Character {
             stateSwitched = false;
             if (approachPhase == false)
             {
-                inputReady = false;
+                //inputReady = false;
                 Debug.Log("Input Disabled!");
             }
             else
@@ -843,6 +906,12 @@ public class MainChar : Character {
                 curCharacterState = "IDLE";
                 autoAdjustEnabled = false;
                 approachPhase = false;
+                bossApproachPhase = false;
+                if (curBattleType == BattleType.BOSS && attackPathBuffer == true)
+                {
+                    curState = "PATHING";
+                    phasePlayed = false;
+                }
             }
             //regAttackCtr = 0;
         }
@@ -877,11 +946,13 @@ public class MainChar : Character {
                 {
                     autoAdjustEnabled = true;
                     curState = "IDLE";
+                    attackPathBuffer = false;
                 }
 			}
 			else {
 				if (currentPath.run_path()) {
 					curState = "IDLE";
+                    attackPathBuffer = false;
 				}
 			}
         }
@@ -909,6 +980,5 @@ public class MainChar : Character {
             currentTargetIndex = targetScript.get_enemy_index();
         }
         booster_controls();
-        previousPos = transform.position;
 	}
 }

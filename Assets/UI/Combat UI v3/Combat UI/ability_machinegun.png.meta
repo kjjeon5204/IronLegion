@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 40162aff82ec3b245932d5dadb0c2dd3
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_machinegun
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

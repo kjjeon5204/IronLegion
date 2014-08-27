@@ -30,6 +30,8 @@ public class ItemControls : MonoBehaviour {
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
 	void Start () {
+        
+
 		inventory = new Inventory();
 		for (int i = 0; i < item_tier.Length; i++) 
 		{

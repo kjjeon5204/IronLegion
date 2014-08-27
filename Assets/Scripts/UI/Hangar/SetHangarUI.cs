@@ -15,6 +15,9 @@ public class SetHangarUI : MonoBehaviour {
 	
 	public Camera camera;
 	public float zValue;
+
+    public ActivateEquip equipmentScreen;
+
 	// Use this for initialization
 	
 	private PlayerDataReader tutorial_data;
@@ -42,16 +45,29 @@ public class SetHangarUI : MonoBehaviour {
 	}
 	
 	void Start() {
-		tutorial_data = new PlayerDataReader();
-		
-		if (tutorial_data.check_event_played("hangar_second"))
+		tutorial_data = new PlayerDataReader(Application.persistentDataPath);
+        /*
+        if (tutorial_data.check_event_played("HANGER_FIRST"))
+        {
+            equipmentScreen.Clicked();
+        }
+            
+        else
+        {
+            tutorial_data.event_played("HANGER_FIRST");
+        }
+        */
+		if (tutorial_data.check_event_played("HANGER_SECOND"))
 		{
+            tutorial_data.event_played("HANGER_SECOND");
 			ActivateAllies();
 		}
-		if (tutorial_data.check_event_played("store"))
+		if (tutorial_data.check_event_played("STORE"))
 		{
+            tutorial_data.event_played("STORE");
 			ActivateArmory();
 		}
+        tutorial_data.save_data();
 	}
 	
 	public void ActivateArmory() {

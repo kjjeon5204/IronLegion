@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: aee14dad4cb5d8b47a3679ae37265329
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character_portrait_varan
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

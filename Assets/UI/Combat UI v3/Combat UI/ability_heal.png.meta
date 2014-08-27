@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: d9f61ccd4a6726e439847f06baeb6078
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ability_heal
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

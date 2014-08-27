@@ -1,23 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
+
 public class Item : MonoBehaviour {
     public enum ItemRarity
     {
         COMMON,
         RARE,
-        LEGENDARY
+        LEGENDARY,
+        UNCOMMON
     }
-	public enum ItemType
-	{
-		HEAD,
-		WEAPON,
-		ARMOR,
-		CORE
-	}
+
+    public enum ItemType
+    {
+        HEAD,
+        WEAPON,
+        ARMOR,
+        CORE
+    }
 
     /*Store item data*/
-    public ItemData thisItem;
 
     public string itemID;
     public string itemName;

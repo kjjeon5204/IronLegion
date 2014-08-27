@@ -66,11 +66,12 @@ public class AbilityControls : MonoBehaviour {
 			{
 				//Tell person not good slot
 			}
-			else if (saved_id != -1)
-			{
-				hero.save_data();
-				UpdateSlots();
-			}
+            else if (saved_id != -1)
+            {
+                Debug.Log("Skill Swapped!");
+                hero.save_data();
+                UpdateSlots();
+            }
 		}
 	}
 	

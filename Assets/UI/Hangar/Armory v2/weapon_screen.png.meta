@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: c5757ef0bdf09584ea056689a0262c86
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: weapon_screen
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -18,12 +18,14 @@ public class BattleSceneLoader : MonoBehaviour {
 
 
         string mapDirectory = "BattleScene/Chapter" + mapID[1] + "/" + mapID;
-        Debug.Log("Map directory: " + mapDirectory);
+        //Debug.Log("Map directory: " + mapDirectory);
 
         GameObject holder = (GameObject)Instantiate(Resources.Load<GameObject>(mapDirectory), Vector3.zero, Quaternion.identity);
         EventControls holderScript = holder.GetComponent<EventControls>(); 
-        PlayerDataReader playerEventRecord = new PlayerDataReader();
-        playerEventRecord.event_played("COMBAT_TUTORIAL");
-        playerEventRecord.save_data();
+        PlayerDataReader playerEventRecord = new PlayerDataReader(Application.persistentDataPath);
+        if (playerEventRecord.check_event_played("COMBAT_TUTORIAL")) {
+            playerEventRecord.event_played("COMBAT_TUTORIAL");
+            playerEventRecord.save_data();
+        }
 	}
 }

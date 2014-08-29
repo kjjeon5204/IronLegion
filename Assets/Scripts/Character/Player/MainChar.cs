@@ -692,7 +692,7 @@ public class MainChar : Character {
 		*/
         if (curBattleType == BattleType.BOSS && bossApproachPhase == true)
         {
-            transform.Translate(30.0f * Vector3.forward * Time.deltaTime);
+            transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
         }
 
         if (allyUnit != null)
@@ -724,7 +724,7 @@ public class MainChar : Character {
         if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
             currentFlag = targetScript.mapFlag;
         
-        if (inputReady == true)
+        if (inputReady == true && attackPathBuffer == false)
             temp_input();
 
         if (target == null || targetScript.return_cur_stats().baseHp <= 0)
@@ -786,7 +786,7 @@ public class MainChar : Character {
             stateSwitched = false;
             if (approachPhase == false)
             {
-                inputReady = false;
+                //inputReady = false;
                 Debug.Log("Input Disabled!");
             }
             else

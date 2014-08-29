@@ -35,7 +35,8 @@ public class Movement : MonoBehaviour {
     float remainingDist;
     float accDurationTime;
     float decelerationTime;
-    
+    float distRange;
+    bool checkRelativeDist;
 
     int curPhase;
     bool phasePlayed;
@@ -44,9 +45,22 @@ public class Movement : MonoBehaviour {
     float timeTracker;
 
 
+    public void initialize_movement(string moevemntName, float dist, float veloctiy, Vector3 movementDirection,
+        float targetDist) {
+        checkRelativeDist = true;
+        distRange = targetDist;
+        remainingDist = dist;
+        curVelocity = maxVelocity;
+        curPhase = 0;
+        phasePlayed = false;
+        phaseCtr = 0;
+        if (movementDirection != Vector3.zero)
+            curMovement.movementDirection = movementDirection;
+    }
+
 
     public void initialize_movement(string movementName, float dist, float velocity, Vector3 movementDirection) {
-        
+        checkRelativeDist = false;
         curMovement = movementLibrary[movementName];
         /*used for acceleration
         curVelocity = 0.0f;
@@ -325,6 +339,22 @@ public class Movement : MonoBehaviour {
         return false;
     }
 
+    public bool charge_enemy()
+    {
+        if ((curCharacterScript.target.transform.position - transform.position).magnitude > distRange)
+        {
+            animation.CrossFade(curMovement.animationClips[0].name, 0.1f);
+        }
+        else
+        {
+            phaseCtr++;
+            return false;
+        }
+        curCharacterScript.custom_translate(curMovement.movementDirection.normalized * curVelocity * Time.deltaTime);
+        remainingDist -= curVelocity * Time.deltaTime;
+        return true;
+    }
+
     
 
 
@@ -337,7 +367,11 @@ public class Movement : MonoBehaviour {
             phasePlayed = false;
             phaseCtr = curMovement.animationClips.Length - 1;
         }
-        if (curMovement.animationClips.Length == 3)
+        if (checkRelativeDist == true)
+        {
+            return charge_enemy();
+        }
+        else if (curMovement.animationClips.Length == 3)
         {
             return run_movement_3();
         }

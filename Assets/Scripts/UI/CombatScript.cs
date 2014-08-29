@@ -317,7 +317,7 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-        if (allyData.unitName != "NONE") {
+        if (allyObject != null) {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);
             float unitExperience = allyData.exp;
@@ -480,6 +480,8 @@ public class CombatScript : MonoBehaviour {
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK1"].initialize_ability())
                         {
+                            mainCharacter.cancel_player_ability();
+                            mainCharacter.turn_off_effect();
                             mainCharacter.curState = "REGULAR_ATTACK1";
                         }
                     }
@@ -487,6 +489,8 @@ public class CombatScript : MonoBehaviour {
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
                         {
+                            mainCharacter.cancel_player_ability();
+                            mainCharacter.turn_off_effect();
                             mainCharacter.curState = "REGULAR_ATTACK2";
                             mainCharacter.regAttackCtr = 2;
                         }
@@ -495,6 +499,8 @@ public class CombatScript : MonoBehaviour {
                     {
                         if (mainCharacter.abilityDictionary["REGULAR_ATTACK3"].initialize_ability())
                         {
+                            mainCharacter.cancel_player_ability();
+                            mainCharacter.turn_off_effect();
                             mainCharacter.curState = "REGULAR_ATTACK3";
                             mainCharacter.regAttackCtr = 0;
                         }
@@ -537,10 +543,11 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
                 gamePaused == false)
             {
-                mainCharacter.turn_off_effect();
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
                 if (pressAbilityButton.is_button_ready())
                 {
+                    mainCharacter.cancel_player_ability();
+                    mainCharacter.turn_off_effect();
                     pressAbilityButton.button_pressed();
                 }
             }
@@ -578,6 +585,8 @@ public class CombatScript : MonoBehaviour {
                     {
                         if (mainCharacter.abilityDictionary["DODGE_RIGHT"].initialize_ability())
                         {
+                            mainCharacter.cancel_player_ability();
+                            mainCharacter.turn_off_effect();
                             mainCharacter.curState = "DODGE_RIGHT";
                             mainCharacter.LexhaustScript.instant_thruster(3.0f);
                             mainCharacter.lKneeExhaustScript.instant_thruster(3.5f);
@@ -592,6 +601,8 @@ public class CombatScript : MonoBehaviour {
                     {
                         if (mainCharacter.abilityDictionary["DODGE_LEFT"].initialize_ability())
                         {
+                            mainCharacter.cancel_player_ability();
+                            mainCharacter.turn_off_effect();
                             mainCharacter.curState = "DODGE_LEFT";
                             mainCharacter.RexhaustScript.instant_thruster(3.0f);
                             mainCharacter.rKneeExhaustScript.instant_thruster(3.5f);
@@ -608,6 +619,8 @@ public class CombatScript : MonoBehaviour {
                     mainCharacter.curEnergy -= 10.0f;
                     if (mainCharacter.isClose == true && curRecord.y < 0.0f)
                     {
+                        mainCharacter.cancel_player_ability();
+                        mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Phaser\nAttack");
                         enable_ability_button(rangeSkillSlots);
                         disable_ability_button(closeSkillSlots);
@@ -618,7 +631,8 @@ public class CombatScript : MonoBehaviour {
                     }
                     else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
                     {
-
+                        mainCharacter.cancel_player_ability();
+                        mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Blade\nAttack");
                         enable_ability_button(closeSkillSlots);
                         disable_ability_button(rangeSkillSlots);
@@ -753,7 +767,7 @@ public class CombatScript : MonoBehaviour {
             //update energy bar
             if (mainCharacter.gameObject != null)
             {
-                /*
+                
                 int bar = (int)(mainCharacter.energyPercentage * energyBar.Length);
                 for (int ctr = 0; ctr < energyBar.Length; ctr++)
                 {
@@ -761,7 +775,7 @@ public class CombatScript : MonoBehaviour {
                         energyBar[ctr].SetActive(true);
                     else energyBar[ctr].SetActive(false);
                 }
-                 */ 
+                 
             }
             if (mainCharacter.target != null)
                 modify_enemy_buff();

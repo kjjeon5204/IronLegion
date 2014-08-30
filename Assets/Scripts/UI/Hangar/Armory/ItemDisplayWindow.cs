@@ -123,11 +123,11 @@ public class ItemDisplayWindow : MonoBehaviour {
     void touch_parser(Touch curTouch)
     {
         Vector2 curTouchPos = Camera.main.ScreenToWorldPoint(curTouch.position);
-        LayerMask myLayerMask = LayerMask.NameToLayer("ItemSlotWindow");
+        LayerMask myLayerMask = LayerMask.NameToLayer("ItemDisplayFrame");
         RaycastHit2D curRayCast = Physics2D.Raycast(curTouchPos, Vector2.zero, 100.0f, (int)myLayerMask);
         if (curRayCast != null)
         {
-            if (curRayCast.collider.gameObject.tag == "ItemSlotWindow")
+            if (curRayCast.collider.gameObject.tag == "ItemDisplayFrame")
             {
                 if (curTouch.deltaPosition.y > 0.0f)
                 {
@@ -143,9 +143,7 @@ public class ItemDisplayWindow : MonoBehaviour {
 
     void Update()
     {
-        /*
         foreach (Touch curTouch in Input.touches)
             touch_parser(curTouch);
-         */ 
     }
 }

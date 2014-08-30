@@ -40,6 +40,7 @@ public class ArmoryDataControl : MonoBehaviour
         Item readItem = itemObject.GetComponent<Item>();
         tempCatalogData.itemID = readItem.itemID;
         tempCatalogData.itemObject = itemObject;
+        tempCatalogData.itemSaleStatus = itemSaleStatus;
         tempCatalogData.itemSlotPosition = itemSlotPosition;
 
         return tempCatalogData;
@@ -59,8 +60,7 @@ public class ArmoryDataControl : MonoBehaviour
         return read_catalog_data("/StoreData/WeaponCatalog.txt", Item.ItemType.WEAPON);
     }
 
-    public StoreData core_catalog_data()
-    {
+    public StoreData core_catalog_data() {
         return read_catalog_data("/StoreData/CoreCatalog.txt", Item.ItemType.CORE);
     }
 
@@ -102,13 +102,16 @@ public class ArmoryDataControl : MonoBehaviour
         {
             temp.catalogType = catalogType;
             temp.soldItemList = new List<ArmoryCatalog>();
-            for (int ctr = 0; ctr < 5; ctr++)
+            for (int ctr = 0; ctr < 3; ctr++)
             {
                 ArmoryCatalog tempItem = new ArmoryCatalog();
                 heroLevelData.load_file();
                 playerLevel = heroLevelData.get_player_level();
-                tempItem = initialize_item(itemPooling.get_item_table_modified_rate(
-                    35, 0, 35, 30, playerLevel), ctr, false);
+                int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
+                Debug.Log(itemPoolNum);
+                itemDictionary.set_pooling_tier(itemPoolNum);
+                tempItem = initialize_item(itemDictionary.
+                    generate_random_item (catalogType), ctr, false);
                 temp.soldItemList.Add(tempItem);
             }
             return temp;
@@ -145,9 +148,13 @@ public class ArmoryDataControl : MonoBehaviour
                 outFile.WriteLine(itemStore.soldItemList[ctr].itemID);
                 outFile.WriteLine(itemStore.soldItemList[ctr].itemSlotPosition);
                 if (itemStore.soldItemList[ctr].itemSaleStatus == true)
+                {
                     outFile.WriteLine("SOLD");
+                }
                 if (itemStore.soldItemList[ctr].itemSaleStatus == false)
+                {
                     outFile.WriteLine("NOT_SOLD");
+                }
             }
         }
     }

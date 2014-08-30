@@ -652,13 +652,6 @@ public class EventControls : MonoBehaviour {
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
-            /*
-            Debug.Log("Has story");
-            combatScript.turn_off_combat_ui();
-            waveRunData[0].eventRunPhase = true;
-            waveRunData[0].waveEnded = false;
-            waveRunData[0].storyInitialized = false;
-             */
             
             faderActive = true;
             myScreenFadeScript.screen_fade_active(wave_start_cutscene_fade_process);
@@ -666,14 +659,6 @@ public class EventControls : MonoBehaviour {
         }
         else
         {
-            /*
-            //start_wave(waveRunData[0]);
-            Debug.Log("No story");
-            wave_ready_phase(waveRunData[0]);
-            waveRunData[0].eventRunPhase = false;
-            waveRunData[0].waveEnded = false;
-            waveRunData[0].storyInitialized = false;
-            */
             faderActive = true;
             myScreenFadeScript.screen_fade_active(start_battle_immediate);
         }

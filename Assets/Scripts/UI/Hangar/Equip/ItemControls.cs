@@ -26,12 +26,13 @@ public class ItemControls : MonoBehaviour {
 	private InventorySlot[] inventory_slots;
 	
 	public GameObject inventory_end;
+    public ItemDictionary itemDictionary;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
 	void Start () {
-        
 
+        item_tier = itemDictionary.itemList;
 		inventory = new Inventory();
 		for (int i = 0; i < item_tier.Length; i++) 
 		{

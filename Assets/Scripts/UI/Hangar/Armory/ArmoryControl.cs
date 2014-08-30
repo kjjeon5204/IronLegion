@@ -75,7 +75,6 @@ public class ArmoryControl : MonoBehaviour {
     {
         creditOwned -= creditSpent;
         cogentumOwned -= cogentumSpent;
-        Application.LoadLevel(0);
         creditOwnedDisplay.text = creditOwned.ToString();
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
@@ -192,6 +191,11 @@ public class ArmoryControl : MonoBehaviour {
         totalUnlockedSlotCount += bodyCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += weaponCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += coreCatalog.get_unlocked_slot_count();
+    }
+
+    public void reset_catalog_data()
+    {
+
     }
 
 	// Use this for initialization

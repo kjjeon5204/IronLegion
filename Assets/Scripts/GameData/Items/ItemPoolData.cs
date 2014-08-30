@@ -25,8 +25,54 @@ public struct IndividualItem
 
 
 public class ItemPoolData : MonoBehaviour {
-    public ItemTypeData[] itemData; 
+    public ItemTypeData[] itemData;
 
+
+    public GameObject get_item_table_modified_rate(float common, float uncommon,
+        float rare, float legendary, int tier)
+    {
+        int tierAcc = tier - 1;
+
+        int commonPoll = (int)(1000.0f * common);
+        int uncommonPoll = commonPoll + (int)(1000.0f * uncommon);
+        int rarePoll = uncommonPoll + (int)(1000.0f * rare);
+        int legendaryPoll = rarePoll + (int)(1000.0f * legendary);
+
+        int curPoll = Random.Range(0 * 1000, 100001);
+
+        if (curPoll < commonPoll)
+        {//common
+            if (itemData[tierAcc].itemTypePool[0].itemsData.Length == 0)
+                return null;
+            int itemPoll = Random.Range(0, itemData[tierAcc].itemTypePool[0].itemsData.Length);
+            return itemData[tierAcc].itemTypePool[0].itemsData[itemPoll];
+        }
+        else if (curPoll < uncommonPoll)
+        {//uncommon
+            if (itemData[tierAcc].itemTypePool[1].itemsData.Length == 0)
+                return null;
+            int itemPoll = Random.Range(0, itemData[tierAcc].itemTypePool[1].itemsData.Length);
+            return itemData[tierAcc].itemTypePool[1].itemsData[itemPoll];
+        }
+        else if (curPoll < rarePoll)
+        {//rare
+            if (itemData[tierAcc].itemTypePool[2].itemsData.Length == 0)
+                return null;
+            int itemPoll = Random.Range(0, itemData[tierAcc].itemTypePool[2].itemsData.Length);
+            return itemData[tierAcc].itemTypePool[2].itemsData[itemPoll];
+        }
+        else if (curPoll < legendaryPoll)
+        {//legendary
+            if (itemData[tierAcc].itemTypePool[3].itemsData.Length == 0)
+                return null;
+            int itemPoll = Random.Range(0, itemData[tierAcc].itemTypePool[3].itemsData.Length);
+            return itemData[tierAcc].itemTypePool[3].itemsData[itemPoll];
+        }
+        else
+        {
+            return null;
+        }
+    }
 
 	public GameObject get_item_table(int luck, int tier) {
 		int tierAcc = tier - 1;
@@ -37,11 +83,6 @@ public class ItemPoolData : MonoBehaviour {
 		int legendaryPoll = rarePoll + (int)(1000.0f * itemData[tierAcc].itemTypePool[3].dropRatio);
 
 		int curPoll = Random.Range (0 + luck * 1000, 100001);
-        Debug.Log("Common Poll Count: " + commonPoll);
-        Debug.Log("Uncommon Poll Count: " + uncommonPoll);
-        Debug.Log("Rare Poll Count: " + rarePoll);
-        Debug.Log("Legendary Poll Count: " + legendaryPoll);
-        Debug.Log("Polled number: " + curPoll);
 
 		if (curPoll < commonPoll) {//common
 			if (itemData[tierAcc].itemTypePool[0].itemsData.Length == 0) 

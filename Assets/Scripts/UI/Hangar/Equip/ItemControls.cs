@@ -175,7 +175,7 @@ public class ItemControls : MonoBehaviour {
 			stats.item_luck += equipped_item[i].luck;
 			
 			stats.equipment[i] = ids[i];
-			hero.save_data();
+			hero.save_data(stats);
 		}
 	}
 	

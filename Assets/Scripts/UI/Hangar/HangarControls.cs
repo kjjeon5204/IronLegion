@@ -17,9 +17,67 @@ public class HangarControls : MonoBehaviour {
 	void Start () {
 		click = GetComponent<ClickSpriteCONFIRM>();
 	}
-	
+
+
+    void PC_Update()
+    {
+        
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePos = Input.mousePosition;
+            if (Input.GetMouseButtonDown(0))
+            {
+                clicked_object = click.Click(mousePos);
+                if (clicked_object.isClicked && clicked_object.clicked_object.name == "Scrollbar")
+                {
+                    inventory_scrolling.Input(mousePos);
+                    scrolling = true;
+                }
+                else if (clicked_object.isClicked)
+                {
+                    clicked_object.clicked_object.SendMessage("BeginClick", SendMessageOptions.DontRequireReceiver);
+                    clicking = true;
+                }
+                else
+                {
+                    clicking = false;
+                }
+
+            }
+        }
+        if (Input.GetMouseButtonUp(0)) 
+        {
+            Vector2 mousePos = Input.mousePosition;
+            if (scrolling && clicked_object.clicked_object.name == "Scrollbar")
+            {
+                clicked_object.clicked_object.SendMessage("EndClick", SendMessageOptions.DontRequireReceiver);
+                scrolling = false;
+            }
+            else if (clicking && clicked_object.clicked_object == click.Click(mousePos).clicked_object)
+            {
+                clicked_object.clicked_object.SendMessage("EndClick", SendMessageOptions.DontRequireReceiver);
+                clicking = false;
+            }
+            else if (!clicking)
+            {
+                scrolling = false;
+            }
+            else
+            {
+                scrolling = false;
+                clicking = false;
+            }
+        }
+    }
+
+
+
+
+
 	// Update is called once per frame
 	void Update () {
+        //Comment out for build!
+        PC_Update();
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{
@@ -93,11 +151,13 @@ public class HangarControls : MonoBehaviour {
 	public void SetObjectOnScreen(GameObject obj) {
 		frameOnScreen = obj;
 		obj.transform.position = onScreen.transform.position;
+        frameOnScreen.SetActive(true);
 		Debug.Log(frameOnScreen);
 	}
 	
 	public void MoveOffScreen() {
 		frameOnScreen.transform.position = waiting.transform.position;
+        frameOnScreen.SetActive(false);
 	}
 }
 	

@@ -80,6 +80,32 @@ public class HeroStats{
         }
     }
 
+    public void save_data(Stats inputStat)
+    {
+        curStats = inputStat;
+        string fileName = "/HeroStats.txt";
+        string path = Application.persistentDataPath + fileName;
+
+        using (StreamWriter outfile = File.CreateText(path))
+        {
+            outfile.WriteLine(curStats.level);
+            outfile.WriteLine(curStats.curExp);
+            outfile.WriteLine(curStats.totalExp);
+            outfile.WriteLine(curStats.baseHp);
+            outfile.WriteLine(curStats.baseDamage);
+            outfile.WriteLine(curStats.armor);
+            foreach (string itemID in curStats.equipment)
+            {
+                outfile.WriteLine(itemID);
+            }
+            outfile.WriteLine(curStats.item_hp);
+            outfile.WriteLine(curStats.item_damage);
+            outfile.WriteLine(curStats.item_energy);
+            outfile.WriteLine(curStats.item_penetration);
+            outfile.WriteLine(curStats.item_luck);
+        }
+    }
+
 
 
     public void create_data()

@@ -18,5 +18,7 @@ public class ActivateArmory : MonoBehaviour {
 		
 		second_cam = GameObject.Find("Camera").GetComponent<Camera>();
 		second_cam.rect = new Rect(0,0,1f,1f);
+        armory.SetActive(false);
+        armory.SetActive(true);
 	}
 }

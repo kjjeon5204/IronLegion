@@ -7,8 +7,6 @@ public struct ArmoryCatalog
 {
     public string itemID;
     public GameObject itemObject;
-    public int creditRequirement;
-    public int cogentumRequirement;
     public int itemSlotPosition;
     public bool itemSaleStatus;
 }
@@ -16,6 +14,7 @@ public struct ArmoryCatalog
 public struct StoreData
 {
     public Item.ItemType catalogType;
+    public int numberOfUnlockedSpot;
     public IList<ArmoryCatalog> soldItemList;
 }
 
@@ -24,16 +23,13 @@ public struct StoreData
 public class ArmoryDataControl : MonoBehaviour
 {
     public ItemDictionary itemDictionary;
+    int playerLevel = 6;
 
     System.DateTime curTime;
     string readCurTime;
     string nextResetTime;
-    ItemPoolData itemPooling;
-
-    StoreData headCatalog;
-    StoreData mainFrameCatalog;
-    StoreData weaponCatalog;
-    StoreData coreCatalog;
+    public ItemPoolData itemPooling;
+    public HeroLevelData heroLevelData;
 
 
 
@@ -42,8 +38,6 @@ public class ArmoryDataControl : MonoBehaviour
     {
         ArmoryCatalog tempCatalogData = new ArmoryCatalog();
         Item readItem = itemObject.GetComponent<Item>();
-        tempCatalogData.cogentumRequirement = readItem.cg_price;
-        tempCatalogData.creditRequirement = readItem.buy_price;
         tempCatalogData.itemID = readItem.itemID;
         tempCatalogData.itemObject = itemObject;
         tempCatalogData.itemSlotPosition = itemSlotPosition;
@@ -52,81 +46,92 @@ public class ArmoryDataControl : MonoBehaviour
     }
 
 
+
     public StoreData head_catalog_data() {
-        return headCatalog;
+        return read_catalog_data("/StoreData/HeadCatalog.txt", Item.ItemType.HEAD);
     }
 
     public StoreData main_frame_catalog_data() {
-        return mainFrameCatalog;
+        return read_catalog_data("/StoreData/BodyCatalog.txt", Item.ItemType.ARMOR);
     }
 
     public StoreData weapon_catalog_data() {
-        return weaponCatalog;
+        return read_catalog_data("/StoreData/WeaponCatalog.txt", Item.ItemType.WEAPON);
     }
 
     public StoreData core_catalog_data()
     {
-        return coreCatalog;
+        return read_catalog_data("/StoreData/CoreCatalog.txt", Item.ItemType.CORE);
     }
 
 
     StoreData read_catalog_data(string fileName, Item.ItemType catalogType)
     {
+        if (!Directory.Exists(Application.persistentDataPath + "/StoreData"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/StoreData");
         string dataPath = Application.persistentDataPath + fileName;
         StoreData temp = new StoreData();
-        using (StreamReader inputFile = File.OpenText(dataPath))
+        temp.soldItemList = new List<ArmoryCatalog>();
+        if (File.Exists(dataPath))
         {
+            using (StreamReader inputFile = File.OpenText(dataPath))
+            {
+                for (int ctr = 0; ctr < 3; ctr++)
+                {
+                    ArmoryCatalog tempItem = new ArmoryCatalog();
+                    string itemName = inputFile.ReadLine();
+                    int itemSlotPos = System.Convert.ToInt32(inputFile.ReadLine());
+                    string saleStatusRaw = inputFile.ReadLine();
+                    bool saleStatus = false;
+                    if (saleStatusRaw == "NOT_SOLD")
+                        saleStatus = false;
+                    else if (saleStatusRaw == "SOLD")
+                        saleStatus = true;
+
+
+                    tempItem = initialize_item(itemDictionary.get_item_data(itemName),
+                        itemSlotPos, saleStatus);
+
+                    temp.catalogType = catalogType;
+                    temp.soldItemList.Add(tempItem);
+                }
+            }
+            return temp;
+        }
+        else
+        {
+            temp.catalogType = catalogType;
+            temp.soldItemList = new List<ArmoryCatalog>();
             for (int ctr = 0; ctr < 5; ctr++)
             {
                 ArmoryCatalog tempItem = new ArmoryCatalog();
-                string itemName = inputFile.ReadLine();
-                int itemSlotPos = System.Convert.ToInt32(inputFile.ReadLine());
-                string saleStatusRaw = inputFile.ReadLine();
-                bool saleStatus = false;
-                if (saleStatusRaw == "NOT_SOLD")
-                    saleStatus = false;
-                else if (saleStatusRaw == "SOLD")
-                    saleStatus = true;
-
-
-                tempItem = initialize_item(itemDictionary.get_item_data(itemName), 
-                    itemSlotPos, saleStatus);
-
-                /*
-                Item.ItemType itemType = tempItem.itemObject.GetComponent<Item>().itemType;
-                if (itemType == Item.ItemType.ARMOR)
-                    mainFrameCatalog.soldItemList.Add(tempItem);
-                else if (itemType == Item.ItemType.CORE)
-                    coreCatalog.soldItemList.Add(tempItem);
-                else if (itemType == Item.ItemType.HEAD)
-                    headCatalog.soldItemList.Add(tempItem);
-                else if (itemType == Item.ItemType.WEAPON)
-                    weaponCatalog.soldItemList.Add(tempItem);
-                 */
-                temp.catalogType = catalogType;
+                heroLevelData.load_file();
+                playerLevel = heroLevelData.get_player_level();
+                tempItem = initialize_item(itemPooling.get_item_table_modified_rate(
+                    35, 0, 35, 30, playerLevel), ctr, false);
                 temp.soldItemList.Add(tempItem);
             }
+            return temp;
         }
-        return temp;
     }
 
-    public void save_store_data(Item.ItemType catalogType, StoreData myInventory)
+    public void save_store_data(StoreData myInventory)
     {
-        if (catalogType == Item.ItemType.ARMOR)
+        if (myInventory.catalogType == Item.ItemType.ARMOR)
         {
-            save_store_data("ArmorCatalog.txt", myInventory);
+            save_store_data("/StoreData/BodyCatalog.txt", myInventory);
         }
-        else if (catalogType == Item.ItemType.CORE)
+        else if (myInventory.catalogType == Item.ItemType.CORE)
         {
-            save_store_data("CoreCatalog.txt", myInventory);
+            save_store_data("/StoreData/CoreCatalog.txt", myInventory);
         }
-        else if (catalogType == Item.ItemType.HEAD)
+        else if (myInventory.catalogType == Item.ItemType.HEAD)
         {
-            save_store_data("HeadCatalog.txt", myInventory);
+            save_store_data("/StoreData/HeadCatalog.txt", myInventory);
         }
-        else if (catalogType == Item.ItemType.WEAPON)
+        else if (myInventory.catalogType == Item.ItemType.WEAPON)
         {
-            save_store_data("WeaponCatalog.txt", myInventory);
+            save_store_data("/StoreData/WeaponCatalog.txt", myInventory);
         }
     }
 
@@ -135,7 +140,7 @@ public class ArmoryDataControl : MonoBehaviour
         string dataPath = Application.persistentDataPath + fileName;
         using (StreamWriter outFile = File.CreateText(dataPath))
         {
-            for (int ctr = 0; ctr < 5; ctr++)
+            for (int ctr = 0; ctr < 3; ctr++)
             {
                 outFile.WriteLine(itemStore.soldItemList[ctr].itemID);
                 outFile.WriteLine(itemStore.soldItemList[ctr].itemSlotPosition);
@@ -152,7 +157,6 @@ public class ArmoryDataControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         curTime = System.DateTime.UtcNow;
     }
 

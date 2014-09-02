@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 
+[System.Serializable]
 public struct AllyAbilityData
 {
     public string abilityID;
     public int abilityUnlockLevel;
 }
 
+[System.Serializable]
 public struct AllyData
 {
     public string unitName;
+    public string fileName;
     public int level;
     public string tier;
     public int exp;
@@ -32,6 +35,7 @@ public class AllyDataList : CustomTextFileClass {
 
     public AllyDataList()
     {
+    	
         /*
         string dataPath = Application.persistentDataPath + "/AllyDataList.txt";
         using (StreamReader inFile = File.OpenText(dataPath))
@@ -91,7 +95,7 @@ public class AllyDataList : CustomTextFileClass {
 
     public void save_equipped_ally_data(AllyData inputData)
     {
-        string dataPath = Application.persistentDataPath + "/EquippedAllyList.txt";
+        string dataPath = Application.persistentDataPath + "m/EquippedAllyList.txt";
         using (StreamWriter outfile = File.CreateText(dataPath))
         {
             outfile.WriteLine(inputData.unitName);

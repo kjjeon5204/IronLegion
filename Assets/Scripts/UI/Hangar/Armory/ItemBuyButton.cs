@@ -13,6 +13,8 @@ public class ItemBuyButton : MonoBehaviour {
 
     int slotNum;
     public GameObject soldButton;
+    public ItemBuyConfirmButton itemBuyConfirmation;
+    public ItemEquipOption itemEquipConfirmation;
 
     public void initialize_button(int slotCount, ArmoryControl inArmoryControl,
         ArmoryCatalog inItemInfo)

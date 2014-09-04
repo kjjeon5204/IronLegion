@@ -6,16 +6,26 @@ public class ItemGeneratedWindow : MonoBehaviour {
     public TextMesh[] stats;
     public TextMesh[] changedStat;
 
+    public ItemBuyConfirmButton itemBuyConfirm;
+    public ItemEquipOption itemEquipConfirm;
+
 
     float damageChange;
     float armorChange;
     float healthChange;
     float energyChange;
     float luckChange;
+
+    public Renderer[] myTexts;
     
 
     public void display_generated_item(Item curItemData)
     {
+        foreach (Renderer myText in myTexts)
+        {
+            myText.sortingLayerName = "ConfirmWindow";
+        }
+
         itemDisplay = curItemData.GetComponent<SpriteRenderer>();
         int statActivateCtr = 0;
         if (curItemData.damage != 0.0f)
@@ -94,5 +104,7 @@ public class ItemGeneratedWindow : MonoBehaviour {
                 changedStat[statActivateCtr].text = "LUK " + luckChange;
             statActivateCtr++;
         }
+        //itemBuyConfirm.set_confirmation_button(curItemData);
+        //itemEquipConfirm.set_generated_item(curItemData);
     }
 }

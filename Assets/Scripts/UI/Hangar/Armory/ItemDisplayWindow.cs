@@ -32,7 +32,41 @@ public class ItemDisplayWindow : MonoBehaviour {
     int creditOwned;
     int cogentumOwned;
 
-    
+
+    public void reinitialize_store_data(StoreData newStore)
+    {
+        for (int ctr = 0; ctr < itemSlots.Length; ctr++)
+        {
+            Destroy(itemSlots[ctr].itemSlot);
+        }
+        myStoreData = newStore;
+        itemSlots = new ItemSlot[4];
+        /*
+        Debug.Log("Number of items in store: " + newStore.soldItemList.Count);
+        itemSlots[0].slotType = SlotType.RANDOM;
+        itemSlots[0].itemSlot = (GameObject)Instantiate(randomObjectSlot, slotPosition.transform.position, Quaternion.identity);
+        itemSlots[0].itemSlot.transform.parent = slotPosition.transform;
+         */ 
+        for (int ctr = 1; ctr < numOfOpenSpot; ctr++)
+        {
+            Vector3 windowPosition = slotPosition.transform.position;
+            windowPosition.y -= ctr * verticalSlotOffset;
+            itemSlots[ctr].slotType = SlotType.UNLOCKED;
+            itemSlots[ctr].itemSlot = (GameObject)Instantiate(itemSlotFrame, windowPosition, Quaternion.identity);
+            itemSlots[ctr].itemSlot.GetComponent<ItemSlotWindow>().
+                set_item_slot(newStore.soldItemList[ctr], armoryControl, ctr);
+            itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
+        }
+        for (int ctr = numOfOpenSpot; ctr < itemSlots.Length; ctr++)
+        {
+            Vector3 windowPosition = slotPosition.transform.position;
+            windowPosition.y -= ctr * verticalSlotOffset;
+            itemSlots[ctr].slotType = SlotType.LOCKED;
+            itemSlots[ctr].itemSlot = (GameObject)Instantiate(lockedSlotFrame, windowPosition, Quaternion.identity);
+            itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
+        }
+        armoryData.save_store_data(myStoreData);
+    }
 
 
     public void initialize_store_data(StoreData inputInventory, ArmoryControl inArmoryControl)
@@ -41,9 +75,11 @@ public class ItemDisplayWindow : MonoBehaviour {
         myStoreData = inputInventory;
         itemSlots = new ItemSlot[4];
         Debug.Log("Number of items in store: " + inputInventory.soldItemList.Count);
+        /*
         itemSlots[0].slotType = SlotType.RANDOM;
         itemSlots[0].itemSlot = (GameObject)Instantiate(randomObjectSlot, slotPosition.transform.position, Quaternion.identity);
         itemSlots[0].itemSlot.transform.parent = slotPosition.transform;
+         */ 
         for (int ctr = 1; ctr < numOfOpenSpot; ctr++)
         {
             Vector3 windowPosition = slotPosition.transform.position;
@@ -127,7 +163,7 @@ public class ItemDisplayWindow : MonoBehaviour {
         RaycastHit2D curRayCast = Physics2D.Raycast(curTouchPos, Vector2.zero, 100.0f, (int)myLayerMask);
         if (curRayCast != null)
         {
-            if (curRayCast.collider.gameObject.tag == "ItemDisplayFrame")
+            if (curRayCast.collider.gameObject.tag == "ItemSlotWindow" && curTouch.phase == TouchPhase.Moved)
             {
                 if (curTouch.deltaPosition.y > 0.0f)
                 {

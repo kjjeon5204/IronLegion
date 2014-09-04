@@ -118,6 +118,28 @@ public class ArmoryDataControl : MonoBehaviour
         }
     }
 
+    public StoreData generate_new_store_data(Item.ItemType catalogTypeIn)
+    {
+        StoreData temp = new StoreData();
+        temp.soldItemList = new List<ArmoryCatalog>();
+
+        temp.catalogType = catalogTypeIn;
+        temp.soldItemList = new List<ArmoryCatalog>();
+        for (int ctr = 0; ctr < 3; ctr++)
+        {
+            ArmoryCatalog tempItem = new ArmoryCatalog();
+            heroLevelData.load_file();
+            playerLevel = heroLevelData.get_player_level();
+            int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
+            Debug.Log(itemPoolNum);
+            itemDictionary.set_pooling_tier(itemPoolNum);
+            tempItem = initialize_item(itemDictionary.
+                generate_random_item(catalogTypeIn), ctr, false);
+            temp.soldItemList.Add(tempItem);
+        }
+        return temp;
+    }
+
     public void save_store_data(StoreData myInventory)
     {
         if (myInventory.catalogType == Item.ItemType.ARMOR)

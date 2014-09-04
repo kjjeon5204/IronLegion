@@ -386,14 +386,6 @@ public class EventControls : MonoBehaviour {
         Debug.Log("Wave started!");
         waveReadyPhase = false;
         combatScript.turn_on_combat_ui();
-        /*
-        for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
-        {
-            instatiateWave.enemyList[ctr].SetActive(true);
-            instatiateWave.enemyListScript[ctr].set_player(player);
-            instatiateWave.enemyListScript[ctr].manual_start();
-        }
-         */ 
 		playerScript.enemyList = instatiateWave.enemyListScript;
 
 		playerScript.set_target(instatiateWave.enemyList[0]);
@@ -740,7 +732,6 @@ public class EventControls : MonoBehaviour {
             Debug.Log("Current wave counter: " + curWave);
             faderActive = true;
             myScreenFadeScript.screen_fade_active(end_battle_fade_process);
-            //end_battle_win();
             enabled = false;
             return;
         }

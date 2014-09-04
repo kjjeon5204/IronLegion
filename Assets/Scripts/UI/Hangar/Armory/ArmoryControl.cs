@@ -108,7 +108,7 @@ public class ArmoryControl : MonoBehaviour {
         }
 
 
-        inventoryAccess.ReloadInventory();
+        
     }
 
 
@@ -195,7 +195,17 @@ public class ArmoryControl : MonoBehaviour {
 
     public void reset_catalog_data()
     {
+        StoreData tempStoreData = armoryData.generate_new_store_data(Item.ItemType.HEAD);
+        headCatalog.reinitialize_store_data(tempStoreData);
 
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.ARMOR);
+        bodyCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.WEAPON);
+        weaponCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.CORE);
+        coreCatalog.reinitialize_store_data(tempStoreData);
     }
 
 	// Use this for initialization

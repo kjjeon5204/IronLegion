@@ -49,10 +49,11 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
         Vector3 clickPosition = mainCam.ScreenToWorldPoint(screenPosition);
 		Camera cam2 = GameObject.Find("Camera").GetComponent<Camera>();
 		Vector3 clickPosition2 = cam2.ScreenToWorldPoint(screenPosition);
+        LayerMask removedLayer = ~LayerMask.NameToLayer("ItemDisplayFrame");
 		
 		// Retrieve all raycast hits from the click position and store them in an array called "hits".
-		RaycastHit2D[] hits = Physics2D.LinecastAll (clickPosition, clickPosition);
-		RaycastHit2D[] hits2 = Physics2D.LinecastAll(clickPosition2, clickPosition2);
+		RaycastHit2D[] hits = Physics2D.LinecastAll (clickPosition, clickPosition, removedLayer);
+		RaycastHit2D[] hits2 = Physics2D.LinecastAll(clickPosition2, clickPosition2, removedLayer);
 
         //Debug.Log(hits.Length);
         //Debug.Log(hits2.Length);

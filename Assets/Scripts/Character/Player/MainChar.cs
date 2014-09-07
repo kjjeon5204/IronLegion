@@ -538,8 +538,8 @@ public class MainChar : Character {
             Vector3 hitDirection = (previousPos - transform.position);
             Debug.Log("Move direction" + hitDirection);
             curState = "IDLE";
-            transform.Translate(transform.InverseTransformDirection(hitDirection).normalized * 5.0f);
-            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.3f);
+            transform.Translate(hitDirection);
+            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.1f);
         }
     }
 

@@ -12,17 +12,15 @@ public class ItemBuyButton : MonoBehaviour {
     int cogentumOwned;
 
     int slotNum;
-    ItemDisplayWindow myOwner;
     public GameObject soldButton;
+    public ItemBuyConfirmButton itemBuyConfirmation;
+    public ItemEquipOption itemEquipConfirmation;
 
     public void initialize_button(int slotCount, ArmoryControl inArmoryControl,
-        ArmoryCatalog inItemInfo, ItemDisplayWindow myOwnerInput)
+        ArmoryCatalog inItemInfo)
     {
         slotNum = slotCount;
-        myOwner = myOwnerInput;
         armoryControl = inArmoryControl;
-        creditOwned = inArmoryControl.get_owned_credit();
-        cogentumOwned = inArmoryControl.get_owned_cogentum();
         itemInformation = inItemInfo;
         Item itemInfo = itemInformation.itemObject.GetComponent<Item>();
         creditRequired = itemInfo.buy_price;
@@ -37,11 +35,12 @@ public class ItemBuyButton : MonoBehaviour {
 
     void Clicked()
     {
+        creditOwned = armoryControl.get_owned_credit();
+        cogentumOwned = armoryControl.get_owned_cogentum();
         if (creditOwned > creditRequired &&
             cogentumOwned > cogentumRequired)
         {
-
-            Application.LoadLevel(0);
+            Debug.Log("Buy Item");
             armoryControl.item_bought(creditRequired, cogentumRequired, slotNum, 
                 itemInformation.itemObject.GetComponent<Item>().itemType);
             Inventory playerInventory = new Inventory();

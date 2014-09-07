@@ -51,7 +51,7 @@ public class ItemDictionary : MonoBehaviour {
                         weaponItemList.Add(temp.gameObject);
                 }
             }
-            setPoolTier = true;
+            //setPoolTier = true;
         }
     }
 

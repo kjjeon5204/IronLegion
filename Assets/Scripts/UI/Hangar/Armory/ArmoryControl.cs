@@ -75,7 +75,6 @@ public class ArmoryControl : MonoBehaviour {
     {
         creditOwned -= creditSpent;
         cogentumOwned -= cogentumSpent;
-        Application.LoadLevel(0);
         creditOwnedDisplay.text = creditOwned.ToString();
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
@@ -109,7 +108,7 @@ public class ArmoryControl : MonoBehaviour {
         }
 
 
-        inventoryAccess.ReloadInventory();
+        
     }
 
 
@@ -192,6 +191,21 @@ public class ArmoryControl : MonoBehaviour {
         totalUnlockedSlotCount += bodyCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += weaponCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += coreCatalog.get_unlocked_slot_count();
+    }
+
+    public void reset_catalog_data()
+    {
+        StoreData tempStoreData = armoryData.generate_new_store_data(Item.ItemType.HEAD);
+        headCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.ARMOR);
+        bodyCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.WEAPON);
+        weaponCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.CORE);
+        coreCatalog.reinitialize_store_data(tempStoreData);
     }
 
 	// Use this for initialization

@@ -73,6 +73,8 @@ public class ItemSlotWindow : MonoBehaviour {
             buyButton.SetActive(true);
         }
         slotNum = slotNumInput;
+        itemBuyButton.initialize_button(slotNum, armoryControl,
+            curCatalog);
     }
 
     public void update_sale_status(bool input) {

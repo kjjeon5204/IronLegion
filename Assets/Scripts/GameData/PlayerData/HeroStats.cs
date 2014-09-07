@@ -227,6 +227,13 @@ public class HeroStats{
             curStats.baseDamage -= removeItem.damage;
             curStats.armor -= removeItem.armor;
         }
+        else if (removeItem.itemID[3] == 'C')
+        {
+            curStats.equipment[3] = "000000";
+            curStats.baseHp -= removeItem.hp;
+            curStats.baseDamage -= removeItem.damage;
+            curStats.armor -= removeItem.armor;
+        }
     }
 
     public string[] get_equipped_item()

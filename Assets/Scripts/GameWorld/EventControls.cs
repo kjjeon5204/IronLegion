@@ -386,14 +386,6 @@ public class EventControls : MonoBehaviour {
         Debug.Log("Wave started!");
         waveReadyPhase = false;
         combatScript.turn_on_combat_ui();
-        /*
-        for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
-        {
-            instatiateWave.enemyList[ctr].SetActive(true);
-            instatiateWave.enemyListScript[ctr].set_player(player);
-            instatiateWave.enemyListScript[ctr].manual_start();
-        }
-         */ 
 		playerScript.enemyList = instatiateWave.enemyListScript;
 
 		playerScript.set_target(instatiateWave.enemyList[0]);
@@ -652,13 +644,6 @@ public class EventControls : MonoBehaviour {
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
-            /*
-            Debug.Log("Has story");
-            combatScript.turn_off_combat_ui();
-            waveRunData[0].eventRunPhase = true;
-            waveRunData[0].waveEnded = false;
-            waveRunData[0].storyInitialized = false;
-             */
             
             faderActive = true;
             myScreenFadeScript.screen_fade_active(wave_start_cutscene_fade_process);
@@ -666,14 +651,6 @@ public class EventControls : MonoBehaviour {
         }
         else
         {
-            /*
-            //start_wave(waveRunData[0]);
-            Debug.Log("No story");
-            wave_ready_phase(waveRunData[0]);
-            waveRunData[0].eventRunPhase = false;
-            waveRunData[0].waveEnded = false;
-            waveRunData[0].storyInitialized = false;
-            */
             faderActive = true;
             myScreenFadeScript.screen_fade_active(start_battle_immediate);
         }
@@ -755,7 +732,6 @@ public class EventControls : MonoBehaviour {
             Debug.Log("Current wave counter: " + curWave);
             faderActive = true;
             myScreenFadeScript.screen_fade_active(end_battle_fade_process);
-            //end_battle_win();
             enabled = false;
             return;
         }

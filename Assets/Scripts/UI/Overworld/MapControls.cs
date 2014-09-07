@@ -41,6 +41,8 @@ public class MapControls : MonoBehaviour {
 	
 	private Camera cam;
 	private Vector4 viewportBoundary;
+
+    private Vector2 previousPos;
 	// Use this for initialization
 	
 	void Awake () {
@@ -65,6 +67,76 @@ public class MapControls : MonoBehaviour {
 		
 		clicking = false;
 	}
+
+    void PC_Update()
+    {
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 mouseDeltaPos = mousePos - previousPos;
+            if (Input.GetMouseButtonDown(0))
+            {
+                clicked_object = click.Click(mousePos);
+                if (clicked_object.isClicked)
+                {
+                    clicked_object.clicked_object.SendMessage("BeginClick", SendMessageOptions.DontRequireReceiver);
+                    clicking = true;
+                }
+                else
+                {
+                    if (CheckMovePosition(mousePos))
+                        ChangeCameraPosition(mouseDeltaPos);
+                    clicking = false;
+                }
+            }
+            previousPos = mousePos;
+            /*
+             * clicked_object = click.Click(touches[0].position);
+					if (clicked_object.isClicked)
+					{
+						clicked_object.clicked_object.SendMessage("BeginClick",SendMessageOptions.DontRequireReceiver);
+						clicking = true;
+					}
+					else //move map
+					{
+						if (CheckMovePosition(touches[0].position))
+						ChangeCameraPosition(touches[0].deltaPosition);
+						clicking = false;
+					}
+             */
+
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 mouseDeltaPos = mousePos - previousPos;
+            if (clicking && clicked_object.clicked_object == click.Click(mousePos).clicked_object)
+            {
+                clicked_object.clicked_object.SendMessage("EndClick", SendMessageOptions.DontRequireReceiver);
+                clicking = false;
+            }
+            else if (!clicking)
+            {
+                if (CheckMovePosition(mousePos))
+                    ChangeCameraPosition(mouseDeltaPos);
+            }
+
+            previousPos = mousePos;
+            /*
+            if (clicking && clicked_object.clicked_object == click.Click(touches[0].position).clicked_object)
+            {
+                clicked_object.clicked_object.SendMessage("EndClick", SendMessageOptions.DontRequireReceiver);
+                clicking = false;
+            }
+            else if (!clicking) //move map
+            {
+                if (CheckMovePosition(touches[0].position))
+                    ChangeCameraPosition(touches[0].deltaPosition);
+            }
+            */
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -84,7 +156,9 @@ public class MapControls : MonoBehaviour {
 		{
 			ChangeCameraPosition(new Vector2(0,1f));
 		}
-		
+
+        PC_Update();
+
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{

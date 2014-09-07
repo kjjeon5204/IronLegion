@@ -317,6 +317,10 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
+        Inventory myInventory = new Inventory();
+        myInventory.load_inventory();
+        myInventory.change_currency(creditReceived);
+        myInventory.store_inventory();
         if (allyObject != null) {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);

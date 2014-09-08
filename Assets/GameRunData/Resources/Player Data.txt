@@ -8,85 +8,127 @@ v0.5b
 COMBAT_TUTORIAL
 1
 
-HANGER_FIRST
+Battle_start_3
 1
 
-HANGER_SECOND
+Battle_end_3
 1
 
-STORE
+Battle_end_4
 1
 
-SECOND_TILE
+Battle_start_6
 1
 
-FIRST_TILE
+Battle_mid_6
 1
 
-OVERWORLD_TUTORIAL
+Battle_end_6
 1
 
-END_VICTORY
+Battle_end_7
 1
 
-ENEMY_PATROLS
+Battle_start_10
 1
 
-LOCAL_RESCUE
+Battle_end_10
 1
 
-ALLY_JONATHAN_UNLOCK
+Battle_end_15
 1
 
-COLLECTING_PARTS
+Battle_end_16
 1
 
-PET_RESCUE
+Battle_start_20
 1
 
-PLANNING
+Battle_end_20
 1
 
-LOW_FOOD_SUPPLY
+Battle_start_26
 1
 
-WAR_HISTORY
+Battle_end_26
 1
 
-PET_GOES_MISSING
+Battle_start_27
 1
 
-PET_IS_EATEN
+Battle_mid_27_1
 1
 
-RESCUE_SOLDIERS
+Battle_mid_27_2
 1
 
-DISTRESS_SIGNALS
+Battle_mid_27_3
 1
 
-LEADERSHIP
+Battle_mid_27_4
 1
 
-BATTLE_PREPARATION
+Battle_start_28
 1
 
-BATTLEFORTRESS
+Battle_end_28
 1
 
-AIRPORT_STRIKE
+Battle_start_29
 1
 
-OBELISK_ARRIVES
+Battle_end_29
 1
 
-AERIAL_ESCAPE
+Battle_end_31
 1
 
-EXTRA_RESCUE_1
+Battle_end_34
 1
 
-EXTRA_RESCUE_2
+Battle_2_end_2
+1
+
+Battle_2_end_6
+1
+
+Battle_2_end_9
+1
+
+Battle_2_start_10
+1
+
+Battle_2_end_10
+1
+
+Battle_2_start_15
+1
+
+Battle_2_end_15
+1
+
+Battle_2_start_25
+1
+
+Battle_2_end_25
+1
+
+Battle_2_start_26
+1
+
+Battle_2_end_26
+1
+
+Battle_2_start_27
+1
+
+Battle_2_start_28
+1
+
+Battle_2_start_29
+1
+
+Battle_2_end_29
 1
 
 END

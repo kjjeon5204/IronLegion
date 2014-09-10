@@ -37,8 +37,8 @@ public class ItemBuyButton : MonoBehaviour {
     {
         creditOwned = armoryControl.get_owned_credit();
         cogentumOwned = armoryControl.get_owned_cogentum();
-        if (creditOwned > creditRequired &&
-            cogentumOwned > cogentumRequired)
+        if (creditOwned >= creditRequired &&
+            cogentumOwned >= cogentumRequired)
         {
             Debug.Log("Buy Item");
             armoryControl.item_bought(creditRequired, cogentumRequired, slotNum, 

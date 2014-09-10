@@ -86,6 +86,8 @@ public class Character : MonoBehaviour
     public bool landCraftActive;
     public GameObject unitIndicatorRing;
 
+    Vector3 aiPreviousPos;
+
 
     protected int initLevel;
 
@@ -424,11 +426,19 @@ public class Character : MonoBehaviour
 		if (hit.gameObject.tag == "Character") {
 			unitCollision = true;
 		}
-        if (hit.collider.tag == "Environment")
+        if (hit.collider.tag == "Environment" && isNonPlayer == true)
         {
             collisionStatus = CollisionTypes.ENVIRONMENT;
+            /*
+            Vector3 hitDirection = (previousPos - transform.position);
+            Debug.Log("Move direction" + hitDirection);
+            transform.Translate(hitDirection);
+            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.1f);
+             */
+            transform.position = aiPreviousPos;
         }
 	}
+
 
 
 	void collision_resolution () {
@@ -637,5 +647,10 @@ public class Character : MonoBehaviour
     public virtual void precombat_phase()
     {
 
+    }
+
+    public virtual void LateUpdate()
+    {
+        aiPreviousPos = transform.position;
     }
 }

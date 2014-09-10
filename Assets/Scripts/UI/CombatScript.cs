@@ -121,6 +121,8 @@ public class CombatScript : MonoBehaviour {
     //1 = retry
     public ScreenFader screenFadeScript;
 
+    public ChangeStateTextEffect changeStateEffect;
+
 
     public void activate_low_energy()
     {
@@ -623,6 +625,8 @@ public class CombatScript : MonoBehaviour {
                     mainCharacter.curEnergy -= 10.0f;
                     if (mainCharacter.isClose == true && curRecord.y < 0.0f)
                     {
+
+                        changeStateEffect.initialize_state_change_sequence();
                         mainCharacter.cancel_player_ability();
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Phaser\nAttack");
@@ -630,11 +634,14 @@ public class CombatScript : MonoBehaviour {
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
                         mainCharacter.switch_hero_state();
-                        curPlayerState.change_state_text("Far");
+                        if (curPlayerState != null)
+                            curPlayerState.change_state_text("Far");
 
                     }
                     else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
                     {
+
+                        changeStateEffect.initialize_state_change_sequence();
                         mainCharacter.cancel_player_ability();
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Blade\nAttack");
@@ -642,7 +649,8 @@ public class CombatScript : MonoBehaviour {
                         disable_ability_button(rangeSkillSlots);
                         mainCharacter.isClose = true;
                         mainCharacter.switch_hero_state();
-                        curPlayerState.change_state_text("Close");
+                        if (curPlayerState != null)
+                            curPlayerState.change_state_text("Close");
                     }
                 }
             }
@@ -801,6 +809,11 @@ public class CombatScript : MonoBehaviour {
                 loadingScreen.SetActive(true);
                 Application.LoadLevel(2);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            changeStateEffect.initialize_state_change_sequence();
         }
 	}
 }

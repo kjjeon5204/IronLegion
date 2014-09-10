@@ -24,6 +24,6 @@ public class ActivateEquip : MonoBehaviour {
 		scroll_top.transform.position = second_cam.ViewportToWorldPoint(new Vector3(0f,1f,10f));
 		scroll_bot.transform.position = second_cam.ViewportToWorldPoint(new Vector3(0f,0f,10f));
 
-        myControl.ReloadInventory();
+        myControl.StartInventory();
     }
 }

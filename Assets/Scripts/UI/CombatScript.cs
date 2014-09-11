@@ -73,6 +73,9 @@ public class CombatScript : MonoBehaviour {
     public GameObject[] closeSkillSlots;
     public GameObject[] rangeSkillSlots;
 
+    AbilityButton[] closeSkillButtons;
+    AbilityButton[] farRangeButtons;
+
     public GameObject eventControlObject;
     EventControls eventControlScript;
     MainChar mainCharacter;
@@ -209,8 +212,15 @@ public class CombatScript : MonoBehaviour {
             tutorialActive = true;
         else tutorialActive = false;
     }
-   
 
+
+    void activate_button_shockwave(AbilityButton[] myAbility)
+    {
+        foreach (AbilityButton myButton in myAbility)
+        {
+            myButton.enable_shock_wave();
+        }
+    }
 
     //permanent functions
     void disable_ability_button(GameObject[] targetButtons)
@@ -479,7 +489,7 @@ public class CombatScript : MonoBehaviour {
                 && gamePaused == false)
             {
                 if (acc.phase == TouchPhase.Began)
-                    regularAttackShock.activate_button(); ;
+                    regularAttackShock.activate_button();
                 if (mainCharacter.isClose == true)
                 {
                     if (mainCharacter.regAttackCtr == 0 && mainCharacter.curState != "REGULAR_ATTACK1")
@@ -631,6 +641,7 @@ public class CombatScript : MonoBehaviour {
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Phaser\nAttack");
                         enable_ability_button(rangeSkillSlots);
+                        activate_button_shockwave(farRangeButtons);
                         disable_ability_button(closeSkillSlots);
                         mainCharacter.isClose = false;
                         mainCharacter.switch_hero_state();
@@ -646,6 +657,7 @@ public class CombatScript : MonoBehaviour {
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Blade\nAttack");
                         enable_ability_button(closeSkillSlots);
+                        activate_button_shockwave(closeSkillButtons);
                         disable_ability_button(rangeSkillSlots);
                         mainCharacter.isClose = true;
                         mainCharacter.switch_hero_state();
@@ -739,6 +751,18 @@ public class CombatScript : MonoBehaviour {
 
         lowEnergyWarning.SetActive(false);
         //loadingScreen.SetActive(false);
+
+        closeSkillButtons = new AbilityButton[4];
+        farRangeButtons = new AbilityButton[4];
+        for (int ctr = 0; ctr < 4; ctr++)
+        {
+            closeSkillButtons[ctr] = closeSkillSlots[ctr].GetComponent<AbilityButton>();
+        }
+
+        for (int ctr = 0; ctr < 4; ctr++)
+        {
+            farRangeButtons[ctr] = rangeSkillSlots[ctr].GetComponent<AbilityButton>();
+        }
 	}
 
     // Update is called once per frame

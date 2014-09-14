@@ -100,7 +100,7 @@ ModelImporter:
     7400018: dualcannonfire
     7400020: shirikunstart
     7400022: shirikunfire
-    7400024: slashchargestart
+    7400024: slashchargeattack
     7400026: slashchargemove
     7400028: slashchargestart
     7400030: slashchargefire
@@ -1683,7 +1683,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: slashchargestart
+      name: slashchargeattack
       takeName: Take 001
       firstFrame: 400
       lastFrame: 425

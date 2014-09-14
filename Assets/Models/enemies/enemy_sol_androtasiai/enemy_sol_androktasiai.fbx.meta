@@ -1,0 +1,4032 @@
+fileFormatVersion: 2
+guid: babddd83d7320e24fbfe947860189db7
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: back
+    100002: blade_bend1
+    100004: enemy_dullahan
+    100006: //RootNode
+    100008: head
+    100010: L_hipball
+    100012: L_hipfin
+    100014: L_lance
+    100016: L_shoulderthruster
+    100018: Lbottomwing
+    100020: Lelbow
+    100022: Lfoot
+    100024: Lhand
+    100026: Lhip
+    100028: Lknee
+    100030: Lknee2
+    100032: Lshoulderplate
+    100034: Lshounder
+    100036: Ltopwing
+    100038: pelvis
+    100040: R_blade
+    100042: R_blade_bend2
+    100044: R_hipball
+    100046: R_hipfin
+    100048: R_lance
+    100050: R_shoulderthruster
+    100052: R_wristball
+    100054: R_wristball2
+    100056: Rbottomwing
+    100058: reactor
+    100060: Relbow
+    100062: Rfoot
+    100064: Rhand
+    100066: Rhip
+    100068: Rknee
+    100070: Rknee2
+    100072: Rshoulderplate
+    100074: Rshounder
+    100076: Rtopwing
+    100078: T_lance
+    100080: torso
+    100082: waist
+    400000: back
+    400002: blade_bend1
+    400004: enemy_dullahan
+    400006: //RootNode
+    400008: head
+    400010: L_hipball
+    400012: L_hipfin
+    400014: L_lance
+    400016: L_shoulderthruster
+    400018: Lbottomwing
+    400020: Lelbow
+    400022: Lfoot
+    400024: Lhand
+    400026: Lhip
+    400028: Lknee
+    400030: Lknee2
+    400032: Lshoulderplate
+    400034: Lshounder
+    400036: Ltopwing
+    400038: pelvis
+    400040: R_blade
+    400042: R_blade_bend2
+    400044: R_hipball
+    400046: R_hipfin
+    400048: R_lance
+    400050: R_shoulderthruster
+    400052: R_wristball
+    400054: R_wristball2
+    400056: Rbottomwing
+    400058: reactor
+    400060: Relbow
+    400062: Rfoot
+    400064: Rhand
+    400066: Rhip
+    400068: Rknee
+    400070: Rknee2
+    400072: Rshoulderplate
+    400074: Rshounder
+    400076: Rtopwing
+    400078: T_lance
+    400080: torso
+    400082: waist
+    4300000: enemy_dullahan
+    7400000: land
+    7400002: stand
+    7400004: hoverstart
+    7400006: idle
+    7400008: flinch
+    7400010: movestart
+    7400012: move
+    7400014: movend
+    7400016: dualcannonstart
+    7400018: dualcannonfire
+    7400020: shirikunstart
+    7400022: shirikunfire
+    7400024: slashchargestart
+    7400026: slashchargemove
+    7400028: slashchargestart
+    7400030: slashchargefire
+    7400032: slash1start
+    7400034: slash1fire
+    7400036: slash2fire
+    7400038: slash3fire
+    7400040: slash4fire
+    7400042: slashend
+    7400044: spinningstart
+    7400046: spinningloop
+    7400048: spinningend
+    7400050: fightertransform
+    7400052: fighterfly
+    7400054: fightertomech
+    7400056: leftdashstart
+    7400058: leftdashloop
+    7400060: leftdashend
+    7400062: rightdashstart
+    7400064: rightdashloop
+    7400066: rightdashend
+    7400068: death
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: enemy_dullahan
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: land
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stand
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: hoverstart
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: flinch
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movestart
+      takeName: Take 001
+      firstFrame: 175
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: move
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 225
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: movend
+      takeName: Take 001
+      firstFrame: 226
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualcannonstart
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dualcannonfire
+      takeName: Take 001
+      firstFrame: 275
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shirikunstart
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shirikunfire
+      takeName: Take 001
+      firstFrame: 325
+      lastFrame: 350
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashchargestart
+      takeName: Take 001
+      firstFrame: 350
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashchargemove
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 400
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashchargestart
+      takeName: Take 001
+      firstFrame: 400
+      lastFrame: 425
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashchargefire
+      takeName: Take 001
+      firstFrame: 410
+      lastFrame: 425
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slash1start
+      takeName: Take 001
+      firstFrame: 425
+      lastFrame: 450
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slash1fire
+      takeName: Take 001
+      firstFrame: 451
+      lastFrame: 460
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slash2fire
+      takeName: Take 001
+      firstFrame: 461
+      lastFrame: 475
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slash3fire
+      takeName: Take 001
+      firstFrame: 475
+      lastFrame: 486
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slash4fire
+      takeName: Take 001
+      firstFrame: 487
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: slashend
+      takeName: Take 001
+      firstFrame: 500
+      lastFrame: 535
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: spinningstart
+      takeName: Take 001
+      firstFrame: 536
+      lastFrame: 575
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: spinningloop
+      takeName: Take 001
+      firstFrame: 575
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: spinningend
+      takeName: Take 001
+      firstFrame: 600
+      lastFrame: 650
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: fightertransform
+      takeName: Take 001
+      firstFrame: 650
+      lastFrame: 675
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: fighterfly
+      takeName: Take 001
+      firstFrame: 675
+      lastFrame: 700
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: fightertomech
+      takeName: Take 001
+      firstFrame: 700
+      lastFrame: 725
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftdashstart
+      takeName: Take 001
+      firstFrame: 725
+      lastFrame: 730
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftdashloop
+      takeName: Take 001
+      firstFrame: 730
+      lastFrame: 750
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: leftdashend
+      takeName: Take 001
+      firstFrame: 750
+      lastFrame: 760
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightdashstart
+      takeName: Take 001
+      firstFrame: 760
+      lastFrame: 765
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightdashloop
+      takeName: Take 001
+      firstFrame: 765
+      lastFrame: 785
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rightdashend
+      takeName: Take 001
+      firstFrame: 785
+      lastFrame: 795
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 795
+      lastFrame: 830
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: enemy_dullahan
+        weight: 1
+      - path: pelvis
+        weight: 1
+      - path: pelvis/Lhip
+        weight: 1
+      - path: pelvis/Lhip/L_hipball
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Lbottomwing
+        weight: 1
+      - path: pelvis/Lhip/L_hipball/L_hipfin/Ltopwing
+        weight: 1
+      - path: pelvis/Lhip/Lknee
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2
+        weight: 1
+      - path: pelvis/Lhip/Lknee/Lknee2/Lfoot
+        weight: 1
+      - path: pelvis/Rhip
+        weight: 1
+      - path: pelvis/Rhip/R_hipball
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rbottomwing
+        weight: 1
+      - path: pelvis/Rhip/R_hipball/R_hipfin/Rtopwing
+        weight: 1
+      - path: pelvis/Rhip/Rknee
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2
+        weight: 1
+      - path: pelvis/Rhip/Rknee/Rknee2/Rfoot
+        weight: 1
+      - path: pelvis/waist
+        weight: 1
+      - path: pelvis/waist/torso
+        weight: 1
+      - path: pelvis/waist/torso/back
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/L_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/R_lance
+        weight: 1
+      - path: pelvis/waist/torso/back/reactor/T_lance
+        weight: 1
+      - path: pelvis/waist/torso/head
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/L_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lelbow/Lhand
+        weight: 1
+      - path: pelvis/waist/torso/Lshounder/Lshoulderplate
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/R_shoulderthruster
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/blade_bend1
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Relbow/Rhand/R_wristball/R_wristball2/R_blade/R_blade_bend2
+        weight: 1
+      - path: pelvis/waist/torso/Rshounder/Rshoulderplate
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .150000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

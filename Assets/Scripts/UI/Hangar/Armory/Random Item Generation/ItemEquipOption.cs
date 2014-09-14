@@ -3,7 +3,13 @@ using System.Collections;
 
 public class ItemEquipOption : MonoBehaviour {
     Item genItem;
-    ItemDictionary itemDictionary;
+    public ItemDictionary itemDictionary;
+
+    public GameObject[] windowsToBeDisabled;
+
+
+    public Renderer textMeshWindow;
+    public string sortingLayerName;
 
 
     public void set_generated_item(Item generatedItem)
@@ -34,6 +40,7 @@ public class ItemEquipOption : MonoBehaviour {
             currentlyEquipped = curHeroStat.get_equipped_item(3);
             if (currentlyEquipped != "000000")
             {
+                Debug.Log("Currently Equipped item: " + currentlyEquipped);
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
                 curHeroStat.remove_item(curEquippedItem);
                 playerInventory.add_item(currentlyEquipped);
@@ -64,5 +71,14 @@ public class ItemEquipOption : MonoBehaviour {
         }
         playerInventory.store_inventory();
         curHeroStat.save_data();
+        foreach (GameObject windowAcc in windowsToBeDisabled)
+        {
+            windowAcc.SetActive(false);
+        }
+    }
+
+    void Start()
+    {
+        textMeshWindow.sortingLayerName = sortingLayerName;
     }
 }

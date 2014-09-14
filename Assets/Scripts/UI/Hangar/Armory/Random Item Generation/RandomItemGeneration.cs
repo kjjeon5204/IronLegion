@@ -40,7 +40,7 @@ public class RandomItemGeneration : MonoBehaviour {
     {
         Item generatedItem = generate_item(minLevelOffset, maxLevelOffset);
         itemGenWindow.gameObject.SetActive(true);
-        Debug.Log("Currently generated" + generatedItem.itemID);
+        //Debug.Log("Currently generated" + generatedItem.itemID);
         itemGenWindow.display_generated_item(generatedItem);
     }
 }

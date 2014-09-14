@@ -31,7 +31,6 @@ public class ItemControls : MonoBehaviour {
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
 	void Start () {
-
         item_tier = itemDictionary.itemList;
 		inventory = new Inventory();
 		for (int i = 0; i < item_tier.Length; i++) 
@@ -58,7 +57,7 @@ public class ItemControls : MonoBehaviour {
 		StartInventory();
 	}
 	
-	void StartInventory() {
+	public void StartInventory() {
 		inventory.load_inventory();
 		num_of_items = inventory.numItems;
 		ReloadInventory();
@@ -80,7 +79,7 @@ public class ItemControls : MonoBehaviour {
 	}
 	
 	public void ReloadInventory() {
-		Debug.Log("Reloading Inventory");
+
 		foreach (Transform child in transform)
 		{
 			if (child.tag != "Finish")

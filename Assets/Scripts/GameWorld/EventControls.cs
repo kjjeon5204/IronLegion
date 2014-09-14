@@ -679,6 +679,7 @@ public class EventControls : MonoBehaviour {
 			waveRunData[curWave].enemyListScript[targetPathUpdater].modifyPath = true;
 	}
 
+
     void enable_tutorial(int tutorialStep)
     {
         tutorialPhase = true;

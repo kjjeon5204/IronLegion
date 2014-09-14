@@ -237,9 +237,24 @@ public class Movement : MonoBehaviour {
         }
         if (curVelocity > 0.0f)
         {
+            float tempVelocityHolder = curVelocity;
             curVelocity -= (1.0f) * curMovement.decelerationValue * Time.deltaTime;
-            curCharacterScript.custom_translate(curMovement.movementDirection * ((Time.deltaTime * curVelocity) 
-                + (1.0f/2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime));
+            //float distanceTraveled = ((Time.deltaTime * curVelocity)
+            //    + (1.0f / 2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime);
+
+            
+                curCharacterScript.custom_translate(curMovement.movementDirection * ((Time.deltaTime * curVelocity)
+                    + (1.0f / 2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime));
+            
+            /*
+            else
+            {
+                float accelerationTime = Mathf.Abs(1.0f * tempVelocityHolder / curMovement.decelerationValue);
+                float averageVelocity = tempVelocityHolder / accelerationTime;
+                curCharacterScript.custom_translate(curMovement.movementDirection * averageVelocity);
+                curVelocity = 0.0f;
+            }
+             */ 
         }
         else
         {

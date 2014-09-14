@@ -104,7 +104,7 @@ public class ItemGeneratedWindow : MonoBehaviour {
                 changedStat[statActivateCtr].text = "LUK " + luckChange;
             statActivateCtr++;
         }
-        //itemBuyConfirm.set_confirmation_button(curItemData);
-        //itemEquipConfirm.set_generated_item(curItemData);
+        itemBuyConfirm.set_confirmation_button(curItemData);
+        itemEquipConfirm.set_generated_item(curItemData);
     }
 }

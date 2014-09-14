@@ -38,7 +38,6 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
 	
 	GetFrontmostRaycastHitResult GetFrontmostRaycastHit(Vector2 touch)
 	{
-		
 		GetFrontmostRaycastHitResult result = new GetFrontmostRaycastHitResult();
 		
 		Vector3 screenPosition = new Vector3(touch.x,touch.y,0f);
@@ -52,8 +51,8 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
         LayerMask removedLayer = ~LayerMask.NameToLayer("ItemDisplayFrame");
 		
 		// Retrieve all raycast hits from the click position and store them in an array called "hits".
-		RaycastHit2D[] hits = Physics2D.LinecastAll (clickPosition, clickPosition, removedLayer);
-		RaycastHit2D[] hits2 = Physics2D.LinecastAll(clickPosition2, clickPosition2, removedLayer);
+		RaycastHit2D[] hits = Physics2D.LinecastAll (clickPosition, clickPosition/*, removedLayer*/);
+		RaycastHit2D[] hits2 = Physics2D.LinecastAll(clickPosition2, clickPosition2/*, removedLayer*/);
 
         //Debug.Log(hits.Length);
         //Debug.Log(hits2.Length);

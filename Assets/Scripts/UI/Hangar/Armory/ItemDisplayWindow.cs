@@ -32,6 +32,8 @@ public class ItemDisplayWindow : MonoBehaviour {
     int creditOwned;
     int cogentumOwned;
 
+    Vector2 previousMousePos;
+
 
     public void reinitialize_store_data(StoreData newStore)
     {
@@ -160,25 +162,53 @@ public class ItemDisplayWindow : MonoBehaviour {
     {
         Vector2 curTouchPos = Camera.main.ScreenToWorldPoint(curTouch.position);
         LayerMask myLayerMask = LayerMask.NameToLayer("ItemDisplayFrame");
-        RaycastHit2D curRayCast = Physics2D.Raycast(curTouchPos, Vector2.zero, 100.0f, (int)myLayerMask);
-        if (curRayCast != null)
+        RaycastHit2D curRayCast = Physics2D.Raycast(curTouchPos, Vector2.zero, 100.0f, 1 << 20);
+        if (curRayCast.collider != null)
         {
             if (curRayCast.collider.gameObject.tag == "ItemSlotWindow" && curTouch.phase == TouchPhase.Moved)
             {
                 if (curTouch.deltaPosition.y > 0.0f)
                 {
-                    slotPosition.transform.Translate(Vector3.up * 1.0f * Time.deltaTime);
+                    slotPosition.transform.Translate(Vector3.up * 8.0f * Time.deltaTime);
                 }
                 if (curTouch.deltaPosition.y < 0.0f)
                 {
-                    slotPosition.transform.Translate(Vector3.down * 1.0f * Time.deltaTime);
+                    slotPosition.transform.Translate(Vector3.down * 8.0f * Time.deltaTime);
                 }
             }
         }
     }
 
+    void PC_input_parser()
+    {
+        Vector2 curTouchPos =  Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        LayerMask myLayerMask = LayerMask.NameToLayer("ItemDisplayFrame");
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D curRayCast = Physics2D.Raycast(curTouchPos, Vector2.zero, 50.0f, 1<<20);
+            Vector2 mouseDeltaPos = curTouchPos - previousMousePos;
+            if (curRayCast.collider != null)
+            {
+                if (curRayCast.collider.gameObject.tag == "ItemSlotWindow" )
+                {
+                    Debug.Log("Run PC Input");
+                    if (mouseDeltaPos.y > 0.0f)
+                    {
+                        slotPosition.transform.Translate(Vector3.up * 8.0f * Time.deltaTime);
+                    }
+                    if (mouseDeltaPos.y < 0.0f)
+                    {
+                        slotPosition.transform.Translate(Vector3.down * 8.0f * Time.deltaTime);
+                    }
+                }
+            }
+        }
+        previousMousePos = curTouchPos;
+    }
+
     void Update()
     {
+        PC_input_parser();
         foreach (Touch curTouch in Input.touches)
             touch_parser(curTouch);
     }

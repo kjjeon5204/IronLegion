@@ -110,6 +110,12 @@ public class AbilityButton : MonoBehaviour {
         return false;
     }
 
+    public void enable_shock_wave()
+    {
+        if (noAbility == false)
+            touchDetector.activate_button();
+    }
+
     public string button_pressed()
     {
         mainPlayer.curState = thisButtonInfo.skillName;

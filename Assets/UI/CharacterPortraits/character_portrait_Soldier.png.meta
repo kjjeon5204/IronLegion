@@ -3,6 +3,7 @@ guid: 1d222640014c3c946a82230e7246a451
 TextureImporter:
   fileIDToRecycleName:
     21300000: character_SOL_Soldier
+    21300002: character_portrait_Soldier
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

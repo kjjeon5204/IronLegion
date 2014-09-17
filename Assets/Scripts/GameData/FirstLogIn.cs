@@ -24,7 +24,7 @@ public class FirstLogIn : MonoBehaviour {
         {
             return false;
         }
-        if (!File.Exists(path + "/inventory.txt"))
+        if (!File.Exists(path + "/Inventory.txt"))
         {
             return false;
         }

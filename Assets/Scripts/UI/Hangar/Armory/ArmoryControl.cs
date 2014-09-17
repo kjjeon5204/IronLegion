@@ -16,7 +16,7 @@ public class ArmoryControl : MonoBehaviour {
     public ItemDisplayWindow bodyCatalog;
     public ItemDisplayWindow weaponCatalog;
     public ItemDisplayWindow coreCatalog;
-    public ItemDisplayWindow upgradeCatalog;
+    public UpgradeWindow upgradeCatalog;
 
     public GameObject armorButton;
     public GameObject headButton;
@@ -106,9 +106,42 @@ public class ArmoryControl : MonoBehaviour {
             weaponCatalog.currency_update(creditOwned, cogentumOwned);
             coreCatalog.currency_update(creditOwned, cogentumOwned, slotNum);
         }
+    }
 
+    public void unlock_slot(Item.ItemType itemType, int creditSpent, int cogentumSpent) {
+        creditOwned -= creditSpent;
+        cogentumOwned -= cogentumSpent;
+        creditOwnedDisplay.text = creditOwned.ToString();
+        cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
-        
+        if (itemType == Item.ItemType.HEAD)
+        {
+            headCatalog.unlock_slot(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.ARMOR)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.unlock_slot(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.WEAPON)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.unlock_slot(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.CORE)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.unlock_slot(creditOwned, cogentumOwned);
+        }
     }
 
 

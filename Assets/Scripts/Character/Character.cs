@@ -267,7 +267,8 @@ public class Character : MonoBehaviour
     public int get_enemy_index() {
         return enemyUnitIndex;
     }
-
+    
+    //Obsolete
     public GameObject get_currently_facing()
     {
         return characterFacing;
@@ -293,6 +294,7 @@ public class Character : MonoBehaviour
     public Stats return_base_stats() {
     	return baseStats;
    	}
+
 
     Vector3 flag_charge_force(MapChargeFlag flagCharges) {
         Vector3 retVector = Vector3.zero;
@@ -421,7 +423,7 @@ public class Character : MonoBehaviour
     }
 
 
-
+    //Checks and resolves any issues where enemy goes out of the battle scene
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Character") {
 			unitCollision = true;
@@ -429,22 +431,16 @@ public class Character : MonoBehaviour
         if (hit.collider.tag == "Environment" && isNonPlayer == true)
         {
             collisionStatus = CollisionTypes.ENVIRONMENT;
-            /*
-            Vector3 hitDirection = (previousPos - transform.position);
-            Debug.Log("Move direction" + hitDirection);
-            transform.Translate(hitDirection);
-            playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.1f);
-             */
             transform.position = aiPreviousPos;
         }
 	}
 
 
-
+    /*
 	void collision_resolution () {
 
 	}
-
+    */
 
 
 	/*The following functions below are used to modify any damage 

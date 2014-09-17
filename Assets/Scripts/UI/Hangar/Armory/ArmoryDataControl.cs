@@ -72,10 +72,12 @@ public class ArmoryDataControl : MonoBehaviour
         string dataPath = Application.persistentDataPath + fileName;
         StoreData temp = new StoreData();
         temp.soldItemList = new List<ArmoryCatalog>();
+        temp.catalogType = catalogType;
         if (File.Exists(dataPath))
         {
             using (StreamReader inputFile = File.OpenText(dataPath))
             {
+                temp.numberOfUnlockedSpot = System.Convert.ToInt32(inputFile.ReadLine());
                 for (int ctr = 0; ctr < 3; ctr++)
                 {
                     ArmoryCatalog tempItem = new ArmoryCatalog();
@@ -100,6 +102,7 @@ public class ArmoryDataControl : MonoBehaviour
         }
         else
         {
+            temp.numberOfUnlockedSpot = 1;
             temp.catalogType = catalogType;
             temp.soldItemList = new List<ArmoryCatalog>();
             for (int ctr = 0; ctr < 3; ctr++)
@@ -121,10 +124,10 @@ public class ArmoryDataControl : MonoBehaviour
     public StoreData generate_new_store_data(Item.ItemType catalogTypeIn)
     {
         StoreData temp = new StoreData();
+        temp.numberOfUnlockedSpot = 1;
         temp.soldItemList = new List<ArmoryCatalog>();
 
         temp.catalogType = catalogTypeIn;
-        temp.soldItemList = new List<ArmoryCatalog>();
         for (int ctr = 0; ctr < 3; ctr++)
         {
             ArmoryCatalog tempItem = new ArmoryCatalog();
@@ -165,6 +168,7 @@ public class ArmoryDataControl : MonoBehaviour
         string dataPath = Application.persistentDataPath + fileName;
         using (StreamWriter outFile = File.CreateText(dataPath))
         {
+            outFile.WriteLine(itemStore.numberOfUnlockedSpot);
             for (int ctr = 0; ctr < 3; ctr++)
             {
                 outFile.WriteLine(itemStore.soldItemList[ctr].itemID);

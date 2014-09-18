@@ -27,6 +27,7 @@ public struct CustomRenderSettings
 [System.Serializable]
 public class WaveData
 {
+    public AudioSource waveThemeMusic;
     public bool loadBeforeStory;
     public GameObject storyObjectStart;
     public GameObject storyObjectEnd;
@@ -109,9 +110,6 @@ public class EventControls : MonoBehaviour {
     
 	KeyCode userInput;
     string[] enemyQuery;
-	GameObject[] enemies; /*List of possible enemies*/
-	Character[] enemyScripts; /*Scripts of spawned enemies*/
-	GameObject[] enemyList; /*List of spawned enemies*/
     GameObject player; /*Player model*/
     public MainChar playerScript;
     GameObject loadPlayer;
@@ -384,6 +382,8 @@ public class EventControls : MonoBehaviour {
     void start_wave(WaveBattleRunData instatiateWave)
     {
         Debug.Log("Wave started!");
+        if (curEngageData.waveData[curWave].waveThemeMusic != null)
+            curEngageData.waveData[curWave].waveThemeMusic.Play();
         waveReadyPhase = false;
         combatScript.turn_on_combat_ui();
 		playerScript.enemyList = instatiateWave.enemyListScript;
@@ -437,6 +437,10 @@ public class EventControls : MonoBehaviour {
                 Destroy(instantiateWave.enemyList[ctr]);
             }
         }
+        //Turn off current sound
+        if (curEngageData.waveData[curWave].waveThemeMusic != null)
+            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+
         return true;
     }
 
@@ -467,7 +471,10 @@ public class EventControls : MonoBehaviour {
         radar = GameObject.Find("RadarDisplay");
         GameObject screenObject = GameObject.Find("texture_blacksprite");
         myScreenFadeScript = screenObject.GetComponent<ScreenFader>();
+        
+        
 
+        //initialize battle variables
         boundaryObject = transform.FindChild("BattleSceneBoundary").gameObject;
         mapBoundary = boundaryObject.collider.bounds;
         GetComponent<MapFeatures>().intialize_script();
@@ -518,7 +525,7 @@ public class EventControls : MonoBehaviour {
             {
                 BattleStory tempHolder = curEngageData.waveData[waveCtr].storyObjectStart.
                     GetComponent<BattleStory>();
-                if (tempHolder.cutSceneID.Length == 0|| !eventRecord.check_event_played(tempHolder.cutSceneID))
+                if (tempHolder.cutSceneID.Length != 0 && !eventRecord.check_event_played(tempHolder.cutSceneID))
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
@@ -532,7 +539,7 @@ public class EventControls : MonoBehaviour {
             {
                 BattleStory tempHolder = curEngageData.waveData[waveCtr].storyObjectEnd.
                     GetComponent<BattleStory>();
-                if (tempHolder.cutSceneID.Length == 0 || !eventRecord.check_event_played(tempHolder.cutSceneID))
+                if (tempHolder.cutSceneID.Length != 0 && !eventRecord.check_event_played(tempHolder.cutSceneID))
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
@@ -540,6 +547,9 @@ public class EventControls : MonoBehaviour {
                 }
                 
             }
+            //SOund
+            if (curEngageData.waveData[curWave].waveThemeMusic == null)
+                curEngageData.waveData[curWave].waveThemeMusic = GetComponent<AudioSource>();
 
             waveRunData[waveCtr].player = player;
             waveRunData[waveCtr].playerScript = playerScript;

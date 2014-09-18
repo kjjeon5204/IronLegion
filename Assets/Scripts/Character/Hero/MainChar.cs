@@ -714,7 +714,7 @@ public class MainChar : Character {
         {
             playerCamera.SetActive(true);
         }
-        if (playerLandingTrackCam.activeInHierarchy == true)
+        if (playerLandingTrackCam != null && playerLandingTrackCam.activeInHierarchy == true)
         {
             playerLandingTrackCam.SetActive(false);
         }

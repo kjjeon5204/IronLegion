@@ -157,7 +157,7 @@ public class MapControls : MonoBehaviour {
 			ChangeCameraPosition(new Vector2(0,1f));
 		}
 
-        PC_Update();
+        //PC_Update();
 
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)

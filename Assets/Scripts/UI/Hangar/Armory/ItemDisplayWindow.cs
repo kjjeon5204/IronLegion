@@ -41,14 +41,11 @@ public class ItemDisplayWindow : MonoBehaviour {
         {
             Destroy(itemSlots[ctr].itemSlot);
         }
+        numOfOpenSpot = newStore.numberOfUnlockedSpot;
+        Debug.Log("Number of items in slot: " + newStore.numberOfUnlockedSpot);
         myStoreData = newStore;
         itemSlots = new ItemSlot[4];
-        /*
-        Debug.Log("Number of items in store: " + newStore.soldItemList.Count);
-        itemSlots[0].slotType = SlotType.RANDOM;
-        itemSlots[0].itemSlot = (GameObject)Instantiate(randomObjectSlot, slotPosition.transform.position, Quaternion.identity);
-        itemSlots[0].itemSlot.transform.parent = slotPosition.transform;
-         */ 
+        
         for (int ctr = 1; ctr < numOfOpenSpot; ctr++)
         {
             Vector3 windowPosition = slotPosition.transform.position;
@@ -76,13 +73,9 @@ public class ItemDisplayWindow : MonoBehaviour {
         armoryControl = inArmoryControl;
         myStoreData = inputInventory;
         itemSlots = new ItemSlot[4];
-        Debug.Log("Number of items in store: " + inputInventory.soldItemList.Count);
-        /*
-        itemSlots[0].slotType = SlotType.RANDOM;
-        itemSlots[0].itemSlot = (GameObject)Instantiate(randomObjectSlot, slotPosition.transform.position, Quaternion.identity);
-        itemSlots[0].itemSlot.transform.parent = slotPosition.transform;
-         */ 
-        for (int ctr = 1; ctr < numOfOpenSpot; ctr++)
+        numOfOpenSpot = inputInventory.numberOfUnlockedSpot;
+        
+        for (int ctr = 1; ctr < numOfOpenSpot + 1; ctr++)
         {
             Vector3 windowPosition = slotPosition.transform.position;
             windowPosition.y -= ctr * verticalSlotOffset;
@@ -92,13 +85,15 @@ public class ItemDisplayWindow : MonoBehaviour {
                 set_item_slot(inputInventory.soldItemList[ctr], inArmoryControl, ctr);
             itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
         }
-        for (int ctr = numOfOpenSpot; ctr < itemSlots.Length; ctr++)
+        for (int ctr = numOfOpenSpot + 1; ctr < itemSlots.Length; ctr++)
         {
             Vector3 windowPosition = slotPosition.transform.position;
             windowPosition.y -= ctr * verticalSlotOffset;
             itemSlots[ctr].slotType = SlotType.LOCKED;
             itemSlots[ctr].itemSlot = (GameObject)Instantiate(lockedSlotFrame, windowPosition, Quaternion.identity);
             itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
+            itemSlots[ctr].itemSlot.GetComponent<LockedSlot>().unlockSlotButton.initialize_slot(armoryControl,
+                ctr, 100, myStoreData.catalogType);
         }
         armoryData.save_store_data(myStoreData);
     }
@@ -143,6 +138,24 @@ public class ItemDisplayWindow : MonoBehaviour {
         armoryData.save_store_data(myStoreData);
     }
 
+    public void unlock_slot(int credit, int cogentum)
+    {
+        creditOwned = credit;
+        cogentumOwned = cogentum;
+
+        //Process for unlocking slot
+        GameObject temp = itemSlots[++numOfOpenSpot].itemSlot;
+        itemSlots[numOfOpenSpot].itemSlot = (GameObject)Instantiate(itemSlotFrame,
+            temp.transform.position, temp.transform.rotation);
+        itemSlots[numOfOpenSpot].itemSlot.transform.parent = temp.transform.parent;
+        itemSlots[numOfOpenSpot].itemSlot.GetComponent<ItemSlotWindow>().
+            set_item_slot(myStoreData.soldItemList[numOfOpenSpot], armoryControl, numOfOpenSpot);
+        myStoreData.numberOfUnlockedSpot = numOfOpenSpot;
+        Destroy(temp);
+        armoryData.save_store_data(myStoreData);
+
+    }
+
     public void item_bought(int slotAccess)
     {
         ArmoryCatalog tempCatalog = myStoreData.soldItemList[slotAccess];
@@ -178,6 +191,8 @@ public class ItemDisplayWindow : MonoBehaviour {
             }
         }
     }
+
+    
 
     void PC_input_parser()
     {

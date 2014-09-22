@@ -63,7 +63,7 @@ public class AllyDataList : CustomTextFileClass {
          */ 
     }
 
-    void load_cur_equipped_ally()
+    public void load_cur_equipped_ally()
     {
         AllyData tempData = new AllyData();
         string dataPath = Application.persistentDataPath + "/EquippedAllyList.txt";

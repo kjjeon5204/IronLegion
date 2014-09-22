@@ -16,7 +16,7 @@ public class ArmoryControl : MonoBehaviour {
     public ItemDisplayWindow bodyCatalog;
     public ItemDisplayWindow weaponCatalog;
     public ItemDisplayWindow coreCatalog;
-    public ItemDisplayWindow upgradeCatalog;
+    public UpgradeWindow upgradeCatalog;
 
     public GameObject armorButton;
     public GameObject headButton;
@@ -75,7 +75,6 @@ public class ArmoryControl : MonoBehaviour {
     {
         creditOwned -= creditSpent;
         cogentumOwned -= cogentumSpent;
-        Application.LoadLevel(0);
         creditOwnedDisplay.text = creditOwned.ToString();
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
@@ -107,9 +106,42 @@ public class ArmoryControl : MonoBehaviour {
             weaponCatalog.currency_update(creditOwned, cogentumOwned);
             coreCatalog.currency_update(creditOwned, cogentumOwned, slotNum);
         }
+    }
 
+    public void unlock_slot(Item.ItemType itemType, int creditSpent, int cogentumSpent) {
+        creditOwned -= creditSpent;
+        cogentumOwned -= cogentumSpent;
+        creditOwnedDisplay.text = creditOwned.ToString();
+        cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
-        inventoryAccess.ReloadInventory();
+        if (itemType == Item.ItemType.HEAD)
+        {
+            headCatalog.unlock_slot(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.ARMOR)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.unlock_slot(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.WEAPON)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.unlock_slot(creditOwned, cogentumOwned);
+            coreCatalog.currency_update(creditOwned, cogentumOwned);
+        }
+        else if (itemType == Item.ItemType.CORE)
+        {
+            headCatalog.currency_update(creditOwned, cogentumOwned);
+            bodyCatalog.currency_update(creditOwned, cogentumOwned);
+            weaponCatalog.currency_update(creditOwned, cogentumOwned);
+            coreCatalog.unlock_slot(creditOwned, cogentumOwned);
+        }
     }
 
 
@@ -192,6 +224,21 @@ public class ArmoryControl : MonoBehaviour {
         totalUnlockedSlotCount += bodyCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += weaponCatalog.get_unlocked_slot_count();
         totalUnlockedSlotCount += coreCatalog.get_unlocked_slot_count();
+    }
+
+    public void reset_catalog_data()
+    {
+        StoreData tempStoreData = armoryData.generate_new_store_data(Item.ItemType.HEAD);
+        headCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.ARMOR);
+        bodyCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.WEAPON);
+        weaponCatalog.reinitialize_store_data(tempStoreData);
+
+        tempStoreData = armoryData.generate_new_store_data(Item.ItemType.CORE);
+        coreCatalog.reinitialize_store_data(tempStoreData);
     }
 
 	// Use this for initialization

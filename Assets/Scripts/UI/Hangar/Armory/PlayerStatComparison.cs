@@ -45,11 +45,11 @@ public class PlayerStatComparison : MonoBehaviour {
         else
         {
             modifiedAttack = (int)itemBuying.damage;
-            modifiedAttack = (int)itemBuying.armor;
-            modifiedAttack = (int)itemBuying.hp;
-            modifiedAttack = (int)itemBuying.energy;
-            modifiedAttack = (int)itemBuying.luck;
-            modifiedAttack = (int)itemBuying.penetration;
+            modifiedArmor = (int)itemBuying.armor;
+            modifiedHealth = (int)itemBuying.hp;
+            modifiedEnergy = (int)itemBuying.energy;
+            modifiedluck = (int)itemBuying.luck;
+            modifiedPenetration = (int)itemBuying.penetration;
         }
     }
 
@@ -73,12 +73,14 @@ public class PlayerStatComparison : MonoBehaviour {
         }
         else if (inputItem.itemType == Item.ItemType.CORE)
         {
-            if (itemList[3].energy > itemList[4].energy)
+            if (itemList[3] != null && itemList[4] != null && 
+                itemList[3].energy > itemList[4].energy)
             {
                 get_modified_stat(itemList[3], inputItem);
             }
             else
             {
+                Debug.Log("Check player data");
                 get_modified_stat(itemList[4], inputItem);
             }
         }
@@ -137,37 +139,37 @@ public class PlayerStatComparison : MonoBehaviour {
         if (modifiedAttack != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedAttack.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "ATK " + modifiedAttack.ToString();
             textBoxStatTracker++;
         }
         if (modifiedArmor != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedArmor.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "DEF" + modifiedArmor.ToString();
             textBoxStatTracker++;
         }
         if (modifiedHealth != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedHealth.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "HP  " + modifiedHealth.ToString();
             textBoxStatTracker++;
         }
         if (modifiedEnergy != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedEnergy.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "EN  " + modifiedEnergy.ToString();
             textBoxStatTracker++;
         }
         if (modifiedluck != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedluck.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "LUK  " + modifiedluck.ToString();
             textBoxStatTracker++;
         }
         if (modifiedPenetration != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = modifiedPenetration.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "PEN " + modifiedPenetration.ToString();
             textBoxStatTracker++;
         }
     }

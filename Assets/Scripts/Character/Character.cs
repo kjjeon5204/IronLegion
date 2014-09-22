@@ -86,6 +86,8 @@ public class Character : MonoBehaviour
     public bool landCraftActive;
     public GameObject unitIndicatorRing;
 
+    Vector3 aiPreviousPos;
+
 
     protected int initLevel;
 
@@ -265,7 +267,8 @@ public class Character : MonoBehaviour
     public int get_enemy_index() {
         return enemyUnitIndex;
     }
-
+    
+    //Obsolete
     public GameObject get_currently_facing()
     {
         return characterFacing;
@@ -291,6 +294,7 @@ public class Character : MonoBehaviour
     public Stats return_base_stats() {
     	return baseStats;
    	}
+
 
     Vector3 flag_charge_force(MapChargeFlag flagCharges) {
         Vector3 retVector = Vector3.zero;
@@ -419,22 +423,24 @@ public class Character : MonoBehaviour
     }
 
 
-
+    //Checks and resolves any issues where enemy goes out of the battle scene
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Character") {
 			unitCollision = true;
 		}
-        if (hit.collider.tag == "Environment")
+        if (hit.collider.tag == "Environment" && isNonPlayer == true)
         {
             collisionStatus = CollisionTypes.ENVIRONMENT;
+            transform.position = aiPreviousPos;
         }
 	}
 
 
+    /*
 	void collision_resolution () {
 
 	}
-
+    */
 
 
 	/*The following functions below are used to modify any damage 
@@ -637,5 +643,10 @@ public class Character : MonoBehaviour
     public virtual void precombat_phase()
     {
 
+    }
+
+    public virtual void LateUpdate()
+    {
+        aiPreviousPos = transform.position;
     }
 }

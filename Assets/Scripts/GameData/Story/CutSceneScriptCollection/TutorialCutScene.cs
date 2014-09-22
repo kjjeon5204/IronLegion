@@ -92,8 +92,9 @@ public class TutorialCutScene : BattleStory
         {
             buttonAccess = closeSkillSlots[ctr].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControls;
-            if (playerScript.abilityNames[ctr] != null)
+            if (playerScript.abilityNames[ctr] != null && playerScript.abilityNames[ctr] != "EMPTY")
             {
+                Debug.Log("My ability name: " + playerScript.abilityNames[ctr]);
                 float coolDown = playerScript.abilityDictionary[playerScript.abilityNames[ctr]].myData.cooldown;
                 if (playerScript.abilityDictionary[playerScript.abilityNames[ctr]].myData.startCooldown)
                 {
@@ -113,7 +114,7 @@ public class TutorialCutScene : BattleStory
         {
             buttonAccess = rangeSkillSlots[ctr - 4].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControls;
-            if (playerScript.abilityNames[ctr] != null)
+            if (playerScript.abilityNames[ctr] != null && playerScript.abilityNames[ctr] != "EMPTY")
             {
                 float coolDown = playerScript.abilityDictionary[playerScript.abilityNames[ctr]].myData.cooldown;
                 if (playerScript.abilityDictionary[playerScript.abilityNames[ctr]].myData.startCooldown)

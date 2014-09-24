@@ -36,7 +36,7 @@ public class SpawnMove : MonoBehaviour {
 			transform.Translate (Vector3.forward * Speed * Time.deltaTime); 
 		}
 		else {
-			if (animation != null){
+			if (obAnimation != null){
 				if (phase == 0){
 					animation.Play(obAnimation.name);
 					previousAnimation = obAnimation.name;

@@ -3,10 +3,10 @@ using System.Collections;
 
 public class ScreenFadeIN : MonoBehaviour {
 
-	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
+	public float fadeSpeed = 1f;          // Speed that the screen fades to and from black.
 
-private bool sceneStarting = true;      // Whether or not the scene is still fading in.
-private bool sceneEnding = false;
+private bool fadein =  true;      // Whether or not the scene is still fading in.
+private bool fadeout = false;
 
 public GUITexture guiTextre;
 
@@ -15,13 +15,13 @@ public GUITexture guiTextre;
 	void Awake () {
 		// Set the texture so that it is the the size of the screen and covers it.
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
-		sceneEnding = false;
+		fadeout = false;
 	}
 
 	void Update () {
-		if(sceneStarting)
+		if(fadein)
 		StartScene();
-		if(sceneEnding)
+		if(fadeout)
 		EndSceneFunc();
 	}
 
@@ -40,12 +40,12 @@ public GUITexture guiTextre;
 		{
 		guiTexture.color = Color.clear;
 		guiTexture.enabled = false;
-		sceneStarting = false;
+		fadein = false;
 		}
 	}
 	
 	public void EndScene() {
-		sceneEnding = true;
+		fadeout = true;
 	}
 
 	void EndSceneFunc () {
@@ -54,8 +54,22 @@ public GUITexture guiTextre;
 		if(guiTexture.color.a >= 0.95f)
 		{
 			guiTexture.color = Color.black;
-			sceneEnding = false;
+			fadeout = false;
 			//Do whatever you need
 		}
 	}
+	
+	public void FadeIn() {
+		fadein = true;
+		fadeout = false;
+	}
+	
+	public void FadeOut() {
+		fadeout = true;
+		fadein = false;
+	}
+	
+	
+	
+	
 }

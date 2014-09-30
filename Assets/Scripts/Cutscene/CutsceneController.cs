@@ -8,6 +8,7 @@ public class CutsceneController : MonoBehaviour {
 		public Camera cam;
 		public float time;
 		public Animator anim;
+		public bool fade;
 	}
 
 	public CutsceneCamera[] scenes;
@@ -18,6 +19,7 @@ public class CutsceneController : MonoBehaviour {
 	private float total_time;
 	public ScreenFadeIN screen_fade;
 	private bool done;
+	private bool fading;
 	
 	void Start () {
 		time = 0f;
@@ -26,14 +28,22 @@ public class CutsceneController : MonoBehaviour {
 		if (scenes[0].anim != null)
 		scenes[0].anim.SetBool(activateHASH,true);
 		done = false;
+		fading = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		time += Time.deltaTime;
 		
+		if (!fading && counter < scenes.Length && scenes[counter].fade && time > total_time-1f)
+		{
+			screen_fade.FadeOut();
+			fading = true;
+		}
+		
 		if (time > total_time)
 		{
+			fading = false;
 			Debug.Log("Next camera");
 			time = 0f;
 			counter++;
@@ -43,6 +53,9 @@ public class CutsceneController : MonoBehaviour {
 					scenes[counter].anim.SetBool(activateHASH,true);
 				scenes[counter-1].cam.enabled = false;
 				total_time = scenes[counter].time;
+				
+				if (scenes[counter-1].fade)
+					screen_fade.FadeIn();
 			}
 			else if (!done)
 			{

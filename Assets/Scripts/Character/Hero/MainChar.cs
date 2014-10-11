@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 
 public class MainChar : Character {
+    public PlayerMasterData playerMasterData;
+
     CharSkills skillList;
     string playerState;
 
@@ -203,7 +205,7 @@ public class MainChar : Character {
             currentTargetIndex = 0;
         }
 		int loopPreventer = 0;
-        while (enemyList[currentTargetIndex].return_cur_stats().baseHp <= 0 &&
+        while (enemyList[currentTargetIndex].return_cur_stats().hp == 0 &&
 		       loopPreventer < enemyList.Length)
         {
             currentTargetIndex++;
@@ -251,7 +253,7 @@ public class MainChar : Character {
     float calc_damage()
     {
         float damage;
-        damage = curAttack.damagePercentage * curStats.baseDamage;
+        damage = curAttack.damagePercentage * curStats.damage;
         damage = Random.Range(damage - damage * curAttack.damageRange, damage + damage * curAttack.damageRange);
         return damage;
     }
@@ -602,7 +604,7 @@ public class MainChar : Character {
         curData.expRequired = curLevelData.get_experience_required();
         curData.curExperience = curLevelData.get_player_experience();
         curData.level = curLevelData.get_player_level();
-        curLevelData.save_file();
+        curLevelData.save_data();
         return curData;
     }
 
@@ -630,21 +632,21 @@ public class MainChar : Character {
         statData = new HeroStats();
         curLevelData = GetComponent<HeroLevelData>();
         HeroStats heroStat = new HeroStats();
-        heroStat.load_data();
-        PlayerStat playerItemStat = heroStat.get_item_stats();
-        curStats.armor = playerItemStat.item_armor;
-        curStats.baseDamage = curLevelData.get_player_stat().damage + playerItemStat.item_damage;
-        curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
-        maxEnergy = 100.0f + playerItemStat.item_energy;
+        curLevelData.playerMasterData = playerMasterData;
+        PlayerMasterStat playerMasterStat = playerMasterData.get_combined_stats();
+        PlayerLevelData basePlayerStats = curLevelData.get_player_level_data(playerMasterStat.level, playerMasterStat.curExp);
+        curStats.hp = basePlayerStats.HP;
+        curStats.damage = (int)basePlayerStats.damage;
+        curStats.armor += playerMasterStat.armor;
+        curStats.damage += playerMasterStat.damage;
+        curStats.hp += playerMasterStat.hp;
+        maxEnergy += playerMasterStat.energy + 100;
         curEnergy = maxEnergy;
-        //Debug.Log("Player HP: " + curStats.baseHp);
         baseStats = curStats;
 
         energyEffect.SetActive(false);
         
-
-        HeroData myAbilityData = new HeroData();
-        abilityNames = myAbilityData.load_data();
+        abilityNames = playerMasterData.load_ability_data();
         
         abilityList = GetComponents<Ability>();
 
@@ -727,7 +729,7 @@ public class MainChar : Character {
         if (inputReady == true && attackPathBuffer == false)
             temp_input();
 
-        if (target == null || targetScript.return_cur_stats().baseHp <= 0)
+        if (target == null || targetScript.return_cur_stats().hp <= 0)
             get_next_target();
         /*Check Events*/
 
@@ -767,7 +769,7 @@ public class MainChar : Character {
         }
 
         //Check if player is facing a valid target
-        if (curStats.baseHp <= 0 && curState != "DEATH")
+        if (curStats.hp <= 0 && curState != "DEATH")
         {
             phasePlayed = false;
             curState = "DEATH";

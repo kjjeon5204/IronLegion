@@ -18,17 +18,13 @@ public class TurretScript : Character {
 	// Use this for initialization
 	public override void manual_start () {
         nextPollTime = Time.time + pollTime;
-		curStats.baseHp = baseHp;
-		curStats.baseDamage = baseDamage;
-		curStats.armor = baseArmor;
-		baseStats = curStats;
         currentState = "IDLE";
 		base.manual_start();
 	}
 	
 	// Update is called once per frame
 	public override void manual_update () {
-        if (curStats.baseHp <= 0.0f)
+        if (curStats.hp <= 0.0f)
         {
             Destroy(gameObject);
         }
@@ -65,7 +61,7 @@ public class TurretScript : Character {
                             muzzleAcc.transform.position, muzzleAcc.transform.rotation)).
                             GetComponent<MyProjectile>();
 
-                        projectileScript.set_projectile(playerScript, gameObject, curStats.baseDamage * attackPercentage / 100.0f);
+                        projectileScript.set_projectile(playerScript, gameObject, curStats.damage * attackPercentage / 100.0f);
                     }
                 }
                 else

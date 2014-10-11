@@ -9,7 +9,7 @@ public class SetInventory : MonoBehaviour {
 	public int num_of_items;
 	public GameObject empty_slot;
 	
-	private HeroStats hero;
+	//private HeroStats hero;
 	private GameObject[] equipped;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
@@ -22,8 +22,8 @@ public class SetInventory : MonoBehaviour {
 		}
 		num_of_items = -1;
 		
-		hero = new HeroStats();
-		hero.load_data();
+		//hero = new HeroStats();
+		//hero.load_data();
 		equipped = new GameObject[5];
 		equipped[0] = GameObject.Find("EquippedHead");
 		equipped[1] = GameObject.Find("EquippedWeapon");

@@ -117,6 +117,7 @@ public class CombatScript : MonoBehaviour {
 
     public TextMesh frameRateDisplay;
 
+    public PlayerMasterData playerMasterData;
 
     bool screenFader = false;
     int exitType;
@@ -329,10 +330,11 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-        Inventory myInventory = new Inventory();
-        myInventory.load_inventory();
-        myInventory.change_currency(creditReceived);
-        myInventory.store_inventory();
+        //Inventory myInventory = new Inventory();
+        //myInventory.load_inventory();
+        //myInventory.change_currency(creditReceived);
+        playerMasterData.add_currency(creditReceived);
+        //myInventory.store_inventory();
         if (allyObject != null) {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);
@@ -547,7 +549,7 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
             {
                 eventControlScript.unpause_game();
-                Application.LoadLevel(0);
+                Application.LoadLevel("Overworld");
             }
             else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
             {
@@ -776,9 +778,9 @@ public class CombatScript : MonoBehaviour {
             }
         }
 
-        if (battleStopped == false)
+        if (battleStopped == false && mainCharacter != null)
         {
-            float playerHP = 1.0f * mainCharacter.return_cur_stats().baseHp / mainCharacter.return_base_stats().baseHp;
+            float playerHP = 1.0f * mainCharacter.return_cur_stats().hp / mainCharacter.return_base_stats().hp;
             if (playerHP < 0.0f)
             {
                 playerHP = 0.0f;
@@ -788,13 +790,13 @@ public class CombatScript : MonoBehaviour {
             {
                 textModifier.initialize_text(mainCharacter.target.GetComponent<Character>().characterName);
                 Character targetScript = mainCharacter.target.GetComponent<Character>();
-                float enemyHP = 1.0f * targetScript.return_cur_stats().baseHp / targetScript.return_base_stats().baseHp;
+                float enemyHP = 1.0f * targetScript.return_cur_stats().hp / targetScript.return_base_stats().hp;
                 if (enemyHP < 0.0f)
                     enemyHP = 0.0f;
                 //Debug.Log("target hp: " + targetScript.return_cur_stats().baseHp);
                 enemyHealthBar.transform.localScale = new Vector3(enemyHP, 1.0f, 1.0f);
                 enemyArmor.text = "Armor: " + targetScript.return_cur_stats().armor + "%";
-                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().baseDamage;
+                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().damage;
             }
             skillButtons.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
             changeTargetButton.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
@@ -826,12 +828,12 @@ public class CombatScript : MonoBehaviour {
             if (exitType == 0)
             {
                 loadingScreen.SetActive(true);
-                Application.LoadLevel(0);
+                Application.LoadLevel("Overworld");
             }
             if (exitType == 1)
             {
                 loadingScreen.SetActive(true);
-                Application.LoadLevel(2);
+                Application.LoadLevel("BattleScene");
             }
         }
 

@@ -6,7 +6,7 @@ public class RandomItemGeneration : MonoBehaviour {
     public ItemDictionary itemDictionary;
     public GameObject chest;
     public ItemGeneratedWindow itemGenWindow;
-    public HeroLevelData heroLevel;
+    PlayerMasterData playerMasterData;
     public int minLevelOffset;
     public int maxLevelOffset;
     public Renderer[] miscText;
@@ -21,8 +21,7 @@ public class RandomItemGeneration : MonoBehaviour {
             negativeOffset = 0;
         }
         int itemGenLevel = Random.Range(negativeOffset, positiveOffset);
-        heroLevel.load_file();
-        playerLevel = heroLevel.get_player_level();
+        playerLevel = playerMasterData.get_player_level();
         itemGenLevel += playerLevel;
         GameObject genItem = itemDictionary.generate_random_item(itemGenLevel);
         return genItem.GetComponent<Item>();

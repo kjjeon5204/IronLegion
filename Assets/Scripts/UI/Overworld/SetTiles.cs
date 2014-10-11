@@ -21,6 +21,8 @@ public class SetTiles : MonoBehaviour {
     public int keyTile;
     public SetTiles nextMap;
 
+    public PlayerMasterData playerMasterData;
+
     void activate_remaining_tiles(int curAcc)
     {
         int ctr = curAcc;
@@ -55,11 +57,9 @@ public class SetTiles : MonoBehaviour {
             mapTileHolder[ctr].clearCount = 0;
             mapTileHolder[ctr].adjLevelList = tileDataAccess[ctr].unlockedLevels;
         }
-
-        map = new MapData(mapTileHolder, chapter);
-        IList<int> unlockedLevels = new List<int>();
-        unlockedLevels = map.get_unlocked_levels();
-        IList<int> latestUnlocked = map.get_latest_levels();
+        playerMasterData.set_map_chapter(chapter, mapTileHolder);
+        IList<int> unlockedLevels = playerMasterData.get_unlocked_levels(chapter);
+        IList<int> latestUnlocked = playerMasterData.get_latest_levels(chapter);
 
 		
 		bool done_once = false; //So that you only ActivateArrows once

@@ -19,7 +19,7 @@ public class YesConfirm : MonoBehaviour {
 			case "LEVEL":
 				loading_screen.transform.position = on_screen.transform.position;
 				active.Reject();
-				Application.LoadLevel(2);
+				Application.LoadLevel("BattleScene");
 				break;
 			case "RESET DATA":
 				active.Confirm(null , -1,"RESET DATA CONFIRM");

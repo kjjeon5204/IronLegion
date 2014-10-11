@@ -108,7 +108,6 @@ public class ArmoryDataControl : MonoBehaviour
             for (int ctr = 0; ctr < 3; ctr++)
             {
                 ArmoryCatalog tempItem = new ArmoryCatalog();
-                heroLevelData.load_file();
                 playerLevel = heroLevelData.get_player_level();
                 int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
                 Debug.Log(itemPoolNum);
@@ -131,7 +130,6 @@ public class ArmoryDataControl : MonoBehaviour
         for (int ctr = 0; ctr < 3; ctr++)
         {
             ArmoryCatalog tempItem = new ArmoryCatalog();
-            heroLevelData.load_file();
             playerLevel = heroLevelData.get_player_level();
             int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
             Debug.Log(itemPoolNum);

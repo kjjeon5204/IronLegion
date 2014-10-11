@@ -6,29 +6,23 @@ using System;
 
 public struct Stats
 {
-    public int level;
-    public float curExp;
-    public float totalExp;
-    public int baseHp;
-    public float baseDamage;
-    public float armor;
     public string[] equipment;
-	public int item_hp;
-	public float item_armor;
-	public float item_damage;
-	public float item_energy;
-	public float item_penetration;
-	public float item_luck;
+	public int hp;
+	public int armor;
+	public int damage;
+	public int energy;
+	public float penetration;
+	public int luck;
 }
 
 public struct PlayerStat
 {
 	public int item_hp;
-	public float item_armor;
-	public float item_damage;
-	public float item_energy;
+	public int item_armor;
+	public int item_damage;
+	public int item_energy;
 	public float item_penetration;
-	public float item_luck;
+	public int item_luck;
 }
 
 
@@ -39,87 +33,54 @@ public class HeroStats{
     {
     }
     
-    public void level_up()
-    {
-        curStats.baseHp += 50;
-        curStats.baseDamage += 25.0f;
-        curStats.totalExp += 5 * curStats.level;
-        curStats.level++;
-    }
 
-    public void increaseXp(float input)
-    {
-        curStats.curExp += input;
-        if (curStats.curExp >= curStats.totalExp) {
-            this.level_up();
-            curStats.curExp = curStats.totalExp - curStats.curExp;
-        }
-    }
 
-    public void save_data()
+    public void save_data(string heroMechID)
     {
-        string fileName = "/HeroStats.txt";
+        string fileName = "/" + heroMechID + "/HeroStats.txt";
         string path = Application.persistentDataPath + fileName;
 
         using (StreamWriter outfile = File.CreateText(path))
         {
-            outfile.WriteLine(curStats.level);
-            outfile.WriteLine(curStats.curExp);
-            outfile.WriteLine(curStats.totalExp);
-            outfile.WriteLine(curStats.baseHp);
-            outfile.WriteLine(curStats.baseDamage);
-            outfile.WriteLine(curStats.armor);
             foreach (string itemID in curStats.equipment) {
                 outfile.WriteLine(itemID);
             }
-			outfile.WriteLine(curStats.item_hp);
-			outfile.WriteLine(curStats.item_damage);
-			outfile.WriteLine(curStats.item_energy);
-			outfile.WriteLine(curStats.item_penetration);
-			outfile.WriteLine(curStats.item_luck);
+			outfile.WriteLine(curStats.hp);
+			outfile.WriteLine(curStats.damage);
+			outfile.WriteLine(curStats.energy);
+			outfile.WriteLine(curStats.penetration);
+			outfile.WriteLine(curStats.luck);
         }
     }
 
-    public void save_data(Stats inputStat)
+    public void save_data(Stats inputStat, string heroMechID)
     {
         curStats = inputStat;
-        string fileName = "/HeroStats.txt";
+        string fileName = "/" + heroMechID + "/HeroStats.txt";
         string path = Application.persistentDataPath + fileName;
 
         using (StreamWriter outfile = File.CreateText(path))
         {
-            outfile.WriteLine(curStats.level);
-            outfile.WriteLine(curStats.curExp);
-            outfile.WriteLine(curStats.totalExp);
-            outfile.WriteLine(curStats.baseHp);
-            outfile.WriteLine(curStats.baseDamage);
-            outfile.WriteLine(curStats.armor);
             foreach (string itemID in curStats.equipment)
             {
                 outfile.WriteLine(itemID);
             }
-            outfile.WriteLine(curStats.item_hp);
-            outfile.WriteLine(curStats.item_damage);
-            outfile.WriteLine(curStats.item_energy);
-            outfile.WriteLine(curStats.item_penetration);
-            outfile.WriteLine(curStats.item_luck);
+            outfile.WriteLine(curStats.hp);
+            outfile.WriteLine(curStats.damage);
+            outfile.WriteLine(curStats.energy);
+            outfile.WriteLine(curStats.penetration);
+            outfile.WriteLine(curStats.luck);
         }
     }
 
 
 
-    public void create_data()
+    public void create_data(string heroMechID)
     {
-        string fileName = "/HeroStats.txt";
+        string fileName = "/" + heroMechID + "/HeroStats.txt";
         string path = Application.persistentDataPath + fileName;
 
         using (StreamWriter outfile = File.CreateText(path)) {
-            outfile.WriteLine("1"); /*Level*/
-            outfile.WriteLine("0"); /*cur Exp*/
-            outfile.WriteLine("50"); /*total Exp*/
-            outfile.WriteLine("500"); /*HP*/
-            outfile.WriteLine("100");
-            outfile.WriteLine("0");
             outfile.WriteLine("000000");
             outfile.WriteLine("000000");
             outfile.WriteLine("000000");
@@ -135,10 +96,15 @@ public class HeroStats{
 
 
 
-    public Stats load_data()
+    public Stats load_data(string heroMechID)
     {
-        string fileName = "/HeroStats.txt";
+        string fileName = "/" + heroMechID + "/HeroStats.txt";
         string path = Application.persistentDataPath + fileName;
+        if (!File.Exists(path))
+        {
+            create_data(heroMechID);
+        }
+
         string rawFileData;
 
         
@@ -146,18 +112,6 @@ public class HeroStats{
 
         using (StreamReader inFile = File.OpenText(path))
         {
-            rawFileData = inFile.ReadLine();
-            curStats.level = Convert.ToInt32(rawFileData);
-            rawFileData = inFile.ReadLine();
-            curStats.curExp = (float)Convert.ToDouble(rawFileData);
-            rawFileData = inFile.ReadLine();
-            curStats.totalExp = (float)Convert.ToDouble(rawFileData);
-            rawFileData = inFile.ReadLine();
-            curStats.baseHp = Convert.ToInt32(rawFileData);
-            rawFileData = inFile.ReadLine();
-            curStats.baseDamage = (float)Convert.ToDouble(rawFileData);
-            rawFileData = inFile.ReadLine();
-            curStats.armor = (float)Convert.ToDouble(rawFileData);
             curStats.equipment = new string[5];
             
             for (int ctr = 0; ctr < 5; ctr++)
@@ -165,15 +119,15 @@ public class HeroStats{
                 curStats.equipment[ctr] = inFile.ReadLine();
             }
 			rawFileData = inFile.ReadLine();
-			curStats.item_hp = Convert.ToInt32(rawFileData);
+			curStats.hp = Convert.ToInt32(rawFileData);
 			rawFileData = inFile.ReadLine();
-			curStats.item_damage = (float)Convert.ToDouble(rawFileData);
+			curStats.damage = (int)Convert.ToDouble(rawFileData);
 			rawFileData = inFile.ReadLine();
-			curStats.item_energy = (float)Convert.ToDouble(rawFileData);
+			curStats.energy = (int)Convert.ToDouble(rawFileData);
 			rawFileData = inFile.ReadLine();
-			curStats.item_penetration = (float)Convert.ToDouble(rawFileData);
+			curStats.penetration = (float)Convert.ToDouble(rawFileData);
 			rawFileData = inFile.ReadLine();
-			curStats.item_luck = (float)Convert.ToDouble(rawFileData);
+			curStats.luck = (int)Convert.ToDouble(rawFileData);
         }
         return curStats;
     }
@@ -183,24 +137,30 @@ public class HeroStats{
         if (equipItem.itemID[2] == 'H')
         {
             curStats.equipment[0] = equipItem.itemID;
-            curStats.baseHp += equipItem.hp;
-            curStats.baseDamage += equipItem.damage;
-            curStats.armor += equipItem.armor;
+            curStats.hp += equipItem.hp;
+            curStats.damage += (int)equipItem.damage;
+            curStats.armor += (int)equipItem.armor;
+            curStats.energy += (int)equipItem.energy;
+            curStats.luck += (int)equipItem.luck;
         }
         else if (equipItem.itemID[2] == 'W')
         {
             curStats.equipment[1] = equipItem.itemID;
-            curStats.baseHp += equipItem.hp;
-            curStats.baseDamage += equipItem.damage;
-            curStats.armor += equipItem.armor;
+            curStats.hp += equipItem.hp;
+            curStats.damage += (int)equipItem.damage;
+            curStats.armor += (int)equipItem.armor;
+            curStats.energy += (int)equipItem.energy;
+            curStats.luck += (int)equipItem.luck;
 
         }
         else if (equipItem.itemID[2] == 'B')
         {
             curStats.equipment[2] = equipItem.itemID;
-            curStats.baseHp += equipItem.hp;
-            curStats.baseDamage += equipItem.damage;
-            curStats.armor += equipItem.armor;
+            curStats.hp += equipItem.hp;
+            curStats.damage += (int)equipItem.damage;
+            curStats.armor += (int)equipItem.armor;
+            curStats.energy += (int)equipItem.energy;
+            curStats.luck += (int)equipItem.luck;
         }
     }
 
@@ -209,30 +169,38 @@ public class HeroStats{
         if (removeItem.itemID[2] == 'H')
         {
             curStats.equipment[0] = "000000";
-            curStats.baseHp -= removeItem.hp;
-            curStats.baseDamage -= removeItem.damage;
-            curStats.armor -= removeItem.armor;
+            curStats.hp -= removeItem.hp;
+            curStats.damage -= (int)removeItem.damage;
+            curStats.armor -= (int)removeItem.armor;
+            curStats.energy -= (int)removeItem.energy;
+            curStats.luck -= (int)removeItem.luck;
         }
         else if (removeItem.itemID[2] == 'W')
         {
             curStats.equipment[1] = "000000";
-            curStats.baseHp -= removeItem.hp;
-            curStats.baseDamage -= removeItem.damage;
-            curStats.armor -= removeItem.armor;
+            curStats.hp -= removeItem.hp;
+            curStats.damage -= (int)removeItem.damage;
+            curStats.armor -= (int)removeItem.armor;
+            curStats.energy -= (int)removeItem.energy;
+            curStats.luck -= (int)removeItem.luck;
         }
         else if (removeItem.itemID[2] == 'B')
         {
             curStats.equipment[2] = "000000";
-            curStats.baseHp -= removeItem.hp;
-            curStats.baseDamage -= removeItem.damage;
-            curStats.armor -= removeItem.armor;
+            curStats.hp -= removeItem.hp;
+            curStats.damage -= (int)removeItem.damage;
+            curStats.armor -= (int)removeItem.armor;
+            curStats.energy -= (int)removeItem.energy;
+            curStats.luck -= (int)removeItem.luck;
         }
         else if (removeItem.itemID[3] == 'C')
         {
             curStats.equipment[3] = "000000";
-            curStats.baseHp -= removeItem.hp;
-            curStats.baseDamage -= removeItem.damage;
-            curStats.armor -= removeItem.armor;
+            curStats.hp -= removeItem.hp;
+            curStats.damage -= (int)removeItem.damage;
+            curStats.armor -= (int)removeItem.armor;
+            curStats.energy -= (int)removeItem.energy;
+            curStats.luck -= (int)removeItem.luck;
         }
     }
 
@@ -262,12 +230,12 @@ public class HeroStats{
 	public PlayerStat get_item_stats()
 	{
 		PlayerStat item_stat;
-		item_stat.item_hp = curStats.item_hp;
-		item_stat.item_armor = curStats.item_armor;
-		item_stat.item_damage = curStats.item_damage;
-		item_stat.item_energy = curStats.item_energy;
-		item_stat.item_penetration = curStats.item_penetration;
-		item_stat.item_luck = curStats.item_luck;
+		item_stat.item_hp = curStats.hp;
+		item_stat.item_armor = curStats.armor;
+		item_stat.item_damage = curStats.damage;
+		item_stat.item_energy = curStats.energy;
+		item_stat.item_penetration = curStats.penetration;
+		item_stat.item_luck = curStats.luck;
 		
 		return item_stat;
 	}

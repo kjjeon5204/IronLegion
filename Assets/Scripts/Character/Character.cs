@@ -142,40 +142,23 @@ public class Character : MonoBehaviour
     {
         Vector3 targetPosition = inPosition;
 		Vector3 playerPos = collider.bounds.center;
-        float rotAngleY = Vector3.Angle(Vector3.forward, get_xz_component(transform.InverseTransformPoint(targetPosition)));
+        float rotAngleY = Vector3.Angle(get_xz_component(transform.forward), get_xz_component(targetPosition - transform.position));
         float rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(transform.InverseTransformPoint(targetPosition)));
 
 
 
         if (transform.InverseTransformPoint(targetPosition).z < 0)
-        { /*
-			Vector3 tempHolder = transform.InverseTransformPoint(targetPosition);
-            tempHolder.z *= -1;
-            rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(tempHolder));
-            Debug.Log("X rotation modfied!");
-            */
+        { 
 			rotAngleX = 0.0f;
         }
 
 		float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
 		float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
 
-        /*
-        if (Mathf.Abs(rotAngleY) <= yRotationValue * Time.deltaTime &&
-		    Mathf.Abs(rotAngleX) <= xRotationValue * Time.deltaTime)
-        {
-			//Debug.Log ("rotation completed");
-			transform.LookAt(targetPosition);
-            return false;
-        }
-        */
-		//Debug.Log ("rotation not completed");
+       
         float rotDirectionY = transform.InverseTransformPoint(targetPosition).x;
         float rotDirectionX = transform.InverseTransformPoint(targetPosition).y;
 
-		//Debug.Log ("Rotation value: " + rotSpeed * Time.deltaTime);
-        //Debug.Log("Y rotation: " + rotAngleY);
-        //Debug.Log("X rotation: " + rotAngleX);
         if (Mathf.Abs(rotAngleY) > 0.0f)
         {
             if (rotAngleY > rotSpeed3D * Time.deltaTime)
@@ -199,7 +182,7 @@ public class Character : MonoBehaviour
                     transform.Rotate(Vector3.down, rotAngleY, Space.World);
             }
         }
-        if (Mathf.Abs(rotAngleX) > 0.0f)
+        if (Mathf.Abs(rotAngleX) > 0.0f && Mathf.Abs(rotAngleY) < 90.0f)
         {
             if (rotAngleX > rotSpeed3D * Time.deltaTime)
             {
@@ -471,7 +454,7 @@ public class Character : MonoBehaviour
                 {
                     damageDone = rawDamage;
                 }
-                curStats.baseHp -= (int)damageDone;
+                curStats.hp -= (int)damageDone;
 
                 if (detonatorFlinch != null)
                     Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
@@ -484,10 +467,10 @@ public class Character : MonoBehaviour
             }
             else
             {
-                curStats.baseHp -= (int)rawDamage;
-                if (curStats.baseHp > baseStats.baseHp)
+                curStats.hp -= (int)rawDamage;
+                if (curStats.hp > baseStats.hp)
                 {
-                    curStats.baseHp = baseStats.baseHp;
+                    curStats.hp = baseStats.hp;
                 }
                 return rawDamage;
             }
@@ -516,7 +499,7 @@ public class Character : MonoBehaviour
                 {
                     damageDone = rawDamage;
                 }
-                curStats.baseHp -= (int)damageDone;
+                curStats.hp -= (int)damageDone;
 
                 if (detonatorFlinch != null)
                     Instantiate(detonatorFlinch, hitPosition, Quaternion.identity);
@@ -529,10 +512,10 @@ public class Character : MonoBehaviour
             }
             else
             {
-                curStats.baseHp -= (int)rawDamage;
-                if (curStats.baseHp > baseStats.baseHp)
+                curStats.hp -= (int)rawDamage;
+                if (curStats.hp > baseStats.hp)
                 {
-                    curStats.baseHp = baseStats.baseHp;
+                    curStats.hp = baseStats.hp;
                 }
                 return rawDamage;
             }
@@ -567,13 +550,13 @@ public class Character : MonoBehaviour
 	 value of 0.*/
 	public void regen_health (float healValue) 
     {
-		curStats.baseHp += (int)healValue;
+		curStats.hp += (int)healValue;
 	}
 
     public void modify_stat(float armorMod, float attackMod)
     {
-        curStats.armor += armorMod;
-        curStats.baseDamage += attackMod;
+        curStats.armor += (int)armorMod;
+        curStats.damage += (int)attackMod;
     }
 
 	/*Returns true when object is ready to be destroyed*/
@@ -603,11 +586,7 @@ public class Character : MonoBehaviour
         {
             if (landCraftActive == true)
             {
-                //if (unitIndicatorRing != null)
-                //{
-                    //unitIndicatorRing.SetActive(false);
-                    dropShipScript.position_in_the_air();
-                //}
+               dropShipScript.position_in_the_air();
             }
             else
             {
@@ -623,18 +602,12 @@ public class Character : MonoBehaviour
         if (isNonPlayer == true)
         {
             AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
-            curStats.armor = aiStat.baseArmor;
-            curStats.baseHp = aiStat.hp;
-            curStats.baseDamage = aiStat.baseAttack;
+            curStats.armor = (int)aiStat.baseArmor;
+            curStats.hp = aiStat.hp;
+            curStats.damage = (int)aiStat.baseAttack;
             baseStats = curStats;
         }
 
-        /*
-        curStats.baseHp = baseHp;
-        curStats.baseDamage = baseDamage;
-        curStats.armor = baseArmor;
-        baseStats = curStats;
-        */
     }
 
 	public virtual void manual_update() {

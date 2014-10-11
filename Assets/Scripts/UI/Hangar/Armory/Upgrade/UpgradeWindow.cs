@@ -5,8 +5,8 @@ using System.Collections;
 
 public class UpgradeWindow : MonoBehaviour {
     public UpgradeSlot[] upgradeSlots;
-
-    UpgradeData myData;
+    PlayerMasterData playerMasterData;
+    //UpgradeData myData;
 
     
 
@@ -14,34 +14,28 @@ public class UpgradeWindow : MonoBehaviour {
     {
         if (upgradeType == UpgradeType.HP)
         {
-            myData.upgrade_hp();
-            myData.save_upgrade_data();
+            playerMasterData.access_upgrade_data().upgrade_hp();
+            playerMasterData.save_upgrade_data();
         }
         if (upgradeType == UpgradeType.DAMAGE)
         {
-            myData.upgrade_damage();
-            myData.save_upgrade_data();
+            playerMasterData.access_upgrade_data().upgrade_damage();
+            playerMasterData.save_upgrade_data();
         }
         if (upgradeType == UpgradeType.ENERGY)
         {
-            myData.upgrade_energy();
-            myData.save_upgrade_data();
+            playerMasterData.access_upgrade_data().upgrade_energy();
+            playerMasterData.save_upgrade_data();
         }
     }
 
     public int get_upgrade_count(UpgradeType upgradeType)
     {
-        if (myData == null)
-        {
-            myData = new UpgradeData();
-        }
-        return myData.get_upgrade_count(upgradeType);
+        return playerMasterData.access_upgrade_data().get_upgrade_count(upgradeType);
     }
 
 	// Use this for initialization
 	void Start () {
-        if (myData == null)
-            myData = new UpgradeData();
 	}
 	
 	// Update is called once per frame

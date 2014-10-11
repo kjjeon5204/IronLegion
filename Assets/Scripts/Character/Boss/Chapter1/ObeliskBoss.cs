@@ -66,11 +66,6 @@ public class ObeliskBoss : Character {
 	
 	// Use this for initialization
 	public override void manual_start () {
-		AIStatElement statHolder = GetComponent<AIStatScript>().getLevelData(1);
-        curStats.baseHp = statHolder.hp;
-        curStats.baseDamage = statHolder.baseAttack;
-        curStats.armor = statHolder.baseArmor;
-		baseStats = curStats;
 		currentStates = CurrentStates.IDLE;
 		targetScript = target.GetComponent<MainChar>();
 		longRange = false;
@@ -332,10 +327,10 @@ public class ObeliskBoss : Character {
         }
 		
 		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time)) {
-			if (curStats.baseHp < baseStats.baseHp * .5) {
+			if (curStats.hp < baseStats.hp * .5) {
 				stageThree();
 			}
-			else if (curStats.baseHp < baseStats.baseHp * .85) {
+			else if (curStats.hp < baseStats.hp * .85) {
 				stageTwo();
 			} 
 			else {
@@ -390,7 +385,7 @@ public class ObeliskBoss : Character {
 					GameObject projectileAcc = (GameObject)Instantiate(barrageProjectile, barrageMuzzle[muzzleCtr].transform.position,
 					    barrageMuzzle[muzzleCtr].transform.rotation);
 					projectileAcc.GetComponent<MyProjectile>().set_projectile(target.GetComponent<MainChar>(), this.gameObject,
-					    curStats.baseDamage * 0.4f); 						
+					    curStats.damage * 0.4f); 						
 					muzzleCtr++;
 					missileDelayTracker = Time.time + missileDelay;
 				}

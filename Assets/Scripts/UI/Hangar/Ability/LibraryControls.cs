@@ -11,15 +11,16 @@ public class LibraryControls : MonoBehaviour {
 	public int num_of_available_skills;
 	private GameObject end_library;
 	private GameObject separator;
+
+    public PlayerMasterData playerMasterData;
 	
 
 	void Awake () {
 		abilities = new AbilityData();
 		abilities.load_data();
 		
-		hero = GetComponent<HeroLevelData>();
-		hero.load_file();
-		hero_level = hero.get_player_level();
+
+		hero_level = playerMasterData.get_player_level();
 		
 		controls = GameObject.Find("AbilityFrame").GetComponent<AbilityControls>();
 		num_of_available_skills = 0;

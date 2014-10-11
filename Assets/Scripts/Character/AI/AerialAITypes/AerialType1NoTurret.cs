@@ -95,7 +95,7 @@ public class AerialType1NoTurret : Character {
         }
 
 
-        if (curStats.baseHp <= 0.0f && aerialState != AerialState.DEATH)
+        if (curStats.hp <= 0.0f && aerialState != AerialState.DEATH)
         {
             aerialState = AerialState.DEATH;
         }
@@ -147,7 +147,7 @@ public class AerialType1NoTurret : Character {
                     animation.Play(attackTypes[currentlyPolledAttack].attackAnimations[1].name);
                     //Fire projectil
                     float rawDamage = attackTypes[currentlyPolledAttack].damagePercentage *
-                        curStats.baseDamage / 100.0f;
+                        curStats.damage / 100.0f;
                     Debug.Log("Damage Done: " + rawDamage);
                     foreach (GameObject muzzle in attackTypes[currentlyPolledAttack].muzzle)
                     {

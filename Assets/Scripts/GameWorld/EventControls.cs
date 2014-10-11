@@ -152,7 +152,8 @@ public class EventControls : MonoBehaviour {
     bool runPlayerSide;
     int enemyScriptRunCtr;
 
-    
+    PlayerMasterData playerMasterData;
+
 
     public void end_battle_fade_process()
     {
@@ -271,8 +272,8 @@ public class EventControls : MonoBehaviour {
     {
         //end battle
         combatScriptObject.SetActive(true);
-        MapData curMap = new MapData(System.Convert.ToInt32(gameObject.name[1].ToString()));
-        curMap.clear_level(curEngageData.levelNum);
+        MapData curMap = new MapData();
+        playerMasterData.clear_level( System.Convert.ToInt32(gameObject.name[1].ToString()), curEngageData.levelNum);
 
         if (allyData.unitName != "NONE")
             allyData.exp += (int)curEngageData.experience;
@@ -349,6 +350,7 @@ public class EventControls : MonoBehaviour {
 
     void wave_ready_phase(WaveBattleRunData instatiateWave)
     {
+        player.SetActive(true);
         Debug.Log("Prep wave");
         for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
         {
@@ -419,7 +421,7 @@ public class EventControls : MonoBehaviour {
         int remainingEnemy = 0;
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
-            if (instantiateWave.enemyListScript[ctr].return_cur_stats().baseHp > 0)
+            if (instantiateWave.enemyListScript[ctr].return_cur_stats().hp > 0)
             {
                 //return false;
                 remainingEnemy++;
@@ -457,8 +459,9 @@ public class EventControls : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start()
+    public void initialize_script(PlayerMasterData input)
     {
+        playerMasterData = input;
         eventRecord = new PlayerDataReader(Application.persistentDataPath);
         Application.targetFrameRate = 60;
 		RenderSettings.skybox = curEngageData.skyBox;
@@ -488,6 +491,11 @@ public class EventControls : MonoBehaviour {
         playerScript = player.GetComponent<MainChar>();
         playerScript.battleBoundary = boundaryObject.collider;
         playerScript.worldObject = gameObject;
+        playerScript.playerMasterData = playerMasterData;
+        if (playerMasterData == null)
+        {
+            Debug.Log("Null Master Data!");
+        }
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
         if (eventRecord.check_event_played("ALLY_JONATHAN_UNLOCK"))
@@ -529,7 +537,7 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
-
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
                 }
             }
@@ -543,6 +551,7 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
                 }
                 
@@ -755,10 +764,10 @@ public class EventControls : MonoBehaviour {
                 pause_game();
             else unpause_game();
         }
-        if (playerScript.return_cur_stats().baseHp <= 0.0f || endBattle == true)
+        if (playerScript.return_cur_stats().hp <= 0.0f || endBattle == true)
         {
             enabled = false;
-            Application.LoadLevel(0);
+            Application.LoadLevel("Overworld");
         }
         //Checking wave clear/win conditions
         if (faderActive == true)

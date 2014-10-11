@@ -7,6 +7,7 @@ public class BattleSceneLoader : MonoBehaviour {
     public GameObject radar;
     public GameObject[] skillButtons;
     public GameObject combatScript;
+    public PlayerMasterData playerMasterData;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,8 @@ public class BattleSceneLoader : MonoBehaviour {
         //Debug.Log("Map directory: " + mapDirectory);
 
         GameObject holder = (GameObject)Instantiate(Resources.Load<GameObject>(mapDirectory), Vector3.zero, Quaternion.identity);
-        EventControls holderScript = holder.GetComponent<EventControls>(); 
+        EventControls holderScript = holder.GetComponent<EventControls>();
+        holderScript.initialize_script(playerMasterData);
         PlayerDataReader playerEventRecord = new PlayerDataReader(Application.persistentDataPath);
         if (playerEventRecord.check_event_played("COMBAT_TUTORIAL")) {
             playerEventRecord.event_played("COMBAT_TUTORIAL");

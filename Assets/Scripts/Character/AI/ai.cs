@@ -310,7 +310,7 @@ public class ai : Character {
 			ProjectileDataInput tempData;
 			tempData.inTargetScript = playerScript;
 			tempData.inOwner = gameObject;
-			tempData.inDamage = curStats.baseDamage * attack.DamagePrecentage / 100;
+			tempData.inDamage = curStats.damage * attack.DamagePrecentage / 100;
 			tempData.aimAngle = Mathf.Abs(muzzles[i].transform.localRotation.eulerAngles.x);
 			if (tempData.aimAngle > 180) tempData.aimAngle = 360  - tempData.aimAngle;
 			tempData.radius = explosionRadius;
@@ -573,7 +573,7 @@ public class ai : Character {
 		}
 	}
 	public override void manual_update(){
-			if (curStats.baseHp <= 0){
+			if (curStats.hp <= 0){
 				curState = AIState.DEATH;
 			}
 			else if(getHit()){

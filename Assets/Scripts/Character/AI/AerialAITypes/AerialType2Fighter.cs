@@ -6,6 +6,8 @@ public class AerialType2Fighter : Character {
     public GameObject missileMuzzle;
     public GameObject missileProjectile;
 
+    float startingHeightVal;
+
     float horizontalCamFulstrum;
     Vector3 rightApproachPoint;
     Vector3 leftApproachPoint;
@@ -38,6 +40,9 @@ public class AerialType2Fighter : Character {
 
     public override void manual_start()
     {
+
+        base.manual_start();
+        startingHeightVal = transform.position.y;
         float verticalCamFulstrum = Camera.main.fieldOfView;
         float distanceToNearPlane = 1.0f / Mathf.Tan(verticalCamFulstrum / 2.0f);
         horizontalCamFulstrum = Mathf.Abs(Mathf.Rad2Deg * Mathf.Atan
@@ -47,10 +52,6 @@ public class AerialType2Fighter : Character {
         leftApproachPoint = new Vector3(-40.0f * Mathf.Cos(horizontalCamFulstrum), 0.0f, 40.0f);
         rightPassPoint = new Vector3(rightApproachPoint.x + 3.0f, 0.0f, -20.0f);
         leftPassPoint = new Vector3(leftApproachPoint.x - 3.0f, 0.0f, -20.0f);
-
-
-        base.manual_start();
-
         currentState = FighterState.FLIGHT_PATH1;
     }
 

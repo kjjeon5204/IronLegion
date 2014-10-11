@@ -37,11 +37,6 @@ public class HopliteAI : Character {
 	
 	// Use this for initialization
 	public override void manual_start () {
-		AIStatElement statHolder = GetComponent<AIStatScript>().getLevelData(1);
-		curStats.baseHp = statHolder.hp;
-		curStats.baseDamage = statHolder.baseAttack;
-		curStats.armor = statHolder.baseArmor;
-		baseStats = curStats;
 		currentStates = CurrentStates.IDLE;
 		targetScript = target.GetComponent<MainChar>();
 		globalCDTracker = Time.time + globalCD;
@@ -179,7 +174,7 @@ public class HopliteAI : Character {
 		//Event Handler
 		exhaust_check();
 
-        if (curStats.baseHp <= 0.0f)
+        if (curStats.hp <= 0.0f)
         {
             currentStates = CurrentStates.DEATH;
         }

@@ -71,6 +71,8 @@ public class EquipLogic : MonoBehaviour {
     string recycleButtonName;
     string inventoryName;
 
+    PlayerMasterData playerMasterData;
+
     //Target size is relative to viewport determined by upperleft corner being (0, 0)
     void texture_resize(SpriteRenderer target, Rect targetSize)
     {
@@ -362,8 +364,8 @@ public class EquipLogic : MonoBehaviour {
         string[] inventoryList = inventory.get_inventory();
         setup_inventory(inventoryList);
 
-        heroStats = new HeroStats();
-        heroStats.load_data();
+        //heroStats = new HeroStats();
+        //heroStats.load_data();
         string[] hero_items = heroStats.get_equipped_item();
         setup_equipment(hero_items);
 
@@ -554,7 +556,9 @@ public class EquipLogic : MonoBehaviour {
                 Input.GetTouch(i).phase == TouchPhase.Began)
             {
                 storeInventory();
-                heroStats.save_data();
+                playerMasterData.save_hero_equip_data();
+                //heroStats.save_data();
+                
                 Debug.Log("Exit");
                 Application.LoadLevel(0);
             }
@@ -567,7 +571,7 @@ public class EquipLogic : MonoBehaviour {
                     Destroy(selectedItem);
                     if (curProgress >= 100.0f)
                     {
-                        add_item_string(itemGen.gen_item(heroStats.get_current_stats().level));
+                        add_item_string(itemGen.gen_item(playerMasterData.get_combined_stats().level));
                         if (curProgress > 100.0f)
                         {
                             curProgress = curProgress - 100.0f;
@@ -598,7 +602,8 @@ public class EquipLogic : MonoBehaviour {
         Debug.Log("Number of touches this frame: " + Input.touchCount);
         modify_text();
         storeInventory();
-        heroStats.save_data();
+        //heroStats.save_data();
+        playerMasterData.save_hero_equip_data();
         inventory.save_recycle_progress(curProgress);
         recycleBar.transform.localScale = new Vector3(1.0f, curProgress / 100.0f, 1.0f);
 	}

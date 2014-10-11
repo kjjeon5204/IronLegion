@@ -27,6 +27,8 @@ public class ItemControls : MonoBehaviour {
 	
 	public GameObject inventory_end;
     public ItemDictionary itemDictionary;
+
+    public PlayerMasterData playerMasterData;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
@@ -43,8 +45,8 @@ public class ItemControls : MonoBehaviour {
 		itemLibrary["000000"] = empty_slot;
 		num_of_items = -1;
 		
-		hero = new HeroStats();
-		hero.load_data();
+		//hero = new HeroStats();
+		//hero.load_data();
 		equipped = new GameObject[5];
 		equipped_item = new Item[5];
 		equipped[0] = GameObject.Find("EquippedHead");
@@ -147,12 +149,12 @@ public class ItemControls : MonoBehaviour {
 		UpdateEquipped();
 	}
 	public void UpdateEquipped() {
-		stats.item_hp = 0;
-		stats.item_armor = 0;
-		stats.item_damage = 0;
-		stats.item_energy = 0;
-		stats.item_penetration = 0;
-		stats.item_luck = 0;
+		stats.hp = 0;
+		stats.armor = 0;
+		stats.damage = 0;
+		stats.energy = 0;
+		stats.penetration = 0;
+		stats.luck = 0;
 		for (int i = 0; i  < 5; i++)
 		{
 			ids[i] = equipped[i].GetComponent<EquippedSlot>().item_id;
@@ -167,15 +169,17 @@ public class ItemControls : MonoBehaviour {
 			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.CORE);
 		
 			equipped_item[i] = equipped[i].GetComponentInChildren<Item>();
-			stats.item_hp += equipped_item[i].hp;
-			stats.item_armor += equipped_item[i].armor;
-			stats.item_damage += equipped_item[i].damage;
-			stats.item_energy += equipped_item[i].energy;
-			stats.item_penetration += equipped_item[i].penetration;
-			stats.item_luck += equipped_item[i].luck;
+			stats.hp += equipped_item[i].hp;
+			stats.armor += (int)equipped_item[i].armor;
+			stats.damage += (int)equipped_item[i].damage;
+			stats.energy += (int)equipped_item[i].energy;
+			stats.penetration += equipped_item[i].penetration;
+			stats.luck += (int)equipped_item[i].luck;
 			
 			stats.equipment[i] = ids[i];
-			hero.save_data(stats);
+
+            playerMasterData.save_hero_equip_data(stats);
+			//hero.save_data(stats);
 		}
 	}
 	

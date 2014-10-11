@@ -464,7 +464,7 @@ public class TutorialCutScene : BattleStory
     {
         //PC
         //update player data
-        float playerHP = 1.0f * playerScript.return_cur_stats().baseHp / playerScript.return_base_stats().baseHp;
+        float playerHP = 1.0f * playerScript.return_cur_stats().hp / playerScript.return_base_stats().hp;
         if (playerHP < 0.0f)
         {
             playerHP = 0.0f;

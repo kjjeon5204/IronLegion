@@ -10,7 +10,7 @@ public class ItemEquipOption : MonoBehaviour {
 
     public Renderer textMeshWindow;
     public string sortingLayerName;
-
+    PlayerMasterData playerMasterData;
 
     public void set_generated_item(Item generatedItem)
     {
@@ -20,57 +20,53 @@ public class ItemEquipOption : MonoBehaviour {
     void Clicked()
     {
         string currentlyEquipped = "000000";
-        HeroStats curHeroStat = new HeroStats();
-        Inventory playerInventory = new Inventory();
-        playerInventory.load_inventory();
-        curHeroStat.load_data();
         if (genItem.itemID[2] == 'H')
         {
-            currentlyEquipped = curHeroStat.get_equipped_item(0);
+            currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(0);
             if (currentlyEquipped != "000000")
             {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
-                curHeroStat.remove_item(curEquippedItem);
-                playerInventory.add_item(currentlyEquipped);
-                curHeroStat.equip_item(genItem);
+                playerMasterData.access_equipment_data().remove_item(curEquippedItem);
+                playerMasterData.add_item(currentlyEquipped);
+                playerMasterData.access_equipment_data().equip_item(genItem);
             }
         }
         else if (genItem.itemID[2] == 'C')
         {
-            currentlyEquipped = curHeroStat.get_equipped_item(3);
+            currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(3);
             if (currentlyEquipped != "000000")
             {
                 Debug.Log("Currently Equipped item: " + currentlyEquipped);
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
-                curHeroStat.remove_item(curEquippedItem);
-                playerInventory.add_item(currentlyEquipped);
-                curHeroStat.equip_item(genItem);
+                playerMasterData.access_equipment_data().remove_item(curEquippedItem);
+                playerMasterData.add_item(currentlyEquipped);
+                playerMasterData.access_equipment_data().equip_item(genItem);
             }
         }
         else if (genItem.itemID[2] == 'B')
         {
-            currentlyEquipped = curHeroStat.get_equipped_item(2);
+            currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(2);
             if (currentlyEquipped != "000000")
             {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
-                curHeroStat.remove_item(curEquippedItem);
-                playerInventory.add_item(currentlyEquipped);
-                curHeroStat.equip_item(genItem);
+                playerMasterData.access_equipment_data().remove_item(curEquippedItem);
+                playerMasterData.add_item(currentlyEquipped);
+                playerMasterData.access_equipment_data().equip_item(genItem);
             }
         }
         else if (genItem.itemID[2] == 'W')
         {
-            currentlyEquipped = curHeroStat.get_equipped_item(1);
+            currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(1);
             if (currentlyEquipped != "000000")
             {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
-                curHeroStat.remove_item(curEquippedItem);
-                playerInventory.add_item(currentlyEquipped);
-                curHeroStat.equip_item(genItem);
+                playerMasterData.access_equipment_data().remove_item(curEquippedItem);
+                playerMasterData.add_item(currentlyEquipped);
+                playerMasterData.access_equipment_data().equip_item(genItem);
             }
         }
-        playerInventory.store_inventory();
-        curHeroStat.save_data();
+        playerMasterData.store_inventory();
+        playerMasterData.save_hero_equip_data();
         foreach (GameObject windowAcc in windowsToBeDisabled)
         {
             windowAcc.SetActive(false);

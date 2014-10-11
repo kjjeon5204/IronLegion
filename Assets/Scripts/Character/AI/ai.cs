@@ -347,7 +347,6 @@ public class ai : Character {
 	
 	int attackPhase (int numOfAtt, int phase)
 	{
-		//Debug.Log ("Attack: " + numOfAtt + " Phase: " + phase);
 		if (numOfAtt >= attackForms.Length) {
 			curState = AIState.IDLE;
 			return phase;
@@ -356,12 +355,12 @@ public class ai : Character {
 			curState = AIState.IDLE;
 			return phase;
 		}
-		//Debug.Log ("Number of Phase: " + phase);
+
 		if (animation.IsPlaying (previousAnimation)) {
 			return phase;
 		}
 		
-		else if (attackForms[numOfAtt].attphases[phase].eff.Length != 0 && effectDone == false)
+		else if (attackForms[numOfAtt].attphases[phase].eff.Length != 0 && effectDone == false && player == check_line_of_sight())
 		{
 			for (int i =0 ; i < attackForms[numOfAtt].attphases[phase].eff.Length; i ++)
 			{
@@ -375,10 +374,15 @@ public class ai : Character {
 		}
 		else if (attackForms[numOfAtt].attphases[phase].bullet != null && shotted == false)
 		{
-			bullet_handler(attackForms[numOfAtt].attphases[phase], attackForms[numOfAtt].aoeNum);
-			phase ++;
-			shotted = true;
-			effectDone = false;
+			if (player != check_line_of_sight()){
+				phase ++;
+			}
+			else {
+				bullet_handler(attackForms[numOfAtt].attphases[phase], attackForms[numOfAtt].aoeNum);
+				phase ++;
+				shotted = true;
+				effectDone = false;
+			}
 		}
 		else {
 			animation.Play(attackForms[numOfAtt].attphases[phase].animation.name);
@@ -455,8 +459,6 @@ public class ai : Character {
 	
 		else if (type == moveType.move_back)
 			movementDir = player.transform.position - transform.position;
-
-
 
 		custom_lookAt (movementDir, transform.forward,  transform, bodyRotSpeed);
 

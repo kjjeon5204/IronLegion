@@ -177,7 +177,7 @@ public class EventControls : MonoBehaviour {
     public void wave_start_cutscene_fade_process()
     {
         playerScript.target_indicator_switch(false);
-        Debug.Log("Current wave number " + curWave);
+        playerScript.gameObject.SetActive(false);
         combatScript.turn_off_combat_ui();
         waveRunData[curWave].eventRunPhase = true;
         waveRunData[curWave].waveEnded = false;
@@ -537,7 +537,7 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
-                    eventRecord.event_played(tempHolder.cutSceneID);
+                    //eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
                 }
             }
@@ -551,11 +551,12 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
-                    eventRecord.event_played(tempHolder.cutSceneID);
+                    //eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
                 }
                 
             }
+            Debug.Log("Run here!");
             //SOund
             if (curEngageData.waveData[curWave].waveThemeMusic == null)
                 curEngageData.waveData[curWave].waveThemeMusic = GetComponent<AudioSource>();
@@ -663,7 +664,6 @@ public class EventControls : MonoBehaviour {
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
-            
             faderActive = true;
             myScreenFadeScript.screen_fade_active(wave_start_cutscene_fade_process);
              

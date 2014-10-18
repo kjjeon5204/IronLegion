@@ -79,11 +79,13 @@ public class AerialType2Fighter : Character {
             if (rightApproachPointGate == true)
             {
                 approachPoint = target.transform.TransformPoint(rightApproachPoint);
+                approachPoint.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
                 custom_look_at_3D(approachPoint);
             }
             else
             {
                 approachPoint = target.transform.TransformPoint(leftApproachPoint);
+                approachPoint.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
                 custom_look_at_3D(approachPoint);
             }
 
@@ -118,7 +120,9 @@ public class AerialType2Fighter : Character {
             {
                 currentState = FighterState.FLIGHT_PATH3;
                 rightPassPointWorld = target.transform.position + 20.0f * transform.TransformDirection(1.0f, 0.0f, 1.0f);
+                rightPassPointWorld.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
                 leftPassPointWorld = target.transform.position + 20.0f * transform.TransformDirection(-1.0f, 0.0f, 1.0f);
+                leftPassPointWorld.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
             }
         }
         else if (currentState == FighterState.ATTACK)
@@ -130,9 +134,11 @@ public class AerialType2Fighter : Character {
             //rightPassPointWorld = target.transform.TransformPoint(rightPassPoint);
             //leftPassPointWorld = target.transform.TransformPoint(leftPassPoint);
 
+            
             rightPassPointWorld = target.transform.position + 20.0f * transform.TransformDirection(1.0f, 0.0f, 1.0f);
+            rightPassPointWorld.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
             leftPassPointWorld = target.transform.position + 20.0f * transform.TransformDirection(-1.0f, 0.0f, 1.0f);
-
+            leftPassPointWorld.y = startingHeightVal + Random.Range(-5.0f, 5.0f);
         }
         else if (currentState == FighterState.FLIGHT_PATH3)
         {

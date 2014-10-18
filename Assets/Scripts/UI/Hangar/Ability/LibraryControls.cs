@@ -15,7 +15,7 @@ public class LibraryControls : MonoBehaviour {
     public PlayerMasterData playerMasterData;
 	
 
-	void Awake () {
+	void Start () {
 		abilities = new AbilityData();
 		abilities.load_data();
 		

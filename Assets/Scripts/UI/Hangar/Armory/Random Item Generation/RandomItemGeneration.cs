@@ -6,7 +6,7 @@ public class RandomItemGeneration : MonoBehaviour {
     public ItemDictionary itemDictionary;
     public GameObject chest;
     public ItemGeneratedWindow itemGenWindow;
-    PlayerMasterData playerMasterData;
+    public PlayerMasterData playerMasterData;
     public int minLevelOffset;
     public int maxLevelOffset;
     public Renderer[] miscText;

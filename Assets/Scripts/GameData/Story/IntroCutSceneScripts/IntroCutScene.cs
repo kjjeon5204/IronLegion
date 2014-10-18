@@ -17,7 +17,7 @@ public class IntroCutScene : MonoBehaviour {
     public IntroStorySequence[] myStory;
     int storyPhase = 0;
 
-    public bool storyTextSequence;
+    public bool storyTextSequence = true;
     public float textAppearTime;
     public float textRemainTime;
     public float textFadeTime;
@@ -43,6 +43,7 @@ public class IntroCutScene : MonoBehaviour {
     Vector3 pic3CamStartPos;
     bool sceneFadeIn;
     bool sceneFadeOut;
+    int touchCount = 0;
     
 
 
@@ -109,7 +110,16 @@ public class IntroCutScene : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
+        if (Input.touchCount > 0)
+        {
+            touchCount++;
+            if (touchCount >= 1)
+            {
+                Application.LoadLevel("Overworld");
+            }
+        }
+        
         if (storyTextSequence == true)
         {
             if (currentStorySequence < myStory.Length)

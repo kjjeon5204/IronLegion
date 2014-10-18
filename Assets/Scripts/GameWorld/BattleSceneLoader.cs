@@ -25,9 +25,10 @@ public class BattleSceneLoader : MonoBehaviour {
         EventControls holderScript = holder.GetComponent<EventControls>();
         holderScript.initialize_script(playerMasterData);
         PlayerDataReader playerEventRecord = new PlayerDataReader(Application.persistentDataPath);
-        if (playerEventRecord.check_event_played("COMBAT_TUTORIAL")) {
+        /*if (playerEventRecord.check_event_played("COMBAT_TUTORIAL")) {
             playerEventRecord.event_played("COMBAT_TUTORIAL");
             playerEventRecord.save_data();
         }
+         */ 
 	}
 }

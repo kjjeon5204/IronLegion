@@ -20,6 +20,7 @@ public class Radar : MonoBehaviour {
     bool scriptActive = false;
 
 
+
     public void initialize_radar(GameObject[] inEnemyList, GameObject inMainChar)
     {
         scriptActive = true;
@@ -28,16 +29,14 @@ public class Radar : MonoBehaviour {
         enemyIndicator = new GameObject[enemyList.Length];
         for (int ctr = 0; ctr < enemyList.Length; ctr++)
         {
-            
+            if (enemyIndicator[ctr] != null)
+                Destroy(enemyIndicator[ctr]);
             enemyIndicator[ctr] = (GameObject)Instantiate(enemyIndicatorIcon, Vector3.zero, Quaternion.identity);
             enemyIndicator[ctr].transform.parent = gameObject.transform;
             enemyIndicator[ctr].transform.localPosition = Vector3.zero;
         }
     }
 
-	public void add_object(GameObject scanningOject, GameObject radarIcon) {
-
-	}
 
 
     void update_radar()

@@ -487,7 +487,7 @@ public class CombatScript : MonoBehaviour {
         {
             Debug.Log("Button " + hitButton.collider.name + "pressed!");
             //Combat related input
-            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
+            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready().attackAvailable
                 && gamePaused == false)
             {
                 if (acc.phase == TouchPhase.Began)
@@ -558,7 +558,7 @@ public class CombatScript : MonoBehaviour {
                 eventControlScript.unpause_game();
                 gamePaused = false;
             }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready().attackAvailable && 
                 gamePaused == false)
             {
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
@@ -570,7 +570,7 @@ public class CombatScript : MonoBehaviour {
                 }
             }
             else if (hitButton.collider.gameObject == changeTargetButton && acc.phase == TouchPhase.Ended
-                     && mainCharacter.player_input_ready() && gamePaused == false)
+                     && mainCharacter.player_input_ready().attackAvailable && gamePaused == false)
             {
                 changeTargetShock.activate_button();
                 mainCharacter.get_next_target();

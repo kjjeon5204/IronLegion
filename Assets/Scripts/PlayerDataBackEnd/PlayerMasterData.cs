@@ -147,6 +147,8 @@ public class PlayerMasterData : MonoBehaviour {
     //level data
     public int get_player_level()
     {
+        if (playerLevelData == null)
+            Debug.Log("Null player!");
         return playerLevelData.get_player_level();
     }
 
@@ -214,7 +216,6 @@ public class PlayerMasterData : MonoBehaviour {
         if (playerLevelData != null) {
             playerMasterStat.level = playerLevelData.get_player_level();
             playerMasterStat.curExp = playerLevelData.get_player_experience();
-            Debug.Log("Player cur exp: " + playerMasterStat.curExp);
         }
 
         if (heroItemStats != null)
@@ -286,7 +287,6 @@ public class PlayerMasterData : MonoBehaviour {
 
         }
          * */
-        Debug.Log("Player Master Data initialized!");
         heroMechID = "heroMech"; //Initialize heromech ID later replaced with new data
 
         if (!Directory.Exists(Application.persistentDataPath + "/" + heroMechID)) 

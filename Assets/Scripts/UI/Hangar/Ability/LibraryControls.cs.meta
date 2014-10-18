@@ -4,6 +4,6 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - library_frame: {fileID: 100004, guid: ee80563bfd10ce14daeae7c2e74c7e31, type: 2}
-  executionOrder: 0
+  executionOrder: 600
   icon: {instanceID: 0}
   userData: 

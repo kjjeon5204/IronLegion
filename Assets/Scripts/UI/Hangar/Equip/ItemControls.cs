@@ -33,8 +33,8 @@ public class ItemControls : MonoBehaviour {
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
 	void Start () {
+        inventory = playerMasterData.access_inventory_data();
         item_tier = itemDictionary.itemList;
-		inventory = new Inventory();
 		for (int i = 0; i < item_tier.Length; i++) 
 		{
 			foreach (GameObject this_item in item_tier[i].items)
@@ -54,14 +54,16 @@ public class ItemControls : MonoBehaviour {
 		equipped[2] = GameObject.Find("EquippedArmor");
 		equipped[3] = GameObject.Find("EquippedCore1");
 		equipped[4] = GameObject.Find("EquippedCore2");
-		stats = hero.get_current_stats();
+        stats = playerMasterData.access_equipment_data().get_current_stats(); ;
 		StartEquipped();
 		StartInventory();
 	}
 	
 	public void StartInventory() {
-		inventory.load_inventory();
-		num_of_items = inventory.numItems;
+		//inventory.load_inventory();
+        playerMasterData.access_inventory_data().load_inventory();
+		//num_of_items = inventory.numItems;
+        num_of_items = playerMasterData.access_inventory_data().numItems;
 		ReloadInventory();
 	}
 	
@@ -76,8 +78,8 @@ public class ItemControls : MonoBehaviour {
 				new_items[new_items.Length-1] = inventory_slots[i].item_id;
 			}
 		}
-		inventory.set_inventory(new_items);
-		inventory.store_inventory();
+		playerMasterData.access_inventory_data().set_inventory(new_items);
+		playerMasterData.access_inventory_data().store_inventory();
 	}
 	
 	public void ReloadInventory() {
@@ -121,7 +123,7 @@ public class ItemControls : MonoBehaviour {
 			inventory_end.transform.position = position + Vector3.down;
 			if (i < num_of_items)
 			{
-				current_slot_script.SetItem(inventory.items[i], itemLibrary[inventory.items[i]], i);
+				current_slot_script.SetItem(playerMasterData.access_inventory_data().items[i], itemLibrary[inventory.items[i]], i);
 			}
 			else
 			{
@@ -134,7 +136,7 @@ public class ItemControls : MonoBehaviour {
 	}
 	
 	void StartEquipped() {
-		ids = hero.get_equipped_item();
+		ids = playerMasterData.access_equipment_data().get_equipped_item();
 		for (int i = 0; i < 5; i++)
 		{
 			if (i == 0)

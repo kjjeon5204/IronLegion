@@ -359,7 +359,7 @@ public class TutorialCutScene : BattleStory
             {
                 playerScript.turn_off_effect();
                 AbilityButton pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
-                if (pressAbilityButton.is_button_ready() && playerScript.player_input_ready())
+                if (pressAbilityButton.is_button_ready() && playerScript.player_input_ready().attackAvailable)
                 {
                     string skillName = pressAbilityButton.button_pressed();
                     playerScript.curState = skillName;

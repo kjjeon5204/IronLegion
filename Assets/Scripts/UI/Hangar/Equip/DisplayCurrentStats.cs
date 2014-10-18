@@ -92,8 +92,11 @@ public class DisplayCurrentStats : MonoBehaviour {
 	}
 	
 	void UpdateImage() {
-		exp_bar_fill.transform.localScale = new Vector3(cur_xp/tot_xp,1f,1f);
-		
+        if (tot_xp > 0)
+		    exp_bar_fill.transform.localScale = new Vector3(cur_xp/tot_xp,1f,1f);
+		else
+            exp_bar_fill.transform.localScale = new Vector3(0.0f, 1f, 1f);
+
 		exp_indicator.text = (int)cur_xp + "<b>/</b>" + (int)tot_xp;
 		level_indicator.text = start_color+"Level: "+end_color + (int)level;
 		hp_indicator.text = start_color+"HP: "+end_color + (int)hp;

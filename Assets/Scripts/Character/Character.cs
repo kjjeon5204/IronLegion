@@ -182,7 +182,7 @@ public class Character : MonoBehaviour
                     transform.Rotate(Vector3.down, rotAngleY, Space.World);
             }
         }
-        if (Mathf.Abs(rotAngleX) > 0.0f && Mathf.Abs(rotAngleY) < 90.0f)
+        if (Mathf.Abs(rotAngleX) > 0.0f && Mathf.Abs(rotAngleY) <= 90.0f)
         {
             if (rotAngleX > rotSpeed3D * Time.deltaTime)
             {

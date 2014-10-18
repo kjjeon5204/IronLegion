@@ -113,6 +113,8 @@ public class BasicTextCutScene : BattleStory {
         {
             if (!get_next_text())
             {
+                if (customCutsceneAudio != null)
+                    customCutsceneAudio.Play();
                 return true;
             }
         }

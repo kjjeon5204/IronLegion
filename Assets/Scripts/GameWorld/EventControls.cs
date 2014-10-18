@@ -440,8 +440,8 @@ public class EventControls : MonoBehaviour {
             }
         }
         //Turn off current sound
-        if (curEngageData.waveData[curWave].waveThemeMusic != null)
-            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        //if (curEngageData.waveData[curWave].waveThemeMusic != null)
+        //    curEngageData.waveData[curWave].waveThemeMusic.Stop();
 
         return true;
     }
@@ -556,7 +556,6 @@ public class EventControls : MonoBehaviour {
                 }
                 
             }
-            Debug.Log("Run here!");
             //SOund
             if (curEngageData.waveData[curWave].waveThemeMusic == null)
                 curEngageData.waveData[curWave].waveThemeMusic = GetComponent<AudioSource>();
@@ -780,6 +779,8 @@ public class EventControls : MonoBehaviour {
         {
             if (waveRunData[curWave].eventRunPhase == false)
             {
+                if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+                    curEngageData.waveData[curWave].waveThemeMusic.Play();
                 if (player.activeInHierarchy == false)
                 {
                     player.SetActive(true);
@@ -922,7 +923,11 @@ public class EventControls : MonoBehaviour {
                     if (waveRunData[curWave].storyInitialized == false)
                     {
                         waveRunData[curWave].storyInitialized = true;
-
+                        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
+                        {
+                            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+                            waveRunData[curWave].thisStoryStart.customCutsceneAudio.Play();
+                        }
                         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
                         waveRunData[curWave].thisStoryStart.manual_start();
                     }
@@ -934,6 +939,11 @@ public class EventControls : MonoBehaviour {
                 {
                     if (waveRunData[curWave].storyInitialized == false)
                     {
+                        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
+                        {
+                            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+                            waveRunData[curWave].thisStoryEnd.customCutsceneAudio.Play();
+                        }
                         waveRunData[curWave].thisStoryEnd.manual_start();
                         waveRunData[curWave].storyInitialized = true;
                     }
@@ -962,13 +972,6 @@ public class EventControls : MonoBehaviour {
                     }
                     else
                     {
-                        /*
-                        waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
-                        waveRunData[curWave].eventRunPhase = false;
-                        waveRunData[curWave].storyEnded = false;
-                        wave_ready_phase(waveRunData[curWave]);
-                         */
-                        
                         faderActive = true;
                         myScreenFadeScript.screen_fade_active(wave_start_cutscene_end);
                           

@@ -644,8 +644,8 @@ public class MainChar : Character {
             curLevelData = GetComponent<HeroLevelData>();
             HeroStats heroStat = new HeroStats();
             curLevelData.playerMasterData = playerMasterData;
-            PlayerMasterStat playerMasterStat = playerMasterData.get_combined_stats();
-            PlayerLevelData basePlayerStats = curLevelData.get_player_level_data(playerMasterStat.level, playerMasterStat.curExp);
+            PlayerMasterStat playerMasterStat = curLevelData.get_player_stat_all();
+            //PlayerLevelData basePlayerStats = curLevelData.get_player_level_data(playerMasterStat.level, playerMasterStat.curExp);
             //curStats.hp = basePlayerStats.HP;
             //curStats.damage = (int)basePlayerStats.damage;
             curStats.armor += playerMasterStat.armor;
@@ -711,12 +711,7 @@ public class MainChar : Character {
     {
 
         previousPos = transform.position;
-		/*
-        if (worldScript.is_win())
-        {
-            return;
-        }
-		*/
+
         if (curBattleType == BattleType.BOSS && bossApproachPhase == true)
         {
             transform.Translate(20.0f * Vector3.forward * Time.deltaTime);

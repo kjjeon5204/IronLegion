@@ -8,14 +8,22 @@ public class BattleSceneLoader : MonoBehaviour {
     public GameObject[] skillButtons;
     public GameObject combatScript;
     public PlayerMasterData playerMasterData;
+	public bool developmentBuild;
+	public string developmentBuildMap;
 
 	// Use this for initialization
 	void Start () {
-        string mapID;
-        using (StreamReader inFile = File.OpenText(Application.persistentDataPath + "/MapTransferData.txt"))
-        {
-            mapID = inFile.ReadLine();
-        }
+        string mapID = "";
+		if (!developmentBuild) {
+			using (StreamReader inFile = File.OpenText(Application.persistentDataPath + "/MapTransferData.txt")) {
+				mapID = inFile.ReadLine ();
+			}
+		}
+
+		else {
+			mapID = developmentBuildMap;
+			Debug.Log (mapID);
+		}
 
 
         string mapDirectory = "BattleScene/Chapter" + mapID[1] + "/" + mapID;

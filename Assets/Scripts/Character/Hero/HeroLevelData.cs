@@ -78,6 +78,7 @@ public class HeroLevelData : MonoBehaviour {
         playerExperience = temp.curExp;
         temp.damage += (int)levelData[playerLevel - 1].damage;
         temp.hp += (int)levelData[playerLevel - 1].HP;
+		Debug.Log ("Debug: " + temp.hp);
         return temp;
 	}
 

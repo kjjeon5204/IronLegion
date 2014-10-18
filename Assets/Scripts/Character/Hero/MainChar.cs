@@ -143,11 +143,12 @@ public class MainChar : Character {
     public bool turning;
 
     public GameObject playerCamera;
+    public GameObject environmentCam;
+    public Camera targetIndicatorCam;
     public GameObject playerLandingTrackCam;
     public GameObject enemyLandingCamPivotPoint;
 
     public TargetingIndicator targetIndicatorScript;
-    public Camera targetIndicatorCam;
 
     bool approachPhase = false;
     bool attackPathBuffer = false;
@@ -191,6 +192,8 @@ public class MainChar : Character {
         if (playerCamera.activeInHierarchy == true)
         {
             playerCamera.SetActive(false);
+            environmentCam.SetActive(false);
+            targetIndicatorCam.gameObject.SetActive(false);
         }
     }
 
@@ -199,6 +202,8 @@ public class MainChar : Character {
         if (playerCamera.activeInHierarchy == false)
         {
             playerCamera.SetActive(true);
+            environmentCam.SetActive(true);
+            targetIndicatorCam.gameObject.SetActive(true);
         }
     }
 
@@ -907,8 +912,8 @@ public class MainChar : Character {
 
 
 		if (curState == "IDLE") {
-            curCancelStatus.attackAvailable = false;
-            curCancelStatus.dodgeAvailable = false;
+            curCancelStatus.attackAvailable = true;
+            curCancelStatus.dodgeAvailable = true;
             //inputReady = true;
 			animation.CrossFade ("idle");
 			curCharacterState = "IDLE";

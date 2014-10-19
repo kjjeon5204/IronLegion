@@ -171,6 +171,14 @@ public class EventControls : MonoBehaviour {
         waveRunData[curWave].storyInitialized = true;
         waveRunData[curWave].thisStoryEnd.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryEnd.manual_start();
+        if (waveRunData[curWave].thisStoryEnd.customCutsceneAudio != null)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        }
+        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Play();
+        }
     }
 
 
@@ -185,6 +193,15 @@ public class EventControls : MonoBehaviour {
         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryStart.manual_start();
         combatScript.loadingScreen.SetActive(false);
+
+        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        }
+        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Play();
+        }
     }
 
     public void wave_start_cutscene_end()
@@ -924,42 +941,31 @@ public class EventControls : MonoBehaviour {
                 if (waveRunData[curWave].waveEnded == false &&
                     waveRunData[curWave].storyEnded == false)
                 {
+                    /*
                     if (waveRunData[curWave].storyInitialized == false)
                     {
                         waveRunData[curWave].storyInitialized = true;
-                        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
-                        {
-                            curEngageData.waveData[curWave].waveThemeMusic.Stop();
-                        }
-                        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
-                        {
-                            curEngageData.waveData[curWave].waveThemeMusic.Play();
-                        }
                         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
                         waveRunData[curWave].thisStoryStart.manual_start();
                     }
+                     */ 
                     waveRunData[curWave].storyEnded =
                         waveRunData[curWave].thisStoryStart.manual_update();
                 }
                 else if (waveRunData[curWave].waveEnded == true &&
                     waveRunData[curWave].storyEnded == false)
                 {
+                    /*
                     if (waveRunData[curWave].storyInitialized == false)
                     {
-                        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
-                        {
-                            curEngageData.waveData[curWave].waveThemeMusic.Stop();
-                        }
-                        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
-                        {
-                            curEngageData.waveData[curWave].waveThemeMusic.Play();
-                        }
                         waveRunData[curWave].thisStoryEnd.manual_start();
                         waveRunData[curWave].storyInitialized = true;
                     }
+                     */ 
                     waveRunData[curWave].storyEnded =
                         waveRunData[curWave].thisStoryEnd.manual_update();
                 }
+                  
                 else
                 {
                     if (waveRunData[curWave].waveEnded == true)

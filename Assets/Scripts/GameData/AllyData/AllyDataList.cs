@@ -34,33 +34,7 @@ public class AllyDataList : CustomTextFileClass {
     AllyData curEquippedAlly;
 
     public AllyDataList()
-    {
-    	
-        /*
-        string dataPath = Application.persistentDataPath + "/AllyDataList.txt";
-        using (StreamReader inFile = File.OpenText(dataPath))
-        {
-            int numOfAllies = System.Convert.ToInt32(get_next_line(inFile));
-            AllyData tempData = new AllyData();
-            for (int ctr = 0; ctr < numOfAllies; ctr++)
-            {
-                tempData.unitName = get_next_line(inFile);
-                tempData.tier = get_next_line(inFile);
-                tempData.level = System.Convert.ToInt32(get_next_line(inFile));
-                tempData.numOfAbility = System.Convert.ToInt32(get_next_line(inFile));
-                tempData.abilityData = new AllyAbilityData[tempData.numOfAbility];
-                for (int abilityCtr = 0; abilityCtr < tempData.numOfAbility; abilityCtr++)
-                {
-                    tempData.abilityData[abilityCtr].abilityID = get_next_line(inFile);
-                    tempData.abilityData[abilityCtr].abilityUnlockLevel = System.Convert.ToInt32(get_next_line(inFile));
-                }
-                tempData.allyEquipID = get_next_line(inFile);
-                tempData.damageModifier = (float)System.Convert.ToDouble(get_next_line(inFile));
-                tempData.healthModifier = System.Convert.ToInt32(get_next_line(inFile));
-                allyDataCollection.Add(tempData);
-            }
-        }
-         */ 
+    { 
     }
 
     public void load_cur_equipped_ally()
@@ -95,7 +69,7 @@ public class AllyDataList : CustomTextFileClass {
 
     public void save_equipped_ally_data(AllyData inputData)
     {
-        string dataPath = Application.persistentDataPath + "m/EquippedAllyList.txt";
+        string dataPath = Application.persistentDataPath + "/EquippedAllyList.txt";
         using (StreamWriter outfile = File.CreateText(dataPath))
         {
             outfile.WriteLine(inputData.unitName);

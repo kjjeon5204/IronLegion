@@ -45,9 +45,18 @@ public class PlayerDataReader {
         return rawString;
     }
 
-    public void load_player_data_file(string persistentDataPath) {
-        Debug.Log("Read file");
-        string dataPath = persistentDataPath + "/PlayerData.txt";
+    public PlayerDataReader(string input)
+    {
+        load_player_data_file();
+    }
+
+    public PlayerDataReader()
+    {
+        load_player_data_file();
+    }
+
+    public void load_player_data_file() {
+        string dataPath = Application.persistentDataPath + "/PlayerData.txt";
         if (File.Exists(dataPath))
         {
 
@@ -90,10 +99,6 @@ public class PlayerDataReader {
     }
 
 
-    public PlayerDataReader(string inPersistentDataPath)
-    {
-        persistentDataPath = inPersistentDataPath;
-    }
 
     public bool combat_tutorial_played()
     {
@@ -138,13 +143,13 @@ public class PlayerDataReader {
             EventProgressionData myEvent = eventTracker[eventID];
             textFileRecord[myEvent.recordAccNum] = "0";
         }
+        save_data();
     }
 
 
     //Returns false if even has not been played!
     public bool check_event_played(string eventID)
     {
-        load_player_data_file(persistentDataPath);
         if (eventTracker.ContainsKey(eventID))
             return eventTracker[eventID].eventPlayed;
         else return false;
@@ -152,7 +157,6 @@ public class PlayerDataReader {
 
     public void save_data()
     {
-        Debug.Log("File deleted!"); 
         string datapath = Application.persistentDataPath + "/PlayerData.txt";
         using (StreamWriter outfile = File.CreateText(datapath))
         {

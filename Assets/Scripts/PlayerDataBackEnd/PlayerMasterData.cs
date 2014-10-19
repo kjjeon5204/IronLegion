@@ -44,6 +44,9 @@ public class PlayerMasterData : MonoBehaviour {
     //Map Data
     MapData mapData;
 
+    //Event Progression
+    PlayerDataReader eventRecord;
+
     /*******PUBLIC FUNCTIONS******************************/
     //Hanger data functions
     //Inventory
@@ -210,6 +213,11 @@ public class PlayerMasterData : MonoBehaviour {
         return mapData.return_latest_levels(chapter);
     }
 
+    public PlayerDataReader access_player_event_record()
+    {
+        return eventRecord;
+    }
+
     public PlayerMasterStat get_combined_stats()
     {
         PlayerMasterStat playerMasterStat = new PlayerMasterStat();
@@ -301,6 +309,8 @@ public class PlayerMasterData : MonoBehaviour {
         inventoryData = new Inventory();
         heroItemStats = new HeroStats();
         upgradeData = new UpgradeData(heroMechID);
+        eventRecord = new PlayerDataReader();
+        //eventRecord.load_player_data_file();
         load_player_master_data();
 	}
 	

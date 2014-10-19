@@ -256,7 +256,7 @@ public class EquipControls : MonoBehaviour {
 	}
 	
 	public bool CheckSellable() {
-		if (item_inventory.itemID != "000000")
+		if (item_inventory != null && item_inventory.itemID != "000000")
 		return true;
 		
 		return false;

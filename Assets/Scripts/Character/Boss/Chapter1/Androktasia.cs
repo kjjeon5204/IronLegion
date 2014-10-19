@@ -4,6 +4,7 @@ using System.Collections;
 public class Androktasia : Character {
 	
 	public enum CurrentStates {
+		DROPSHIP,
 		IDLE,
 		QUADSLASH,
 		GLAIVE,
@@ -55,7 +56,7 @@ public class Androktasia : Character {
 		curStats.damage = (int)statHolder.baseAttack;
 		curStats.armor = (int)statHolder.baseArmor;
 		baseStats = curStats;
-		currentStates = CurrentStates.IDLE;
+		currentStates = CurrentStates.DROPSHIP;
 		targetScript = target.GetComponent<MainChar>();
 		longRange = false;
 		
@@ -96,6 +97,13 @@ public class Androktasia : Character {
 	// Update is called once per frame
 	public override void manual_update () {
 		//Event Checker	
+		if (currentStates == CurrentStates.DROPSHIP) {
+			animation.Play("fightertomech");
+			if (!animation.IsPlaying("fightertomech")){
+				currentStates = CurrentStates.IDLE;
+			}
+		}
+		
 		heading = target.transform.position - this.transform.position;
 		
 		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time && initialCDTracker < Time.time)) {

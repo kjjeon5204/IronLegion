@@ -47,7 +47,8 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//UpdateStats();
+
+        UpdateStats();
 	}
 	
 	public void UpdateStats() {

@@ -54,7 +54,7 @@ public class ItemControls : MonoBehaviour {
 		equipped[2] = GameObject.Find("EquippedArmor");
 		equipped[3] = GameObject.Find("EquippedCore1");
 		equipped[4] = GameObject.Find("EquippedCore2");
-        stats = playerMasterData.access_equipment_data().get_current_stats(); ;
+        stats = playerMasterData.access_equipment_data().get_current_stats();
 		StartEquipped();
 		StartInventory();
 	}
@@ -139,15 +139,43 @@ public class ItemControls : MonoBehaviour {
 		ids = playerMasterData.access_equipment_data().get_equipped_item();
 		for (int i = 0; i < 5; i++)
 		{
-			if (i == 0)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemDictionary.get_item_data(ids[i]).gameObject,Item.ItemType.HEAD);
-			else if (i == 1)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
-			else if (i == 2)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
-			else if (i >= 3)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
-		}
+            if (i == 0)
+            {
+                if (ids[i] != "000000") 
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], 
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.HEAD);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], 
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.HEAD);
+            }
+            else if (i == 1)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.WEAPON);
+            }
+            else if (i == 2)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.ARMOR);
+            }
+            else if (i >= 3)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.CORE);
+            }
+        }
 		UpdateEquipped();
 	}
 	public void UpdateEquipped() {
@@ -162,16 +190,48 @@ public class ItemControls : MonoBehaviour {
 			ids[i] = equipped[i].GetComponent<EquippedSlot>().item_id;
             Debug.Log("Items equipped: " + ids[i]);
 
-			if (i == 0)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.HEAD);
-			else if (i == 1)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
-			else if (i == 2)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
-			else if (i >= 3)
-                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
-		
-			equipped_item[i] = equipped[i].GetComponentInChildren<Item>();
+            Item curItem = empty_slot.GetComponent<Item>();
+            if (ids[i] != "000000")
+                curItem = itemDictionary.get_item_data(ids[i]).GetComponent<Item>();
+
+            if (i == 0)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.HEAD);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.HEAD);
+            }
+            else if (i == 1)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.WEAPON);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.WEAPON);
+            }
+            else if (i == 2)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.ARMOR);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.ARMOR);
+            }
+            else if (i >= 3)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.CORE);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.CORE);
+            }
+			equipped_item[i] = curItem;
+            Debug.Log("Equipped item: " + equipped_item[i].name);
 			stats.hp += equipped_item[i].hp;
 			stats.armor += (int)equipped_item[i].armor;
 			stats.damage += (int)equipped_item[i].damage;

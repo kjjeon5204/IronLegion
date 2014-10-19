@@ -107,7 +107,7 @@ public class IntroCutScene : MonoBehaviour {
         camMoveTracker = Time.time + 16.0f;
         camPanMovement = transform.position / 16.0f;
         camPanMovement.z = 0.0f;
-        timeTracker = Time.time + 0.5f;264
+        timeTracker = Time.time + 0.5f;
 	}
 
 	
@@ -121,7 +121,7 @@ public class IntroCutScene : MonoBehaviour {
             {
                 if (hitButton.collider.gameObject == skipButton)
                 {
-                    Application.LoadLevel("IntroScene");
+                    Application.LoadLevel("Cinematic_OP_1");
                 }
             }
         }
@@ -252,7 +252,7 @@ public class IntroCutScene : MonoBehaviour {
             else
             {
                 storyTextSequence = false;
-                Application.LoadLevel("IntroScene");
+                Application.LoadLevel("Cinematic_OP_1");
             }
         }
 	}

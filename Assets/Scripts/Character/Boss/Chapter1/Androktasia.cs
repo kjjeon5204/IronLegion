@@ -51,9 +51,9 @@ public class Androktasia : Character {
 	// Use this for initialization
 	public override void manual_start () {
 		AIStatElement statHolder = GetComponent<AIStatScript>().getLevelData(1);
-		curStats.baseHp = statHolder.hp;
-		curStats.baseDamage = statHolder.baseAttack;
-		curStats.armor = statHolder.baseArmor;
+		curStats.hp = statHolder.hp;
+		curStats.damage = (int)statHolder.baseAttack;
+		curStats.armor = (int)statHolder.baseArmor;
 		baseStats = curStats;
 		currentStates = CurrentStates.IDLE;
 		targetScript = target.GetComponent<MainChar>();
@@ -101,7 +101,7 @@ public class Androktasia : Character {
 		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time && initialCDTracker < Time.time)) {
 			randomNum = Random.Range (1, 101);
 
-			if (curStats.baseHp < baseStats.baseHp * .90f && ultimateUsed == false) {
+			if (curStats.hp < baseStats.hp * .90f && ultimateUsed == false) {
 				currentStates = CurrentStates.ORBITINGLASER;
 				GameObject cautionObject = (GameObject)Instantiate(caution, this.transform.position,
 				                                                   this.transform.rotation);
@@ -117,7 +117,7 @@ public class Androktasia : Character {
 			}
 			
 			//Check to see if hp is below drone summon threshhold. If it is, summon
-			if (curStats.baseHp < baseStats.baseHp * .75f && dronesOut == false) {
+			if (curStats.hp < baseStats.hp * .75f && dronesOut == false) {
 				drone1.SetActive(true);
 				GameObject summon1 = (GameObject) Instantiate (summonEffect, drone1.transform.position, drone1.transform.rotation);
 				summon1.transform.parent = drone1.transform;
@@ -151,14 +151,14 @@ public class Androktasia : Character {
 				GameObject projectileAcc = (GameObject)Instantiate(projectile, droneMuzzle1.transform.position,
 				                                                   droneMuzzle1.transform.rotation);
 				projectileAcc.GetComponent<MyProjectile>().set_projectile(target.GetComponent<MainChar>(), this.gameObject,
-				                                                          curStats.baseDamage * .1f); 	
+				                                                          curStats.damage * .1f); 	
 				drone1CDTracker = droneCD + Time.time + Random.Range (0, 2); //The drones will shoot every 4 seconds + 0 to 2 seconds
 			}
 			if (drone2CDTracker < Time.time) {
 				GameObject projectileAcc = (GameObject)Instantiate(projectile, droneMuzzle2.transform.position,
 				                                                   droneMuzzle2.transform.rotation);
 				projectileAcc.GetComponent<MyProjectile>().set_projectile(target.GetComponent<MainChar>(), this.gameObject,
-				                                                          curStats.baseDamage * .1f); 	
+				                                                          curStats.damage * .1f); 	
 				drone2CDTracker = droneCD + Time.time + Random.Range (0, 2);
 			}
 		}

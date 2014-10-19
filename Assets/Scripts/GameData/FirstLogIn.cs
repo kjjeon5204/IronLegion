@@ -93,11 +93,11 @@ public class FirstLogIn : MonoBehaviour {
 		}
         using (StreamWriter outfile = File.CreateText(path + "/EquippedAllyList.txt"))
         {
-            outfile.Write(settingsDataFile.text);
+            outfile.Write(allyEquippedFile.text);
         }
         using (StreamWriter outfile = File.CreateText(path + "/AllyList.txt"))
         {
-            outfile.Write(settingsDataFile.text);
+            outfile.Write(allyListFile.text);
         }
     }
 

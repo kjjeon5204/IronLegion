@@ -19,9 +19,9 @@ public class HeroData {
 	{
 	}
 	
-	public void save_data(/*string heroID*/) {
-		//string fileName = "/" + heroID + "/HeroData.txt";
-        string fileName = "/HeroData.txt";
+	public void save_data(string heroID) {
+		string fileName = "/" + heroID + "/HeroData.txt";
+        //string fileName = "/HeroData.txt";
 		string path = Application.persistentDataPath + fileName;
 		
 		using (StreamWriter outfile = File.CreateText(path))
@@ -34,13 +34,13 @@ public class HeroData {
 		}
 	}
 	
-	public void create_data(/*string heroID*/) {
-		//string fileName = "/" + heroID + "/HeroData.txt";
-        string fileName = "/HeroData.txt";
+	public void create_data(string heroID) {
+		string fileName = "/" + heroID + "/HeroData.txt";
+        //string fileName = "/HeroData.txt";
 		string path = Application.persistentDataPath + fileName;
 		
 		using (StreamWriter outfile = File.CreateText(path)) {
-			outfile.WriteLine("GATLING_GUN");
+			outfile.WriteLine("GATTLING_GUN");
 			outfile.WriteLine(0);
 			outfile.WriteLine("SHATTER"); 
 			outfile.WriteLine(1);
@@ -60,10 +60,16 @@ public class HeroData {
 		}
 	}
 	
-	public string[] load_data(/*string heroID*/) {
-		//string fileName = "/" + heroID + "/HeroData.txt";
-        string fileName = "/HeroData.txt";
+	public string[] load_data(string heroID) {
+		string fileName = "/" + heroID + "/HeroData.txt";
+        //string fileName = "/HeroData.txt";
+
 		string path = Application.persistentDataPath + fileName;
+        if (!File.Exists(path))
+        {
+            create_data(heroID);
+        }
+
 		string rawFileData;
 		
 		using (StreamReader inFile = File.OpenText(path))

@@ -18,12 +18,15 @@ public struct UpgradeStats
 public class UpgradeData 
 {
     UpgradeStats myData;
+    string heroMech;
 
-
-    public UpgradeData()
+    public UpgradeData(string heroMechID)
     {
-        string dataPath = Application.persistentDataPath +
+        heroMech = heroMechID;
+        string dataPath = Application.persistentDataPath + "/" + heroMechID +
             "/UpgradeData.txt";
+
+
 
         if (!File.Exists(dataPath))
         {
@@ -90,8 +93,13 @@ public class UpgradeData
 
     public void save_upgrade_data()
     {
-        string dataPath = Application.persistentDataPath +
+        string dataPath = Application.persistentDataPath + "/" + heroMech +
             "/UpgradeData.txt";
+
+        if (!File.Exists(dataPath))
+        {
+            create_upgrade_data();
+        }
 
         using (StreamWriter outFile = File.CreateText(dataPath))
         {
@@ -103,6 +111,24 @@ public class UpgradeData
 
             outFile.WriteLine(myData.energy.statValue);
             outFile.WriteLine(myData.energy.upgradeCount);
+        }
+    }
+
+    void create_upgrade_data()
+    {
+        string dataPath = Application.persistentDataPath + "/" + heroMech +
+            "/UpgradeData.txt";
+
+        using (StreamWriter outFile = File.CreateText(dataPath))
+        {
+            outFile.WriteLine("0");
+            outFile.WriteLine("0");
+
+            outFile.WriteLine("0");
+            outFile.WriteLine("0");
+
+            outFile.WriteLine("0");
+            outFile.WriteLine("0");
         }
     }
 }

@@ -86,7 +86,7 @@ public class Ability : MonoBehaviour {
     float calc_damage(float damagePercentage)
     {
         float damage;
-        damage = (damagePercentage / 100.0f) * curStat.baseDamage;
+        damage = (damagePercentage / 100.0f) * curStat.damage;
         if (currentPhaseData.damageRange != 0.0f)
             damage = Random.Range(damage - damage * (currentPhaseData.damageRange / 100.0f),
                 damage + damage * (currentPhaseData.damageRange / 100.0f));

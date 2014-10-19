@@ -15,7 +15,6 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
 		public bool isClicked;
 	}
 	
-	private GameObject leftClickedObject;
 	private GetFrontmostRaycastHitResult frontmostRaycastHit;
 	private Clicked clickable;
 	private bool showDebug = false;
@@ -28,16 +27,23 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
 		//{
 			// frontmostRaycastHit stores information about the RaycastHit2D that is returned by GetFrontmostRaycastHit()
             frontmostRaycastHit = GetFrontmostRaycastHit(touch);
-            if (frontmostRaycastHit.rayCastHit2D.collider != null) {
-			    clickable.clicked_object = frontmostRaycastHit.rayCastHit2D.collider.gameObject;
-			    clickable.isClicked = !frontmostRaycastHit.nothingClicked;
-			}
+            if (frontmostRaycastHit.rayCastHit2D.collider != null)
+            {
+                clickable.clicked_object = frontmostRaycastHit.rayCastHit2D.collider.gameObject;
+                clickable.isClicked = !frontmostRaycastHit.nothingClicked;
+            }
+            else
+            {
+                clickable.clicked_object = null;
+                clickable.isClicked = false;
+            }
 			return clickable;
 		//}
 	}
 	
 	GetFrontmostRaycastHitResult GetFrontmostRaycastHit(Vector2 touch)
 	{
+        
 		GetFrontmostRaycastHitResult result = new GetFrontmostRaycastHitResult();
 		
 		Vector3 screenPosition = new Vector3(touch.x,touch.y,0f);

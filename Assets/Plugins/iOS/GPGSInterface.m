@@ -27,9 +27,10 @@
 
 // This file defines entry points to be called from C#.
 
-void GPGSAuthenticateWithCallback(GPGSSuccessCallback cb) {
+GPGSBOOL GPGSAuthenticateWithCallback(GPGSSuccessCallback cb, BOOL silently) {
   LOGD((@"GPGSAuthenticateWithCallback."));
-  [[GPGSManager instance] authenticateWithCallback: cb];
+  BOOL tryingSilentSignIn = [[GPGSManager instance] authenticateWithCallback:cb silently:silently];
+  return (tryingSilentSignIn) ? GPGSTRUE : GPGSFALSE;
 }
 
 void GPGSEnableDebugLog(GPGSBOOL enable) {
@@ -183,15 +184,14 @@ void GPGSShowLeaderboardsUI(const char *lbId_s) {
   }
 }
 
-void GPGSSubmitScore(const char *lbId_s, int64_t score64, GPGSSuccessCallback callback, int32_t userdata) {
-  long score = (long) score64;
-  LOGD((@"GPGSSubmitScore %s, score %ld", lbId_s, score));
+void GPGSSubmitScore(const char *lbId_s, int64_t score, GPGSSuccessCallback callback, int32_t userdata) {
+  LOGD((@"GPGSSubmitScore %s, score %lld", lbId_s, (long long)score));
   NSString *lbId = [[NSString alloc] initWithUTF8String:lbId_s];
   GPGScore *myScore = [[GPGScore alloc] initWithLeaderboardId:lbId];
   myScore.value = score;
   [myScore submitScoreWithCompletionHandler:^(GPGScoreReport *report, NSError *error) {
     if (error) {
-      LOGE((@"Error submitting score %ld to lb %s: %@", score, lbId_s, [error userInfo]));
+      LOGE((@"Error submitting score %lld to lb %s: %@", (long long)score, lbId_s, [error userInfo]));
     }
     if (callback) {
       (*callback)(error ? GPGSFALSE : GPGSTRUE, userdata);

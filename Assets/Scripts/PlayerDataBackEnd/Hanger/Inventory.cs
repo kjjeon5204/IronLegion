@@ -20,6 +20,10 @@ public class Inventory  {
 
         string fileName = "/Inventory.txt";
         string path = Application.persistentDataPath + fileName;
+        if (!File.Exists(path))
+        {
+            create_new_inventory();
+        }
         string rawFileData;
 
         using (StreamReader inFile = File.OpenText(path))
@@ -37,6 +41,19 @@ public class Inventory  {
             }
         }
 	}
+
+    void create_new_inventory()
+    {
+        string fileName = "/Inventory.txt";
+        string path = Application.persistentDataPath + fileName;
+
+        using (StreamWriter outfile = File.CreateText(path))
+        {
+            outfile.WriteLine("0");
+            outfile.WriteLine("0");
+            outfile.WriteLine("0");
+        }
+    }
 
 
     public void store_inventory(Item[] itemList)

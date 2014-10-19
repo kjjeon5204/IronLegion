@@ -29,13 +29,13 @@ public class HellKiteMainBody : Character {
 
     public override void manual_start()
     {
-        float damageHolder = 0.1f * curStats.baseDamage;
+        float damageHolder = 0.1f * curStats.damage;
         foreach (HellKiteTurret turret in myTurrets)
         {
             turret.initialize_turret(target, damageHolder, gameObject);
         }
         tailTurret.initialize_turret(target, damageHolder, gameObject);
-        damageHolder = 0.07f * curStats.baseDamage;
+        damageHolder = 0.07f * curStats.damage;
         missilePodLW.initialize_pod(target, 15.0f, gameObject);
         missilePodLB.initialize_pod(target, 15.0f, gameObject);
         missilePodRW.initialize_pod(target, 15.0f, gameObject);

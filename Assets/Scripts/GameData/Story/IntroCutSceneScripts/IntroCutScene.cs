@@ -11,13 +11,14 @@ public struct IntroStorySequence
 
 public class IntroCutScene : MonoBehaviour {
     public Camera sceneCam;
+    public Camera GUICam;
     
 
 
     public IntroStorySequence[] myStory;
     int storyPhase = 0;
 
-    public bool storyTextSequence;
+    public bool storyTextSequence = true;
     public float textAppearTime;
     public float textRemainTime;
     public float textFadeTime;
@@ -27,6 +28,7 @@ public class IntroCutScene : MonoBehaviour {
     public SpriteRenderer pic2TextBox;
     public SpriteRenderer backgroundPicture;
     public TextMesh textAppearance;
+    public GameObject skipButton;
     float timeTracker = 0.0f;
     float timeTracker2 = 0.0f;
     float timePerCharacter;
@@ -43,6 +45,7 @@ public class IntroCutScene : MonoBehaviour {
     Vector3 pic3CamStartPos;
     bool sceneFadeIn;
     bool sceneFadeOut;
+    int touchCount = 0;
     
 
 
@@ -106,10 +109,23 @@ public class IntroCutScene : MonoBehaviour {
         camPanMovement.z = 0.0f;
         timeTracker = Time.time + 0.5f;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (Input.touchCount > 0)
+        {
+            Vector3 touchPos = GUICam.ScreenToWorldPoint(Input.GetTouch(0).position);
+            RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f);
+            if (hitButton.collider != null)
+            {
+                if (hitButton.collider.gameObject == skipButton)
+                {
+                    Application.LoadLevel("Cinematic_OP_1");
+                }
+            }
+        }
+        
         if (storyTextSequence == true)
         {
             if (currentStorySequence < myStory.Length)
@@ -236,6 +252,7 @@ public class IntroCutScene : MonoBehaviour {
             else
             {
                 storyTextSequence = false;
+                Application.LoadLevel("Cinematic_OP_1");
             }
         }
 	}

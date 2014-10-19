@@ -7,11 +7,22 @@ using System.Collections.Generic;
 
 
 public class MainChar : Character {
+    public bool tutorialMech = false;
+    public PlayerMasterData playerMasterData;
+
     CharSkills skillList;
     string playerState;
 
     Vector3 previousPos;
     Vector3 initialPos;
+
+    public struct CancelStateStatus
+    {
+        public bool attackAvailable;
+        public bool dodgeAvailable;
+    }
+
+    CancelStateStatus curCancelStatus;
     
 
     void texture_resize(GameObject targetObject, Rect targetSize)
@@ -65,7 +76,7 @@ public class MainChar : Character {
     bool autoAdjustEnabled = true;
 
     HeroStats statData;
-    bool inputReady;
+    
 
     Movement movementScript;
 	
@@ -132,11 +143,12 @@ public class MainChar : Character {
     public bool turning;
 
     public GameObject playerCamera;
+    public GameObject environmentCam;
+    public Camera targetIndicatorCam;
     public GameObject playerLandingTrackCam;
     public GameObject enemyLandingCamPivotPoint;
 
     public TargetingIndicator targetIndicatorScript;
-    public Camera targetIndicatorCam;
 
     bool approachPhase = false;
     bool attackPathBuffer = false;
@@ -180,6 +192,8 @@ public class MainChar : Character {
         if (playerCamera.activeInHierarchy == true)
         {
             playerCamera.SetActive(false);
+            environmentCam.SetActive(false);
+            targetIndicatorCam.gameObject.SetActive(false);
         }
     }
 
@@ -188,6 +202,8 @@ public class MainChar : Character {
         if (playerCamera.activeInHierarchy == false)
         {
             playerCamera.SetActive(true);
+            environmentCam.SetActive(true);
+            targetIndicatorCam.gameObject.SetActive(true);
         }
     }
 
@@ -203,8 +219,8 @@ public class MainChar : Character {
             currentTargetIndex = 0;
         }
 		int loopPreventer = 0;
-        while (enemyList[currentTargetIndex].return_cur_stats().baseHp <= 0 &&
-		       loopPreventer < enemyList.Length)
+        while (enemyList[currentTargetIndex].return_cur_stats().hp <= 0 &&
+		       loopPreventer <= enemyList.Length)
         {
             currentTargetIndex++;
             if (currentTargetIndex >= enemyList.Length)
@@ -251,7 +267,7 @@ public class MainChar : Character {
     float calc_damage()
     {
         float damage;
-        damage = curAttack.damagePercentage * curStats.baseDamage;
+        damage = curAttack.damagePercentage * curStats.damage;
         damage = Random.Range(damage - damage * curAttack.damageRange, damage + damage * curAttack.damageRange);
         return damage;
     }
@@ -324,9 +340,9 @@ public class MainChar : Character {
     }
 
 
-    public bool player_input_ready()
+    public CancelStateStatus player_input_ready()
     {
-        return inputReady;
+        return curCancelStatus;
     }
 
 
@@ -562,7 +578,6 @@ public class MainChar : Character {
         lKneeExhaustScript.turn_off_booster();
         rLegExhaustScript.turn_off_booster();
         rKneeExhaustScript.turn_off_booster();
-        thrusterSound.enabled = true;
         if (previousMovement.z > 0)
         {
             LexhaustScript.turn_on_booster(previousMovement.z / totalDist);
@@ -590,7 +605,6 @@ public class MainChar : Character {
             rKneeExhaustScript.turn_on_booster(previousMovement.x / totalDist);
         }
         if (previousMovement.magnitude == 0) {
-            thrusterSound.enabled = false;
         }
     }
 
@@ -602,7 +616,7 @@ public class MainChar : Character {
         curData.expRequired = curLevelData.get_experience_required();
         curData.curExperience = curLevelData.get_player_experience();
         curData.level = curLevelData.get_player_level();
-        curLevelData.save_file();
+        curLevelData.save_data();
         return curData;
     }
 
@@ -627,24 +641,40 @@ public class MainChar : Character {
     {
         
         curState = "IDLE";
-        statData = new HeroStats();
-        curLevelData = GetComponent<HeroLevelData>();
-        HeroStats heroStat = new HeroStats();
-        heroStat.load_data();
-        PlayerStat playerItemStat = heroStat.get_item_stats();
-        curStats.armor = playerItemStat.item_armor;
-        curStats.baseDamage = curLevelData.get_player_stat().damage + playerItemStat.item_damage;
-        curStats.baseHp = curLevelData.get_player_stat().HP + playerItemStat.item_hp;
-        maxEnergy = 100.0f + playerItemStat.item_energy;
-        curEnergy = maxEnergy;
-        //Debug.Log("Player HP: " + curStats.baseHp);
-        baseStats = curStats;
+        if (tutorialMech == false)
+        {
+            statData = new HeroStats();
+            curLevelData = GetComponent<HeroLevelData>();
+            HeroStats heroStat = new HeroStats();
+            curLevelData.playerMasterData = playerMasterData;
+            PlayerMasterStat playerMasterStat = curLevelData.get_player_stat_all();
+            //PlayerLevelData basePlayerStats = curLevelData.get_player_level_data(playerMasterStat.level, playerMasterStat.curExp);
+            //curStats.hp = basePlayerStats.HP;
+            //curStats.damage = (int)basePlayerStats.damage;
+            curStats.armor += playerMasterStat.armor;
+            curStats.damage += playerMasterStat.damage;
+            curStats.hp += playerMasterStat.hp;
+            maxEnergy += playerMasterStat.energy + 100;
+            curEnergy = maxEnergy;
+            baseStats = curStats;
+            abilityNames = playerMasterData.load_ability_data();
+        }
+        else
+        {
+            curStats.hp = 500;
+            curStats.damage = 100;
+            curStats.armor = 0;
+            maxEnergy = 100;
+            curEnergy = maxEnergy;
+            baseStats = curStats;
+            abilityNames = new string[8];
+            abilityNames[0] = "GATTLING_GUN";
+            abilityNames[1] = "SHATTER";
+            abilityNames[4] = "SHOTGUN";
+            abilityNames[5] = "BARRAGE";
+        }
 
         energyEffect.SetActive(false);
-        
-
-        HeroData myAbilityData = new HeroData();
-        abilityNames = myAbilityData.load_data();
         
         abilityList = GetComponents<Ability>();
 
@@ -682,14 +712,10 @@ public class MainChar : Character {
     // Update is called once per frame
     public override void manual_update()
     {
-
+        if (!thrusterSound.isPlaying)
+            thrusterSound.Play();
         previousPos = transform.position;
-		/*
-        if (worldScript.is_win())
-        {
-            return;
-        }
-		*/
+
         if (curBattleType == BattleType.BOSS && bossApproachPhase == true)
         {
             transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
@@ -724,10 +750,11 @@ public class MainChar : Character {
         if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
             currentFlag = targetScript.mapFlag;
         
-        if (inputReady == true && attackPathBuffer == false)
+        //PC
+        if (curCancelStatus.attackAvailable == true && attackPathBuffer == false)
             temp_input();
 
-        if (target == null || targetScript.return_cur_stats().baseHp <= 0)
+        if (target == null || targetScript.return_cur_stats().hp <= 0)
             get_next_target();
         /*Check Events*/
 
@@ -767,7 +794,7 @@ public class MainChar : Character {
         }
 
         //Check if player is facing a valid target
-        if (curStats.baseHp <= 0 && curState != "DEATH")
+        if (curStats.hp <= 0 && curState != "DEATH")
         {
             phasePlayed = false;
             curState = "DEATH";
@@ -791,7 +818,9 @@ public class MainChar : Character {
             }
             else
             {
-                inputReady = true;
+                curCancelStatus.attackAvailable = false;
+                curCancelStatus.dodgeAvailable = true;
+                //inputReady = true;
             }
             float distanceToMove = 0.0f;
             if (isClose == true)
@@ -882,7 +911,9 @@ public class MainChar : Character {
 
 
 		if (curState == "IDLE") {
-            inputReady = true;
+            curCancelStatus.attackAvailable = true;
+            curCancelStatus.dodgeAvailable = true;
+            //inputReady = true;
 			animation.CrossFade ("idle");
 			curCharacterState = "IDLE";
 
@@ -893,7 +924,13 @@ public class MainChar : Character {
         }
         else if (curState == "ADJUSTFAR" || curState == "ADJUSTCLOSE")
         {
-
+            if (curBattleType == BattleType.AERIAL_MULTI_SPAWN_POINT || curBattleType == BattleType.AERIAL)
+            {
+                if ((transform.position - target.transform.position).magnitude > 30.0f)
+                {
+                    transform.Translate(Vector3.forward * 100.0f * Time.deltaTime);
+                }
+            }
             if (!movementScript.run_movement() || 
                 //Close state distance checkers
                 (isClose == true && curState == "ADJUSTFAR" && distToTarget > closeDist) ||
@@ -917,7 +954,9 @@ public class MainChar : Character {
         }
         else if (curState == "HIT")
         {
-            inputReady = false;
+            curCancelStatus.attackAvailable = false;
+            curCancelStatus.dodgeAvailable = false;
+            //inputReady = false;
             if (!animation.IsPlaying(hitAnimation.name))
             {
                 curState = "IDLE";
@@ -972,7 +1011,10 @@ public class MainChar : Character {
                 curState = "IDLE";
             }
             if (curState != "IDLE")
-                inputReady = abilityDictionary[curState].is_cancellable();
+            {
+                curCancelStatus.attackAvailable = abilityDictionary[curState].is_cancellable();
+                curCancelStatus.dodgeAvailable = abilityDictionary[curState].is_cancellable();
+            }
         }
         curCharacterState = curState;
         if (target != null)

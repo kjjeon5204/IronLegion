@@ -359,7 +359,7 @@ public class TutorialCutScene : BattleStory
             {
                 playerScript.turn_off_effect();
                 AbilityButton pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
-                if (pressAbilityButton.is_button_ready() && playerScript.player_input_ready())
+                if (pressAbilityButton.is_button_ready() && playerScript.player_input_ready().attackAvailable)
                 {
                     string skillName = pressAbilityButton.button_pressed();
                     playerScript.curState = skillName;
@@ -464,7 +464,7 @@ public class TutorialCutScene : BattleStory
     {
         //PC
         //update player data
-        float playerHP = 1.0f * playerScript.return_cur_stats().baseHp / playerScript.return_base_stats().baseHp;
+        float playerHP = 1.0f * playerScript.return_cur_stats().hp / playerScript.return_base_stats().hp;
         if (playerHP < 0.0f)
         {
             playerHP = 0.0f;

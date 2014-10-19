@@ -13,108 +13,208 @@ public struct MapTileData
     public int[] adjLevelList;
 }
 
+public struct ChapterData
+{
+    public int chapterNum;
+    public MapTileData[] tilesData;
+    public IList<int> unlockedTiles;
+    public IList<int> latestTiles;
+}
+
 public class MapData {
-	int chapter;
+    int maxChapterCount = 2; //This value must be modified in order for new chapters to work
     int mapCount;
-	MapTileData[] tilesData;
+    ChapterData[] myData;
     IList<int> lastestTilesUnlocked = new List<int>();
     
-	public MapData(MapTileData[] inputMapData, int inChapter) {
-		tilesData = inputMapData;
-		chapter = inChapter;
+    //Number of tiles per chapter
+    int chapter1TileCount = 35;
+    int chapter2TileCount = 29;
 
-		read_map_progress();
-        store_map_progress();
+    //Obsolete! Do not use this constructor format! 99% will break
+	public MapData(MapTileData[] inputMapData, int inChapter) {
+        load_full_data();
+		//read_map_progress(inChapter);
+        save_full_map_data();
 	}
 
-
-    public MapData(int inChapter)
+    public MapData(ChapterData[] inputChapterData)
     {
-        chapter = inChapter;
-        read_map_progress();
+        myData = inputChapterData;
+        load_full_data();
+        save_full_map_data();
+    }
+
+    public void initialize_map_progress(int chapter, MapTileData[] mapTiles)
+    {
+        myData[chapter - 1].chapterNum = chapter;
+        myData[chapter - 1].tilesData = mapTiles;
+        read_map_progress(chapter);
+        myData[chapter - 1].unlockedTiles = get_unlocked_levels(chapter - 1);
+        myData[chapter - 1].latestTiles = get_latest_levels();
+        store_map_progress(chapter);
+    }
+
+    public MapData()
+    {
+        myData = new ChapterData[maxChapterCount];
+        //load_full_data();
     }
     
-	public void clear_level(int level) {
-        //Debug.Log(level);
-        Debug.Log(tilesData.Length);
-		tilesData[level - 1].clearCount++;
-
-		store_map_progress();
+	public void clear_level(int chapter, int level) {
+        read_map_unitialized(chapter);
+		myData[chapter - 1].tilesData[level - 1].clearCount++;
+        store_map_progress(chapter);
 	}
 
-	//modifies tilesData to include progress
-	void read_map_progress() {
+    void load_full_data()
+    {
+        myData = new ChapterData[maxChapterCount];
+        for (int ctr = 0; ctr < maxChapterCount; ctr++)
+        {
+            myData[ctr].chapterNum = ctr + 1;
+            read_map_progress(ctr + 1);
+            //myData[ctr].unlockedTiles = get_unlocked_levels(ctr);
+            //myData[ctr].latestTiles = get_latest_levels();
+        }
+    }
+
+    void save_full_map_data()
+    {
+        for (int ctr = 0; ctr < maxChapterCount; ctr++)
+        {
+            store_map_progress(ctr + 1);
+        }
+    }
+
+
+    //modifies tilesData to include progress
+    void read_map_progress(int chapter)
+    {
 		string fileName = "/MapProgress/Chapter" + chapter + ".txt";
 		string dataPath = Application.persistentDataPath + fileName;
         if (!File.Exists(dataPath))
         {
-            store_map_progress();
+            create_map_file(chapter);
         }
 		string readString = null;
-
+        //MapTileData[] tilesData;
 		using (StreamReader inFile = File.OpenText (dataPath)) {
             //Read total map count
             readString = inFile.ReadLine();
             mapCount = Convert.ToInt32(readString);
-            if (tilesData == null)
-            {
-                tilesData = new MapTileData[Convert.ToInt32(readString)];
-            }
-			for ( int ctr = 0; ctr < tilesData.Length; ctr ++) {
+            //tilesData = new MapTileData[Convert.ToInt32(readString)];
+			for ( int ctr = 0; ctr < myData[chapter - 1].tilesData.Length; ctr ++) {
 				if (readString != "#") {
 					readString = inFile.ReadLine();
                     if (readString != "#")
-					    tilesData[ctr].clearCount = Convert.ToInt32(readString);
+                        myData[chapter - 1].tilesData[ctr].clearCount = Convert.ToInt32(readString);
 				}
 				else
-					tilesData[ctr].clearCount = 0;
+                    myData[chapter - 1].tilesData[ctr].clearCount = 0;
 			}
 		}
 	}
 
-	void store_map_progress() {
+    void read_map_unitialized(int chapter)
+    {
+        string fileName = "/MapProgress/Chapter" + chapter + ".txt";
+        string dataPath = Application.persistentDataPath + fileName;
+        if (!File.Exists(dataPath))
+        {
+            create_map_file(chapter);
+        }
+        string readString = null;
+        //MapTileData[] tilesData;
+        using (StreamReader inFile = File.OpenText(dataPath))
+        {
+            //Read total map count
+            readString = inFile.ReadLine();
+            mapCount = Convert.ToInt32(readString);
+            //tilesData = new MapTileData[Convert.ToInt32(readString)];
+            myData[chapter - 1].tilesData = new MapTileData[mapCount];
+            for (int ctr = 0; ctr < myData[chapter - 1].tilesData.Length; ctr++)
+            {
+                if (readString != "#")
+                {
+                    readString = inFile.ReadLine();
+                    if (readString != "#")
+                        myData[chapter - 1].tilesData[ctr].clearCount = Convert.ToInt32(readString);
+                }
+                else
+                    myData[chapter - 1].tilesData[ctr].clearCount = 0;
+            }
+        }
+    }
+
+    void create_map_file(int chapter)
+    {
+        if (!Directory.Exists(Application.persistentDataPath + "/MapProgress"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/MapProgress");
+        string fileName = "/MapProgress/Chapter" + chapter + ".txt";
+        string dataPath = Application.persistentDataPath + fileName;
+
+        using (StreamWriter outFile = File.CreateText(dataPath))
+        {
+            outFile.WriteLine("0");
+            outFile.WriteLine("#");
+        }
+    }
+
+	void store_map_progress(int chapter) {
         if (!Directory.Exists(Application.persistentDataPath + "/MapProgress"))
             Directory.CreateDirectory(Application.persistentDataPath + "/MapProgress");
 		string fileName = "/MapProgress/Chapter" + chapter + ".txt";
 		string dataPath = Application.persistentDataPath + fileName;
 
 		using (StreamWriter outFile = File.CreateText (dataPath)) {
-            if (tilesData != null)
-                outFile.WriteLine(tilesData.Length);
-            if (tilesData == null)
+            if (myData[chapter - 1].tilesData != null)
+                outFile.WriteLine(myData[chapter - 1].tilesData.Length);
+            if (myData[chapter - 1].tilesData == null)
                 outFile.WriteLine(mapCount);
 
-			for ( int ctr = 0; ctr < tilesData.Length; ctr ++ ) {
-				outFile.WriteLine(tilesData[ctr].clearCount);
+			for ( int ctr = 0; ctr < myData[chapter - 1].tilesData.Length; ctr ++ ) {
+				outFile.WriteLine(myData[chapter - 1].tilesData[ctr].clearCount);
 			}
 			outFile.WriteLine("#");
 		}
 	}
 
-	public IList<int> get_unlocked_levels() {
-		IList<int> curUnlocked = new List<int>();
+    public IList<int> return_unlocked_levels(int chapter)
+    {
+        return myData[chapter - 1].unlockedTiles;
+    }
 
+	IList<int> get_unlocked_levels(int chapter) {
+		IList<int> curUnlocked = new List<int>();
+        lastestTilesUnlocked = new List<int>();
 		curUnlocked.Add (0);
 
-		return recursively_check_levels (curUnlocked, 0);
+		return recursively_check_levels (curUnlocked, 0, chapter);
 	}
 
-    public IList<int> get_latest_levels()
+    public IList<int> return_latest_levels(int chapter)
+    {
+        return myData[chapter - 1].latestTiles;
+    }
+
+
+    IList<int> get_latest_levels()
     {
         return lastestTilesUnlocked;
     }
 
 
-	IList<int> recursively_check_levels(IList<int> inputLevels, int checkChapter) {
-		if (tilesData[checkChapter].clearCount > 0) {
-			for (int ctr = 0; ctr < tilesData[checkChapter].adjLevelList.Length; ctr ++) {
-				inputLevels.Add(tilesData[checkChapter].adjLevelList[ctr]);
-				recursively_check_levels(inputLevels, tilesData[checkChapter].adjLevelList[ctr]);
+	IList<int> recursively_check_levels(IList<int> inputLevels, int checkTile, int chapter) {
+		if (myData[chapter].tilesData[checkTile].clearCount > 0) {
+			for (int ctr = 0; ctr < myData[chapter].tilesData[checkTile].adjLevelList.Length; ctr ++) {
+				inputLevels.Add(myData[chapter].tilesData[checkTile].adjLevelList[ctr]);
+				recursively_check_levels(inputLevels, myData[chapter].tilesData[checkTile].adjLevelList[ctr], chapter);
 			}
 			return inputLevels;
 		}
 		else {
-            lastestTilesUnlocked.Add(checkChapter);
+            lastestTilesUnlocked.Add(checkTile);
 			return inputLevels;
 		}
 	}

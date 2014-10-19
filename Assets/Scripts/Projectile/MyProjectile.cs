@@ -20,8 +20,6 @@ public class MyProjectile : MonoBehaviour {
 	protected GameObject Aimingsquare;
 	protected float angle;
 	protected float radius;
-	public GameObject radarIcon;
-	public bool isStealth = true;
 	public float rotSpeed = 180.0f;
     protected bool projectilePaused = false;
     public bool activateProjectile = false;
@@ -39,9 +37,6 @@ public class MyProjectile : MonoBehaviour {
 		target = targetScript.gameObject;
 		Radar radarAcc = radarTrack.GetComponent<Radar>();
 
-		if (isStealth == false) {
-			radarAcc.add_object(gameObject, radarIcon);
-		}
 	}
 
     public virtual void set_projectile(GameObject targetObject, GameObject inOwner, float inDamage)
@@ -91,9 +86,6 @@ public class MyProjectile : MonoBehaviour {
 		angle = myInput.aimAngle;
 		radius = myInput.radius;
 		Radar radarAcc = radarTrack.GetComponent<Radar>();
-		if (isStealth == false) {
-			radarAcc.add_object(gameObject, radarIcon);
-		}
 	}
 
     public void set_projectile(ProjectileDataInput myInput)

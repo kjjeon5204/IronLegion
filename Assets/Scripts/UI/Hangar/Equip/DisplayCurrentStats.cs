@@ -7,7 +7,6 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	public HeroLevelData hero_info;
 	private Stats hero_stats;
-	private HeroStats hero;
 	private Stats item_stats;
 	
 	public GameObject[] equipped_slots;
@@ -40,41 +39,46 @@ public class DisplayCurrentStats : MonoBehaviour {
 	private string start_color = "<b><color=lime>";
 	private string end_color = "</color></b>";
 
+    PlayerMasterData playerMasterData;
+
 	// Use this for initialization
 	void Start () {
-		hero_info.load_file();
-		hero = new HeroStats();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		UpdateStats();
+
+        UpdateStats();
 	}
 	
 	public void UpdateStats() {
 	
-		hero_stats = hero_info.get_player_stat_all();
-		item_stats = stat_controller.stats;
-		
-		level = hero_stats.level;
-		cur_xp = hero_stats.curExp;
-		tot_xp = hero_stats.totalExp;
+		//hero_stats = hero_info.get_player_stat_all();
+        PlayerMasterStat playerStat = hero_info.get_player_stat_all();
+		//item_stats = stat_controller.stats;
+
+        Debug.Log("Refreshed Equipment: " + playerStat.equipment[1]);
+        Debug.Log("Refreshed hp: " + playerStat.hp);
+		level = playerStat.level;
+		cur_xp = playerStat.curExp;
+		tot_xp = playerStat.expRequired;
 		/*hp = hero_stats.baseHp+item_stats.item_hp;
 		armor = item_stats.item_armor;
 		damage = hero_stats.item_damage+item_stats.item_damage;
 		energy = hero_stats.item_energy + item_stats.item_energy;
 		penetration = item_stats.item_penetration;
 		luck = item_stats.item_luck;*/
-		hp = hero_stats.baseHp;
-		armor = 0;
-		damage = hero_stats.item_damage;
-		energy = hero_stats.item_energy;
-		penetration = 0;
-		luck = 0;
+		hp = playerStat.hp;
+		armor = playerStat.armor;
+		damage = playerStat.damage;
+		energy = playerStat.energy;
+		penetration = playerStat.penetration;
+		luck = playerStat.luck;
 		
 		currency = stat_controller.ReturnCurrency();
 		paid_currency = stat_controller.ReturnPaidCurrency();
 		
+        /*
 		for (int i = 0; i < 5; i++)
 		{
 			item_to_add = equipped_slots[i].GetComponentInChildren<Item>();
@@ -85,13 +89,16 @@ public class DisplayCurrentStats : MonoBehaviour {
 			penetration += item_to_add.penetration;
 			luck += item_to_add.luck;
 		}
-		
+		*/
 		UpdateImage();
 	}
 	
 	void UpdateImage() {
-		exp_bar_fill.transform.localScale = new Vector3(cur_xp/tot_xp,1f,1f);
-		
+        if (tot_xp > 0)
+		    exp_bar_fill.transform.localScale = new Vector3(cur_xp/tot_xp,1f,1f);
+		else
+            exp_bar_fill.transform.localScale = new Vector3(0.0f, 1f, 1f);
+
 		exp_indicator.text = (int)cur_xp + "<b>/</b>" + (int)tot_xp;
 		level_indicator.text = start_color+"Level: "+end_color + (int)level;
 		hp_indicator.text = start_color+"HP: "+end_color + (int)hp;

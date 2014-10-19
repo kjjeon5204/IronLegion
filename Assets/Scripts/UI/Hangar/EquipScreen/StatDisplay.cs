@@ -7,6 +7,7 @@ public class StatDisplay : MonoBehaviour {
     public GameObject Damage_Text;
     public GameObject Level_Text;
     public GameObject Exp_Text;
+    public PlayerMasterData playerMasterData;
 
     public void setText(Item input)
     {
@@ -18,11 +19,12 @@ public class StatDisplay : MonoBehaviour {
 
     public void setText(Stats input)
     {
-        HP_Text.GetComponent<TextMesh>().text = input.baseHp.ToString();
+        PlayerMasterStat playerStat = playerMasterData.get_combined_stats();
+        HP_Text.GetComponent<TextMesh>().text = input.hp.ToString();
         Armor_Text.GetComponent<TextMesh>().text = ((int)input.armor).ToString();
-        Damage_Text.GetComponent<TextMesh>().text = ((int)input.baseDamage).ToString();
-        Level_Text.GetComponent<TextMesh>().text = "LV: " + (input.level).ToString();
-        Exp_Text.GetComponent<TextMesh>().text = (input.curExp) + "/" + (input.totalExp);
+        Damage_Text.GetComponent<TextMesh>().text = ((int)input.damage).ToString();
+        Level_Text.GetComponent<TextMesh>().text = "LV: " + (playerStat.level).ToString();
+        Exp_Text.GetComponent<TextMesh>().text = (playerStat.curExp) + "/" + (playerStat.expRequired);
     }
 
     public void setEmpty()

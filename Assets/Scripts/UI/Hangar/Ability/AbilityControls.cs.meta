@@ -11,6 +11,6 @@ MonoImporter:
   - ability101: {fileID: 21300000, guid: b1aea5144a3b1e640afd0cc7ce295fff, type: 3}
   - ability102: {fileID: 21300000, guid: d9f61ccd4a6726e439847f06baeb6078, type: 3}
   - ability103: {fileID: 21300000, guid: 7cee698a495345641b9e3608ff3bce79, type: 3}
-  executionOrder: 0
+  executionOrder: 700
   icon: {instanceID: 0}
   userData: 

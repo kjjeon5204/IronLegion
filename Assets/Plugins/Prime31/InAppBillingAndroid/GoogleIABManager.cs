@@ -89,12 +89,10 @@ public class GoogleIABManager : AbstractManager
 		purchaseSucceededEvent.fire( new GooglePurchase( json.dictionaryFromJson() ) );
 	}
 
-
 	public void purchaseFailed( string error )
 	{
 		purchaseFailedEvent.fire( error );
 	}
-
 
 	public void consumePurchaseSucceeded( string json )
 	{

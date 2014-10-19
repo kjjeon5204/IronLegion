@@ -100,7 +100,7 @@ public class AllyBasicShooterType1 : BaseAlly {
             {
                 if (phasePlayed == false)
                 {
-                    targetScript.hit(curStats.baseDamage * 0.15f);
+                    targetScript.hit(curStats.damage * 0.15f);
                     animation.Play(attackFirePhase.name);
                     phasePlayed = true;
                 }

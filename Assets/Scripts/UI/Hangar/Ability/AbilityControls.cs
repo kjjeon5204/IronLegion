@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class AbilityControls : MonoBehaviour {
-	private HeroData hero;
 	private AbilityData abilities;
 	private Slot[] ability_slots;
 	
 	public Sprite[] close_range_sprites;
 	public Sprite[] long_range_sprites;
+    public PlayerMasterData playerMasterData;
 	
 	private int saved_id;
 	private DescriptionControl description;
@@ -17,9 +17,8 @@ public class AbilityControls : MonoBehaviour {
 	void Start () {
 		abilities = new AbilityData();
 		abilities.load_data();
-	
-		hero = new HeroData();
-		hero.load_data();
+
+        playerMasterData.load_ability_data();
 		ability_slots = new Slot[8];
 		for (int i = 0; i < 8; i++)
 		{
@@ -36,8 +35,8 @@ public class AbilityControls : MonoBehaviour {
 	void UpdateSlots() {
 		for (int i = 0; i < 8; i++)
 		{
-				ability_slots[i].ability_name = hero.ReturnAbilityName(i);
-				ability_slots[i].id_num = hero.ReturnAbilityID(i);
+				ability_slots[i].ability_name = playerMasterData.access_hero_ability_data().ReturnAbilityName(i);
+				ability_slots[i].id_num = playerMasterData.access_hero_ability_data().ReturnAbilityID(i);
 				if (ability_slots[i].id_num == -1)
 				{
 				}
@@ -61,15 +60,13 @@ public class AbilityControls : MonoBehaviour {
 	public void SlotClicked(int index, bool close) {
 		if ((saved_id < 100 && saved_id >= 0 && close) || (saved_id >= 100 && !close))
 		{
-			bool switched = hero.SetAbility(index,saved_id);
+			bool switched = playerMasterData.access_hero_ability_data().SetAbility(index,saved_id);
 			if (saved_id != -1 && !switched)
 			{
 				//Tell person not good slot
 			}
             else if (saved_id != -1)
             {
-                Debug.Log("Skill Swapped!");
-                hero.save_data();
                 UpdateSlots();
             }
 		}

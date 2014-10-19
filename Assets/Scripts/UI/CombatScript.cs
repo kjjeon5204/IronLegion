@@ -117,6 +117,7 @@ public class CombatScript : MonoBehaviour {
 
     public TextMesh frameRateDisplay;
 
+    public PlayerMasterData playerMasterData;
 
     bool screenFader = false;
     int exitType;
@@ -299,6 +300,7 @@ public class CombatScript : MonoBehaviour {
         radarDisplay.SetActive(false);
 		upperRightFrame.SetActive(false);
 		enemyDisplay.SetActive (false);
+        changeStateEffect.gameObject.SetActive(false);
 	}
 
 	public void turn_on_combat_ui() {
@@ -319,6 +321,7 @@ public class CombatScript : MonoBehaviour {
         radarDisplay.SetActive(true);
 		upperRightFrame.SetActive(true);
 		enemyDisplay.SetActive (true);
+        changeStateEffect.gameObject.SetActive(true);
 	}
 
 	public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
@@ -329,10 +332,7 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-        Inventory myInventory = new Inventory();
-        myInventory.load_inventory();
-        myInventory.change_currency(creditReceived);
-        myInventory.store_inventory();
+        playerMasterData.add_currency(creditReceived);
         if (allyObject != null) {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);
@@ -485,7 +485,7 @@ public class CombatScript : MonoBehaviour {
         {
             Debug.Log("Button " + hitButton.collider.name + "pressed!");
             //Combat related input
-            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready()
+            if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready().attackAvailable
                 && gamePaused == false)
             {
                 if (acc.phase == TouchPhase.Began)
@@ -547,7 +547,7 @@ public class CombatScript : MonoBehaviour {
             else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
             {
                 eventControlScript.unpause_game();
-                Application.LoadLevel(0);
+                Application.LoadLevel("Overworld");
             }
             else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
             {
@@ -556,7 +556,7 @@ public class CombatScript : MonoBehaviour {
                 eventControlScript.unpause_game();
                 gamePaused = false;
             }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready() && 
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready().attackAvailable && 
                 gamePaused == false)
             {
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
@@ -568,7 +568,7 @@ public class CombatScript : MonoBehaviour {
                 }
             }
             else if (hitButton.collider.gameObject == changeTargetButton && acc.phase == TouchPhase.Ended
-                     && mainCharacter.player_input_ready() && gamePaused == false)
+                     && mainCharacter.player_input_ready().attackAvailable && gamePaused == false)
             {
                 changeTargetShock.activate_button();
                 mainCharacter.get_next_target();
@@ -703,6 +703,11 @@ public class CombatScript : MonoBehaviour {
         stateChangeTextMod = stateChangeText.GetComponent<UIStringModifier>();
         stateChangeTextMod.initialize_text("Blade\nAttack");
 
+        
+        //Radar resize
+        uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
+        texture_resize(radarDisplay, uiButtonSize);
+
         //Change target button size&place
         uiButtonSize = new Rect(0.0f, 0.55f, 0.3f, 0.45f);
         texture_resize(lowerLeftFrame, uiButtonSize);
@@ -724,10 +729,6 @@ public class CombatScript : MonoBehaviour {
         uiButtonSize = new Rect(0.37f, 0.0f, 0.3f, 0.15f);
         texture_resize(enemyDisplay, uiButtonSize);
         textModifier = enemyDistplayText.GetComponent<UIStringModifier>();
-
-        //Radar resize
-        uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
-        texture_resize(radarDisplay, uiButtonSize);
 
 
         debuffIconPool = new IList<IconPoolData>[debuffIcons.Length];
@@ -776,9 +777,9 @@ public class CombatScript : MonoBehaviour {
             }
         }
 
-        if (battleStopped == false)
+        if (battleStopped == false && mainCharacter != null)
         {
-            float playerHP = 1.0f * mainCharacter.return_cur_stats().baseHp / mainCharacter.return_base_stats().baseHp;
+            float playerHP = 1.0f * mainCharacter.return_cur_stats().hp / mainCharacter.return_base_stats().hp;
             if (playerHP < 0.0f)
             {
                 playerHP = 0.0f;
@@ -788,13 +789,13 @@ public class CombatScript : MonoBehaviour {
             {
                 textModifier.initialize_text(mainCharacter.target.GetComponent<Character>().characterName);
                 Character targetScript = mainCharacter.target.GetComponent<Character>();
-                float enemyHP = 1.0f * targetScript.return_cur_stats().baseHp / targetScript.return_base_stats().baseHp;
+                float enemyHP = 1.0f * targetScript.return_cur_stats().hp / targetScript.return_base_stats().hp;
                 if (enemyHP < 0.0f)
                     enemyHP = 0.0f;
                 //Debug.Log("target hp: " + targetScript.return_cur_stats().baseHp);
                 enemyHealthBar.transform.localScale = new Vector3(enemyHP, 1.0f, 1.0f);
                 enemyArmor.text = "Armor: " + targetScript.return_cur_stats().armor + "%";
-                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().baseDamage;
+                enemyDamage.text = "Damage: " + targetScript.return_cur_stats().damage;
             }
             skillButtons.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
             changeTargetButton.transform.Rotate(Vector3.forward * Time.deltaTime * 10.0f);
@@ -826,12 +827,12 @@ public class CombatScript : MonoBehaviour {
             if (exitType == 0)
             {
                 loadingScreen.SetActive(true);
-                Application.LoadLevel(0);
+                Application.LoadLevel("Overworld");
             }
             if (exitType == 1)
             {
                 loadingScreen.SetActive(true);
-                Application.LoadLevel(2);
+                Application.LoadLevel("BattleScene");
             }
         }
 

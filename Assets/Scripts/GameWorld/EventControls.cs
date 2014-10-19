@@ -152,7 +152,8 @@ public class EventControls : MonoBehaviour {
     bool runPlayerSide;
     int enemyScriptRunCtr;
 
-    
+    PlayerMasterData playerMasterData;
+
 
     public void end_battle_fade_process()
     {
@@ -170,13 +171,21 @@ public class EventControls : MonoBehaviour {
         waveRunData[curWave].storyInitialized = true;
         waveRunData[curWave].thisStoryEnd.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryEnd.manual_start();
+        if (waveRunData[curWave].thisStoryEnd.customCutsceneAudio != null)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        }
+        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Play();
+        }
     }
 
 
     public void wave_start_cutscene_fade_process()
     {
         playerScript.target_indicator_switch(false);
-        Debug.Log("Current wave number " + curWave);
+        playerScript.gameObject.SetActive(false);
         combatScript.turn_off_combat_ui();
         waveRunData[curWave].eventRunPhase = true;
         waveRunData[curWave].waveEnded = false;
@@ -184,6 +193,15 @@ public class EventControls : MonoBehaviour {
         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryStart.manual_start();
         combatScript.loadingScreen.SetActive(false);
+
+        if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        }
+        else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+        {
+            curEngageData.waveData[curWave].waveThemeMusic.Play();
+        }
     }
 
     public void wave_start_cutscene_end()
@@ -271,8 +289,8 @@ public class EventControls : MonoBehaviour {
     {
         //end battle
         combatScriptObject.SetActive(true);
-        MapData curMap = new MapData(System.Convert.ToInt32(gameObject.name[1].ToString()));
-        curMap.clear_level(curEngageData.levelNum);
+        MapData curMap = new MapData();
+        playerMasterData.clear_level( System.Convert.ToInt32(gameObject.name[1].ToString()), curEngageData.levelNum);
 
         if (allyData.unitName != "NONE")
             allyData.exp += (int)curEngageData.experience;
@@ -349,6 +367,7 @@ public class EventControls : MonoBehaviour {
 
     void wave_ready_phase(WaveBattleRunData instatiateWave)
     {
+        player.SetActive(true);
         Debug.Log("Prep wave");
         for (int ctr = 0; ctr < instatiateWave.enemyList.Length; ctr++)
         {
@@ -382,8 +401,11 @@ public class EventControls : MonoBehaviour {
     void start_wave(WaveBattleRunData instatiateWave)
     {
         Debug.Log("Wave started!");
-        if (curEngageData.waveData[curWave].waveThemeMusic != null)
+        if (curEngageData.waveData[curWave].waveThemeMusic != null &&
+            curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+        {
             curEngageData.waveData[curWave].waveThemeMusic.Play();
+        }
         waveReadyPhase = false;
         combatScript.turn_on_combat_ui();
 		playerScript.enemyList = instatiateWave.enemyListScript;
@@ -419,7 +441,7 @@ public class EventControls : MonoBehaviour {
         int remainingEnemy = 0;
         for (int ctr = 0; ctr < instantiateWave.enemyList.Length; ctr++)
         {
-            if (instantiateWave.enemyListScript[ctr].return_cur_stats().baseHp > 0)
+            if (instantiateWave.enemyListScript[ctr].return_cur_stats().hp > 0)
             {
                 //return false;
                 remainingEnemy++;
@@ -438,8 +460,8 @@ public class EventControls : MonoBehaviour {
             }
         }
         //Turn off current sound
-        if (curEngageData.waveData[curWave].waveThemeMusic != null)
-            curEngageData.waveData[curWave].waveThemeMusic.Stop();
+        //if (curEngageData.waveData[curWave].waveThemeMusic != null)
+        //    curEngageData.waveData[curWave].waveThemeMusic.Stop();
 
         return true;
     }
@@ -457,9 +479,10 @@ public class EventControls : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start()
+    public void initialize_script(PlayerMasterData input)
     {
-        eventRecord = new PlayerDataReader(Application.persistentDataPath);
+        playerMasterData = input;
+        eventRecord = playerMasterData.access_player_event_record();
         Application.targetFrameRate = 60;
 		RenderSettings.skybox = curEngageData.skyBox;
         RenderSettings.fog = curEngageData.fogSettings.fogEnabled;
@@ -488,13 +511,18 @@ public class EventControls : MonoBehaviour {
         playerScript = player.GetComponent<MainChar>();
         playerScript.battleBoundary = boundaryObject.collider;
         playerScript.worldObject = gameObject;
+        playerScript.playerMasterData = playerMasterData;
+        if (playerMasterData == null)
+        {
+            Debug.Log("Null Master Data!");
+        }
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
-        if (eventRecord.check_event_played("ALLY_JONATHAN_UNLOCK"))
+        if (eventRecord.check_event_played("Battle_end_3"))
         {
             AllyDataList allyLoader = new AllyDataList();
             allyData = allyLoader.get_cur_equipped_ally();
-            string allyDataPath = "Tier" + allyData.tier
+            string allyDataPath = "Ally/Tier" + allyData.tier
                 + "/" + allyData.unitName;
             GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
             if (allyObjectLoad != null)
@@ -529,8 +557,11 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
-
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
+                }
+                else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID)) {
+                    tempHolder.gameObject.SetActive(false);
                 }
             }
 
@@ -543,13 +574,18 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
+                }
+                else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID))
+                {
+                    tempHolder.gameObject.SetActive(false);
                 }
                 
             }
             //SOund
-            if (curEngageData.waveData[curWave].waveThemeMusic == null)
-                curEngageData.waveData[curWave].waveThemeMusic = GetComponent<AudioSource>();
+            if (curEngageData.waveData[waveCtr].waveThemeMusic == null)
+                curEngageData.waveData[waveCtr].waveThemeMusic = GetComponent<AudioSource>();
 
             waveRunData[waveCtr].player = player;
             waveRunData[waveCtr].playerScript = playerScript;
@@ -654,7 +690,6 @@ public class EventControls : MonoBehaviour {
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
-            
             faderActive = true;
             myScreenFadeScript.screen_fade_active(wave_start_cutscene_fade_process);
              
@@ -755,10 +790,10 @@ public class EventControls : MonoBehaviour {
                 pause_game();
             else unpause_game();
         }
-        if (playerScript.return_cur_stats().baseHp <= 0.0f || endBattle == true)
+        if (playerScript.return_cur_stats().hp <= 0.0f || endBattle == true)
         {
             enabled = false;
-            Application.LoadLevel(0);
+            Application.LoadLevel("Overworld");
         }
         //Checking wave clear/win conditions
         if (faderActive == true)
@@ -771,6 +806,9 @@ public class EventControls : MonoBehaviour {
         {
             if (waveRunData[curWave].eventRunPhase == false)
             {
+                if (curEngageData.waveData[curWave].waveThemeMusic != null &&
+                    curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
+                    curEngageData.waveData[curWave].waveThemeMusic.Play();
                 if (player.activeInHierarchy == false)
                 {
                     player.SetActive(true);
@@ -910,27 +948,31 @@ public class EventControls : MonoBehaviour {
                 if (waveRunData[curWave].waveEnded == false &&
                     waveRunData[curWave].storyEnded == false)
                 {
+                    /*
                     if (waveRunData[curWave].storyInitialized == false)
                     {
                         waveRunData[curWave].storyInitialized = true;
-
                         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
                         waveRunData[curWave].thisStoryStart.manual_start();
                     }
+                     */ 
                     waveRunData[curWave].storyEnded =
                         waveRunData[curWave].thisStoryStart.manual_update();
                 }
                 else if (waveRunData[curWave].waveEnded == true &&
                     waveRunData[curWave].storyEnded == false)
                 {
+                    /*
                     if (waveRunData[curWave].storyInitialized == false)
                     {
                         waveRunData[curWave].thisStoryEnd.manual_start();
                         waveRunData[curWave].storyInitialized = true;
                     }
+                     */ 
                     waveRunData[curWave].storyEnded =
                         waveRunData[curWave].thisStoryEnd.manual_update();
                 }
+                  
                 else
                 {
                     if (waveRunData[curWave].waveEnded == true)
@@ -953,13 +995,6 @@ public class EventControls : MonoBehaviour {
                     }
                     else
                     {
-                        /*
-                        waveRunData[curWave].thisStoryStart.gameObject.SetActive(false);
-                        waveRunData[curWave].eventRunPhase = false;
-                        waveRunData[curWave].storyEnded = false;
-                        wave_ready_phase(waveRunData[curWave]);
-                         */
-                        
                         faderActive = true;
                         myScreenFadeScript.screen_fade_active(wave_start_cutscene_end);
                           

@@ -27,12 +27,14 @@ public class ItemControls : MonoBehaviour {
 	
 	public GameObject inventory_end;
     public ItemDictionary itemDictionary;
+
+    public PlayerMasterData playerMasterData;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
 	void Start () {
+        inventory = playerMasterData.access_inventory_data();
         item_tier = itemDictionary.itemList;
-		inventory = new Inventory();
 		for (int i = 0; i < item_tier.Length; i++) 
 		{
 			foreach (GameObject this_item in item_tier[i].items)
@@ -43,8 +45,8 @@ public class ItemControls : MonoBehaviour {
 		itemLibrary["000000"] = empty_slot;
 		num_of_items = -1;
 		
-		hero = new HeroStats();
-		hero.load_data();
+		//hero = new HeroStats();
+		//hero.load_data();
 		equipped = new GameObject[5];
 		equipped_item = new Item[5];
 		equipped[0] = GameObject.Find("EquippedHead");
@@ -52,14 +54,16 @@ public class ItemControls : MonoBehaviour {
 		equipped[2] = GameObject.Find("EquippedArmor");
 		equipped[3] = GameObject.Find("EquippedCore1");
 		equipped[4] = GameObject.Find("EquippedCore2");
-		stats = hero.get_current_stats();
+        stats = playerMasterData.access_equipment_data().get_current_stats();
 		StartEquipped();
 		StartInventory();
 	}
 	
 	public void StartInventory() {
-		inventory.load_inventory();
-		num_of_items = inventory.numItems;
+		//inventory.load_inventory();
+        playerMasterData.access_inventory_data().load_inventory();
+		//num_of_items = inventory.numItems;
+        num_of_items = playerMasterData.access_inventory_data().numItems;
 		ReloadInventory();
 	}
 	
@@ -74,8 +78,8 @@ public class ItemControls : MonoBehaviour {
 				new_items[new_items.Length-1] = inventory_slots[i].item_id;
 			}
 		}
-		inventory.set_inventory(new_items);
-		inventory.store_inventory();
+		playerMasterData.access_inventory_data().set_inventory(new_items);
+		playerMasterData.access_inventory_data().store_inventory();
 	}
 	
 	public void ReloadInventory() {
@@ -119,7 +123,7 @@ public class ItemControls : MonoBehaviour {
 			inventory_end.transform.position = position + Vector3.down;
 			if (i < num_of_items)
 			{
-				current_slot_script.SetItem(inventory.items[i], itemLibrary[inventory.items[i]], i);
+				current_slot_script.SetItem(playerMasterData.access_inventory_data().items[i], itemLibrary[inventory.items[i]], i);
 			}
 			else
 			{
@@ -132,50 +136,113 @@ public class ItemControls : MonoBehaviour {
 	}
 	
 	void StartEquipped() {
-		ids = hero.get_equipped_item();
+		ids = playerMasterData.access_equipment_data().get_equipped_item();
 		for (int i = 0; i < 5; i++)
 		{
-			if (i == 0)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
-			else if (i == 1)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.WEAPON);
-			else if (i == 2)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.ARMOR);
-			else if (i >= 3)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.CORE);
-		}
+            if (i == 0)
+            {
+                if (ids[i] != "000000") 
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], 
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.HEAD);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], 
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.HEAD);
+            }
+            else if (i == 1)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.WEAPON);
+            }
+            else if (i == 2)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.ARMOR);
+            }
+            else if (i >= 3)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        itemLibrary[ids[i]].gameObject, Item.ItemType.CORE);
+            }
+        }
 		UpdateEquipped();
 	}
 	public void UpdateEquipped() {
-		stats.item_hp = 0;
-		stats.item_armor = 0;
-		stats.item_damage = 0;
-		stats.item_energy = 0;
-		stats.item_penetration = 0;
-		stats.item_luck = 0;
+		stats.hp = 0;
+		stats.armor = 0;
+		stats.damage = 0;
+		stats.energy = 0;
+		stats.penetration = 0;
+		stats.luck = 0;
 		for (int i = 0; i  < 5; i++)
 		{
 			ids[i] = equipped[i].GetComponent<EquippedSlot>().item_id;
-			
-			if (i == 0)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
-			else if (i == 1)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.WEAPON);
-			else if (i == 2)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.ARMOR);
-			else if (i >= 3)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.CORE);
-		
-			equipped_item[i] = equipped[i].GetComponentInChildren<Item>();
-			stats.item_hp += equipped_item[i].hp;
-			stats.item_armor += equipped_item[i].armor;
-			stats.item_damage += equipped_item[i].damage;
-			stats.item_energy += equipped_item[i].energy;
-			stats.item_penetration += equipped_item[i].penetration;
-			stats.item_luck += equipped_item[i].luck;
+            Debug.Log("Items equipped: " + ids[i]);
+
+            Item curItem = empty_slot.GetComponent<Item>();
+            if (ids[i] != "000000")
+                curItem = itemDictionary.get_item_data(ids[i]).GetComponent<Item>();
+
+            if (i == 0)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.HEAD);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.HEAD);
+            }
+            else if (i == 1)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.WEAPON);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.WEAPON);
+            }
+            else if (i == 2)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.ARMOR);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.ARMOR);
+            }
+            else if (i >= 3)
+            {
+                if (ids[i] != "000000")
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.CORE);
+                else
+                    equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],
+                        curItem.gameObject, Item.ItemType.CORE);
+            }
+			equipped_item[i] = curItem;
+            Debug.Log("Equipped item: " + equipped_item[i].name);
+			stats.hp += equipped_item[i].hp;
+			stats.armor += (int)equipped_item[i].armor;
+			stats.damage += (int)equipped_item[i].damage;
+			stats.energy += (int)equipped_item[i].energy;
+			stats.penetration += equipped_item[i].penetration;
+			stats.luck += (int)equipped_item[i].luck;
 			
 			stats.equipment[i] = ids[i];
-			hero.save_data(stats);
+            Debug.Log("Saved hp: " + stats.hp);
+            playerMasterData.save_hero_equip_data(stats);
+			//hero.save_data(stats);
 		}
 	}
 	

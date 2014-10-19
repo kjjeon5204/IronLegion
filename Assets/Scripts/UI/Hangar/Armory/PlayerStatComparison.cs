@@ -16,12 +16,11 @@ public class PlayerStatComparison : MonoBehaviour {
 
     public TextMesh[] statChangeDisplay;
     public TextMesh[] itemStatDisplay;
+    PlayerMasterData playerMasterData;
 
     void initialize_table() 
     {
-        HeroStats currentPlayerData = new HeroStats();
-        currentPlayerData.load_data();
-        string[] equippedItemStringList = currentPlayerData.get_equipped_item();
+        string[] equippedItemStringList = playerMasterData.access_equipment_data().get_equipped_item();
         itemList = new Item[equippedItemStringList.Length];
         for (int ctr = 0; ctr < equippedItemStringList.Length; ctr++)
         {

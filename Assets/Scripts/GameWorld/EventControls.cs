@@ -518,12 +518,13 @@ public class EventControls : MonoBehaviour {
         }
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
-        if (eventRecord.check_event_played("Battle_end_3"))
+        if (eventRecord.check_event_played("Battle_end_6"))
         {
             AllyDataList allyLoader = new AllyDataList();
             allyData = allyLoader.get_cur_equipped_ally();
             string allyDataPath = "Ally/Tier" + allyData.tier
                 + "/" + allyData.unitName;
+            Debug.Log(allyData.unitName);
             GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
             if (allyObjectLoad != null)
             {

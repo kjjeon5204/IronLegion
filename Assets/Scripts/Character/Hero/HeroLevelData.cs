@@ -45,6 +45,7 @@ public class HeroLevelData : MonoBehaviour {
     //false if not level up
     public bool add_experience(int expGain)
     {
+        bool playerLeveledUp = false;
         //player hit max level
         if (levelData[playerLevel - 1].experience == 0 || playerLevel == levelData.Length)
         {
@@ -52,14 +53,14 @@ public class HeroLevelData : MonoBehaviour {
             return false;
         }
         playerExperience += expGain;
-        if (playerExperience >= levelData[playerLevel-1].experience)
+        while (playerExperience >= levelData[playerLevel-1].experience)
         {
             playerExperience -= levelData[playerLevel-1].experience;
             playerLevel++;
-            return true;
+            playerLeveledUp = true;
         }
         playerMasterData.save_player_level(playerLevel, playerExperience);
-        return false;
+        return playerLeveledUp;
     }
 
     public PlayerLevelData get_player_level_data(int inputLevel, int experience)

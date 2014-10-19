@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -287,19 +287,14 @@ public class ObeliskBoss : Character {
 				currentStates = CurrentStates.BARRAGE;
 				abilityList[2].initialize_ability();
 			}
-			else if (randomNum >= 70 && randomNum < 75) {
+			else if (randomNum >= 70 && randomNum < 85) {
 				currentStates = CurrentStates.LANCEBEAM;
 				abilityList[8].initialize_ability();
 			}
-			else if (randomNum >= 75 && randomNum < 85) {
+			else if (randomNum >= 85 && randomNum < 100) {
 				currentStates = CurrentStates.LASERWHEEL;
 				abilityList[9].initialize_ability();
 				lasermade = false;
-			}
-			if (randomNum >= 85 && randomNum < 100) {
-				currentStates = CurrentStates.OBLIVION;
-				muzzleCtr = 0;
-				abilityList[3].initialize_ability();
 			}
 		}
         attackStack++;
@@ -314,7 +309,6 @@ public class ObeliskBoss : Character {
 		else {
 			longRange = true;
 		}
-        Debug.Log("Attack stack " + attackStack);
         if ((currentStates == CurrentStates.IDLE && moveTime < Time.time) || 
              (currentStates == CurrentStates.IDLE && attackStack > 3)) {
             int movePoll = Random.Range(0, 4);
@@ -379,6 +373,7 @@ public class ObeliskBoss : Character {
 				globalCDTracker = Time.time + globalCD;
 			}			
 		}
+		/*
 		else if (currentStates == CurrentStates.OBLIVION) {
 			if (animation.IsPlaying ("castloop")) {
 				if (missileDelayTracker < Time.time) {
@@ -395,6 +390,7 @@ public class ObeliskBoss : Character {
 				globalCDTracker = Time.time + globalCD;
 			}
 		}
+		*/
 		//CLOSE RANGE ABILITIES
 		else if (currentStates == CurrentStates.CRUSH) {
 			if (!abilityList[4].run_ability()) {
@@ -437,7 +433,7 @@ public class ObeliskBoss : Character {
 		}
 		else if (currentStates == CurrentStates.LASERWHEEL) {
 			if (animation.IsPlaying("laserlancestart")) {
-				transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+				transform.Rotate(Vector3.up * 50f * Time.deltaTime);
 			}
 			if (animation.IsPlaying("laserlanceloop")) {
 				if (lasermade == false) {
@@ -445,8 +441,8 @@ public class ObeliskBoss : Character {
 						 this.transform.rotation);
 					lasermade = true;
 				}
-				transform.Rotate(Vector3.down * 20f * Time.deltaTime);
-				laserbeam.transform.RotateAround(this.transform.position, Vector3.down, 20f * Time.deltaTime);
+				transform.Rotate(Vector3.down * 50f * Time.deltaTime);
+				laserbeam.transform.RotateAround(this.transform.position, Vector3.down, 50f * Time.deltaTime);
 			}
 			if (!animation.IsPlaying("laserlanceloop")) {
 				Destroy(laserbeam);
@@ -458,7 +454,6 @@ public class ObeliskBoss : Character {
 		}
         else if (currentStates == CurrentStates.MOVE)
         {
-            Debug.Log("Move phase started!");
             if (movePhaseCtr == 0)
                 move_phase_one();
             else if (movePhaseCtr == 1)

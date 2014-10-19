@@ -11,6 +11,7 @@ public struct IntroStorySequence
 
 public class IntroCutScene : MonoBehaviour {
     public Camera sceneCam;
+    public Camera GUICam;
     
 
 
@@ -27,6 +28,7 @@ public class IntroCutScene : MonoBehaviour {
     public SpriteRenderer pic2TextBox;
     public SpriteRenderer backgroundPicture;
     public TextMesh textAppearance;
+    public GameObject skipButton;
     float timeTracker = 0.0f;
     float timeTracker2 = 0.0f;
     float timePerCharacter;
@@ -107,16 +109,20 @@ public class IntroCutScene : MonoBehaviour {
         camPanMovement.z = 0.0f;
         timeTracker = Time.time + 0.5f;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
-        
         if (Input.touchCount > 0)
         {
-            touchCount++;
-            if (touchCount >= 1)
+            Vector3 touchPos = GUICam.ScreenToWorldPoint(Input.GetTouch(0).position);
+            RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f);
+            if (hitButton.collider != null)
             {
-                Application.LoadLevel("Overworld");
+                if (hitButton.collider.gameObject == skipButton)
+                {
+                    Application.LoadLevel("Cinematic_OP_1");
+                }
             }
         }
         
@@ -246,7 +252,7 @@ public class IntroCutScene : MonoBehaviour {
             else
             {
                 storyTextSequence = false;
-                Application.LoadLevel("Overworld");
+                Application.LoadLevel("Cinematic_OP_1");
             }
         }
 	}

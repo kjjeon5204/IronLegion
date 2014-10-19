@@ -482,7 +482,7 @@ public class EventControls : MonoBehaviour {
     public void initialize_script(PlayerMasterData input)
     {
         playerMasterData = input;
-        eventRecord = new PlayerDataReader(Application.persistentDataPath);
+        eventRecord = playerMasterData.access_player_event_record();
         Application.targetFrameRate = 60;
 		RenderSettings.skybox = curEngageData.skyBox;
         RenderSettings.fog = curEngageData.fogSettings.fogEnabled;
@@ -518,11 +518,11 @@ public class EventControls : MonoBehaviour {
         }
 		playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
-        if (eventRecord.check_event_played("ALLY_JONATHAN_UNLOCK"))
+        if (eventRecord.check_event_played("Battle_end_3"))
         {
             AllyDataList allyLoader = new AllyDataList();
             allyData = allyLoader.get_cur_equipped_ally();
-            string allyDataPath = "Tier" + allyData.tier
+            string allyDataPath = "Ally/Tier" + allyData.tier
                 + "/" + allyData.unitName;
             GameObject allyObjectLoad = (GameObject)Resources.Load(allyDataPath);
             if (allyObjectLoad != null)
@@ -557,8 +557,11 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
-                    //eventRecord.event_played(tempHolder.cutSceneID);
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
+                }
+                else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID)) {
+                    tempHolder.gameObject.SetActive(false);
                 }
             }
 
@@ -571,8 +574,12 @@ public class EventControls : MonoBehaviour {
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
-                    //eventRecord.event_played(tempHolder.cutSceneID);
+                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
+                }
+                else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID))
+                {
+                    tempHolder.gameObject.SetActive(false);
                 }
                 
             }

@@ -213,6 +213,7 @@ public class EquipControls : MonoBehaviour {
 			temp = inventory_to_switch.item_id;
 			inventory_to_switch.item_id = equipped_to_switch.item_id;
 			equipped_to_switch.item_id = temp;
+            Debug.Log("Newly Equipped: " + temp);
 			Item item_temp = new Item();
 			item_temp = item_inventory;
 			item_inventory = item_equipped;
@@ -224,14 +225,15 @@ public class EquipControls : MonoBehaviour {
 			
 			inventory.UpdateInventory();
 			inventory.UpdateEquipped();
-			current_stats.UpdateStats();
+
+            
 			swappable = false;
 			
 			highlight_item.transform.position = waiting.transform.position;
 			highlight_item.transform.parent = null;
 			highlight_equip.transform.position = waiting.transform.position;
 			highlight_equip.transform.parent = null;
-			
+            current_stats.UpdateStats();
 			ReloadDescription();
 		}
 	}
@@ -256,7 +258,7 @@ public class EquipControls : MonoBehaviour {
 	}
 	
 	public bool CheckSellable() {
-		if (item_inventory.itemID != "000000")
+		if (item_inventory != null && item_inventory.itemID != "000000")
 		return true;
 		
 		return false;

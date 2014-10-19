@@ -98,7 +98,7 @@ public class Androktasia : Character {
 	public override void manual_update () {
 		//Event Checker	
 		if (currentStates == CurrentStates.DROPSHIP) {
-			animation.Play("fightertomech");
+			animation.PlayQueued("fightertomech");
 			if (!animation.IsPlaying("fightertomech")){
 				currentStates = CurrentStates.IDLE;
 			}
@@ -109,7 +109,7 @@ public class Androktasia : Character {
 		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time && initialCDTracker < Time.time)) {
 			randomNum = Random.Range (1, 101);
 
-			if (curStats.hp < baseStats.hp * .90f && ultimateUsed == false) {
+			if (curStats.hp < baseStats.hp * .30f && ultimateUsed == false) {
 				currentStates = CurrentStates.ORBITINGLASER;
 				GameObject cautionObject = (GameObject)Instantiate(caution, this.transform.position,
 				                                                   this.transform.rotation);

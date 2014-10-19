@@ -300,6 +300,7 @@ public class CombatScript : MonoBehaviour {
         radarDisplay.SetActive(false);
 		upperRightFrame.SetActive(false);
 		enemyDisplay.SetActive (false);
+        changeStateEffect.gameObject.SetActive(false);
 	}
 
 	public void turn_on_combat_ui() {
@@ -320,6 +321,7 @@ public class CombatScript : MonoBehaviour {
         radarDisplay.SetActive(true);
 		upperRightFrame.SetActive(true);
 		enemyDisplay.SetActive (true);
+        changeStateEffect.gameObject.SetActive(true);
 	}
 
 	public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
@@ -330,11 +332,7 @@ public class CombatScript : MonoBehaviour {
 		endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
-        //Inventory myInventory = new Inventory();
-        //myInventory.load_inventory();
-        //myInventory.change_currency(creditReceived);
         playerMasterData.add_currency(creditReceived);
-        //myInventory.store_inventory();
         if (allyObject != null) {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);

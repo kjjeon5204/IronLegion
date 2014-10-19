@@ -578,7 +578,6 @@ public class MainChar : Character {
         lKneeExhaustScript.turn_off_booster();
         rLegExhaustScript.turn_off_booster();
         rKneeExhaustScript.turn_off_booster();
-        thrusterSound.enabled = true;
         if (previousMovement.z > 0)
         {
             LexhaustScript.turn_on_booster(previousMovement.z / totalDist);
@@ -606,7 +605,6 @@ public class MainChar : Character {
             rKneeExhaustScript.turn_on_booster(previousMovement.x / totalDist);
         }
         if (previousMovement.magnitude == 0) {
-            thrusterSound.enabled = false;
         }
     }
 
@@ -714,7 +712,8 @@ public class MainChar : Character {
     // Update is called once per frame
     public override void manual_update()
     {
-
+        if (!thrusterSound.isPlaying)
+            thrusterSound.Play();
         previousPos = transform.position;
 
         if (curBattleType == BattleType.BOSS && bossApproachPhase == true)

@@ -8,6 +8,9 @@ public class Button : MonoBehaviour {
 	
 	public bool beginClick;
 	public bool ignoreSpriteChanging;
+    public AudioSource beginClickSound;
+    public AudioSource endClickSound;
+
 	// Use this for initialization
 	void Start () {
 		button = GetComponent<SpriteRenderer>();
@@ -20,6 +23,9 @@ public class Button : MonoBehaviour {
 		beginClick = true;
 		if (!ignoreSpriteChanging)
 		button.sprite = buttonON;
+
+        if (beginClickSound != null)
+            beginClickSound.Play();
 	}
 	
 	void CanceledClick() {
@@ -35,6 +41,9 @@ public class Button : MonoBehaviour {
 			gameObject.SendMessage("Clicked",SendMessageOptions.DontRequireReceiver);
 			if (!ignoreSpriteChanging)
 			button.sprite = buttonOFF;
+
+            if (endClickSound != null)
+                endClickSound.Play();
 		}
 	}
 }

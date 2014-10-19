@@ -78,11 +78,12 @@ public class Character : MonoBehaviour
 
     GameObject characterFacing;
     public DropShip dropShipScript;
+    public AnimationClip dropAnimation;
 
     protected Vector3 movement = Vector3.zero;
     public bool modifyPath = false;
 
-    bool enemyReady = false;
+    protected bool enemyReady = false;
     public bool landCraftActive;
     public GameObject unitIndicatorRing;
 
@@ -463,6 +464,8 @@ public class Character : MonoBehaviour
                 {
                     animation.Play(hitAnimation.name);
                 }
+                if (curStats.hp < 0.0f)
+                    collider.enabled = false;
                 return damageDone;
             }
             else
@@ -590,10 +593,11 @@ public class Character : MonoBehaviour
             }
             else
             {
-
                 unit_successfully_landed();
                 Destroy(dropShipScript.gameObject);
             }
+            if (dropAnimation != null)
+                animation.Play(dropAnimation.name);
         }
         else
         {

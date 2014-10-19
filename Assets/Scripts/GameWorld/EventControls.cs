@@ -12,6 +12,7 @@ public class EngageData
     public float experience;
     public int lootableItemTier;
     public int creditReceived;
+    public int cogentumReceived;
     public GameObject playerStartPos;
 }
 

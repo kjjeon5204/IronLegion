@@ -22,7 +22,7 @@ public class BattleStory : MonoBehaviour {
 	public virtual void manual_start () {
         uiCam = GameObject.Find("Camera");
         cutSceneEndTime = Time.time + cutSceneDuration;
-        if (customCutsceneAudio != null)
+        if (customCutsceneAudio != null && customCutsceneAudio.isPlaying == false)
         {
             customCutsceneAudio.Play();
         }

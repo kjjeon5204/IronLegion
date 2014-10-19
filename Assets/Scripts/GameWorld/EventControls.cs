@@ -930,7 +930,6 @@ public class EventControls : MonoBehaviour {
                         if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
                         {
                             curEngageData.waveData[curWave].waveThemeMusic.Stop();
-                            waveRunData[curWave].thisStoryStart.customCutsceneAudio.Play();
                         }
                         else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
                         {
@@ -950,7 +949,6 @@ public class EventControls : MonoBehaviour {
                         if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
                         {
                             curEngageData.waveData[curWave].waveThemeMusic.Stop();
-                            waveRunData[curWave].thisStoryEnd.customCutsceneAudio.Play();
                         }
                         else if (curEngageData.waveData[curWave].waveThemeMusic.isPlaying == false)
                         {

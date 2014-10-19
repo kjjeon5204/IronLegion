@@ -703,6 +703,11 @@ public class CombatScript : MonoBehaviour {
         stateChangeTextMod = stateChangeText.GetComponent<UIStringModifier>();
         stateChangeTextMod.initialize_text("Blade\nAttack");
 
+        
+        //Radar resize
+        uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
+        texture_resize(radarDisplay, uiButtonSize);
+
         //Change target button size&place
         uiButtonSize = new Rect(0.0f, 0.55f, 0.3f, 0.45f);
         texture_resize(lowerLeftFrame, uiButtonSize);
@@ -724,10 +729,6 @@ public class CombatScript : MonoBehaviour {
         uiButtonSize = new Rect(0.37f, 0.0f, 0.3f, 0.15f);
         texture_resize(enemyDisplay, uiButtonSize);
         textModifier = enemyDistplayText.GetComponent<UIStringModifier>();
-
-        //Radar resize
-        uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
-        texture_resize(radarDisplay, uiButtonSize);
 
 
         debuffIconPool = new IList<IconPoolData>[debuffIcons.Length];

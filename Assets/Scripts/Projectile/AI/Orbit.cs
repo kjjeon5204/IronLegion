@@ -16,7 +16,7 @@ public class Orbit : MyProjectile {
 		point = 2.0f * transform.position - point;
 		transform.LookAt(point);
 	}
-
+	
 	void OnTriggerEnter (Collider hit) {	
 		if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner && 
 			hit.gameObject.tag != "Projectile" ) {

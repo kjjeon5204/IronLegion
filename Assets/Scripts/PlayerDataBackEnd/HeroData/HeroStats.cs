@@ -216,6 +216,7 @@ public class HeroStats{
 
     public Stats get_current_stats()
     {
+        Debug.Log("Get current stats!");
         return curStats;
     }
 	

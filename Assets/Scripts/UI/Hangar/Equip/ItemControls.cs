@@ -140,13 +140,13 @@ public class ItemControls : MonoBehaviour {
 		for (int i = 0; i < 5; i++)
 		{
 			if (i == 0)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
+			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemDictionary.get_item_data(ids[i]).gameObject,Item.ItemType.HEAD);
 			else if (i == 1)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.WEAPON);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
 			else if (i == 2)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.ARMOR);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
 			else if (i >= 3)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.CORE);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
 		}
 		UpdateEquipped();
 	}
@@ -160,15 +160,16 @@ public class ItemControls : MonoBehaviour {
 		for (int i = 0; i  < 5; i++)
 		{
 			ids[i] = equipped[i].GetComponent<EquippedSlot>().item_id;
-			
+            Debug.Log("Items equipped: " + ids[i]);
+
 			if (i == 0)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.HEAD);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.HEAD);
 			else if (i == 1)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.WEAPON);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.WEAPON);
 			else if (i == 2)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.ARMOR);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.ARMOR);
 			else if (i >= 3)
-			equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i],itemLibrary[ids[i]],Item.ItemType.CORE);
+                equipped[i].GetComponent<EquippedSlot>().SetItem(ids[i], itemDictionary.get_item_data(ids[i]).gameObject, Item.ItemType.CORE);
 		
 			equipped_item[i] = equipped[i].GetComponentInChildren<Item>();
 			stats.hp += equipped_item[i].hp;
@@ -179,7 +180,7 @@ public class ItemControls : MonoBehaviour {
 			stats.luck += (int)equipped_item[i].luck;
 			
 			stats.equipment[i] = ids[i];
-
+            Debug.Log("Saved hp: " + stats.hp);
             playerMasterData.save_hero_equip_data(stats);
 			//hero.save_data(stats);
 		}

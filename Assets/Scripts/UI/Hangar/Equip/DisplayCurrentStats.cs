@@ -7,7 +7,6 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	public HeroLevelData hero_info;
 	private Stats hero_stats;
-	private HeroStats hero;
 	private Stats item_stats;
 	
 	public GameObject[] equipped_slots;
@@ -48,7 +47,7 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		UpdateStats();
+		//UpdateStats();
 	}
 	
 	public void UpdateStats() {
@@ -56,7 +55,9 @@ public class DisplayCurrentStats : MonoBehaviour {
 		//hero_stats = hero_info.get_player_stat_all();
         PlayerMasterStat playerStat = hero_info.get_player_stat_all();
 		//item_stats = stat_controller.stats;
-		
+
+        Debug.Log("Refreshed Equipment: " + playerStat.equipment[1]);
+        Debug.Log("Refreshed hp: " + playerStat.hp);
 		level = playerStat.level;
 		cur_xp = playerStat.curExp;
 		tot_xp = playerStat.expRequired;

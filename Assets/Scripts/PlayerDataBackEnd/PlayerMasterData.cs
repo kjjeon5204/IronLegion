@@ -243,7 +243,7 @@ public class PlayerMasterData : MonoBehaviour {
             playerMasterStat.damage += myUpgradeStats.damage.statValue;
             playerMasterStat.energy += myUpgradeStats.energy.statValue;
         }
-
+        Debug.Log("Stat recalculated!");
         return playerMasterStat;
     }
 

@@ -44,6 +44,8 @@ public class Movement : MonoBehaviour {
     float duration;
     float timeTracker;
 
+    float phaseMaxDist;
+
 
     public void initialize_movement(string moevemntName, float dist, float veloctiy, Vector3 movementDirection,
         float targetDist) {
@@ -121,12 +123,15 @@ public class Movement : MonoBehaviour {
     {
         if (phasePlayed == false)
         {
+            curVelocity = 0.0f;
             phasePlayed = true;
             AnimationState accAnimation = animation[curMovement.animationClips[0].name];
             animation.CrossFade(curMovement.animationClips[0].name);
             accAnimation.speed = 0.5f;
             accAnimation.speed = 1.0f * (accAnimation.length * accAnimation.speed) / curMovement.accelerationTime;
             timeTracker = Time.time + curMovement.accelerationTime;
+            phaseMaxDist = (curVelocity * curMovement.accelerationTime + (1.0f / 2.0f) * curMovement.accelerationValue
+            * curMovement.accelerationTime * curMovement.accelerationTime);
         }
         else
         {
@@ -136,11 +141,15 @@ public class Movement : MonoBehaviour {
             }
         }
         curVelocity += (1.0f) * curMovement.accelerationValue * Time.deltaTime;
-        if (curCharacterScript.custom_translate(curMovement.movementDirection *
-            (curVelocity * Time.deltaTime + (1.0f / 2.0f) * curMovement.accelerationValue
-            * Time.deltaTime * Time.deltaTime)))
+        float accurateDist = (curVelocity * Time.deltaTime + (1.0f / 2.0f) * curMovement.accelerationValue
+            * Time.deltaTime * Time.deltaTime);
+        if (phaseMaxDist > accurateDist)
         {
-            return false;
+            transform.Translate(curMovement.movementDirection * accurateDist);
+        }
+        else
+        {
+            transform.Translate(curMovement.movementDirection * phaseMaxDist);
         }
         return true;
     }
@@ -227,34 +236,33 @@ public class Movement : MonoBehaviour {
         {
 
             decelerationTime = 1.0f * curVelocity / curMovement.decelerationValue;
-            //Debug.Log("Deceleration time: " + decelerationTime);
             animation.CrossFade(curMovement.animationClips[curMovement.animationClips.Length - 1].name, 0.1f);
             AnimationState accAnimation = animation[curMovement.animationClips[curMovement.animationClips.Length - 1].name];
             accAnimation.speed = 0.5f;
             accAnimation.speed = 1.0f * (accAnimation.speed * accAnimation.length) / decelerationTime;
-            //Debug.Log("Animation speed: " + accAnimation.speed);
+            phaseMaxDist =  ((decelerationTime * curVelocity)
+                    + (1.0f / 2.0f) * (-curMovement.decelerationValue) * decelerationTime * decelerationTime);
+            Debug.Log("Phase max dist on deceleration: " + phaseMaxDist);
             phasePlayed = true;
         }
         if (curVelocity > 0.0f)
         {
             float tempVelocityHolder = curVelocity;
             curVelocity -= (1.0f) * curMovement.decelerationValue * Time.deltaTime;
-            //float distanceTraveled = ((Time.deltaTime * curVelocity)
-            //    + (1.0f / 2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime);
+            float distanceTraveled = ((Time.deltaTime * curVelocity)
+                + (1.0f / 2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime);
+           
 
-            
-                curCharacterScript.custom_translate(curMovement.movementDirection * ((Time.deltaTime * curVelocity)
-                    + (1.0f / 2.0f) * (-curMovement.decelerationValue) * Time.deltaTime * Time.deltaTime));
-            
-            /*
+            if (phaseMaxDist > distanceTraveled && distanceTraveled > 0.0f)
+            {
+                transform.Translate(curMovement.movementDirection * distanceTraveled);
+            }
             else
             {
-                float accelerationTime = Mathf.Abs(1.0f * tempVelocityHolder / curMovement.decelerationValue);
-                float averageVelocity = tempVelocityHolder / accelerationTime;
-                curCharacterScript.custom_translate(curMovement.movementDirection * averageVelocity);
+                transform.Translate(curMovement.movementDirection * phaseMaxDist);
                 curVelocity = 0.0f;
             }
-             */ 
+            phaseMaxDist -= distanceTraveled;
         }
         else
         {

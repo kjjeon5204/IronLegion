@@ -17,10 +17,14 @@ public class Linear : MyProjectile {
             && hit.gameObject.tag == "Character" && hit.gameObject.tag != "Projectile")
         {
             hitEnemyScript.hit(damage, transform.position);
-
-            Debug.Log("Hit " + owner);
             if (detonation != null)
-                GameObject.Instantiate(detonation, transform.position, Quaternion.identity);
+            {
+                if (hitEnemyScript.can_receive_detonator())
+                {
+                    GameObject temp = (GameObject)Instantiate(detonation, transform.position, Quaternion.identity);
+                    temp.transform.parent = hit.gameObject.transform;
+                }   
+            }
             Destroy(gameObject);
 
         }

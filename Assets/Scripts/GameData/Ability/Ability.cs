@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum AttackTypes {
 	HITBOX,
@@ -21,6 +22,13 @@ public class CustomAbility {
     public int debuffIcon;
 	public AttackTypes attackType;
     public AbilityPhase[] abilityPhase;
+}
+
+[System.Serializable]
+public struct EffectControlData
+{
+    public AbilityEffectControl abilityEffect;
+    public int endPhase;
 }
 
 [System.Serializable]
@@ -49,7 +57,8 @@ public class AbilityPhase
     public GameObject muzzleEffects;
     public GameObject hitEffectAutoDeactivate;
     public float radius;
-    public GameObject[] effect;
+    public GameObject[] effect; //Deprecated
+    public EffectControlData[] effects;
     public bool isCancellable;
     public AudioSource phaseSound;
 
@@ -71,6 +80,7 @@ public class Ability : MonoBehaviour {
     float phaseDuration;
     float animationLength;
 	int currentTarget;
+    IList<AbilityEffectControl> myEffectControl = new List<AbilityEffectControl>();
 
 
     //Character main stat
@@ -118,12 +128,14 @@ public class Ability : MonoBehaviour {
         phaseCtr = 0;
         phasePlayed = false;
         myCharacter.curEnergy -= myData.energyUsage;
+        IList<AbilityEffectControl> myEffectControl = new List<AbilityEffectControl>();
         return true;
     }
 
     public void cancel_ability()
     {
         turn_effect_off();
+        turn_special_effect_off();
     }
 
 
@@ -301,6 +313,12 @@ public class Ability : MonoBehaviour {
     //Toggle effect
     bool effect_parser()
     {
+        foreach (EffectControlData curEffect in currentPhaseData.effects)
+        {
+            curEffect.abilityEffect.gameObject.SetActive(true);
+            curEffect.abilityEffect.enable_effect(curEffect.endPhase - 1);
+            myEffectControl.Add(curEffect.abilityEffect);
+        }
         foreach (GameObject curEffect in currentPhaseData.effect)
         {
             if (curEffect != null)
@@ -317,6 +335,17 @@ public class Ability : MonoBehaviour {
         return true;
     }
 
+    void update_effect()
+    {
+        for (int ctr = 0; ctr < myEffectControl.Count; ctr++)
+        {
+            if (myEffectControl[ctr].gameObject.activeInHierarchy == true)
+            {
+                myEffectControl[ctr].update_effect(phaseCtr);
+            }
+        }
+    }
+
     void turn_effect_off()
     {
         foreach (GameObject curEffect in currentPhaseData.effect)
@@ -328,6 +357,15 @@ public class Ability : MonoBehaviour {
         }
         if (currentPhaseData.phaseSound != null)
             currentPhaseData.phaseSound.Stop();
+    }
+
+    void turn_special_effect_off()
+    {
+        for (int ctr = 0; ctr < myEffectControl.Count; ctr++)
+        {
+            if (myEffectControl[ctr].gameObject.activeInHierarchy == true)
+                myEffectControl[ctr].gameObject.SetActive(false);
+        }
     }
     
     float calculate_distance(Transform object1, Transform object2)
@@ -396,6 +434,8 @@ public class Ability : MonoBehaviour {
     {
         if (phaseCtr >= myData.abilityPhase.Length)
         {
+            turn_effect_off();
+            turn_special_effect_off();
             return false;
         }
         else {
@@ -410,6 +450,8 @@ public class Ability : MonoBehaviour {
 
             character_self_buff_parser();
 
+
+            update_effect();
             effect_parser();
 
             if (currentPhaseData.isMoving == true)
@@ -474,10 +516,13 @@ public class Ability : MonoBehaviour {
                     phasePlayed = false;
                 }
             }
+            //turn_effect_off();
             return true;
         }
         else
         {
+            turn_effect_off();
+            turn_special_effect_off();
             return false;
         }
     }

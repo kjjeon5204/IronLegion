@@ -73,7 +73,7 @@ public class AllyBasicShooterType1 : BaseAlly {
         else if (curState == UnitState.ATTACK)
         {
             if (attackStatePhase == 0) {
-                if (!custom_look_at(target.transform.position)) {
+                if (target != null && !custom_look_at(target.transform.position)) {
                     attackStatePhase++;
                     phasePlayed = false;
                 }
@@ -96,7 +96,7 @@ public class AllyBasicShooterType1 : BaseAlly {
             }
             if (attackStatePhase == 2)
             {
-                if (phasePlayed == false)
+                if (phasePlayed == false && targetScript != null)
                 {
                     targetScript.hit(curStats.damage * 0.15f);
                     animation.Play(attackFirePhase.name);

@@ -153,17 +153,21 @@ public class DelayedMissile : MyProjectile
 
     void OnTriggerEnter(Collider hit)
     {
-        if (hit.gameObject.tag != "Boundary" && hit.collider.gameObject != owner
-            && hit.gameObject.tag != "Projectile")
+        Character hitEnemyScript = hit.gameObject.GetComponent<Character>();
+        if (hit.gameObject.tag != "Boundary" && hit.gameObject != owner
+            && hit.gameObject.tag == "Character" && hit.gameObject.tag != "Projectile")
         {
-
-            if (hit.gameObject.tag == "Character")
-                hit.gameObject.GetComponent<Character>().hit(damage, transform.position);
-
+            hitEnemyScript.hit(damage, transform.position);
             if (detonation != null)
-                GameObject.Instantiate(detonation, transform.position, Quaternion.identity);
-            Debug.Log("Hit gameobject: " + hit.gameObject);
+            {
+                if (hitEnemyScript.can_receive_detonator())
+                {
+                    GameObject temp = (GameObject)Instantiate(detonation, transform.position, Quaternion.identity);
+                    temp.transform.parent = hit.gameObject.transform;
+                }
+            }
             Destroy(gameObject);
+
         }
     }
 

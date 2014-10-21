@@ -38,11 +38,10 @@ public class AerialType2Fighter : Character {
 
     FighterState currentState;
 
-    public override void manual_start()
-    {
+    bool flightPathCalculated = false;
 
-        base.manual_start();
-        startingHeightVal = transform.position.y;
+    public void calculate_flight_path()
+    {
         float verticalCamFulstrum = Camera.main.fieldOfView;
         float distanceToNearPlane = 1.0f / Mathf.Tan(verticalCamFulstrum / 2.0f);
         horizontalCamFulstrum = Mathf.Abs(Mathf.Rad2Deg * Mathf.Atan
@@ -52,11 +51,29 @@ public class AerialType2Fighter : Character {
         leftApproachPoint = new Vector3(-40.0f * Mathf.Cos(horizontalCamFulstrum), 0.0f, 40.0f);
         rightPassPoint = new Vector3(rightApproachPoint.x + 3.0f, 0.0f, -20.0f);
         leftPassPoint = new Vector3(leftApproachPoint.x - 3.0f, 0.0f, -20.0f);
+    }
+
+    public override void manual_start()
+    {
+
+        base.manual_start();
+        startingHeightVal = transform.position.y;
+        if (Camera.main != null)
+        {
+            calculate_flight_path();
+            flightPathCalculated = true;
+        }
         currentState = FighterState.FLIGHT_PATH1;
     }
 
     public override void manual_update()
     {
+        if (flightPathCalculated == false)
+        {
+            calculate_flight_path();
+            flightPathCalculated = true;
+        }
+
         //base.manual_update();
         Vector3 curRelativePos = target.transform.InverseTransformPoint(transform.position);
         float relativeAngleToPlayer = Vector3.Angle(Vector3.forward, curRelativePos);

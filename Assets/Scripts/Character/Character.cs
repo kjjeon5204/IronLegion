@@ -88,11 +88,21 @@ public class Character : MonoBehaviour
     public GameObject unitIndicatorRing;
 
     Vector3 aiPreviousPos;
+    public int startingChildCount;
 
 
     protected int initLevel;
 
     CollisionTypes collisionStatus;
+
+    public bool can_receive_detonator()
+    {
+        if (transform.childCount < startingChildCount + 3)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public void set_level(int level)
     {
@@ -457,8 +467,11 @@ public class Character : MonoBehaviour
                 }
                 curStats.hp -= (int)damageDone;
 
-                if (detonatorFlinch != null)
-                    Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
+                if (detonatorFlinch != null && transform.childCount < startingChildCount + 5)
+                {
+                    //GameObject temp = (GameObject)Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
+                    //temp.transform.parent = gameObject.transform;
+                }
 
                 if (hitAnimation != null)
                 {
@@ -576,6 +589,7 @@ public class Character : MonoBehaviour
 	 use this function instead.*/
 	public virtual void manual_start() 
     {
+        startingChildCount = transform.childCount;
         characterDebuffScript = this.GetComponent<Debuff>();
         if (characterDebuffScript == null)
         {

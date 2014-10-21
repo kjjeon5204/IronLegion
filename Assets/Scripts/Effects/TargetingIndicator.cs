@@ -23,8 +23,6 @@ public class TargetingIndicator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Target Size: " + targetScale);
-        Debug.Log("Current Size: " + transform.localScale);
         if (transform.localScale.x > targetScale.x)
         {
             transform.localScale -= changeRate * (new Vector3(1.0f, 1.0f, 0.0f)) * Time.deltaTime;

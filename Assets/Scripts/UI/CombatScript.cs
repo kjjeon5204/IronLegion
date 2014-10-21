@@ -826,11 +826,13 @@ public class CombatScript : MonoBehaviour {
         {
             if (exitType == 0)
             {
+                endGameWindow.SetActive(false);
                 loadingScreen.SetActive(true);
                 Application.LoadLevel("Overworld");
             }
             if (exitType == 1)
             {
+                endGameWindow.SetActive(false);
                 loadingScreen.SetActive(true);
                 Application.LoadLevel("BattleScene");
             }

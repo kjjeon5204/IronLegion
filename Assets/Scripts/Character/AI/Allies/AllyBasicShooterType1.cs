@@ -52,14 +52,12 @@ public class AllyBasicShooterType1 : BaseAlly {
             curState = UnitState.ATTACK;
         }
 
-        Debug.Log("Unit state: " + curState);
 
         //State maintenance
         if (curState == UnitState.IDLE)
         {
             if (idleAnimation != null)
                 animation.Play(idleAnimation.name);
-            Debug.Log("Currently in idle state!");
         }
         else if (curState == UnitState.MOVING)
         {

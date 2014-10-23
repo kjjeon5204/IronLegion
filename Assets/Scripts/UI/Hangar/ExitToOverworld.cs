@@ -5,6 +5,6 @@ public class ExitToOverworld : MonoBehaviour {
 
 	// Use this for initialization
 	void Clicked() {
-		Application.LoadLevel(0);
+		Application.LoadLevel("Overworld");
 	}
 }

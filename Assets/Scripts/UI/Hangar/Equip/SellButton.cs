@@ -14,6 +14,7 @@ public class SellButton : MonoBehaviour {
 	public DisplayCurrentStats current_stats;
     public GameObject sellCam;
     public GameObject equipBlinder;
+    public GameObject sellConfirmCam;
 	
 	private string start_color = "<color=#ccfcff>";
 	private string end_color = "</color>";
@@ -47,9 +48,11 @@ public class SellButton : MonoBehaviour {
 		total_credits.text = "You now have "+current_stats.GetCurrency()+" credits";
         sellCam.SetActive(false);
         equipBlinder.SetActive(false);
+        sellConfirmCam.SetActive(true);
     }
 	
 	public void FinishSell() {
 		display.transform.position = waiting.transform.position;
+        sellConfirmCam.SetActive(false);
 	}
 }

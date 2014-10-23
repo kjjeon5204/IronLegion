@@ -132,17 +132,20 @@ public class Movement : MonoBehaviour {
             timeTracker = Time.time + curMovement.accelerationTime;
             phaseMaxDist = (curVelocity * curMovement.accelerationTime + (1.0f / 2.0f) * curMovement.accelerationValue
             * curMovement.accelerationTime * curMovement.accelerationTime);
+            maxVelocity = curMovement.accelerationTime * curMovement.accelerationValue;
         }
-        else
+        else if (Time.time > timeTracker || curVelocity >= maxVelocity)
         {
-            if (Time.time > timeTracker) {
-                phasePlayed = false;
-                phaseCtr++;
-            }
+           phasePlayed = false;
+           phaseCtr++;
         }
-        curVelocity += (1.0f) * curMovement.accelerationValue * Time.deltaTime;
-        float accurateDist = (curVelocity * Time.deltaTime + (1.0f / 2.0f) * curMovement.accelerationValue
-            * Time.deltaTime * Time.deltaTime);
+        curVelocity += ((1.0f) * curMovement.accelerationValue * Time.deltaTime);
+        if (curVelocity > maxVelocity)
+        {
+            curVelocity = maxVelocity;
+        }
+        float accurateDist = (curVelocity * Time.deltaTime)/* + (1.0f / 2.0f) * curMovement.accelerationValue
+            * Time.deltaTime * Time.deltaTime)*/;
         if (phaseMaxDist > accurateDist)
         {
             transform.Translate(curMovement.movementDirection * accurateDist);
@@ -150,7 +153,9 @@ public class Movement : MonoBehaviour {
         else
         {
             transform.Translate(curMovement.movementDirection * phaseMaxDist);
+            
         }
+        phaseMaxDist -= accurateDist;
         return true;
     }
 
@@ -242,7 +247,6 @@ public class Movement : MonoBehaviour {
             accAnimation.speed = 1.0f * (accAnimation.speed * accAnimation.length) / decelerationTime;
             phaseMaxDist =  ((decelerationTime * curVelocity)
                     + (1.0f / 2.0f) * (-curMovement.decelerationValue) * decelerationTime * decelerationTime);
-            Debug.Log("Phase max dist on deceleration: " + phaseMaxDist);
             phasePlayed = true;
         }
         if (curVelocity > 0.0f)

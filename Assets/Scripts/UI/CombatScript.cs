@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public struct TutorialData {
+public struct TutorialData
+{
     public bool abilityActive;
     public bool dodgeActive;
     public bool switchStateActive;
@@ -11,16 +12,18 @@ public struct TutorialData {
 
 
 
-public class CombatScript : MonoBehaviour {
+public class CombatScript : MonoBehaviour
+{
     public struct IconPoolData
     {
         public GameObject icon;
         public bool isUse;
     }
 
-    
 
-    public struct TutorialProgress {
+
+    public struct TutorialProgress
+    {
 
     }
 
@@ -51,15 +54,13 @@ public class CombatScript : MonoBehaviour {
     public TextMesh enemyArmor;
     public GameObject enemyDebuffIconHolder;
 
-    public GameObject resetPlayerPos;
 
     public GameObject radarDisplay;
 
-    public GameObject targetIndicator;
 
 
-	public GameObject endGameWindow;
-	public EndBattleLogic endGameScript;
+    public GameObject endGameWindow;
+    public EndBattleLogic endGameScript;
 
     public GameObject pauseGameMenu;
     public GameObject endGame;
@@ -98,13 +99,9 @@ public class CombatScript : MonoBehaviour {
 
     IList<IconPoolData>[] debuffIconPoolPlayer;
 
-    public GameObject abilityTutorial;
-    public GameObject dodgeTutorial;
-    public GameObject stateTutorial;
 
-    TutorialData tutorialData;
+
     bool tutorialActive = false;
-    int tutorialStage = 0;
 
     bool gamePaused = false;
     public GameObject lowEnergyWarning;
@@ -121,18 +118,22 @@ public class CombatScript : MonoBehaviour {
 
     bool screenFader = false;
     int exitType;
+    bool combatUIEnabled = true;
     //0 = overworld
     //1 = retry
     public ScreenFader screenFadeScript;
 
     public ChangeStateTextEffect changeStateEffect;
 
+    public GameObject closeRangeIndicator;
+    public GameObject farRangeIndicator;
+
 
     public void activate_low_energy()
     {
         lowEnergyWarning.SetActive(true);
     }
-  
+
     public void initialize_buttons()
     {
         AbilityButton buttonAccess;
@@ -142,7 +143,7 @@ public class CombatScript : MonoBehaviour {
             buttonAccess.eventControlObject = eventControlObject;
             if (mainCharacter.abilityNames[ctr] != null && mainCharacter.abilityNames[ctr] != "EMPTY")
             {
-				Debug.Log ("Ability Name: " + mainCharacter.abilityNames[ctr]);
+                Debug.Log("Ability Name: " + mainCharacter.abilityNames[ctr]);
                 float coolDown = mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.cooldown;
                 if (mainCharacter.abilityDictionary[mainCharacter.abilityNames[ctr]].myData.startCooldown)
                 {
@@ -158,7 +159,7 @@ public class CombatScript : MonoBehaviour {
                 buttonAccess.initialize_button(null, 0.0f, 0.0f);
             }
         }
-        for (int ctr = 4; ctr < 8; ctr ++)
+        for (int ctr = 4; ctr < 8; ctr++)
         {
             buttonAccess = rangeSkillSlots[ctr - 4].GetComponent<AbilityButton>();
             buttonAccess.eventControlObject = eventControlObject;
@@ -181,38 +182,10 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
-    public void activate_tutorial_mode()
-    {
-        tutorialActive = true;
-        tutorialData.abilityActive = false;
-        tutorialData.dodgeActive = false;
-        tutorialData.switchStateActive = false;
-    }
 
 
-    public void activate_skill_button_tutorial(bool switchInput)
-    {
-        abilityTutorial.SetActive(switchInput);
-        if (switchInput)
-            tutorialActive = true;
-        else tutorialActive = false;
-    }
 
-    public void activate_left_right_dodge_tutorial(bool switchInput)
-    {
-        dodgeTutorial.SetActive(switchInput);
-        if (switchInput)
-            tutorialActive = true;
-        else tutorialActive = false;
-    }
 
-    public void activate_state_tutorial(bool switchInput)
-    {
-        stateTutorial.SetActive(switchInput);
-        if (switchInput)
-            tutorialActive = true;
-        else tutorialActive = false;
-    }
 
 
     void activate_button_shockwave(AbilityButton[] myAbility)
@@ -241,11 +214,11 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
-    
+
 
     public void initialize_script()
     {
-        
+
         eventControlScript = eventControlObject.GetComponent<EventControls>();
         mainCharacter = eventControlScript.playerScript;
 
@@ -258,7 +231,7 @@ public class CombatScript : MonoBehaviour {
             disable_ability_button(rangeSkillSlots);
         }
         main3DCam = GameObject.Find("Main Camera");
-        
+
         isInitialized = true;
     }
 
@@ -267,7 +240,8 @@ public class CombatScript : MonoBehaviour {
     {
         for (int ctr = 1; ctr < iconList.Count; ctr++)
         {
-            if (iconList[ctr].isUse == false) {
+            if (iconList[ctr].isUse == false)
+            {
                 return ctr;
             }
         }
@@ -276,8 +250,6 @@ public class CombatScript : MonoBehaviour {
 
     public void turn_off_buff_icon(int buffType, int buffSlot)
     {
-        Debug.Log("buffType: " + buffType + " " + debuffIconPool.Length);
-        Debug.Log("buffSlot: " + buffSlot + " " + debuffIconPool[buffType].Count);
         if (buffType >= debuffIconPool.Length || buffSlot >= debuffIconPool[buffType].Count
             || buffType < 0 || buffSlot < 0)
             return;
@@ -293,19 +265,23 @@ public class CombatScript : MonoBehaviour {
         loadingScreen.SetActive(true);
     }
 
-	public void turn_off_combat_ui() {
-		lowerLeftFrame.SetActive(false);
-		lowerRightFrame.SetActive(false);
-		hpBar.SetActive(false);
+    public void turn_off_combat_ui()
+    {
+        combatUIEnabled = false;
+        lowerLeftFrame.SetActive(false);
+        lowerRightFrame.SetActive(false);
+        hpBar.SetActive(false);
         radarDisplay.SetActive(false);
-		upperRightFrame.SetActive(false);
-		enemyDisplay.SetActive (false);
+        upperRightFrame.SetActive(false);
+        enemyDisplay.SetActive(false);
         changeStateEffect.gameObject.SetActive(false);
-	}
+    }
 
-	public void turn_on_combat_ui() {
-		lowerLeftFrame.SetActive(true);
-		lowerRightFrame.SetActive(true);
+    public void turn_on_combat_ui()
+    {
+        combatUIEnabled = true;
+        lowerLeftFrame.SetActive(true);
+        lowerRightFrame.SetActive(true);
 
         if (mainCharacter.isClose == true)
         {
@@ -319,21 +295,23 @@ public class CombatScript : MonoBehaviour {
         }
         hpBar.SetActive(true);
         radarDisplay.SetActive(true);
-		upperRightFrame.SetActive(true);
-		enemyDisplay.SetActive (true);
+        upperRightFrame.SetActive(true);
+        enemyDisplay.SetActive(true);
         changeStateEffect.gameObject.SetActive(true);
-	}
+    }
 
-	public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
-        bool battleWon, int itemTier, AllyData allyData, Character allyObject) {
+    public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
+        bool battleWon, int itemTier, AllyData allyData, Character allyObject)
+    {
         battleStopped = true;
         turn_off_combat_ui();
         Debug.Log("Activate end game window");
-		endGameWindow.SetActive(true);
+        endGameWindow.SetActive(true);
         endGameScript.initializeData(creditReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
         playerMasterData.add_currency(creditReceived);
-        if (allyObject != null) {
+        if (allyObject != null)
+        {
             float experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);
             float unitExperience = allyData.exp;
@@ -348,7 +326,7 @@ public class CombatScript : MonoBehaviour {
             AllyDataList tempList = new AllyDataList();
             tempList.save_equipped_ally_data(allyData);
         }
-	}
+    }
 
     public void disable_all_icon(Debuff targetDebuffScript)
     {
@@ -414,7 +392,7 @@ public class CombatScript : MonoBehaviour {
                 debuffIconPool[typeAcc][buffSlotAcc].icon.SetActive(true);
                 debuffIconPool[typeAcc][buffSlotAcc].icon.transform.localPosition = position;
             }
-            position.x += 3.0f;
+            position.x += 0.15f;
         }
     }
 
@@ -442,7 +420,7 @@ public class CombatScript : MonoBehaviour {
                 {
                     Debug.Log("Create Debuff Icon");
                     IconPoolData temp;
-                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon, 
+                    temp.icon = (GameObject)Instantiate(debuffIconPool[typeAcc][0].icon,
                         Vector3.zero, Quaternion.identity);
                     temp.icon.transform.parent = enemyDebuffIconHolder.transform;
                     temp.icon.transform.localPosition = position;
@@ -470,12 +448,54 @@ public class CombatScript : MonoBehaviour {
                     debuffIconPool[typeAcc][buffSlotAcc].icon.SetActive(true);
                 debuffIconPool[typeAcc][buffSlotAcc].icon.transform.localPosition = position;
             }
-            position.x += 3.0f;
+            position.x += 0.15f;
+        }
+    }
+
+    void input_commands_noncombat(Touch acc)
+    {
+        int layerMask = 1 << 9;
+        Vector3 touchPos = GUICam.ScreenToWorldPoint(acc.position);
+        RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
+        if (hitButton.collider != null)
+        {
+            if (hitButton.collider.gameObject == pauseButton && acc.phase == TouchPhase.Ended)
+            {
+                if (gamePaused == false)
+                {
+                    turn_off_combat_ui();
+                    pauseGameMenu.SetActive(true);
+                    eventControlScript.pause_game();
+                    gamePaused = true;
+                }
+            }
+            else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
+            {
+                eventControlScript.unpause_game();
+                Application.LoadLevel("Overworld");
+            }
+            else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
+            {
+                turn_on_combat_ui();
+                pauseGameMenu.SetActive(false);
+                eventControlScript.unpause_game();
+                gamePaused = false;
+            }
+            else if (hitButton.collider.gameObject == retryButton)
+            {
+                screenFader = true;
+                exitType = 1;
+            }
+            else if (hitButton.collider.gameObject == overworldButton)
+            {
+                screenFader = true;
+                exitType = 0;
+            }
         }
     }
 
 
-    void input_commands(Touch acc)
+    void input_commands_combat(Touch acc)
     {
         AbilityButton pressAbilityButton;
         int layerMask = 1 << 9;
@@ -483,8 +503,8 @@ public class CombatScript : MonoBehaviour {
         RaycastHit2D hitButton = Physics2D.Raycast(touchPos, Vector3.forward, 100.0f, layerMask);
         if (hitButton.collider != null)
         {
-            Debug.Log("Button " + hitButton.collider.name + "pressed!");
             //Combat related input
+            //Regular attacks
             if (hitButton.collider.name == skillButtons.name && mainCharacter.player_input_ready().attackAvailable
                 && gamePaused == false)
             {
@@ -524,39 +544,14 @@ public class CombatScript : MonoBehaviour {
                 }
                 if (mainCharacter.isClose == false)
                 {
-                    if (mainCharacter.abilityDictionary["SHOULDER_GUN_ATTACK"].initialize_ability()) 
+                    if (mainCharacter.abilityDictionary["SHOULDER_GUN_ATTACK"].initialize_ability())
                     {
                         mainCharacter.curState = "SHOULDER_GUN_ATTACK";
                     }
                 }
             }
-            else if (hitButton.collider.name == resetPlayerPos.name && acc.phase == TouchPhase.Ended)
-            {
-                mainCharacter.reset_player_pos();
-            }
-            else if (hitButton.collider.gameObject == pauseButton && acc.phase == TouchPhase.Ended)
-            {
-                if (gamePaused == false)
-                {
-                    turn_off_combat_ui();
-                    pauseGameMenu.SetActive(true);
-                    eventControlScript.pause_game();
-                    gamePaused = true;
-                }
-            }
-            else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
-            {
-                eventControlScript.unpause_game();
-                Application.LoadLevel("Overworld");
-            }
-            else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
-            {
-                turn_on_combat_ui();
-                pauseGameMenu.SetActive(false);
-                eventControlScript.unpause_game();
-                gamePaused = false;
-            }
-            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready().attackAvailable && 
+            //Ability
+            else if (hitButton.collider.tag == "AbilityButton" && mainCharacter.player_input_ready().attackAvailable &&
                 gamePaused == false)
             {
                 pressAbilityButton = hitButton.collider.gameObject.GetComponent<AbilityButton>();
@@ -567,28 +562,18 @@ public class CombatScript : MonoBehaviour {
                     pressAbilityButton.button_pressed();
                 }
             }
+            //Change target
             else if (hitButton.collider.gameObject == changeTargetButton && acc.phase == TouchPhase.Ended
                      && mainCharacter.player_input_ready().attackAvailable && gamePaused == false)
             {
                 changeTargetShock.activate_button();
                 mainCharacter.get_next_target();
             }
+
             //*****************************
             //*******End battle Inputs*****
             //*****************************
 
-            else if (hitButton.collider.gameObject == retryButton )
-            {
-                screenFader = true;
-                exitType = 1;
-                //Application.LoadLevel(2);
-            }
-            else if (hitButton.collider.gameObject == overworldButton)
-            {
-                screenFader = true;
-                exitType = 0;
-               // Application.LoadLevel(0);
-            }
         }
         else
         {
@@ -624,7 +609,8 @@ public class CombatScript : MonoBehaviour {
                             mainCharacter.rKneeExhaustScript.instant_thruster(3.5f);
                             mainCharacter.rLegExhaustScript.instant_thruster(3.5f);
                         }
-                        else {
+                        else
+                        {
                             activate_low_energy();
                         }
                     }
@@ -635,8 +621,8 @@ public class CombatScript : MonoBehaviour {
                     mainCharacter.curEnergy -= 10.0f;
                     if (mainCharacter.isClose == true && curRecord.y < 0.0f)
                     {
-
-                        changeStateEffect.initialize_state_change_sequence();
+                        changeStateEffect.gameObject.SetActive(true);
+                        changeStateEffect.initialize_state_change_sequence(false);
                         mainCharacter.cancel_player_ability();
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Phaser\nAttack");
@@ -649,10 +635,10 @@ public class CombatScript : MonoBehaviour {
                             curPlayerState.change_state_text("Far");
 
                     }
-                    else if (mainCharacter.isClose == false && curRecord.y > 0.0f) 
+                    else if (mainCharacter.isClose == false && curRecord.y > 0.0f)
                     {
-
-                        changeStateEffect.initialize_state_change_sequence();
+                        changeStateEffect.gameObject.SetActive(true);
+                        changeStateEffect.initialize_state_change_sequence(true);
                         mainCharacter.cancel_player_ability();
                         mainCharacter.turn_off_effect();
                         stateChangeTextMod.initialize_text("Blade\nAttack");
@@ -673,7 +659,7 @@ public class CombatScript : MonoBehaviour {
         }
     }
 
-    
+
 
     void texture_resize(GameObject target, Rect targetSize)
     {
@@ -688,46 +674,46 @@ public class CombatScript : MonoBehaviour {
         float yScale = targetSize.height / curSize.y;
         Vector3 scaleFactor = new Vector3(xScale, yScale, 1.0f);
         target.transform.localScale = Vector3.Scale(target.transform.localScale, scaleFactor);
-        //Debug.Log(scaleFactor);
     }
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         GUICam = this.GetComponent<Camera>();
-        
+
 
         //skillBottons size&place
-        Rect uiButtonSize = new Rect(0.7f, 0.55f, 0.3f, 0.45f);
-        texture_resize(lowerRightFrame, uiButtonSize);
+        //Rect uiButtonSize = new Rect(0.7f, 0.55f, 0.3f, 0.45f);
+        //texture_resize(lowerRightFrame, uiButtonSize);
         stateChangeTextMod = stateChangeText.GetComponent<UIStringModifier>();
         stateChangeTextMod.initialize_text("Blade\nAttack");
 
-        
+
         //Radar resize
-        uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
-        texture_resize(radarDisplay, uiButtonSize);
+        //uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
+        //texture_resize(radarDisplay, uiButtonSize);
 
         //Change target button size&place
-        uiButtonSize = new Rect(0.0f, 0.55f, 0.3f, 0.45f);
-        texture_resize(lowerLeftFrame, uiButtonSize);
+        //uiButtonSize = new Rect(0.0f, 0.55f, 0.3f, 0.45f);
+        //texture_resize(lowerLeftFrame, uiButtonSize);
         textModifier = changeTargetText.GetComponent<UIStringModifier>();
         textModifier.initialize_text("Change\nTarget");
 
         //Change hp bar size&place
-        uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.135f);
-        texture_resize(hpBar, uiButtonSize);
+        //uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.135f);
+        //texture_resize(hpBar, uiButtonSize);
 
 
         //Change pause button size&place
-        uiButtonSize = new Rect(0.7f, 0.01f, 0.3f, 0.45f);
-        texture_resize(upperRightFrame, uiButtonSize);
+        //uiButtonSize = new Rect(0.7f, 0.01f, 0.3f, 0.45f);
+        //texture_resize(upperRightFrame, uiButtonSize);
         textModifier = pauseButtonText.GetComponent<UIStringModifier>();
         textModifier.initialize_text("Pause");
 
         //Change enemy display
-        uiButtonSize = new Rect(0.37f, 0.0f, 0.3f, 0.15f);
-        texture_resize(enemyDisplay, uiButtonSize);
+        //uiButtonSize = new Rect(0.37f, 0.0f, 0.3f, 0.15f);
+        //texture_resize(enemyDisplay, uiButtonSize);
         textModifier = enemyDistplayText.GetComponent<UIStringModifier>();
 
 
@@ -740,14 +726,11 @@ public class CombatScript : MonoBehaviour {
             debuffIconPool[ctr] = new List<IconPoolData>();
             debuffIconPool[ctr].Add(temp);
         }
-		endGameScript = endGameWindow.GetComponent<EndBattleLogic>();
-		endGameWindow.SetActive(false);
+        endGameScript = endGameWindow.GetComponent<EndBattleLogic>();
+        endGameWindow.SetActive(false);
 
 
-        abilityTutorial.SetActive(false);
-        dodgeTutorial.SetActive(false);
-        stateTutorial.SetActive(false);
-        resetPlayerPos.SetActive(false);
+
         pauseGameMenu.SetActive(false);
 
         lowEnergyWarning.SetActive(false);
@@ -764,21 +747,39 @@ public class CombatScript : MonoBehaviour {
         {
             farRangeButtons[ctr] = rangeSkillSlots[ctr].GetComponent<AbilityButton>();
         }
-	}
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (isInitialized && tutorialActive == false)
+        if (isInitialized && tutorialActive == false && battleStopped == false)
         {
             for (int ctr = 0; ctr < Input.touchCount; ctr++)
             {
-                input_commands(Input.GetTouch(ctr));
+                input_commands_combat(Input.GetTouch(ctr));
+            }
+        }
+
+        if (isInitialized == true && tutorialActive == false)
+        {
+            for (int ctr = 0; ctr < Input.touchCount; ctr++)
+            {
+                input_commands_noncombat(Input.GetTouch(ctr));
             }
         }
 
         if (battleStopped == false && mainCharacter != null)
         {
+            if (mainCharacter.isClose == true)
+            {
+                closeRangeIndicator.SetActive(true);
+                farRangeIndicator.SetActive(false);
+            }
+            else
+            {
+                closeRangeIndicator.SetActive(false);
+                farRangeIndicator.SetActive(true);
+            }
             float playerHP = 1.0f * mainCharacter.return_cur_stats().hp / mainCharacter.return_base_stats().hp;
             if (playerHP < 0.0f)
             {
@@ -804,7 +805,7 @@ public class CombatScript : MonoBehaviour {
             //update energy bar
             if (mainCharacter.gameObject != null)
             {
-                
+
                 int bar = (int)(mainCharacter.energyPercentage * energyBar.Length);
                 for (int ctr = 0; ctr < energyBar.Length; ctr++)
                 {
@@ -812,7 +813,7 @@ public class CombatScript : MonoBehaviour {
                         energyBar[ctr].SetActive(true);
                     else energyBar[ctr].SetActive(false);
                 }
-                 
+
             }
             if (mainCharacter.target != null)
                 modify_enemy_buff();
@@ -840,7 +841,8 @@ public class CombatScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            changeStateEffect.initialize_state_change_sequence();
+            changeStateEffect.gameObject.SetActive(true);
+            changeStateEffect.initialize_state_change_sequence(mainCharacter.isClose);
         }
-	}
+    }
 }

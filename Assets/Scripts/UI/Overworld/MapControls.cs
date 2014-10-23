@@ -140,6 +140,7 @@ public class MapControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			ChangeCameraPosition(new Vector2(1f,0));
@@ -156,8 +157,7 @@ public class MapControls : MonoBehaviour {
 		{
 			ChangeCameraPosition(new Vector2(0,1f));
 		}
-
-        PC_Update();
+        //PC_Update();
 
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
@@ -217,13 +217,18 @@ public class MapControls : MonoBehaviour {
 	}
 	
 	public void ChangeCameraPosition(Vector2 change) {
-		Vector3 moveX = Camera.main.ScreenToWorldPoint(new Vector3(change.x*-2f,0,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
-		Vector3 moveY = Camera.main.ScreenToWorldPoint(new Vector3(0,change.y*-2f,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
+        
+		//Vector3 moveX = Camera.main.ScreenToWorldPoint(new Vector3(change.x*-2f,0,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
+		//Vector3 moveY = Camera.main.ScreenToWorldPoint(new Vector3(0,change.y*-2f,0))-Camera.main.ScreenToWorldPoint(new Vector3(0,0,0));
 		
+
+        Vector3 moveX = new Vector3(change.x, 0.0f, 0.0f) * - 2.5f * Time.deltaTime;
+        Vector3 moveY = new Vector3(0.0f, change.y, 0.0f) * - 2.5f * Time.deltaTime;
+
 		if ( ((change.x < 0f && !rightBound) || (change.x > 0f && !leftBound)) && !WillGoOutOfMap(moveX))
-		Camera.main.transform.position = Camera.main.transform.position+moveX;
+		Camera.main.transform.position = Camera.main.transform.position + moveX;
 		if ( ((change.y < 0f && !topBound) || (change.y > 0f && !botBound)) && !WillGoOutOfMap(moveY))
-		Camera.main.transform.position = Camera.main.transform.position+moveY;
+		Camera.main.transform.position = Camera.main.transform.position + moveY;
 	}
 	
 	void Zoom(Touch t1, Touch t2) {

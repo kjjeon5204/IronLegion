@@ -121,7 +121,7 @@ public class IntroCutScene : MonoBehaviour {
             {
                 if (hitButton.collider.gameObject == skipButton)
                 {
-                    Application.LoadLevel("Cinematic_OP_1");
+                    Application.LoadLevel("Overworld");
                 }
             }
         }
@@ -252,7 +252,7 @@ public class IntroCutScene : MonoBehaviour {
             else
             {
                 storyTextSequence = false;
-                Application.LoadLevel("Cinematic_OP_1");
+                Application.LoadLevel("Overworld");
             }
         }
 	}

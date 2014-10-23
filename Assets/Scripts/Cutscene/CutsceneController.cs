@@ -63,7 +63,7 @@ public class CutsceneController : MonoBehaviour {
 				screen_fade.EndScene();
 			}
 		}
-        if (counter >= scenes.Length || Input.touchCount > 0)
+        if (counter >= scenes.Length /*|| Input.touchCount > 0*/)
         {
             Application.LoadLevel("Overworld");
         }

@@ -10,10 +10,10 @@ public enum CollisionTypes
     ENVIRONMENT
 }
 
-public class Character : MonoBehaviour 
+public class Character : MonoBehaviour
 {
     public string characterName;
-	public AnimationClip deathAnimation;
+    public AnimationClip deathAnimation;
 
     //AI variables
     protected GameObject player;
@@ -23,19 +23,19 @@ public class Character : MonoBehaviour
     public float baseArmor;
     public float baseDamage;
 
-	protected Stats curStats; /*This keep's track of character's current stats*/
-	protected Stats baseStats; /*All values within this keeps track of all the base stats
+    protected Stats curStats; /*This keep's track of character's current stats*/
+    protected Stats baseStats; /*All values within this keeps track of all the base stats
 	                  *THIS SHOULD NEVER BE MODIFIED*/
 
     bool isUnitActive = true;
 
     //Variables shared by all character
     //**IDLE does not mean Character is not doing anything. Non idle means that the actor is doing something due to external commands**
-	public string curCharacterState = "IDLE";
+    public string curCharacterState = "IDLE";
     /*Checks if message is received this frame.*/
     protected bool messageReceived = false;
 
-    
+
     protected bool destroyReady = false;
     int enemyUnitIndex;
 
@@ -43,10 +43,10 @@ public class Character : MonoBehaviour
 
     //Misc animation clips
     public AnimationClip hitAnimation;
-    
-    
+
+
     //set target
-	public GameObject target; /*Used to store the enemy that the player is currently looking at*/
+    public GameObject target; /*Used to store the enemy that the player is currently looking at*/
     public Character targetScript;
 
     //Saves current targets
@@ -73,7 +73,7 @@ public class Character : MonoBehaviour
 
     public Debuff characterDebuffScript;
 
-	bool unitCollision;
+    bool unitCollision;
     public bool isNonPlayer = true;
 
     GameObject characterFacing;
@@ -109,7 +109,7 @@ public class Character : MonoBehaviour
         initLevel = level;
     }
 
-	bool deathPhasedPlayed = false;
+    bool deathPhasedPlayed = false;
 
     public bool is_ready()
     {
@@ -123,15 +123,15 @@ public class Character : MonoBehaviour
 
         enemyReady = true;
     }
-    
-    
 
 
-	/*
-	 **Important**
-	All animations/actions should be handled when it receives message from the
-	event control center. 
-	 */
+
+
+    /*
+     **Important**
+    All animations/actions should be handled when it receives message from the
+    event control center. 
+     */
     public void set_battle_type(BattleType input)
     {
         curBattleType = input;
@@ -152,21 +152,21 @@ public class Character : MonoBehaviour
     public bool custom_look_at_3D(Vector3 inPosition)
     {
         Vector3 targetPosition = inPosition;
-		Vector3 playerPos = collider.bounds.center;
+        Vector3 playerPos = collider.bounds.center;
         float rotAngleY = Vector3.Angle(get_xz_component(transform.forward), get_xz_component(targetPosition - transform.position));
         float rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(transform.InverseTransformPoint(targetPosition)));
 
 
 
         if (transform.InverseTransformPoint(targetPosition).z < 0)
-        { 
-			rotAngleX = 0.0f;
+        {
+            rotAngleX = 0.0f;
         }
 
-		float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
-		float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
+        float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
+        float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
 
-       
+
         float rotDirectionY = transform.InverseTransformPoint(targetPosition).x;
         float rotDirectionX = transform.InverseTransformPoint(targetPosition).y;
 
@@ -258,10 +258,11 @@ public class Character : MonoBehaviour
         enemyUnitIndex = indexInput;
     }
 
-    public int get_enemy_index() {
+    public int get_enemy_index()
+    {
         return enemyUnitIndex;
     }
-    
+
     //Obsolete
     public GameObject get_currently_facing()
     {
@@ -269,28 +270,31 @@ public class Character : MonoBehaviour
     }
 
     public void set_player(GameObject inPlayer)
-    { 
+    {
         player = inPlayer;
         target = player;
         playerScript = player.GetComponent<Character>();
     }
-    
-    public void set_target(GameObject inTarget) {
-    	target = inTarget;
+
+    public void set_target(GameObject inTarget)
+    {
+        target = inTarget;
         targetScript = inTarget.GetComponent<Character>();
-   	}
+    }
 
     public Stats return_cur_stats()
     {
         return curStats;
     }
-    
-    public Stats return_base_stats() {
-    	return baseStats;
-   	}
+
+    public Stats return_base_stats()
+    {
+        return baseStats;
+    }
 
 
-    Vector3 flag_charge_force(MapChargeFlag flagCharges) {
+    Vector3 flag_charge_force(MapChargeFlag flagCharges)
+    {
         Vector3 retVector = Vector3.zero;
         retVector = flagCharges.transform.position - transform.position;
         float chargeForce = flagCharges.charge - retVector.magnitude;
@@ -348,11 +352,11 @@ public class Character : MonoBehaviour
         Vector3 retVector = Vector3.zero;
         foreach (Character objectCharge in targets)
         {
-            if (objectCharge != null) 
+            if (objectCharge != null)
                 retVector += character_charge_force(objectCharge);
         }
-		if (mapFlag != null)
-        	retVector += flag_charge_force(mapFlag);
+        if (mapFlag != null)
+            retVector += flag_charge_force(mapFlag);
         if (retVector != Vector3.zero)
         {
             //Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.black);
@@ -363,7 +367,7 @@ public class Character : MonoBehaviour
 
             return Vector3.zero;
         }
-       
+
         return retVector.normalized;
     }
 
@@ -379,7 +383,8 @@ public class Character : MonoBehaviour
         characterFacing = null;
         //Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
         RaycastHit hitData;
-        if (Physics.Raycast(ray, out hitData, 1000.0f)) {
+        if (Physics.Raycast(ray, out hitData, 1000.0f))
+        {
             if (hitData.collider.tag == "Character")
             {
                 characterFacing = hitData.collider.gameObject;
@@ -409,25 +414,27 @@ public class Character : MonoBehaviour
         curPosition += 10 * inputMovement;
         //if (battleBoundary.bounds.Contains(curPosition))
         //{
-            transform.Translate(inputMovement);
-            
-            return true;
+        transform.Translate(inputMovement);
+
+        return true;
         //}
         //return false;
     }
 
 
     //Checks and resolves any issues where enemy goes out of the battle scene
-	void OnTriggerEnter(Collider hit) {
-		if (hit.gameObject.tag == "Character") {
-			unitCollision = true;
-		}
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.gameObject.tag == "Character")
+        {
+            unitCollision = true;
+        }
         if (hit.collider.tag == "Environment" && isNonPlayer == true)
         {
             collisionStatus = CollisionTypes.ENVIRONMENT;
             transform.position = aiPreviousPos;
         }
-	}
+    }
 
 
     /*
@@ -437,14 +444,14 @@ public class Character : MonoBehaviour
     */
 
 
-	/*The following functions below are used to modify any damage 
-	 calculations. Used by players or AI to modify as damages are applied*/
+    /*The following functions below are used to modify any damage 
+     calculations. Used by players or AI to modify as damages are applied*/
 
-	/*This function handles the character being hit. It should calculate the
-	 actual damage that the character receives based on the raw damage value and 
-	 apply it to the character. Then it should return the applied damage. By
-	 default, rawDamage is applied directly*/
-	public float hit (float rawDamage) 
+    /*This function handles the character being hit. It should calculate the
+     actual damage that the character receives based on the raw damage value and 
+     apply it to the character. Then it should return the applied damage. By
+     default, rawDamage is applied directly*/
+    public float hit(float rawDamage)
     {
         if (isUnitActive == true)
         {
@@ -492,7 +499,7 @@ public class Character : MonoBehaviour
             }
         }
         return 0.0f;
-	}
+    }
 
     public float hit(float rawDamage, Vector3 hitPosition)
     {
@@ -518,12 +525,14 @@ public class Character : MonoBehaviour
                 curStats.hp -= (int)damageDone;
 
                 if (detonatorFlinch != null)
-                    Instantiate(detonatorFlinch, hitPosition, Quaternion.identity);
+                    //Instantiate(detonatorFlinch, hitPosition, Quaternion.identity);
 
-                if (hitAnimation != null)
-                {
-                    animation.Play(hitAnimation.name);
-                }
+                    if (hitAnimation != null)
+                    {
+                        animation.Play(hitAnimation.name);
+                    }
+                if (curStats.hp < 0.0f)
+                    collider.enabled = false;
                 return damageDone;
             }
             else
@@ -539,35 +548,39 @@ public class Character : MonoBehaviour
         return 0.0f;
     }
 
-	protected void death_state() {
-		if (deathPhasedPlayed == false) {
-			deathPhasedPlayed = true;
-			if (deathAnimation != null)
-				animation.Play (deathAnimation.name);
-			else 
-				Destroy (gameObject);
-		}
-		else {
-			if (!animation.IsPlaying (deathAnimation.name)) {
+    protected void death_state()
+    {
+        if (deathPhasedPlayed == false)
+        {
+            deathPhasedPlayed = true;
+            if (deathAnimation != null)
+                animation.Play(deathAnimation.name);
+            else
+                Destroy(gameObject);
+        }
+        else
+        {
+            if (!animation.IsPlaying(deathAnimation.name))
+            {
                 if (detonatorDeath)
                     Instantiate(detonatorDeath, collider.bounds.center, Quaternion.identity);
-                
-				Destroy (gameObject);
-			}
-		}
-	}
+
+                Destroy(gameObject);
+            }
+        }
+    }
 
 
-	/*This function handles the restored value of character's health. It should
-	 take the heal value and add it to the hp pool of this character. If heal type
-	 is 0, apply 100% value of the heal value. If it is any other value, apply the
-	 percentage that is determined by heal type with heal value to the character
-	 hp pool. If specified heal type does not exist for the character, use
-	 value of 0.*/
-	public void regen_health (float healValue) 
+    /*This function handles the restored value of character's health. It should
+     take the heal value and add it to the hp pool of this character. If heal type
+     is 0, apply 100% value of the heal value. If it is any other value, apply the
+     percentage that is determined by heal type with heal value to the character
+     hp pool. If specified heal type does not exist for the character, use
+     value of 0.*/
+    public void regen_health(float healValue)
     {
-		curStats.hp += (int)healValue;
-	}
+        curStats.hp += (int)healValue;
+    }
 
     public void modify_stat(float armorMod, float attackMod)
     {
@@ -575,19 +588,19 @@ public class Character : MonoBehaviour
         curStats.damage += (int)attackMod;
     }
 
-	/*Returns true when object is ready to be destroyed*/
-	public bool is_destroy_ready() 
+    /*Returns true when object is ready to be destroyed*/
+    public bool is_destroy_ready()
     {
         return destroyReady;
-	}
+    }
 
     public virtual void first_wave()
     {
     }
 
-	/*Use this update! DO NOT USE Update() function!
-	 use this function instead.*/
-	public virtual void manual_start() 
+    /*Use this update! DO NOT USE Update() function!
+     use this function instead.*/
+    public virtual void manual_start()
     {
         startingChildCount = transform.childCount;
         characterDebuffScript = this.GetComponent<Debuff>();
@@ -603,7 +616,7 @@ public class Character : MonoBehaviour
         {
             if (landCraftActive == true)
             {
-               dropShipScript.position_in_the_air();
+                dropShipScript.position_in_the_air();
             }
             else
             {
@@ -628,7 +641,8 @@ public class Character : MonoBehaviour
 
     }
 
-	public virtual void manual_update() {
+    public virtual void manual_update()
+    {
     }
 
     public virtual void precombat_phase()

@@ -26,7 +26,6 @@ public class Linear : MyProjectile {
                 }   
             }
             Destroy(gameObject);
-
         }
     }
 
@@ -43,7 +42,28 @@ public class Linear : MyProjectile {
 	void Update () {
         if (projectilePaused == false)
         {
-            transform.Translate(bulletSpeed * Vector3.forward * Time.deltaTime);
+            Vector3 distanceToMove = bulletSpeed * Vector3.forward * Time.deltaTime;
+            Ray myRay = new Ray(transform.position, distanceToMove);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, distanceToMove.normalized, out hit, distanceToMove.magnitude)) 
+            {
+                Character hitCharacter = hit.collider.gameObject.GetComponent<Character>();
+                if (hitCharacter != null && hit.collider.gameObject != owner)
+                {
+                    hitCharacter.hit(damage, transform.position);
+                    if (detonation != null)
+                    {
+                        if (hitCharacter.can_receive_detonator())
+                        {
+                            GameObject temp = (GameObject)Instantiate(detonation, transform.position, Quaternion.identity);
+                            temp.transform.parent = hit.collider.gameObject.transform;
+                        }
+                    }
+                    Destroy(gameObject);
+                }
+            }
+
+            transform.Translate(distanceToMove);
             if (destroyTime + 10.0f < Time.time)
             {
                 Destroy(this.gameObject);

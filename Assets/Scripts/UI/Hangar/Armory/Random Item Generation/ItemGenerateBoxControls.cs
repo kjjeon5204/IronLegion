@@ -5,6 +5,7 @@ public class ItemGenerateBoxControls : MonoBehaviour {
     public GameObject lid;
     bool lidControl = false;
     bool initializeFirstActive = false;
+    public GameObject boxLight;
     float activationTimeTracker;
     private Quaternion lidOrientation;
 
@@ -21,12 +22,19 @@ public class ItemGenerateBoxControls : MonoBehaviour {
             initializeFirstActive = true;
         }
         lid.transform.rotation = lidOrientation;
+        boxLight.SetActive(false);
     }
     
     void activate_box_process()
     {
-        lid.transform.Rotate(Vector3.left * 90.0f * Time.deltaTime);
-        if (activationTimeTracker >= 1.0f)
+        if (activationTimeTracker < 1.0f)
+            lid.transform.Rotate(Vector3.left * 90.0f * Time.deltaTime);
+        else
+        {
+            if (boxLight.activeInHierarchy == false)
+                boxLight.SetActive(true);
+        }
+        if (activationTimeTracker >= 1.2f)
         {
             lidControl = false;
         }

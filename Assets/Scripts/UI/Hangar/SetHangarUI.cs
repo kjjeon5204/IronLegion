@@ -30,10 +30,10 @@ public class SetHangarUI : MonoBehaviour {
 		Vector3 positionHangar = camera.ViewportToWorldPoint(new Vector3(0,1f,zValue));
 		hangarsign.transform.position = positionHangar;
 		
-		Vector3 positionEquip = hangarsign.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
+		Vector3 positionEquip = hangarsign.transform.position+new Vector3(2.75f,0,0);
 		equip.transform.position = positionEquip;
 		
-		Vector3 positionAbilities = equip.transform.position+new Vector3(2.75f,0,0);//.GetChild(0).position;
+		Vector3 positionAbilities = equip.transform.position+new Vector3(2.75f,0,0);
 		abilities.transform.position = positionAbilities;
 		
 		Vector3 positionWindow = camera.ViewportToWorldPoint(new Vector3 (.5f, .48f, zValue));
@@ -45,26 +45,39 @@ public class SetHangarUI : MonoBehaviour {
 	}
 	
 	void Start() {
-		tutorial_data = new PlayerDataReader(Application.persistentDataPath);
-        /*
-        if (tutorial_data.check_event_played("HANGER_FIRST"))
+        zValue = 10f;
+
+        Vector3 positionExit = camera.ViewportToWorldPoint(new Vector3(1f, 0f, zValue));
+        exit.transform.position = positionExit;
+
+        Vector3 positionHangar = camera.ViewportToWorldPoint(new Vector3(0, 1f, zValue));
+        hangarsign.transform.position = positionHangar;
+
+        Vector3 positionEquip = hangarsign.transform.position + new Vector3(2.75f, 0, 0);
+        equip.transform.position = positionEquip;
+
+        Vector3 positionAbilities = equip.transform.position + new Vector3(2.75f, 0, 0);
+        abilities.transform.position = positionAbilities;
+
+        Vector3 positionWindow = camera.ViewportToWorldPoint(new Vector3(.5f, .48f, zValue));
+        equipwindow.transform.position = positionWindow;
+        on_screen.transform.position = equipwindow.transform.position;
+
+        decoration.transform.position = camera.ViewportToWorldPoint(new Vector3(1.23f, 1f, zValue));
+		
+
+		tutorial_data = new PlayerDataReader();
+
+        if (tutorial_data.check_event_played("Battle_end_6"))
         {
-            equipmentScreen.Clicked();
+            ActivateAllies();
         }
-            
         else
         {
-            tutorial_data.event_played("HANGER_FIRST");
+            Debug.Log("Battle end 6 not cleared!");
         }
-        */
-		if (tutorial_data.check_event_played("HANGER_SECOND"))
+		if (tutorial_data.check_event_played("Battle_end_7"))
 		{
-            tutorial_data.event_played("HANGER_SECOND");
-			ActivateAllies();
-		}
-		if (tutorial_data.check_event_played("STORE"))
-		{
-            tutorial_data.event_played("STORE");
 			ActivateArmory();
 		}
         tutorial_data.save_data();

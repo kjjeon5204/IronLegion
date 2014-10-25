@@ -28,6 +28,11 @@ public class ItemDisplayWindow : MonoBehaviour {
     public ArmoryDataControl armoryData;
     public GameObject itemDisplayFrame;
 
+    public GameObject upperLimit;
+    public GameObject lowerLimit;
+    public GameObject upperRefPt;
+    public GameObject lowerRefPt;
+
 
     int creditOwned;
     int cogentumOwned;
@@ -39,10 +44,10 @@ public class ItemDisplayWindow : MonoBehaviour {
     {
         for (int ctr = 0; ctr < itemSlots.Length; ctr++)
         {
-            Destroy(itemSlots[ctr].itemSlot);
+            if (itemSlots[ctr].itemSlot != null)
+                Destroy(itemSlots[ctr].itemSlot);
         }
         numOfOpenSpot = newStore.numberOfUnlockedSpot;
-        Debug.Log("Number of items in slot: " + newStore.numberOfUnlockedSpot);
         myStoreData = newStore;
         itemSlots = new ItemSlot[4];
         
@@ -64,6 +69,9 @@ public class ItemDisplayWindow : MonoBehaviour {
             itemSlots[ctr].itemSlot = (GameObject)Instantiate(lockedSlotFrame, windowPosition, Quaternion.identity);
             itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
         }
+        Vector3 windowPos = slotPosition.transform.position;
+        windowPos.y -= 4 * verticalSlotOffset;
+        lowerRefPt.transform.position = windowPos;
         armoryData.save_store_data(myStoreData);
     }
 
@@ -95,6 +103,9 @@ public class ItemDisplayWindow : MonoBehaviour {
             itemSlots[ctr].itemSlot.GetComponent<LockedSlot>().unlockSlotButton.initialize_slot(armoryControl,
                 ctr, 100, myStoreData.catalogType);
         }
+        Vector3 windowPos = slotPosition.transform.position;
+        windowPos.y -= 4 * verticalSlotOffset;
+        lowerRefPt.transform.position = windowPos;
         armoryData.save_store_data(myStoreData);
     }
 
@@ -180,11 +191,13 @@ public class ItemDisplayWindow : MonoBehaviour {
         {
             if (curRayCast.collider.gameObject.tag == "ItemSlotWindow" && curTouch.phase == TouchPhase.Moved)
             {
-                if (curTouch.deltaPosition.y > 0.0f)
+                if (lowerRefPt.transform.position.y < lowerLimit.transform.position.y &&
+                    curTouch.deltaPosition.y > 0.0f)
                 {
                     slotPosition.transform.Translate(Vector3.up * 8.0f * Time.deltaTime);
                 }
-                if (curTouch.deltaPosition.y < 0.0f)
+                if (upperRefPt.transform.position.y > upperLimit.transform.position.y &&
+                    curTouch.deltaPosition.y < 0.0f)
                 {
                     slotPosition.transform.Translate(Vector3.down * 8.0f * Time.deltaTime);
                 }

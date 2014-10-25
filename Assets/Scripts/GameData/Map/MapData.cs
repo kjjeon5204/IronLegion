@@ -61,10 +61,11 @@ public class MapData {
         //load_full_data();
     }
     
-	public void clear_level(int chapter, int level) {
+	public int clear_level(int chapter, int level) {
         read_map_unitialized(chapter);
 		myData[chapter - 1].tilesData[level - 1].clearCount++;
         store_map_progress(chapter);
+        return myData[chapter - 1].tilesData[level - 1].clearCount;
 	}
 
     void load_full_data()
@@ -179,6 +180,7 @@ public class MapData {
 			outFile.WriteLine("#");
 		}
 	}
+
 
     public IList<int> return_unlocked_levels(int chapter)
     {

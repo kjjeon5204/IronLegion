@@ -13,6 +13,7 @@ public class EngageData
     public int lootableItemTier;
     public int creditReceived;
     public int cogentumReceived;
+    public float cogentumRandDropRate;
     public GameObject playerStartPos;
 }
 
@@ -173,6 +174,7 @@ public class EventControls : MonoBehaviour
         waveRunData[curWave].storyInitialized = true;
         waveRunData[curWave].thisStoryEnd.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryEnd.manual_start();
+        eventRecord.event_played(waveRunData[curWave].thisStoryEnd.cutSceneID);
         if (waveRunData[curWave].thisStoryEnd.customCutsceneAudio != null)
         {
             curEngageData.waveData[curWave].waveThemeMusic.Stop();
@@ -194,6 +196,7 @@ public class EventControls : MonoBehaviour
         waveRunData[curWave].storyInitialized = false;
         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryStart.manual_start();
+        eventRecord.event_played(waveRunData[curWave].thisStoryStart.cutSceneID);
         combatScript.loadingScreen.SetActive(false);
 
         if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
@@ -294,6 +297,8 @@ public class EventControls : MonoBehaviour
     void end_battle_win()
     {
         //end battle
+        playerMasterData.player_win_increment();
+
         AudioSource[] mapAudios = gameObject.GetComponents<AudioSource>();
         for (int ctr = 0; ctr < mapAudios.Length; ctr++)
         {
@@ -301,13 +306,34 @@ public class EventControls : MonoBehaviour
                 mapAudios[ctr].Stop();
         }
         combatScriptObject.SetActive(true);
-        MapData curMap = new MapData();
-        playerMasterData.clear_level(System.Convert.ToInt32(gameObject.name[1].ToString()), curEngageData.levelNum);
+        int clearCount = playerMasterData.clear_level(System.Convert.ToInt32(gameObject.name[1].ToString()), curEngageData.levelNum);
+        int cogentumReceived = 0;
+        if (clearCount == 1)
+        {
+            cogentumReceived = curEngageData.cogentumReceived;
+        }
+        else
+        {
+            if (curEngageData.cogentumRandDropRate != 0)
+            {
+                float percentageMultiplier = 100.0f;
+                int pollNum = Random.Range(0, (int)(100.0f
+                    * percentageMultiplier));
+
+                if (pollNum <= (int)(curEngageData.cogentumRandDropRate *
+                    percentageMultiplier))
+                {
+                    cogentumReceived = curEngageData.cogentumReceived;
+                }
+            }
+        }
 
         if (allyData.unitName != "NONE")
             allyData.exp += (int)curEngageData.experience;
 
-        combatScript.enable_end_battle_window(curEngageData.creditReceived,
+
+
+        combatScript.enable_end_battle_window(curEngageData.creditReceived, cogentumReceived, 
             playerScript.player_add_experience((int)curEngageData.experience),
             true, curEngageData.lootableItemTier, allyData, allyUnit);
 
@@ -552,7 +578,6 @@ public class EventControls : MonoBehaviour
                 {
                     waveRunData[waveCtr].thisStoryStart = tempHolder;
                     waveRunData[waveCtr].thisStoryStart.gameObject.SetActive(false);
-                    eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].loadBeforeStory = curEngageData.waveData[waveCtr].loadBeforeStory;
                 }
                 else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID))

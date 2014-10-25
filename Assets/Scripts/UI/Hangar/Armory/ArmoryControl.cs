@@ -47,6 +47,7 @@ public class ArmoryControl : MonoBehaviour {
     public PlayerMasterData masterData;
 
     bool initialized = false;
+    bool shopReset = false;
 
 
     public int get_owned_cogentum()
@@ -127,7 +128,7 @@ public class ArmoryControl : MonoBehaviour {
         cogentumOwned -= cogentumSpent;
         creditOwnedDisplay.text = creditOwned.ToString();
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
-
+        totalUnlockedSlotCount++;
         if (itemType == Item.ItemType.HEAD)
         {
             headCatalog.unlock_slot(creditOwned, cogentumOwned);
@@ -230,18 +231,22 @@ public class ArmoryControl : MonoBehaviour {
         armoryItemSlotCam.rect = spriteRectViewport;
         //Update currency
 
-        creditOwned = masterData.get_currency();
-        creditOwnedDisplay.text = creditOwned.ToString();
-
-        cogentumOwned = masterData.get_paid_currency();
-        cogentumOwnedDisplay.text = cogentumOwned.ToString();
 
         if (initialized == true)
         {
+
+            creditOwned = masterData.get_currency();
+            creditOwnedDisplay.text = creditOwned.ToString();
+
+            cogentumOwned = masterData.get_paid_currency();
+            cogentumOwnedDisplay.text = cogentumOwned.ToString();
+
             headCatalog.currency_update(creditOwned, cogentumOwned);
             bodyCatalog.currency_update(creditOwned, cogentumOwned);
             weaponCatalog.currency_update(creditOwned, cogentumOwned);
             coreCatalog.currency_update(creditOwned, cogentumOwned);
+
+
         }
 
 
@@ -282,21 +287,49 @@ public class ArmoryControl : MonoBehaviour {
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
         catalog_controls(CatalogType.BODY);
 
+        if (masterData.get_player_consecutive_win() > 3)
+        {
+            shopReset = true;
+            masterData.reset_win_ctr();
+        }
+
         StoreData tempStoreData = armoryData.head_catalog_data();
         totalUnlockedSlotCount += tempStoreData.numberOfUnlockedSpot;
+        if (shopReset == true)
+        {
+            tempStoreData = armoryData.generate_new_store_item
+                (Item.ItemType.HEAD, tempStoreData);
+        }
         headCatalog.initialize_store_data(tempStoreData, this);
 
         tempStoreData = armoryData.main_frame_catalog_data();
         totalUnlockedSlotCount += tempStoreData.numberOfUnlockedSpot;
+        if (shopReset == true)
+        {
+            tempStoreData = armoryData.generate_new_store_item
+                (Item.ItemType.ARMOR, tempStoreData);
+        }
         bodyCatalog.initialize_store_data(tempStoreData, this);
 
         tempStoreData = armoryData.weapon_catalog_data();
         totalUnlockedSlotCount += tempStoreData.numberOfUnlockedSpot;
+        if (shopReset == true)
+        {
+            tempStoreData = armoryData.generate_new_store_item
+                (Item.ItemType.WEAPON, tempStoreData);
+        }
         weaponCatalog.initialize_store_data(tempStoreData, this);
 
         tempStoreData = armoryData.core_catalog_data();
         totalUnlockedSlotCount += tempStoreData.numberOfUnlockedSpot;
+        if (shopReset == true)
+        {
+            tempStoreData = armoryData.generate_new_store_item
+                (Item.ItemType.CORE, tempStoreData);
+        }
         coreCatalog.initialize_store_data(tempStoreData, this);
         initialized = true;
+
+        
 	}
 }

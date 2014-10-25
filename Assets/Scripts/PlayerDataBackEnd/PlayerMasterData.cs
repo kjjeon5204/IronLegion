@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.IO;
 
 public struct PlayerMasterStat
 {
@@ -17,15 +18,74 @@ public struct PlayerMasterStat
     public string[] equipment;
 }
 
+
+
+
+
 public class PlayerMasterData : MonoBehaviour {
     string heroMechID;
-
     public enum SceneType
     {
         HANGER,
         BATTLE,
         OVERWORLD,
         RMT
+    }
+
+    class PlayerRecord
+    {
+        int consecutiveWinData;
+
+        public PlayerRecord()
+        {
+            string dataPath = Application.persistentDataPath + "/ASD123ID";
+            if (!File.Exists(dataPath))
+            {
+                create_new_data();
+            }
+
+            using (StreamReader infile = File.OpenText(dataPath))
+            {
+                consecutiveWinData = System.Convert.ToInt32(infile.ReadLine());
+            }
+        }
+
+        void create_new_data()
+        {
+            string dataPath = Application.persistentDataPath + "/ASD123ID";
+
+            using (StreamWriter outfile = File.CreateText(dataPath))
+            {
+                outfile.WriteLine("0");
+            }
+        }
+
+        void save_data()
+        {
+            string dataPath = Application.persistentDataPath + "/ASD123ID";
+
+            using (StreamWriter outfile = File.CreateText(dataPath))
+            {
+                outfile.WriteLine(consecutiveWinData);
+            }
+        }
+
+        public void reset_counter()
+        {
+            consecutiveWinData = 0;
+            save_data();
+        }
+
+        public void increment_win()
+        {
+            consecutiveWinData++;
+            save_data();
+        }
+
+        public int get_cur_win_count()
+        {
+            return consecutiveWinData;
+        }
     }
 
     public SceneType curSceneType;
@@ -43,6 +103,7 @@ public class PlayerMasterData : MonoBehaviour {
 
     //Map Data
     MapData mapData;
+    PlayerRecord playerConsecutiveWin;
 
     //Event Progression
     PlayerDataReader eventRecord;
@@ -204,9 +265,9 @@ public class PlayerMasterData : MonoBehaviour {
         mapData.initialize_map_progress(chapter, mapTileData);
     }
 
-    public void clear_level(int chapter, int tileNum)
+    public int clear_level(int chapter, int tileNum)
     {
-        mapData.clear_level(chapter, tileNum);
+        return mapData.clear_level(chapter, tileNum);
     }
 
     public IList<int> get_unlocked_levels(int chapter)
@@ -253,6 +314,21 @@ public class PlayerMasterData : MonoBehaviour {
         return playerMasterStat;
     }
 
+    public int get_player_consecutive_win()
+    {
+        return playerConsecutiveWin.get_cur_win_count();
+    }
+
+    public void player_win_increment()
+    {
+        playerConsecutiveWin.increment_win();
+    }
+
+    public void reset_win_ctr()
+    {
+        playerConsecutiveWin.reset_counter();
+    }
+
     /*******Private internal functions********************/
     void load_player_master_data()
     {
@@ -291,6 +367,7 @@ public class PlayerMasterData : MonoBehaviour {
         }
 
         //load files
+        playerConsecutiveWin = new PlayerRecord();
         mapData = new MapData();
         playerLevelData = new PlayerLevelBackEnd();
         heroAbilityData = new HeroData();

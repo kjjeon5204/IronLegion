@@ -311,14 +311,14 @@ public class CombatScript : MonoBehaviour
         defeatScreen.SetActive(true);
     }
 
-    public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
+    public void enable_end_battle_window(int creditReceived, int cogentumReceived, PlayerLevelReadData playerData,
         bool battleWon, int itemTier, AllyData allyData, Character allyObject)
     {
         battleStopped = true;
         turn_off_combat_ui();
         Debug.Log("Activate end game window");
         endGameWindow.SetActive(true);
-        endGameScript.initializeData(creditReceived, playerData,
+        endGameScript.initializeData(creditReceived, cogentumReceived, playerData,
             itemPool.get_item_table(0, itemTier), battleWon);
         playerMasterData.add_currency(creditReceived);
         if (allyObject != null)

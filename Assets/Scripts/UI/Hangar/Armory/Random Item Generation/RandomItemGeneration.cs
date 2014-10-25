@@ -30,9 +30,13 @@ public class RandomItemGeneration : MonoBehaviour {
 
     void Start()
     {
-        foreach (Renderer textRenderer in miscText)
+        if (creditPrice == 0)
         {
-            textRenderer.sortingLayerName = "RandomBox";
+            priceDisplay.text = cogentumPrice.ToString();
+        }
+        else
+        {
+            priceDisplay.text = creditPrice.ToString();
         }
     }
 

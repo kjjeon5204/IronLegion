@@ -77,7 +77,7 @@ public class HangarControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Comment out for build!
-        //PC_Update();
+        PC_Update();
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{

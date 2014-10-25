@@ -13,6 +13,8 @@ public class EndBattleLogic : MonoBehaviour
 
     public TextMesh creditString;
 
+    public TextMesh cogentumString;
+
     public TextMesh itemNameString;
 
     public TextMesh[] itemStatString;
@@ -30,7 +32,7 @@ public class EndBattleLogic : MonoBehaviour
 
     
 
-    public void initializeData(int creditReceived , PlayerLevelReadData inputData, GameObject itemPolled,
+    public void initializeData(int creditReceived, int cogentumReceived , PlayerLevelReadData inputData, GameObject itemPolled,
         bool battleWon)
     {
         if (battleWon == true)
@@ -43,6 +45,9 @@ public class EndBattleLogic : MonoBehaviour
         experienceString.text = "Exp: " + inputData.curExperience + "/" + 
             inputData.expRequired;
         creditString.text = "Credits: " + creditReceived.ToString();
+        cogentumString.text = "Cogentum: " + cogentumReceived.ToString();
+
+
         if (itemPolled != null)
         {
             Item curItem = itemPolled.GetComponent<Item>();

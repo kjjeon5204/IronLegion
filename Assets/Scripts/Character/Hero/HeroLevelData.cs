@@ -77,6 +77,7 @@ public class HeroLevelData : MonoBehaviour {
         PlayerMasterStat temp = playerMasterData.get_combined_stats();
         playerLevel = temp.level;
         playerExperience = temp.curExp;
+        temp.expRequired = (int)levelData[playerLevel - 1].experience;
         temp.damage += (int)levelData[playerLevel - 1].damage;
         temp.hp += (int)levelData[playerLevel - 1].HP;
         return temp;

@@ -29,7 +29,7 @@ public class ArmoryDataControl : MonoBehaviour
     string readCurTime;
     string nextResetTime;
     public ItemPoolData itemPooling;
-    public HeroLevelData heroLevelData;
+    public PlayerMasterData playerMasterData;
 
 
 
@@ -108,7 +108,7 @@ public class ArmoryDataControl : MonoBehaviour
             for (int ctr = 0; ctr < 3; ctr++)
             {
                 ArmoryCatalog tempItem = new ArmoryCatalog();
-                playerLevel = heroLevelData.get_player_level();
+                playerLevel = playerMasterData.get_player_level();
                 int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
                 Debug.Log(itemPoolNum);
                 itemDictionary.set_pooling_tier(itemPoolNum);
@@ -120,17 +120,38 @@ public class ArmoryDataControl : MonoBehaviour
         }
     }
 
-    public StoreData generate_new_store_data(Item.ItemType catalogTypeIn)
+    public StoreData generate_new_store_item(Item.ItemType catalogTypeIn, StoreData prevStore)
     {
         StoreData temp = new StoreData();
-        temp.numberOfUnlockedSpot = 1;
+        temp.numberOfUnlockedSpot = prevStore.numberOfUnlockedSpot;
         temp.soldItemList = new List<ArmoryCatalog>();
 
         temp.catalogType = catalogTypeIn;
         for (int ctr = 0; ctr < 3; ctr++)
         {
             ArmoryCatalog tempItem = new ArmoryCatalog();
-            playerLevel = heroLevelData.get_player_level();
+            playerLevel = playerMasterData.get_player_level();
+            int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
+            Debug.Log(itemPoolNum);
+            itemDictionary.set_pooling_tier(itemPoolNum);
+            tempItem = initialize_item(itemDictionary.
+                generate_random_item(catalogTypeIn), ctr, false);
+            temp.soldItemList.Add(tempItem);
+        }
+        return temp;
+    }
+
+    public StoreData generate_new_store_data(Item.ItemType catalogTypeIn)
+    {
+        StoreData temp = new StoreData();
+        temp.numberOfUnlockedSpot = 3;
+        temp.soldItemList = new List<ArmoryCatalog>();
+
+        temp.catalogType = catalogTypeIn;
+        for (int ctr = 0; ctr < 3; ctr++)
+        {
+            ArmoryCatalog tempItem = new ArmoryCatalog();
+            playerLevel = playerMasterData.get_player_level();
             int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
             Debug.Log(itemPoolNum);
             itemDictionary.set_pooling_tier(itemPoolNum);

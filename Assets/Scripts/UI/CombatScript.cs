@@ -92,6 +92,11 @@ public class CombatScript : MonoBehaviour
     public GameObject retryButton;
     public GameObject overworldButton;
 
+    public GameObject defeatScreen;
+    public GameObject backOverworldDefeat;
+    public GameObject retryBattleDefeat;
+
+
     bool battleStopped = false;
 
     public GameObject[] debuffIcons;
@@ -300,6 +305,12 @@ public class CombatScript : MonoBehaviour
         changeStateEffect.gameObject.SetActive(true);
     }
 
+    public void lose_battle_screen()
+    {
+        turn_off_combat_ui();
+        defeatScreen.SetActive(true);
+    }
+
     public void enable_end_battle_window(int creditReceived, PlayerLevelReadData playerData,
         bool battleWon, int itemTier, AllyData allyData, Character allyObject)
     {
@@ -490,6 +501,14 @@ public class CombatScript : MonoBehaviour
             {
                 screenFader = true;
                 exitType = 0;
+            }
+            else if (hitButton.collider.gameObject == backOverworldDefeat)
+            {
+                Application.LoadLevel("Overworld");
+            }
+            else if (hitButton.collider.gameObject == retryBattleDefeat)
+            {
+                Application.LoadLevel("BattleScene");
             }
         }
     }
@@ -683,37 +702,16 @@ public class CombatScript : MonoBehaviour
         GUICam = this.GetComponent<Camera>();
 
 
-        //skillBottons size&place
-        //Rect uiButtonSize = new Rect(0.7f, 0.55f, 0.3f, 0.45f);
-        //texture_resize(lowerRightFrame, uiButtonSize);
         stateChangeTextMod = stateChangeText.GetComponent<UIStringModifier>();
         stateChangeTextMod.initialize_text("Blade\nAttack");
 
-
-        //Radar resize
-        //uiButtonSize = new Rect(0.0f, 0.2f, 0.15f, 0.25f);
-        //texture_resize(radarDisplay, uiButtonSize);
-
-        //Change target button size&place
-        //uiButtonSize = new Rect(0.0f, 0.55f, 0.3f, 0.45f);
-        //texture_resize(lowerLeftFrame, uiButtonSize);
         textModifier = changeTargetText.GetComponent<UIStringModifier>();
         textModifier.initialize_text("Change\nTarget");
 
-        //Change hp bar size&place
-        //uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.135f);
-        //texture_resize(hpBar, uiButtonSize);
 
-
-        //Change pause button size&place
-        //uiButtonSize = new Rect(0.7f, 0.01f, 0.3f, 0.45f);
-        //texture_resize(upperRightFrame, uiButtonSize);
         textModifier = pauseButtonText.GetComponent<UIStringModifier>();
         textModifier.initialize_text("Pause");
 
-        //Change enemy display
-        //uiButtonSize = new Rect(0.37f, 0.0f, 0.3f, 0.15f);
-        //texture_resize(enemyDisplay, uiButtonSize);
         textModifier = enemyDistplayText.GetComponent<UIStringModifier>();
 
 

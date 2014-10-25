@@ -51,7 +51,13 @@ public class InventorySlot : MonoBehaviour {
 		Debug.Log(item_id.Substring(2,1));
 		item_controls.InventorySlotClicked(item_id.Substring(2,1));
 	}
-	
+
+    public void destroy_holding_item()
+    {
+        item_id = "000000";
+        Destroy(transform.GetChild(0).gameObject);
+    }
+
 	public void SetItem(string id, GameObject item,int ind) {
 		foreach (Transform child in transform)
 		{

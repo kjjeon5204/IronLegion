@@ -10,7 +10,7 @@ public class ItemEquipOption : MonoBehaviour {
 
     public Renderer textMeshWindow;
     public string sortingLayerName;
-    PlayerMasterData playerMasterData;
+    public PlayerMasterData playerMasterData;
 
     public void set_generated_item(Item generatedItem)
     {
@@ -20,6 +20,8 @@ public class ItemEquipOption : MonoBehaviour {
     void Clicked()
     {
         string currentlyEquipped = "000000";
+
+        Debug.Log(genItem.itemID + " " + genItem.itemName);
         if (genItem.itemID[2] == 'H')
         {
             currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(0);
@@ -28,20 +30,19 @@ public class ItemEquipOption : MonoBehaviour {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
                 playerMasterData.access_equipment_data().remove_item(curEquippedItem);
                 playerMasterData.add_item(currentlyEquipped);
-                playerMasterData.access_equipment_data().equip_item(genItem);
             }
+            playerMasterData.access_equipment_data().equip_item(genItem);
         }
         else if (genItem.itemID[2] == 'C')
         {
             currentlyEquipped = playerMasterData.access_equipment_data().get_equipped_item(3);
             if (currentlyEquipped != "000000")
             {
-                Debug.Log("Currently Equipped item: " + currentlyEquipped);
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
                 playerMasterData.access_equipment_data().remove_item(curEquippedItem);
                 playerMasterData.add_item(currentlyEquipped);
-                playerMasterData.access_equipment_data().equip_item(genItem);
             }
+            playerMasterData.access_equipment_data().equip_item(genItem);
         }
         else if (genItem.itemID[2] == 'B')
         {
@@ -51,8 +52,8 @@ public class ItemEquipOption : MonoBehaviour {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
                 playerMasterData.access_equipment_data().remove_item(curEquippedItem);
                 playerMasterData.add_item(currentlyEquipped);
-                playerMasterData.access_equipment_data().equip_item(genItem);
             }
+            playerMasterData.access_equipment_data().equip_item(genItem);
         }
         else if (genItem.itemID[2] == 'W')
         {
@@ -62,8 +63,8 @@ public class ItemEquipOption : MonoBehaviour {
                 Item curEquippedItem = itemDictionary.get_item_data(currentlyEquipped).GetComponent<Item>();
                 playerMasterData.access_equipment_data().remove_item(curEquippedItem);
                 playerMasterData.add_item(currentlyEquipped);
-                playerMasterData.access_equipment_data().equip_item(genItem);
             }
+            playerMasterData.access_equipment_data().equip_item(genItem);
         }
         playerMasterData.store_inventory();
         playerMasterData.save_hero_equip_data();

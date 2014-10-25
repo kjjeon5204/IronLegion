@@ -162,6 +162,16 @@ public class HeroStats{
             curStats.energy += (int)equipItem.energy;
             curStats.luck += (int)equipItem.luck;
         }
+        else if (equipItem.itemID[2] == 'C')
+        {
+            Debug.Log(equipItem.itemID + " " + equipItem.itemName);
+            curStats.equipment[3] = equipItem.itemID;
+            curStats.hp += equipItem.hp;
+            curStats.damage += (int)equipItem.damage;
+            curStats.armor += (int)equipItem.armor;
+            curStats.energy += (int)equipItem.energy;
+            curStats.luck += (int)equipItem.luck;
+        }
     }
 
     public void remove_item(Item removeItem)
@@ -193,7 +203,7 @@ public class HeroStats{
             curStats.energy -= (int)removeItem.energy;
             curStats.luck -= (int)removeItem.luck;
         }
-        else if (removeItem.itemID[3] == 'C')
+        else if (removeItem.itemID[2] == 'C')
         {
             curStats.equipment[3] = "000000";
             curStats.hp -= removeItem.hp;
@@ -216,7 +226,6 @@ public class HeroStats{
 
     public Stats get_current_stats()
     {
-        Debug.Log("Get current stats!");
         return curStats;
     }
 	

@@ -53,21 +53,10 @@ public class DisplayCurrentStats : MonoBehaviour {
 	
 	public void UpdateStats() {
 	
-		//hero_stats = hero_info.get_player_stat_all();
         PlayerMasterStat playerStat = hero_info.get_player_stat_all();
-		//item_stats = stat_controller.stats;
-
-        Debug.Log("Refreshed Equipment: " + playerStat.equipment[1]);
-        Debug.Log("Refreshed hp: " + playerStat.hp);
 		level = playerStat.level;
 		cur_xp = playerStat.curExp;
 		tot_xp = playerStat.expRequired;
-		/*hp = hero_stats.baseHp+item_stats.item_hp;
-		armor = item_stats.item_armor;
-		damage = hero_stats.item_damage+item_stats.item_damage;
-		energy = hero_stats.item_energy + item_stats.item_energy;
-		penetration = item_stats.item_penetration;
-		luck = item_stats.item_luck;*/
 		hp = playerStat.hp;
 		armor = playerStat.armor;
 		damage = playerStat.damage;
@@ -78,18 +67,6 @@ public class DisplayCurrentStats : MonoBehaviour {
 		currency = stat_controller.ReturnCurrency();
 		paid_currency = stat_controller.ReturnPaidCurrency();
 		
-        /*
-		for (int i = 0; i < 5; i++)
-		{
-			item_to_add = equipped_slots[i].GetComponentInChildren<Item>();
-			hp += item_to_add.hp;
-			armor += item_to_add.armor;
-			damage += item_to_add.damage;
-			energy += item_to_add.energy;
-			penetration += item_to_add.penetration;
-			luck += item_to_add.luck;
-		}
-		*/
 		UpdateImage();
 	}
 	
@@ -115,10 +92,12 @@ public class DisplayCurrentStats : MonoBehaviour {
 	}
 	
 	public float GetDamage() {
+        UpdateStats();
 		return damage;
 	}
 	
 	public int GetCurrency() {
+        UpdateStats();
 		return currency;
 	}
 }

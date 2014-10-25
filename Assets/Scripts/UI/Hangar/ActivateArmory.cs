@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class ActivateArmory : MonoBehaviour {
-	private GameObject armory;
+	public GameObject armory;
 	
 	private HangarControls hangar;
 	private Camera second_cam;
 
 	void Start () {
-		armory = GameObject.Find("ArmoryFrame");
+		//armory = GameObject.Find("ArmoryFrame");
 		hangar = GameObject.Find("UI").GetComponent<HangarControls>();
 	}
 	

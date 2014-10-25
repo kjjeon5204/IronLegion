@@ -105,6 +105,12 @@ public class PlayerMasterData : MonoBehaviour {
         inventoryData.change_paid_currency(num);
     }
 
+    public void save_currency(int credit, int cogentum)
+    {
+        inventoryData.store_currency(credit, cogentum);
+        store_inventory();
+    }
+
     //HERO MECH INFO
     //Skill
     public HeroData access_hero_ability_data() 
@@ -230,6 +236,7 @@ public class PlayerMasterData : MonoBehaviour {
         {
             playerMasterStat.hp = heroItemStats.get_current_stats().hp;
             playerMasterStat.energy = heroItemStats.get_current_stats().energy;
+            playerMasterStat.damage = heroItemStats.get_current_stats().damage;
             playerMasterStat.armor = heroItemStats.get_current_stats().armor;
             playerMasterStat.luck = heroItemStats.get_current_stats().luck;
             playerMasterStat.penetration = heroItemStats.get_current_stats().penetration;
@@ -243,7 +250,6 @@ public class PlayerMasterData : MonoBehaviour {
             playerMasterStat.damage += myUpgradeStats.damage.statValue;
             playerMasterStat.energy += myUpgradeStats.energy.statValue;
         }
-        Debug.Log("Stat recalculated!");
         return playerMasterStat;
     }
 
@@ -277,24 +283,6 @@ public class PlayerMasterData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        /*
-        if (curSceneType == SceneType.HANGER)
-        {
-
-        }
-        else if (curSceneType == SceneType.BATTLE)
-        {
-
-        }
-        else if (curSceneType == SceneType.OVERWORLD)
-        {
-
-        }
-        else if (curSceneType == SceneType.RMT)
-        {
-
-        }
-         * */
         heroMechID = "heroMech"; //Initialize heromech ID later replaced with new data
 
         if (!Directory.Exists(Application.persistentDataPath + "/" + heroMechID)) 
@@ -310,7 +298,6 @@ public class PlayerMasterData : MonoBehaviour {
         heroItemStats = new HeroStats();
         upgradeData = new UpgradeData(heroMechID);
         eventRecord = new PlayerDataReader();
-        //eventRecord.load_player_data_file();
         load_player_master_data();
 	}
 	

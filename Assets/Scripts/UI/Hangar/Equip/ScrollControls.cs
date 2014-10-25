@@ -58,11 +58,8 @@ public class ScrollControls : MonoBehaviour {
 	}
 	//------------------------------------------
 	public void ScrollBox(float per) {
-		Debug.Log("Scrolling: "+per);
 		if (per  > 0 && inventory_top.transform.position.y > inventory_top_bound.transform.position.y)
 		{
-			Debug.Log(inventory_top.transform.position.y);
-			Debug.Log(inventory_top_bound.transform.position.y);
 			//Things to scroll
 			inventory_top.transform.position -= speed*(per*Time.deltaTime);
 		}

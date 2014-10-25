@@ -5,7 +5,7 @@ using System.Collections;
 
 public class UpgradeWindow : MonoBehaviour {
     public UpgradeSlot[] upgradeSlots;
-    PlayerMasterData playerMasterData;
+    public PlayerMasterData playerMasterData;
     //UpgradeData myData;
 
     

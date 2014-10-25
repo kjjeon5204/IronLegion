@@ -24,6 +24,7 @@ public class UpgradeSlot : MonoBehaviour {
         costReq = (int)(200.0f * Mathf.Pow(1.5f, upgradeWindow.get_upgrade_count(myType)));
         if (costReq <= armoryControl.get_owned_credit())
         {
+            armoryControl.credit_spent(costReq);
             upgradeWindow.upgrade_stat(myType);
         }
         creditRequirement.text = costReq.ToString();

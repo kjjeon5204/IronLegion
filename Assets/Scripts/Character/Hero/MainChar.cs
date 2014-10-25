@@ -572,13 +572,16 @@ public class MainChar : Character
 
     void OnTriggerEnter(Collider hitCollider)
     {
-        Debug.Log("Impact with environment!");
-        if (hitCollider.gameObject.tag == "Environment" && environmentCollision == false)
+        Debug.Log("Collided with " + hitCollider.gameObject);
+        if (hitCollider.gameObject.tag == "Environment")
         {
-            Vector3 hitDirection = (previousPos - transform.position);
-            Debug.Log("Move direction" + hitDirection);
+
+            Debug.Log("Impact with environment!");
+            //Vector3 hitDirection = (previousPos - transform.position);
+            //Debug.Log("Move direction" + hitDirection);
             curState = "IDLE";
-            transform.Translate(hitDirection);
+            //transform.Translate(hitDirection);
+            transform.position = previousPos;
             playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.1f);
         }
     }
@@ -682,7 +685,25 @@ public class MainChar : Character
             maxEnergy += playerMasterStat.energy + 100;
             curEnergy = maxEnergy;
             baseStats = curStats;
-            abilityNames = playerMasterData.load_ability_data();
+            abilityNames = new string[8];
+            abilityNames[0] = "GATTLING_GUN";
+            abilityNames[1] = "SHATTER";
+            abilityNames[4] = "SHOTGUN";
+            abilityNames[5] = "BARRAGE";
+            if (playerMasterStat.level >= 4)
+            {
+                abilityNames[2] = "BLUTSAUGER";
+            }
+            if (playerMasterStat.level >= 6)
+            {
+                abilityNames[3] = "ENERGY_BLADE";
+                abilityNames[6] = "AEGIS";
+            }
+            if (playerMasterStat.level >= 8)
+            {
+                abilityNames[7] = "BEAM_CANNON";
+            }
+            
         }
         else
         {

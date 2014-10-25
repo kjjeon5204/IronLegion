@@ -27,7 +27,8 @@ public class EquipControls : MonoBehaviour {
 	public GameObject highlight_item;
 	public GameObject highlight_equip;
 	public GameObject waiting;
-	
+    public PlayerMasterData playerMasterData;
+
 	private string color_start = "<color=lime>";
 	private string color_end = "</color>";
 	
@@ -265,8 +266,9 @@ public class EquipControls : MonoBehaviour {
 	}
 	
 	public void SellSelectedItem() {
-		inventory_to_switch.item_id = "000000";
-		inventory.AddCurrency(item_inventory.sell_price);
-		ReloadDescription();
+        inventory_to_switch.destroy_holding_item();
+        inventory.UpdateInventory();
+        playerMasterData.add_currency(item_inventory.sell_price);
+        ReloadDescription();
 	}
 }

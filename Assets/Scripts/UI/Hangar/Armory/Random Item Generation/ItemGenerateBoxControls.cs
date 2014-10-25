@@ -25,8 +25,8 @@ public class ItemGenerateBoxControls : MonoBehaviour {
     
     void activate_box_process()
     {
-        transform.Rotate(Vector3.forward * 30.0f * Time.deltaTime);
-        if (activationTimeTracker >= 3.0f)
+        lid.transform.Rotate(Vector3.left * 90.0f * Time.deltaTime);
+        if (activationTimeTracker >= 1.0f)
         {
             lidControl = false;
         }
@@ -42,10 +42,11 @@ public class ItemGenerateBoxControls : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public bool run_lid() {
         if (lidControl == true)
         {
             activate_box_process();
         }
+        return lidControl;
 	}
 }

@@ -15,6 +15,7 @@ public class SellButton : MonoBehaviour {
     public GameObject sellCam;
     public GameObject equipBlinder;
     public GameObject sellConfirmCam;
+    public PlayerMasterData masterData;
 	
 	private string start_color = "<color=#ccfcff>";
 	private string end_color = "</color>";

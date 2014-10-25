@@ -77,7 +77,7 @@ public class HangarControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Comment out for build!
-        PC_Update();
+        //PC_Update();
 		Touch[] touches = Input.touches;
 		if (touches.Length == 1)
 		{
@@ -149,9 +149,14 @@ public class HangarControls : MonoBehaviour {
 	}
 	
 	public void SetObjectOnScreen(GameObject obj) {
+
+        if (obj == null)
+        {
+            Debug.Log("Null Object!");
+        }
 		frameOnScreen = obj;
-		obj.transform.position = onScreen.transform.position;
         frameOnScreen.SetActive(true);
+		obj.transform.position = onScreen.transform.position;
 		Debug.Log(frameOnScreen);
 	}
 	

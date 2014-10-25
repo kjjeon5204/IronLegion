@@ -16,7 +16,7 @@ public class PlayerStatComparison : MonoBehaviour {
 
     public TextMesh[] statChangeDisplay;
     public TextMesh[] itemStatDisplay;
-    PlayerMasterData playerMasterData;
+    public PlayerMasterData playerMasterData;
 
     void initialize_table() 
     {

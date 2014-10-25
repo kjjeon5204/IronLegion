@@ -346,11 +346,6 @@ public class EventControls : MonoBehaviour
             spawnPoint.z = Random.Range(mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
                                      mapBoundary.center.z + 1.0f * mapBoundary.extents.z);
         }
-        /*
-        if (battleType == BattleType.AERIAL)
-        {
-        }
-        */
         else if (battleType == BattleType.AERIAL_MULTI_SPAWN_POINT)
         {
             Debug.Log("Generated modified coordinate");
@@ -361,9 +356,7 @@ public class EventControls : MonoBehaviour
 
             spawnPoint.z = Random.Range(mapBoundary.center.z - 1.0f * mapBoundary.extents.z,
                                      spawnBounds.center.z + 1.0f * spawnBounds.extents.z);
-
         }
-
         return spawnPoint;
     }
 
@@ -753,7 +746,7 @@ public class EventControls : MonoBehaviour
         if (playerScript.return_cur_stats().hp <= 0.0f || endBattle == true)
         {
             enabled = false;
-            Application.LoadLevel("Overworld");
+            combatScript.lose_battle_screen();
         }
         //Checking wave clear/win conditions
         if (faderActive == true)

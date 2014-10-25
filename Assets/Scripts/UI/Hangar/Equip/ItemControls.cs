@@ -27,8 +27,10 @@ public class ItemControls : MonoBehaviour {
 	
 	public GameObject inventory_end;
     public ItemDictionary itemDictionary;
+    public GameObject itemHighlight;
 
     public PlayerMasterData playerMasterData;
+    bool initialized = false;
 	
 	IDictionary<string, GameObject> itemLibrary = new Dictionary<string, GameObject>();
 	// Use this for initialization
@@ -57,6 +59,7 @@ public class ItemControls : MonoBehaviour {
         stats = playerMasterData.access_equipment_data().get_current_stats();
 		StartEquipped();
 		StartInventory();
+        initialized = true;
 	}
 	
 	public void StartInventory() {
@@ -83,11 +86,13 @@ public class ItemControls : MonoBehaviour {
 	}
 	
 	public void ReloadInventory() {
-
+        itemHighlight.transform.parent = null;
 		foreach (Transform child in transform)
 		{
-			if (child.tag != "Finish")
-			GameObject.Destroy(child.gameObject);
+            if (child.tag != "Finish" && child.tag != "InventorySlot")
+            {
+                GameObject.Destroy(child.gameObject);
+            }
 		}
 		transform.localScale = new Vector3(1f,1f,1f);
 		int inv_size;
@@ -178,6 +183,16 @@ public class ItemControls : MonoBehaviour {
         }
 		UpdateEquipped();
 	}
+
+    void OnEnable()
+    {
+        if (initialized == true)
+        {
+            StartEquipped();
+            UpdateEquipped();
+        }
+    }
+
 	public void UpdateEquipped() {
 		stats.hp = 0;
 		stats.armor = 0;
@@ -188,7 +203,6 @@ public class ItemControls : MonoBehaviour {
 		for (int i = 0; i  < 5; i++)
 		{
 			ids[i] = equipped[i].GetComponent<EquippedSlot>().item_id;
-            Debug.Log("Items equipped: " + ids[i]);
 
             Item curItem = empty_slot.GetComponent<Item>();
             if (ids[i] != "000000")
@@ -231,7 +245,6 @@ public class ItemControls : MonoBehaviour {
                         curItem.gameObject, Item.ItemType.CORE);
             }
 			equipped_item[i] = curItem;
-            Debug.Log("Equipped item: " + equipped_item[i].name);
 			stats.hp += equipped_item[i].hp;
 			stats.armor += (int)equipped_item[i].armor;
 			stats.damage += (int)equipped_item[i].damage;
@@ -240,7 +253,6 @@ public class ItemControls : MonoBehaviour {
 			stats.luck += (int)equipped_item[i].luck;
 			
 			stats.equipment[i] = ids[i];
-            Debug.Log("Saved hp: " + stats.hp);
             playerMasterData.save_hero_equip_data(stats);
 			//hero.save_data(stats);
 		}

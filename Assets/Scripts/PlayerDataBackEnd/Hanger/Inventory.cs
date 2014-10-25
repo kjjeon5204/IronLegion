@@ -131,6 +131,12 @@ public class Inventory  {
 	{
 		return paid_currency;
 	}
+
+    public void store_currency(int credit, int cogentum)
+    {
+        currency = credit;
+        paid_currency = cogentum;
+    }
 	
 	public void change_currency(int num)
 	{

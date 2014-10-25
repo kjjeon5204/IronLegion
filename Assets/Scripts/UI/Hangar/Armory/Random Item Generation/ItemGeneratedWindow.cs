@@ -5,6 +5,7 @@ public class ItemGeneratedWindow : MonoBehaviour {
     public SpriteRenderer itemDisplay;
     public TextMesh[] stats;
     public TextMesh[] changedStat;
+    public TextMesh itemName;
 
     public ItemBuyConfirmButton itemBuyConfirm;
     public ItemEquipOption itemEquipConfirm;
@@ -28,6 +29,7 @@ public class ItemGeneratedWindow : MonoBehaviour {
 
         itemDisplay = curItemData.GetComponent<SpriteRenderer>();
         int statActivateCtr = 0;
+        itemName.text = curItemData.itemName;
         if (curItemData.damage != 0.0f)
         {
             stats[statActivateCtr].gameObject.SetActive(true);

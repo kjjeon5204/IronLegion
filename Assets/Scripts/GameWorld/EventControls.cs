@@ -595,7 +595,7 @@ public class EventControls : MonoBehaviour
                 {
                     waveRunData[waveCtr].thisStoryEnd = curEngageData.waveData[waveCtr].storyObjectEnd.
                         GetComponent<BattleStory>();
-                    eventRecord.event_played(tempHolder.cutSceneID);
+                    //eventRecord.event_played(tempHolder.cutSceneID);
                     waveRunData[waveCtr].thisStoryEnd.gameObject.SetActive(false);
                 }
                 else if (tempHolder.cutSceneID.Length != 0 && eventRecord.check_event_played(tempHolder.cutSceneID))

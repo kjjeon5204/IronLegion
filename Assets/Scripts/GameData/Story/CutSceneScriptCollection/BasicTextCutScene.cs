@@ -18,6 +18,8 @@ public class BasicTextCutScene : BattleStory {
     public GameObject cutSceneDialogueObject;
     CombatDialogue cutSceneDialogue;
 
+    public bool endGameCutScene = false;
+
 
 
 
@@ -67,10 +69,6 @@ public class BasicTextCutScene : BattleStory {
         cutSceneDialogue = cutSceneDialogueObject.GetComponent<CombatDialogue>();
         dialogueCtr = 0;
         get_next_text();
-
-
-
-
 	}
 
     
@@ -114,11 +112,16 @@ public class BasicTextCutScene : BattleStory {
             if (!get_next_text())
             {
                 if (customCutsceneAudio != null)
+                {
                     customCutsceneAudio.Stop();
+                }
+                if (endGameCutScene == true)
+                {
+                    Application.LoadLevel("Credit");
+                }
                 return true;
             }
         }
-
         return false;
 	}
 }

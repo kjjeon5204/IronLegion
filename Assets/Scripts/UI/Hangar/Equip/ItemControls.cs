@@ -128,7 +128,8 @@ public class ItemControls : MonoBehaviour {
 			inventory_end.transform.position = position + Vector3.down;
 			if (i < num_of_items)
 			{
-				current_slot_script.SetItem(playerMasterData.access_inventory_data().items[i], itemLibrary[inventory.items[i]], i);
+				current_slot_script.SetItem(playerMasterData.access_inventory_data().items[i], 
+                    itemDictionary.get_item_data(inventory.items[i]), i);
 			}
 			else
 			{

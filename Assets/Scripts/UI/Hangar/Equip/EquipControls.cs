@@ -268,6 +268,7 @@ public class EquipControls : MonoBehaviour {
 	public void SellSelectedItem() {
         inventory_to_switch.destroy_holding_item();
         inventory.UpdateInventory();
+        Debug.Log("Sell amount: " + item_inventory.sell_price);
         playerMasterData.add_currency(item_inventory.sell_price);
         ReloadDescription();
 	}

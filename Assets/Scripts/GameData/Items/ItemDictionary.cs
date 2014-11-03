@@ -58,7 +58,7 @@ public class ItemDictionary : MonoBehaviour {
     public GameObject generate_random_item(int minTier, int maxTier)
     {
         int tierAccess = Random.Range(minTier, maxTier);
-        int itemAccess = Random.Range(0, itemList[tierAccess].items.Length);
+        int itemAccess = Random.Range(0, itemList[tierAccess].items.Length - 1);
         return itemList[tierAccess].items[itemAccess];
     }
 
@@ -67,8 +67,6 @@ public class ItemDictionary : MonoBehaviour {
     {
         int numberOfItems = itemList[itemTier].items.Length;
         int itemAccess = Random.Range(0, numberOfItems);
-        Debug.Log("Item tier: " + itemTier);
-        Debug.Log("Item access number: " + numberOfItems);
         return itemList[itemTier].items[itemAccess];
     }
 
@@ -103,6 +101,7 @@ public class ItemDictionary : MonoBehaviour {
             for (int itemAccess = 0; itemAccess < itemList[tierCtr].items.Length; 
                 itemAccess++)
             {
+                Debug.Log(tierCtr + " " + itemAccess);
                 itemDictionary[itemList[tierCtr].items[itemAccess].name] =
                     itemList[tierCtr].items[itemAccess];
             }

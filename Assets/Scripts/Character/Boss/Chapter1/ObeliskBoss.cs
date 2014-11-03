@@ -18,7 +18,8 @@ public class ObeliskBoss : Character {
 		TRISLASH,
 		SONICCHARGE,
 		LANCEBEAM,
-		LASERWHEEL
+		LASERWHEEL,
+        DEATH
 	}
 	Ability[] abilityList;
 
@@ -302,164 +303,216 @@ public class ObeliskBoss : Character {
 	// Update is called once per frame
 	public override void manual_update () {
 		//Event Checker
-		heading = target.transform.position - this.transform.position;
-		if (heading.sqrMagnitude < 100f) {
-			longRange = false;
-		}
-		else {
-			longRange = true;
-		}
-        if ((currentStates == CurrentStates.IDLE && moveTime < Time.time) || 
-             (currentStates == CurrentStates.IDLE && attackStack > 3)) {
-            int movePoll = Random.Range(0, 4);
-            if (movePoll <= attackStack)
+        if (currentStates != CurrentStates.DEATH)
+        {
+            heading = target.transform.position - this.transform.position;
+            if (heading.sqrMagnitude < 100f)
             {
-                currentStates = CurrentStates.MOVE;
-                attackStack = 0;
+                longRange = false;
             }
-            moveTime = Time.time + 1.0f;
+            else
+            {
+                longRange = true;
+            }
+            if ((currentStates == CurrentStates.IDLE && moveTime < Time.time) ||
+                 (currentStates == CurrentStates.IDLE && attackStack > 3))
+            {
+                int movePoll = Random.Range(0, 4);
+                if (movePoll <= attackStack)
+                {
+                    currentStates = CurrentStates.MOVE;
+                    attackStack = 0;
+                }
+                moveTime = Time.time + 1.0f;
+            }
+
+            
+            if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time))
+            {
+
+                Debug.Log("Current stage running");
+                if (curStats.hp < baseStats.hp * .5)
+                {
+                    stageThree();
+                }
+                else if (curStats.hp < baseStats.hp * .85)
+                {
+                    stageTwo();
+                }
+                else
+                {
+                    stageOne();
+                }
+                Debug.Log(currentStates);
+            }
+
+            //Event Handle
+            if (currentStates != CurrentStates.SONICCHARGE && currentStates != CurrentStates.LASERWHEEL &&
+                !animation.IsPlaying("meleeaim") && !animation.IsPlaying("meleefire") && !animation.IsPlaying("meleefire1")
+                && !animation.IsPlaying("meleefire2") && !animation.IsPlaying("meleefire3"))
+            {
+                custom_look_at();
+            }
         }
-		
-		if ((currentStates == CurrentStates.IDLE && globalCDTracker < Time.time)) {
-			if (curStats.hp < baseStats.hp * .5) {
-				stageThree();
-			}
-			else if (curStats.hp < baseStats.hp * .85) {
-				stageTwo();
-			} 
-			else {
-				stageOne();
-			}
-			Debug.Log (currentStates);
-		}
 
-		//Event Handle
-		if (currentStates != CurrentStates.SONICCHARGE && currentStates != CurrentStates.LASERWHEEL &&
-            !animation.IsPlaying("meleeaim") && !animation.IsPlaying("meleefire") && !animation.IsPlaying("meleefire1")
-            && !animation.IsPlaying("meleefire2") && !animation.IsPlaying("meleefire3"))
+        if (curStats.hp <= 0)
         {
-			custom_look_at();
-		}
+            currentStates = CurrentStates.DEATH;
+        }
 
-		
-		if (currentStates == CurrentStates.IDLE) {
-			animation.CrossFade ("idle");
-		}
-		else if (currentStates == CurrentStates.COOLDOWN) {
-			if (chargeCDTracker < Time.time) {
-				currentStates = CurrentStates.SONICCHARGE;
-				abilityList[7].initialize_ability ();
-			}
-		}
-		//LONG RANGE ABILITIES
-		else if (currentStates == CurrentStates.ROCKET) {
-			rocketCDTracker = Time.time +rocketCD;
-			if (!abilityList[0].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.HOWITZER) {
-			howitzerCDTracker = Time.time + howitzerCD;
-			if (!abilityList[1].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.BARRAGE) {
-			barrageCDTracker = Time.time + barrageCD;
-			if (!abilityList[2].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}			
-		}
-		/*
-		else if (currentStates == CurrentStates.OBLIVION) {
-			if (animation.IsPlaying ("castloop")) {
-				if (missileDelayTracker < Time.time) {
-					GameObject projectileAcc = (GameObject)Instantiate(barrageProjectile, barrageMuzzle[muzzleCtr].transform.position,
-					    barrageMuzzle[muzzleCtr].transform.rotation);
-					projectileAcc.GetComponent<MyProjectile>().set_projectile(target.GetComponent<MainChar>(), this.gameObject,
-					    curStats.damage * 0.4f); 						
-					muzzleCtr++;
-					missileDelayTracker = Time.time + missileDelay;
-				}
-			}	
-			if (!abilityList[3].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		*/
-		//CLOSE RANGE ABILITIES
-		else if (currentStates == CurrentStates.CRUSH) {
-			if (!abilityList[4].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.MACHINEGUN) {
-			if (!abilityList[5].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.TRISLASH) {
-			if (!abilityList[6].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.SONICCHARGE) {
-			if (chargeCount < 3) {
-				if (!abilityList[7].run_ability ()) {
-					currentStates = CurrentStates.COOLDOWN;
-					chargeCount++;
-					chargeCDTracker = Time.time + chargeCD;
-				}
-			}
-			else {
-				chargeCount = 0;
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		//ANYTIME ABILITIES
-		else if (currentStates == CurrentStates.LANCEBEAM) {
-			if (!abilityList[8].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-		else if (currentStates == CurrentStates.LASERWHEEL) {
-			if (animation.IsPlaying("laserlancestart")) {
-				transform.Rotate(Vector3.up * 50f * Time.deltaTime);
-			}
-			if (animation.IsPlaying("laserlanceloop")) {
-				if (lasermade == false) {
-					laserbeam = (GameObject)Instantiate(laserObject, laserMuzzle.transform.position,
-						 this.transform.rotation);
-					lasermade = true;
-				}
-				transform.Rotate(Vector3.down * 50f * Time.deltaTime);
-				laserbeam.transform.RotateAround(this.transform.position, Vector3.down, 50f * Time.deltaTime);
-			}
-			if (!animation.IsPlaying("laserlanceloop")) {
-				Destroy(laserbeam);
-			}
-			if (!abilityList[9].run_ability()) {
-				currentStates = CurrentStates.IDLE;
-				globalCDTracker = Time.time + globalCD;
-			}
-		}
-        else if (currentStates == CurrentStates.MOVE)
+        if (currentStates != CurrentStates.DEATH)
         {
-            if (movePhaseCtr == 0)
-                move_phase_one();
-            else if (movePhaseCtr == 1)
-                move_phase_two();
-            else if (movePhaseCtr == 2)
-                move_phase_three();
+            if (currentStates == CurrentStates.IDLE)
+            {
+                Debug.Log("In idle");
+                animation.CrossFade("idle");
+            }
+            else if (currentStates == CurrentStates.COOLDOWN)
+            {
+                if (chargeCDTracker < Time.time)
+                {
+                    currentStates = CurrentStates.SONICCHARGE;
+                    abilityList[7].initialize_ability();
+                }
+            }
+            //LONG RANGE ABILITIES
+            else if (currentStates == CurrentStates.ROCKET)
+            {
+                rocketCDTracker = Time.time + rocketCD;
+                if (!abilityList[0].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.HOWITZER)
+            {
+                howitzerCDTracker = Time.time + howitzerCD;
+                if (!abilityList[1].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.BARRAGE)
+            {
+                barrageCDTracker = Time.time + barrageCD;
+                if (!abilityList[2].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            /*
+            else if (currentStates == CurrentStates.OBLIVION) {
+                if (animation.IsPlaying ("castloop")) {
+                    if (missileDelayTracker < Time.time) {
+                        GameObject projectileAcc = (GameObject)Instantiate(barrageProjectile, barrageMuzzle[muzzleCtr].transform.position,
+                            barrageMuzzle[muzzleCtr].transform.rotation);
+                        projectileAcc.GetComponent<MyProjectile>().set_projectile(target.GetComponent<MainChar>(), this.gameObject,
+                            curStats.damage * 0.4f); 						
+                        muzzleCtr++;
+                        missileDelayTracker = Time.time + missileDelay;
+                    }
+                }	
+                if (!abilityList[3].run_ability()) {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            */
+            //CLOSE RANGE ABILITIES
+            else if (currentStates == CurrentStates.CRUSH)
+            {
+                if (!abilityList[4].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.MACHINEGUN)
+            {
+                if (!abilityList[5].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.TRISLASH)
+            {
+                if (!abilityList[6].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.SONICCHARGE)
+            {
+                if (chargeCount < 3)
+                {
+                    if (!abilityList[7].run_ability())
+                    {
+                        currentStates = CurrentStates.COOLDOWN;
+                        chargeCount++;
+                        chargeCDTracker = Time.time + chargeCD;
+                    }
+                }
+                else
+                {
+                    chargeCount = 0;
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            //ANYTIME ABILITIES
+            else if (currentStates == CurrentStates.LANCEBEAM)
+            {
+                if (!abilityList[8].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.LASERWHEEL)
+            {
+                if (animation.IsPlaying("laserlancestart"))
+                {
+                    transform.Rotate(Vector3.up * 50f * Time.deltaTime);
+                }
+                if (animation.IsPlaying("laserlanceloop"))
+                {
+                    if (lasermade == false)
+                    {
+                        laserbeam = (GameObject)Instantiate(laserObject, laserMuzzle.transform.position,
+                             this.transform.rotation);
+                        lasermade = true;
+                    }
+                    transform.Rotate(Vector3.down * 50f * Time.deltaTime);
+                    laserbeam.transform.RotateAround(this.transform.position, Vector3.down, 50f * Time.deltaTime);
+                }
+                if (!animation.IsPlaying("laserlanceloop"))
+                {
+                    Destroy(laserbeam);
+                }
+                if (!abilityList[9].run_ability())
+                {
+                    currentStates = CurrentStates.IDLE;
+                    globalCDTracker = Time.time + globalCD;
+                }
+            }
+            else if (currentStates == CurrentStates.MOVE)
+            {
+                if (movePhaseCtr == 0)
+                    move_phase_one();
+                else if (movePhaseCtr == 1)
+                    move_phase_two();
+                else if (movePhaseCtr == 2)
+                    move_phase_three();
+            }
+        }
+        else
+        {
+            base.death_state();
         }
 	}
 }

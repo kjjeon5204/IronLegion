@@ -65,6 +65,40 @@ public class ActivateConfirmation : MonoBehaviour {
 		this.transform.position = onScreen.transform.position;
 		//cam.enabled = true;
 	}
+
+    public void Confirm(string mapID, string level, string what_to_confirm)
+    {
+        yes.behavior = what_to_confirm;
+        if (what_to_confirm == "LEVEL")
+        {
+            controls.confirmingLevel = true;
+            ConfirmText.text = "You are attacking";
+            LevelNumber.text = "Level: " + level;
+            //map.store_map_data(level);
+            string dataPath = Application.persistentDataPath + "/MapTransferData.txt";
+
+            using (StreamWriter outFile = File.CreateText(dataPath))
+            {
+                outFile.WriteLine(mapID);
+            }
+
+
+        }
+        else if (what_to_confirm == "RESET DATA")
+        {
+            settings.transform.position = waiting.transform.position;
+            ConfirmText.text = "Are you sure you";
+            LevelNumber.text = "want to reset?";
+        }
+        else if (what_to_confirm == "RESET DATA CONFIRM")
+        {
+            settings.transform.position = waiting.transform.position;
+            ConfirmText.text = "Last chance!";
+            LevelNumber.text = "Reset?";
+        }
+        this.transform.position = onScreen.transform.position;
+        //cam.enabled = true;
+    }
 	
 	public void Reject()
 	{

@@ -252,7 +252,7 @@ public class IntroCutScene : MonoBehaviour {
             else
             {
                 storyTextSequence = false;
-                Application.LoadLevel("Overworld");
+                Application.LoadLevel("IntroCutScene");
             }
         }
 	}

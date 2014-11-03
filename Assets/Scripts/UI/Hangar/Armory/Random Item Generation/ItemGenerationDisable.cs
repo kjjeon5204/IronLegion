@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class ItemGenerationDisable : MonoBehaviour {
-    public ItemWindowDisplay itemGenWindow;
-    public ItemGeneratedWindow itemDisplayWindow;
+    public GameObject itemGenWindow;
+    public GameObject itemDisplayWindow;
 
 
     void Clicked()

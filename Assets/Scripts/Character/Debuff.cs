@@ -50,7 +50,6 @@ public class Debuff : MonoBehaviour {
             curDebuff.buffType = buffIconType;
             curDebuff.buffIconSlot = -1;
             trackDebuff.Add(curDebuff);
-            Debug.Log("Debuff applied!");
             thisUnit.modify_stat(curDebuff.armorModifier, curDebuff.attackModifier);
         }
         else
@@ -76,6 +75,7 @@ public class Debuff : MonoBehaviour {
             for (int ctr = 0; ctr < numOfActiveDebuff; ctr++)
             {
                 trackDebuff[ctr].duration -= Time.deltaTime;
+
                 if (trackDebuff[ctr].duration <= 0.0f)
                 {
                     combatScriptAcc.turn_off_buff_icon(trackDebuff[ctr].buffType, trackDebuff[ctr].buffIconSlot);

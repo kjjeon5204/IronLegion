@@ -9,11 +9,13 @@ public class ActivateAbilities : MonoBehaviour {
 	public GameObject border_bot;
 	public GameObject border_top;
 	public Camera second_cam;
+    public GameObject equipPage;
 	
 	void Clicked () {
 		hangar.MoveOffScreen();
 		hangar.SetObjectOnScreen(abilities);
-		
+        equipPage.SetActive(false);
+
 		Vector3 bottom_left = Camera.main.WorldToViewportPoint(border_bot.transform.position);
 		Vector3 top_right = Camera.main.WorldToViewportPoint(border_top.transform.position);
 		

@@ -23,7 +23,8 @@ public class UnlockSlotButton : MonoBehaviour {
     void Clicked()
     {
         //send message to control center with updated currency and slot access
-        armory.unlock_slot(curSlotType, unlockCreditRequirement, 0);
+        if (armory.get_owned_credit() >= unlockCreditRequirement)
+            armory.unlock_slot(curSlotType, unlockCreditRequirement, 0);
 
     }
 }

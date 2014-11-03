@@ -125,7 +125,7 @@ public class EndingCredit : MonoBehaviour {
         }
         else
         {
-            //Application.LoadLevel("Overworld");
+            Application.LoadLevel("Overworld");
         }
 	}
 }

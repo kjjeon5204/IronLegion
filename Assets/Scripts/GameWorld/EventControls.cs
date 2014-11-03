@@ -197,7 +197,6 @@ public class EventControls : MonoBehaviour
         waveRunData[curWave].thisStoryStart.gameObject.SetActive(true);
         waveRunData[curWave].thisStoryStart.manual_start();
         eventRecord.event_played(waveRunData[curWave].thisStoryStart.cutSceneID);
-        combatScript.loadingScreen.SetActive(false);
 
         if (waveRunData[curWave].thisStoryStart.customCutsceneAudio != null)
         {
@@ -227,7 +226,6 @@ public class EventControls : MonoBehaviour
         waveRunData[0].eventRunPhase = false;
         waveRunData[0].waveEnded = false;
         waveRunData[0].storyInitialized = false;
-        combatScript.loadingScreen.SetActive(false);
     }
 
 
@@ -298,6 +296,8 @@ public class EventControls : MonoBehaviour
     {
         //end battle
         playerMasterData.player_win_increment();
+
+        playerScript.disable_targeting_indicator();
 
         AudioSource[] mapAudios = gameObject.GetComponents<AudioSource>();
         for (int ctr = 0; ctr < mapAudios.Length; ctr++)
@@ -443,7 +443,7 @@ public class EventControls : MonoBehaviour
         combatScript.turn_on_combat_ui();
         playerScript.enemyList = instatiateWave.enemyListScript;
 
-        playerScript.set_target(instatiateWave.enemyList[0]);
+        //playerScript.set_target(instatiateWave.enemyList[0]);
         radarScript.initialize_radar(waveRunData[curWave].enemyList, player);
 
         playerScript.enable_auto_adjust();
@@ -511,7 +511,6 @@ public class EventControls : MonoBehaviour
         RenderSettings.fogEndDistance = curEngageData.fogSettings.fogEndDistance;
 
         combatScriptObject = GameObject.Find("Camera");
-        radar = GameObject.Find("RadarDisplay");
         GameObject screenObject = GameObject.Find("texture_blacksprite");
         myScreenFadeScript = screenObject.GetComponent<ScreenFader>();
 
@@ -527,6 +526,7 @@ public class EventControls : MonoBehaviour
 
         Transform playerStartPos = curEngageData.playerStartPos.transform;
         loadPlayer = (GameObject)Resources.Load("heromech");
+        //loadPlayer = heroMechPrefab;
         player = (GameObject)Instantiate(loadPlayer, playerStartPos.position, playerStartPos.rotation);
         playerScript = player.GetComponent<MainChar>();
         playerScript.battleBoundary = boundaryObject.collider;
@@ -538,6 +538,7 @@ public class EventControls : MonoBehaviour
         }
         playerScript.set_battle_type(curEngageData.waveData[0].battleType);
         playerScript.manual_start();
+        
         if (eventRecord.check_event_played("Battle_end_6"))
         {
             AllyDataList allyLoader = new AllyDataList();
@@ -559,9 +560,9 @@ public class EventControls : MonoBehaviour
                 Debug.LogError("Unit not found!");
             }
         }
+        
 
-
-        radarScript = radar.GetComponent<Radar>();
+        
 
 
 
@@ -704,10 +705,9 @@ public class EventControls : MonoBehaviour
         combatScript = combatScriptObject.GetComponent<CombatScript>();
         combatScript.eventControlObject = gameObject;
         combatScript.initialize_script();
-
+        radarScript = combatScript.radarDisplay.GetComponent<Radar>();
 
         curWave = 0;
-        combatScript.activate_loading_screen();
         //First wave initialize
         if (waveRunData[0].thisStoryStart != null)
         {
@@ -771,6 +771,9 @@ public class EventControls : MonoBehaviour
         if (playerScript.return_cur_stats().hp <= 0.0f || endBattle == true)
         {
             enabled = false;
+            playerScript.animation.Play("deathstart");
+            playerScript.animation.PlayQueued("deathloop");
+            playerScript.initiateDeathSequence = true;
             combatScript.lose_battle_screen();
         }
         //Checking wave clear/win conditions

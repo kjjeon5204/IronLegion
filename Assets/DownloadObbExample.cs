@@ -31,8 +31,7 @@ public class DownloadObbExample : MonoBehaviour {
                 }
                 else
                 {
-                    Application.LoadLevel(1);
-                    StartCoroutine(LoadLevel(1));
+                    Application.LoadLevel("IntroScene");
                 }
             }
 		}

@@ -91,20 +91,7 @@ public class MapControls : MonoBehaviour {
                 }
             }
             previousPos = mousePos;
-            /*
-             * clicked_object = click.Click(touches[0].position);
-					if (clicked_object.isClicked)
-					{
-						clicked_object.clicked_object.SendMessage("BeginClick",SendMessageOptions.DontRequireReceiver);
-						clicking = true;
-					}
-					else //move map
-					{
-						if (CheckMovePosition(touches[0].position))
-						ChangeCameraPosition(touches[0].deltaPosition);
-						clicking = false;
-					}
-             */
+            
 
         }
         if (Input.GetMouseButtonUp(0))
@@ -123,18 +110,6 @@ public class MapControls : MonoBehaviour {
             }
 
             previousPos = mousePos;
-            /*
-            if (clicking && clicked_object.clicked_object == click.Click(touches[0].position).clicked_object)
-            {
-                clicked_object.clicked_object.SendMessage("EndClick", SendMessageOptions.DontRequireReceiver);
-                clicking = false;
-            }
-            else if (!clicking) //move map
-            {
-                if (CheckMovePosition(touches[0].position))
-                    ChangeCameraPosition(touches[0].deltaPosition);
-            }
-            */
         }
     }
 	

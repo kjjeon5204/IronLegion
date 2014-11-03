@@ -60,6 +60,12 @@ public class HellKiteMainBody : Character {
         turretControls = false;
         tailGunControls = false;
 
+        if (curStats.hp <= 0.0f)
+        {
+            Instantiate(detonatorDeath, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
         if (playerRelativePos.y < 0.0f)
         {
             turretControls = true;

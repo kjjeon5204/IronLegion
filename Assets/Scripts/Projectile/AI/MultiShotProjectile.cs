@@ -16,7 +16,11 @@ public class MultiShotProjectile : MyProjectile {
         {
             transform.LookAt(target.collider.bounds.center);
             GameObject childProjectile = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
-            childProjectile.GetComponent<MyProjectile>().set_projectile(target, owner, damage / shotCount);
+            childProjectile.GetComponent<MyProjectile>().set_projectile(target, owner, 0);
+            if (target != null)
+            {
+                target.GetComponent<Character>().hit(damage / shotCount, target.transform.position);
+            }
             timeTracker = Time.time + timeBetweenShots;
             curShotCount++;
         }

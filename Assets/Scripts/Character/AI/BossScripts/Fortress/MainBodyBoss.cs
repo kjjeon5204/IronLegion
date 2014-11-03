@@ -213,6 +213,8 @@ public class MainBodyBoss : Character {
 	// Update is called once per frame
     public override void manual_update()
     {
+        if (collider.enabled == false)
+            collider.enabled = true;
         Vector3 playerRelativePos = transform.InverseTransformPoint(target.transform.position);
         if (missileTimeTracker < Time.time && missileActive == false)
         {

@@ -8,6 +8,7 @@ public class ItemGenerateBoxControls : MonoBehaviour {
     public GameObject boxLight;
     float activationTimeTracker;
     private Quaternion lidOrientation;
+    public GameObject lightParticle;
 
     public void activate_box()
     {
@@ -33,6 +34,11 @@ public class ItemGenerateBoxControls : MonoBehaviour {
         {
             if (boxLight.activeInHierarchy == false)
                 boxLight.SetActive(true);
+        }
+        if (activationTimeTracker > 0.5f)
+        {
+            if (lightParticle.activeInHierarchy == false)
+                lightParticle.SetActive(true);
         }
         if (activationTimeTracker >= 1.2f)
         {

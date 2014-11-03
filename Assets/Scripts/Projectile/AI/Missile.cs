@@ -100,10 +100,6 @@ public class Missile : MyProjectile {
 
 
 
-        if (transform.InverseTransformPoint(targetPosition).z < 0)
-        {
-            rotAngleX = 0.0f;
-        }
 
         float xRotationValue = rotSpeed * (rotAngleX / (rotAngleX + rotAngleY));
         float yRotationValue = rotSpeed * (rotAngleY / (rotAngleX + rotAngleY));
@@ -176,7 +172,10 @@ public class Missile : MyProjectile {
                 }
             }
             Destroy(gameObject);
-
+        }
+        if (hit.gameObject.tag == "Environment")
+        {
+            Destroy(gameObject);
         }
 	}
 	

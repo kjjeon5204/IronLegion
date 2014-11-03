@@ -153,7 +153,6 @@ public class PlayerDataReader {
         if (eventTracker.ContainsKey(eventID))
         {
 
-            Debug.Log("Event Found!");
             return eventTracker[eventID].eventPlayed;
         }
         else return false;

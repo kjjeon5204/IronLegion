@@ -159,13 +159,6 @@ public class TutorialCutScene : BattleStory
 
         uiButtonSize = new Rect(0.0f, 0.0f, 0.3f, 0.15f);
         texture_resize(hpBar, uiButtonSize);
-        /*
-        uiButtonSize = new Rect(0.4f, 0.2f, 0.2f, 0.35f);
-        texture_resize(verticalFingerSlide, uiButtonSize);
-
-        uiButtonSize = new Rect(0.3f, 0.3f, 0.4f, 0.15f);
-        texture_resize(horizontalFingerSlide, uiButtonSize);
-        */
         horizontalFingerSlide.SetActive(false);
         verticalFingerSlide.SetActive(false);
 
@@ -289,7 +282,6 @@ public class TutorialCutScene : BattleStory
             Color tempStore = uiSprite.color;
             tempStore.a = 0.5f;
             uiSprite.color = tempStore;
-            Debug.Log("Reduced alph to " + uiSprite.color.a);
         }
         foreach (TextMesh uiText in uiTexts)
         {
@@ -422,7 +414,7 @@ public class TutorialCutScene : BattleStory
 
                         playerScript.switch_hero_state();
                     }
-                    conditionMet = true;
+                    //conditionMet = true;
                 }
             }
         }
@@ -505,6 +497,7 @@ public class TutorialCutScene : BattleStory
             if (uiModified == false)
             {
                 playerMainCam.SetActive(true);
+                hpBar.SetActive(true);
                 cutScenePersCam.SetActive(false);
                 uiModified = true;
             }
@@ -537,9 +530,11 @@ public class TutorialCutScene : BattleStory
             
             if (Input.touchCount > 0)
                 tutorial_input(Input.GetTouch(0));
-            
+
             if (Input.GetKeyDown(KeyCode.M))
+            {
                 conditionMet = true;
+            }
 
             if (conditionMet == true && playerScript.curState == "IDLE")
             {
@@ -644,10 +639,23 @@ public class TutorialCutScene : BattleStory
                 tutorial_input(Input.GetTouch(0));
 
             if (Input.GetKeyDown(KeyCode.M))
+            {
+                stateChangeTextMod.initialize_text("Phaser\nAttack");
+                enable_ranged_buttons();
+                disable_close_buttons();
+                playerScript.isClose = false;
+                playerScript.switch_hero_state();
+                //conditionMet = true;
+            }
+
+            if (conditionMet == false && playerScript.curState != "IDLE")
+            {
                 conditionMet = true;
+            }
 
             if (conditionMet == true && playerScript.curState == "IDLE")
             {
+                playerScript.animation.CrossFade("idle");
                 verticalFingerSlide.SetActive(false);
                 tutorialPhase++;
                 uiModified = false;
@@ -667,7 +675,7 @@ public class TutorialCutScene : BattleStory
                 Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 get_next_text();
-                if (dialogueCtr == 30)
+                if (dialogueCtr == 31)
                 {
                     tutorialPhase++;
                     uiModified = false;

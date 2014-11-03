@@ -15,6 +15,8 @@ public class ActivateEquip : MonoBehaviour {
 	
 	public void Clicked () {
 		hangar.MoveOffScreen();
+        if (equip.activeInHierarchy == false)
+            equip.SetActive(true);
 		hangar.SetObjectOnScreen(equip);
 		
 		Vector3 bottom_left = Camera.main.WorldToViewportPoint(border_bot.transform.position);

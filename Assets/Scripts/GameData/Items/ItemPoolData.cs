@@ -38,7 +38,7 @@ public class ItemPoolData : MonoBehaviour {
         int rarePoll = uncommonPoll + (int)(1000.0f * rare);
         int legendaryPoll = rarePoll + (int)(1000.0f * legendary);
 
-        int curPoll = Random.Range(0 * 1000, 100001);
+        int curPoll = Random.Range(0 * 1000, 100000);
 
         if (curPoll < commonPoll)
         {//common
@@ -61,7 +61,7 @@ public class ItemPoolData : MonoBehaviour {
             int itemPoll = Random.Range(0, itemData[tierAcc].itemTypePool[2].itemsData.Length);
             return itemData[tierAcc].itemTypePool[2].itemsData[itemPoll];
         }
-        else if (curPoll < legendaryPoll)
+        else if (curPoll <= legendaryPoll)
         {//legendary
             if (itemData[tierAcc].itemTypePool[3].itemsData.Length == 0)
                 return null;
@@ -70,7 +70,7 @@ public class ItemPoolData : MonoBehaviour {
         }
         else
         {
-            return null;
+            return itemData[tierAcc].itemTypePool[0].itemsData[0];
         }
     }
 

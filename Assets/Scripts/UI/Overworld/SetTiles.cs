@@ -61,6 +61,11 @@ public class SetTiles : MonoBehaviour {
         IList<int> unlockedLevels = playerMasterData.get_unlocked_levels(chapter);
         IList<int> latestUnlocked = playerMasterData.get_latest_levels(chapter);
 
+        
+        for (int ctr = 0; ctr < latestUnlocked.Count; ctr++)
+        {
+
+        }
 		
 		bool done_once = false; //So that you only ActivateArrows once
         for (int ctr = 0; ctr < unlockedLevels.Count; ctr++)
@@ -68,7 +73,7 @@ public class SetTiles : MonoBehaviour {
             tileDataAccess[unlockedLevels[ctr]].gameObject.SetActive(true);
             tileDataAccess[unlockedLevels[ctr]].TileOn();
             /*add on*/
-            if (unlockedLevels[ctr] == keyTile)
+            if (unlockedLevels[ctr] == keyTile && !latestUnlocked.Contains(unlockedLevels[ctr]))
             {
                 if (nextMap != null)
                     nextMap.enabled = true;
@@ -113,26 +118,5 @@ public class SetTiles : MonoBehaviour {
             activate_remaining_tiles(latestUnlocked[ctr]);
         }
 		tutorial.ActivateTutorials();
-		//if (chapter == 1)
-		    //tutorial.ActivateTutorials();
-        /*
-		for (int i = 0; i <= levelsCompleted; i++)
-		{
-			string name;
-			if (i < 10)
-			{
-				name = "00"+i.ToString();
-			}
-			else
-			{
-				name = "0"+i.ToString();
-			}
-			GameObject tile = GameObject.Find(name);
-			TileActive activate = tile.GetComponent<TileActive>();
-			activate.TileOn();
-			Hero.transform.position = tile.transform.position;
-			Camera.main.transform.position = new Vector3(tile.transform.position.x,tile.transform.position.y,-10f);
-		}
-         */ 
 	}
 }

@@ -51,14 +51,14 @@ public class ItemDisplayWindow : MonoBehaviour {
         myStoreData = newStore;
         itemSlots = new ItemSlot[4];
         
-        for (int ctr = 1; ctr < numOfOpenSpot; ctr++)
+        for (int ctr = 1; ctr < numOfOpenSpot + 1; ctr++)
         {
             Vector3 windowPosition = slotPosition.transform.position;
             windowPosition.y -= ctr * verticalSlotOffset;
             itemSlots[ctr].slotType = SlotType.UNLOCKED;
             itemSlots[ctr].itemSlot = (GameObject)Instantiate(itemSlotFrame, windowPosition, Quaternion.identity);
             itemSlots[ctr].itemSlot.GetComponent<ItemSlotWindow>().
-                set_item_slot(newStore.soldItemList[ctr], armoryControl, ctr);
+                set_item_slot(newStore.soldItemList[ctr - 1], armoryControl, ctr);
             itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
         }
         for (int ctr = numOfOpenSpot; ctr < itemSlots.Length; ctr++)
@@ -90,7 +90,7 @@ public class ItemDisplayWindow : MonoBehaviour {
             itemSlots[ctr].slotType = SlotType.UNLOCKED;
             itemSlots[ctr].itemSlot = (GameObject)Instantiate(itemSlotFrame, windowPosition, Quaternion.identity);
             itemSlots[ctr].itemSlot.GetComponent<ItemSlotWindow>().
-                set_item_slot(inputInventory.soldItemList[ctr], inArmoryControl, ctr);
+                set_item_slot(inputInventory.soldItemList[ctr - 1], inArmoryControl, ctr);
             itemSlots[ctr].itemSlot.transform.parent = slotPosition.transform;
         }
         for (int ctr = numOfOpenSpot + 1; ctr < itemSlots.Length; ctr++)
@@ -155,12 +155,13 @@ public class ItemDisplayWindow : MonoBehaviour {
         cogentumOwned = cogentum;
 
         //Process for unlocking slot
-        GameObject temp = itemSlots[++numOfOpenSpot].itemSlot;
+        numOfOpenSpot++;
+        GameObject temp = itemSlots[numOfOpenSpot].itemSlot;
         itemSlots[numOfOpenSpot].itemSlot = (GameObject)Instantiate(itemSlotFrame,
             temp.transform.position, temp.transform.rotation);
         itemSlots[numOfOpenSpot].itemSlot.transform.parent = temp.transform.parent;
         itemSlots[numOfOpenSpot].itemSlot.GetComponent<ItemSlotWindow>().
-            set_item_slot(myStoreData.soldItemList[numOfOpenSpot], armoryControl, numOfOpenSpot);
+            set_item_slot(myStoreData.soldItemList[numOfOpenSpot - 1], armoryControl, numOfOpenSpot);
         myStoreData.numberOfUnlockedSpot = numOfOpenSpot;
         Destroy(temp);
         armoryData.save_store_data(myStoreData);
@@ -169,11 +170,11 @@ public class ItemDisplayWindow : MonoBehaviour {
 
     public void item_bought(int slotAccess)
     {
-        ArmoryCatalog tempCatalog = myStoreData.soldItemList[slotAccess];
+        ArmoryCatalog tempCatalog = myStoreData.soldItemList[slotAccess - 1];
         tempCatalog.itemSaleStatus = true;
         itemSlots[slotAccess].itemSlot.GetComponent<ItemSlotWindow>().
             update_sale_status(tempCatalog.itemSaleStatus);
-        myStoreData.soldItemList[slotAccess] = tempCatalog;
+        myStoreData.soldItemList[slotAccess - 1] = tempCatalog;
     }
 
 
@@ -209,6 +210,9 @@ public class ItemDisplayWindow : MonoBehaviour {
 
     void PC_input_parser()
     {
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            slotPosition.transform.Translate(Vector3.up * 8.0f * Time.deltaTime);
+        }
         Vector2 curTouchPos =  Camera.main.ScreenToWorldPoint(Input.mousePosition);
         LayerMask myLayerMask = LayerMask.NameToLayer("ItemDisplayFrame");
         if (Input.GetMouseButtonDown(0))
@@ -236,7 +240,7 @@ public class ItemDisplayWindow : MonoBehaviour {
 
     void Update()
     {
-        PC_input_parser();
+        //PC_input_parser();
         foreach (Touch curTouch in Input.touches)
             touch_parser(curTouch);
     }

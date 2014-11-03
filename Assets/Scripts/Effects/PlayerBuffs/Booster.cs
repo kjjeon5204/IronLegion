@@ -49,7 +49,15 @@ public class Booster : MonoBehaviour {
             }
         }
     }
-    
+
+    public void shut_down_booster()
+    {
+        for (int ctr = 0; ctr < boosterLengthController.Length; ctr++)
+        {
+            boosterLengthController[ctr].SetActive(false);
+        }
+    }
+
     public void turn_off_booster()
     {
         boosterOn = false;

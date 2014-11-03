@@ -35,11 +35,11 @@ public class AllyCardInfo : MonoBehaviour {
 		
 		cardName.text = currentAlly.unitName;
 		description.text = "The Minotaur mech is a heavy\narmored unit capable of taking\nmultiple hits to protect allies.";
-			
-		hp.text = aiStatScript.aiStatTable[currentAlly.level].hp.ToString();
-		armor.text = aiStatScript.aiStatTable[currentAlly.level].baseArmor.ToString();
-		dmg.text = aiStatScript.aiStatTable[currentAlly.level].baseAttack.ToString();
-		level.text = "Lvl. " + aiStatScript.aiStatTable[currentAlly.level].level.ToString();
+        AIStatElement curAllyElement = aiStatScript.getLevelData(currentAlly.level);
+		hp.text = curAllyElement.hp.ToString();
+		armor.text = curAllyElement.baseArmor.ToString();
+		dmg.text = curAllyElement.baseAttack.ToString();
+		level.text = "Lvl. " + currentAlly.level.ToString();
 	}
 	
 	// Update is called once per frame
@@ -48,10 +48,10 @@ public class AllyCardInfo : MonoBehaviour {
 			inUse = true;
 		}
 		if (inUse == true) {
-			equip.active = false;
+			equip.SetActive(false);
 		}
 		else {
-			equip.active = true;
+            equip.SetActive(false);
 		}
 		modelRotate.transform.Rotate(Vector3.up * 10 * Time.deltaTime); 
 	}

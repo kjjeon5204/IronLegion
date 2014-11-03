@@ -19,18 +19,49 @@ public class ItemBuyButton : MonoBehaviour {
     public void initialize_button(int slotCount, ArmoryControl inArmoryControl,
         ArmoryCatalog inItemInfo)
     {
+        
         slotNum = slotCount;
         armoryControl = inArmoryControl;
+        creditOwned = armoryControl.get_owned_credit();
+        cogentumOwned = armoryControl.get_owned_cogentum();
         itemInformation = inItemInfo;
         Item itemInfo = itemInformation.itemObject.GetComponent<Item>();
         creditRequired = itemInfo.buy_price;
         cogentumRequired = itemInfo.cg_price;
+        if (creditOwned < creditRequired || cogentumOwned < cogentumRequired)
+        {
+            SpriteRenderer curSprite = gameObject.GetComponent<SpriteRenderer>();
+            Color myColor = curSprite.color;
+            myColor.a = 0.5f;
+            curSprite.color = myColor;
+        }
+        else
+        {
+            SpriteRenderer curSprite = gameObject.GetComponent<SpriteRenderer>();
+            Color myColor = curSprite.color;
+            myColor.a = 1.0f;
+            curSprite.color = myColor;
+        }
     }
 
     public void modify_button(int credit, int cogentum)
     {
         creditOwned = credit;
         cogentumOwned = cogentum;
+        if (creditOwned < creditRequired || cogentumOwned < cogentumRequired)
+        {
+            SpriteRenderer curSprite = gameObject.GetComponent<SpriteRenderer>();
+            Color myColor = curSprite.color;
+            myColor.a = 0.5f;
+            curSprite.color = myColor;
+        }
+        else
+        {
+            SpriteRenderer curSprite = gameObject.GetComponent<SpriteRenderer>();
+            Color myColor = curSprite.color;
+            myColor.a = 1.0f;
+            curSprite.color = myColor;
+        }
     }
 
     void Clicked()
@@ -40,7 +71,6 @@ public class ItemBuyButton : MonoBehaviour {
         if (creditOwned >= creditRequired &&
             cogentumOwned >= cogentumRequired)
         {
-            Debug.Log("Buy Item");
             armoryControl.item_bought(creditRequired, cogentumRequired, slotNum, 
                 itemInformation.itemObject.GetComponent<Item>().itemType);
             Inventory playerInventory = new Inventory();

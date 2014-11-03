@@ -17,9 +17,9 @@ public class YesConfirm : MonoBehaviour {
 	void Clicked() {
 		switch (behavior) {
 			case "LEVEL":
+                loading_screen.SetActive(true);
 				loading_screen.transform.position = on_screen.transform.position;
 				active.Reject();
-				Application.LoadLevel("BattleScene");
 				break;
 			case "RESET DATA":
 				active.Confirm(null , -1,"RESET DATA CONFIRM");

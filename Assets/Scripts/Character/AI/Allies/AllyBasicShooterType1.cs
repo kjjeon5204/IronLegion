@@ -10,6 +10,8 @@ public class AllyBasicShooterType1 : BaseAlly {
     public AnimationClip attackFirePhase;
     public AnimationClip attackEndPhase;
     public Ability[] unitSpecialAbility;
+    public GameObject muzzleDetonator;
+    public GameObject muzzlePos;
 
 
     enum UnitState
@@ -98,6 +100,8 @@ public class AllyBasicShooterType1 : BaseAlly {
             {
                 if (phasePlayed == false && targetScript != null)
                 {
+                    if (muzzleDetonator != null && muzzlePos != null)
+                        Instantiate(muzzleDetonator, muzzlePos.transform.position, muzzlePos.transform.rotation);
                     targetScript.hit(curStats.damage * 0.15f);
                     animation.Play(attackFirePhase.name);
                     phasePlayed = true;

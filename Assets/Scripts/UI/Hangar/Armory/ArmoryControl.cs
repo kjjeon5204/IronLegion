@@ -86,6 +86,19 @@ public class ArmoryControl : MonoBehaviour {
         coreCatalog.currency_update(creditOwned, cogentumOwned);
     }
 
+    public void credit_spent(int creditSpent, int cogentumSpent)
+    {
+        creditOwned -= creditSpent;
+        cogentumOwned -= cogentumSpent;
+        creditOwnedDisplay.text = creditOwned.ToString();
+        cogentumOwnedDisplay.text = cogentumOwned.ToString();
+        masterData.save_currency(creditOwned, cogentumOwned);
+        headCatalog.currency_update(creditOwned, cogentumOwned);
+        bodyCatalog.currency_update(creditOwned, cogentumOwned);
+        weaponCatalog.currency_update(creditOwned, cogentumOwned);
+        coreCatalog.currency_update(creditOwned, cogentumOwned);
+    }
+
     public void item_bought(int creditSpent, int cogentumSpent, int slotNum, Item.ItemType itemType)
     {
         creditOwned -= creditSpent;
@@ -128,6 +141,7 @@ public class ArmoryControl : MonoBehaviour {
         cogentumOwned -= cogentumSpent;
         creditOwnedDisplay.text = creditOwned.ToString();
         cogentumOwnedDisplay.text = cogentumOwned.ToString();
+        masterData.save_currency(creditOwned, cogentumOwned);
         totalUnlockedSlotCount++;
         if (itemType == Item.ItemType.HEAD)
         {
@@ -332,4 +346,10 @@ public class ArmoryControl : MonoBehaviour {
 
         
 	}
+
+    void Update()
+    {
+        creditOwnedDisplay.text = creditOwned.ToString();
+        cogentumOwnedDisplay.text = cogentumOwned.ToString();
+    }
 }

@@ -62,6 +62,10 @@ public class HangarControls : MonoBehaviour {
             {
                 scrolling = false;
             }
+            else if (clicked_object.clicked_object != null)
+            {
+                clicked_object.clicked_object.SendMessage("CanceledClick", SendMessageOptions.DontRequireReceiver);
+            }
             else
             {
                 scrolling = false;
@@ -122,6 +126,7 @@ public class HangarControls : MonoBehaviour {
 				}
 				break;
 			case TouchPhase.Ended:
+                
 				if (scrolling  && clicked_object.clicked_object.name == "Scrollbar")
 				{
 					clicked_object.clicked_object.SendMessage("EndClick",SendMessageOptions.DontRequireReceiver);
@@ -136,11 +141,15 @@ public class HangarControls : MonoBehaviour {
 				{
 					scrolling = false;
 				}
-				else
-				{
-					scrolling = false;
-					clicking = false;
-				}
+                else if (clicked_object.clicked_object != null) 
+                {
+                    clicked_object.clicked_object.SendMessage("CanceledClick", SendMessageOptions.DontRequireReceiver);
+                }
+                else
+                {
+                    scrolling = false;
+                    clicking = false;
+                }
 				break;
 			default:
 				break;

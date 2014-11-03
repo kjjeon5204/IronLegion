@@ -23,14 +23,21 @@ public class Radar : MonoBehaviour {
 
     public void initialize_radar(GameObject[] inEnemyList, GameObject inMainChar)
     {
+        //Wipe current radar
+        if (enemyIndicator != null)
+        {
+            for (int ctr = 0; ctr < enemyIndicator.Length; ctr++)
+            {
+                if (enemyIndicator[ctr] != null)
+                    Destroy(enemyIndicator[ctr]);
+            }
+        }
         scriptActive = true;
         mainChar = inMainChar;
         enemyList = inEnemyList;
         enemyIndicator = new GameObject[enemyList.Length];
         for (int ctr = 0; ctr < enemyList.Length; ctr++)
         {
-            if (enemyIndicator[ctr] != null)
-                Destroy(enemyIndicator[ctr]);
             enemyIndicator[ctr] = (GameObject)Instantiate(enemyIndicatorIcon, Vector3.zero, Quaternion.identity);
             enemyIndicator[ctr].transform.parent = gameObject.transform;
             enemyIndicator[ctr].transform.localPosition = Vector3.zero;

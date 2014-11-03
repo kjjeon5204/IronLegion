@@ -129,6 +129,7 @@ public class PlayerMasterData : MonoBehaviour {
     public void add_item(string itemID)
     {
         inventoryData.add_item(itemID);
+
     }
 
     public void swap_item(int index, string itemID)

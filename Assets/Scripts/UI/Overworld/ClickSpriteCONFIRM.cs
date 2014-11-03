@@ -32,6 +32,7 @@ public class ClickSpriteCONFIRM : MonoBehaviour {
                 clickable.clicked_object = frontmostRaycastHit.rayCastHit2D.collider.gameObject;
                 clickable.isClicked = !frontmostRaycastHit.nothingClicked;
             }
+           
             else
             {
                 clickable.clicked_object = null;

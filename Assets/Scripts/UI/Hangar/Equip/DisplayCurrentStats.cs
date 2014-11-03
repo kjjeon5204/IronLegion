@@ -84,7 +84,7 @@ public class DisplayCurrentStats : MonoBehaviour {
 		else
 		armor_indicator.text = start_color+"Armor: "+end_color +"0";
 		damage_indicator.text = start_color+"Damage: "+end_color + (int)damage;
-		energy_indicator.text = start_color+"Energy: "+end_color+ (int)energy;
+		energy_indicator.text = start_color+"Energy: "+end_color+ (int)(energy + 100);
 		penetration_indicator.text = start_color+"Penetration: "+end_color + (int)penetration;
 		luck_indicator.text = start_color+"Luck: "+end_color + (int)luck;
 		currency_indicator.text = start_color+"Credits: "+end_color+ currency;

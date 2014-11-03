@@ -121,7 +121,7 @@ public class Ability : MonoBehaviour {
     {
         if (myCharacter.curEnergy < myData.energyUsage)
         {
-            Debug.Log("No energy left");
+            //Debug.Log("No energy left");
             return false;
         }
         curStat = myCharacter.return_cur_stats();
@@ -301,7 +301,7 @@ public class Ability : MonoBehaviour {
         if (currentPhaseData.selfArmorDuration > 0.0f)
         {
             myCharacter.characterDebuffScript.apply_debuff(abilityName, currentPhaseData.selfArmor,
-                0.0f, currentPhaseData.targetArmorDuration, myData.debuffIcon);
+                0.0f, currentPhaseData.selfArmorDuration, myData.debuffIcon);
         }
         if (currentPhaseData.selfHPModifier > 0.0f)
         {
@@ -327,8 +327,6 @@ public class Ability : MonoBehaviour {
             }
             else
             {
-                Debug.LogError("Null effect in " + this.gameObject + 
-                    " detected in phase " + phaseCtr);
                 return false;
             }
         }
@@ -404,7 +402,7 @@ public class Ability : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Initialize movement: " + currentPhaseData.movementName);
+                    //Debug.Log("Initialize movement: " + currentPhaseData.movementName);
                     customMovement.initialize_movement(currentPhaseData.movementName,
                         distToMove, currentPhaseData.approachSpeed, currentPhaseData.movementDirection);
                 }

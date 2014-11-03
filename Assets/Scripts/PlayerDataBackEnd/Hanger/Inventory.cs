@@ -95,6 +95,7 @@ public class Inventory  {
     {
         Array.Resize<string>(ref items, items.Length + 1);
         items[items.Length - 1] = itemID;
+        store_inventory();
     }
 	
 	public void swap_item(int index, string itemID)
@@ -136,16 +137,19 @@ public class Inventory  {
     {
         currency = credit;
         paid_currency = cogentum;
+        store_inventory();
     }
 	
 	public void change_currency(int num)
 	{
 		currency += num;
+        store_inventory();
 	}
 	
 	public void change_paid_currency(int num)
 	{
 		paid_currency += num;
+        store_inventory();
 	}
 }
 

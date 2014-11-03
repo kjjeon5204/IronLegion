@@ -41,7 +41,7 @@ public class TileActive : MonoBehaviour {
 		if (isUsable)
 		{
 			ActivateConfirmation confirm = GameObject.Find("Confirm Level").GetComponent<ActivateConfirmation>();
-			confirm.Confirm( mapID, level,"LEVEL");
+			confirm.Confirm( mapID, level_description ,"LEVEL");
 		}
 		dialogue.SetDialogue(attached_dialogue);
 	}

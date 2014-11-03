@@ -10,8 +10,18 @@ public enum CollisionTypes
     ENVIRONMENT
 }
 
+public enum CharType
+{
+    NONE,
+    PLAYER,
+    ENEMY,
+    ALLY
+}
+
 public class Character : MonoBehaviour
 {
+
+    public CharType myType = CharType.NONE;
     public string characterName;
     public AnimationClip deathAnimation;
 
@@ -57,6 +67,7 @@ public class Character : MonoBehaviour
 
     //Detonator variable
     public GameObject detonatorFlinch;
+    public GameObject detonatorFlinchMelee;
     public GameObject detonatorDeath;
 
     //Set boundary of movement
@@ -89,6 +100,7 @@ public class Character : MonoBehaviour
 
     Vector3 aiPreviousPos;
     public int startingChildCount;
+    protected bool objectHit = false;
 
 
     protected int initLevel;
@@ -157,12 +169,12 @@ public class Character : MonoBehaviour
         float rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(transform.InverseTransformPoint(targetPosition)));
 
 
-
+        /*
         if (transform.InverseTransformPoint(targetPosition).z < 0)
         {
             rotAngleX = 0.0f;
         }
-
+        */
         float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
         float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
 
@@ -174,7 +186,6 @@ public class Character : MonoBehaviour
         {
             if (rotAngleY > rotSpeed3D * Time.deltaTime)
             {
-                //Debug.Log("Y axis Rotation Rate: " + rotSpeed * Time.deltaTime);
                 if (rotDirectionY > 0)
                 {
                     transform.Rotate(Vector3.up, yRotationValue * Time.deltaTime, Space.World);
@@ -319,12 +330,12 @@ public class Character : MonoBehaviour
         if (chargeForce > 0.0f)
         {
             //Debug.Log("Positive charge");
-            Debug.DrawRay(transform.position, retVector, Color.blue);
+            //Debug.DrawRay(transform.position, retVector, Color.blue);
         }
         if (chargeForce < 0.0f)
         {
             //Debug.Log("Negative charge");
-            Debug.DrawRay(transform.position, retVector, Color.yellow);
+            //Debug.DrawRay(transform.position, retVector, Color.yellow);
         }
         return retVector;
     }
@@ -455,7 +466,7 @@ public class Character : MonoBehaviour
     {
         if (isUnitActive == true)
         {
-            if (rawDamage > 0)
+            if (rawDamage >= 0)
             {
                 //curCharacterState = "HIT";
                 messageReceived = true;
@@ -474,10 +485,18 @@ public class Character : MonoBehaviour
                 }
                 curStats.hp -= (int)damageDone;
 
-                if (detonatorFlinch != null && transform.childCount < startingChildCount + 5)
+                if (detonatorFlinch != null /*&& transform.childCount < startingChildCount + 5*/)
                 {
-                    //GameObject temp = (GameObject)Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
-                    //temp.transform.parent = gameObject.transform;
+                    if (detonatorFlinchMelee == null)
+                    {
+                        GameObject temp = (GameObject)Instantiate(detonatorFlinch, collider.bounds.center, Quaternion.identity);
+                        temp.transform.parent = gameObject.transform;
+                    }
+                    else
+                    {
+                        GameObject temp = (GameObject)Instantiate(detonatorFlinchMelee, collider.bounds.center, Quaternion.identity);
+                        temp.transform.parent = gameObject.transform;
+                    }
                 }
 
                 if (hitAnimation != null)
@@ -486,6 +505,8 @@ public class Character : MonoBehaviour
                 }
                 if (curStats.hp < 0.0f)
                     collider.enabled = false;
+
+                objectHit = true;
                 return damageDone;
             }
             else
@@ -505,7 +526,7 @@ public class Character : MonoBehaviour
     {
         if (isUnitActive == true)
         {
-            if (rawDamage > 0)
+            if (rawDamage >= 0)
             {
                 //curCharacterState = "HIT";
                 messageReceived = true;
@@ -586,6 +607,8 @@ public class Character : MonoBehaviour
     {
         curStats.armor += (int)armorMod;
         curStats.damage += (int)attackMod;
+
+        Debug.Log("My Armor: " + curStats.armor);
     }
 
     /*Returns true when object is ready to be destroyed*/

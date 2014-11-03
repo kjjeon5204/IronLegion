@@ -6,6 +6,7 @@ public class ActivateArmory : MonoBehaviour {
 	
 	private HangarControls hangar;
 	private Camera second_cam;
+    public GameObject equipPage;
 
 	void Start () {
 		//armory = GameObject.Find("ArmoryFrame");
@@ -15,6 +16,7 @@ public class ActivateArmory : MonoBehaviour {
 	void Clicked () {
 		hangar.MoveOffScreen();
 		hangar.SetObjectOnScreen(armory);
+        equipPage.SetActive(false);
 		
 		second_cam = GameObject.Find("Camera").GetComponent<Camera>();
 		second_cam.rect = new Rect(0,0,1f,1f);

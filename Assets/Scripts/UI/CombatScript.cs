@@ -114,7 +114,8 @@ public class CombatScript : MonoBehaviour
     public ShockWaveControl regularAttackShock;
     public ShockWaveControl changeTargetShock;
 
-    public GameObject loadingScreen;
+    public GameObject loadToOverworld;
+    public GameObject loadBackToBattle;
 
 
     public TextMesh frameRateDisplay;
@@ -124,6 +125,7 @@ public class CombatScript : MonoBehaviour
     bool screenFader = false;
     int exitType;
     bool combatUIEnabled = true;
+    bool inputEnabled = true;
     //0 = overworld
     //1 = retry
     public ScreenFader screenFadeScript;
@@ -264,15 +266,11 @@ public class CombatScript : MonoBehaviour
         debuffIconPool[buffType][buffSlot] = temp;
     }
 
-    public void activate_loading_screen()
-    {
-        turn_off_combat_ui();
-        loadingScreen.SetActive(true);
-    }
 
     public void turn_off_combat_ui()
     {
         combatUIEnabled = false;
+        battleStopped = true;
         lowerLeftFrame.SetActive(false);
         lowerRightFrame.SetActive(false);
         hpBar.SetActive(false);
@@ -285,6 +283,7 @@ public class CombatScript : MonoBehaviour
     public void turn_on_combat_ui()
     {
         combatUIEnabled = true;
+        battleStopped = false;
         lowerLeftFrame.SetActive(true);
         lowerRightFrame.SetActive(true);
 
@@ -316,21 +315,23 @@ public class CombatScript : MonoBehaviour
     {
         battleStopped = true;
         turn_off_combat_ui();
-        Debug.Log("Activate end game window");
         endGameWindow.SetActive(true);
+        GameObject itemPolled = itemPool.get_item_table(0, itemTier);
+        playerMasterData.add_item(itemPolled.name);
         endGameScript.initializeData(creditReceived, cogentumReceived, playerData,
-            itemPool.get_item_table(0, itemTier), battleWon);
+            itemPolled , battleWon);
         playerMasterData.add_currency(creditReceived);
+        playerMasterData.add_paid_currency(cogentumReceived);
         if (allyObject != null)
         {
-            float experienceRequired = allyObject.GetComponent<AIStatScript>().
+            int experienceRequired = allyObject.GetComponent<AIStatScript>().
                 get_experience_data(allyData.level);
             float unitExperience = allyData.exp;
-            if (unitExperience > experienceRequired)
+            while (allyData.exp >= experienceRequired && allyData.level < 15)
             {
-                if (experienceRequired != 0)
+                if (experienceRequired != 0 && allyData.level <= 15)
                 {
-                    unitExperience -= experienceRequired;
+                    allyData.exp -= experienceRequired;
                     allyData.level++;
                 }
             }
@@ -482,8 +483,9 @@ public class CombatScript : MonoBehaviour
             }
             else if (hitButton.collider.gameObject == endGame && acc.phase == TouchPhase.Ended)
             {
+                inputEnabled = false;
                 eventControlScript.unpause_game();
-                Application.LoadLevel("Overworld");
+                loadToOverworld.SetActive(true);
             }
             else if (hitButton.collider.gameObject == resumeGame && acc.phase == TouchPhase.Ended)
             {
@@ -504,11 +506,15 @@ public class CombatScript : MonoBehaviour
             }
             else if (hitButton.collider.gameObject == backOverworldDefeat)
             {
-                Application.LoadLevel("Overworld");
+                inputEnabled = false;
+                loadToOverworld.SetActive(true);
+                //Application.LoadLevel("Overworld");
             }
             else if (hitButton.collider.gameObject == retryBattleDefeat)
             {
-                Application.LoadLevel("BattleScene");
+                inputEnabled = false;
+                loadBackToBattle.SetActive(true);
+                //Application.LoadLevel("BattleScene");
             }
         }
     }
@@ -638,7 +644,7 @@ public class CombatScript : MonoBehaviour
                 {
                     mainCharacter.switch_hero_state();
                     mainCharacter.curEnergy -= 10.0f;
-                    if (mainCharacter.isClose == true && curRecord.y < 0.0f)
+                    if (mainCharacter.isClose == true/* && curRecord.y < 0.0f*/)
                     {
                         changeStateEffect.gameObject.SetActive(true);
                         changeStateEffect.initialize_state_change_sequence(false);
@@ -654,7 +660,7 @@ public class CombatScript : MonoBehaviour
                             curPlayerState.change_state_text("Far");
 
                     }
-                    else if (mainCharacter.isClose == false && curRecord.y > 0.0f)
+                    else if (mainCharacter.isClose == false/* && curRecord.y > 0.0f*/)
                     {
                         changeStateEffect.gameObject.SetActive(true);
                         changeStateEffect.initialize_state_change_sequence(true);
@@ -750,7 +756,8 @@ public class CombatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInitialized && tutorialActive == false && battleStopped == false)
+        if (isInitialized && tutorialActive == false && battleStopped == false && 
+            inputEnabled == true)
         {
             for (int ctr = 0; ctr < Input.touchCount; ctr++)
             {
@@ -758,7 +765,7 @@ public class CombatScript : MonoBehaviour
             }
         }
 
-        if (isInitialized == true && tutorialActive == false)
+        if (isInitialized == true && tutorialActive == false && inputEnabled == true)
         {
             for (int ctr = 0; ctr < Input.touchCount; ctr++)
             {
@@ -825,15 +832,19 @@ public class CombatScript : MonoBehaviour
         {
             if (exitType == 0)
             {
+                inputEnabled = false;
                 endGameWindow.SetActive(false);
-                loadingScreen.SetActive(true);
-                Application.LoadLevel("Overworld");
+                //loadingScreen.SetActive(true);
+                //Application.LoadLevel("Overworld");
+                loadToOverworld.SetActive(true);
             }
             if (exitType == 1)
             {
+                inputEnabled = false;
                 endGameWindow.SetActive(false);
-                loadingScreen.SetActive(true);
-                Application.LoadLevel("BattleScene");
+                //loadingScreen.SetActive(true);
+                //Application.LoadLevel("BattleScene");
+                loadBackToBattle.SetActive(true);
             }
         }
 

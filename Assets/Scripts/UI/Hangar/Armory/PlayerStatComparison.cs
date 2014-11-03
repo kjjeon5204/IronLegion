@@ -144,7 +144,7 @@ public class PlayerStatComparison : MonoBehaviour {
         if (modifiedArmor != 0)
         {
             statChangeDisplay[textBoxStatTracker].gameObject.SetActive(true);
-            statChangeDisplay[textBoxStatTracker].text = "DEF" + modifiedArmor.ToString();
+            statChangeDisplay[textBoxStatTracker].text = "DEF " + modifiedArmor.ToString();
             textBoxStatTracker++;
         }
         if (modifiedHealth != 0)

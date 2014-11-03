@@ -50,9 +50,19 @@ public class MyPathing : MonoBehaviour {
 		}
 
 		objectPathUseScript.animation.Play ("move");
-		if (objectPathUseScript.custom_look_at_3D(flagList[flagAcc].transform.position))
-        	objectPathUseScript.transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
-		else objectPathUseScript.transform.Translate(40.0f * Vector3.forward * Time.deltaTime);
+        Vector3 flagPos = objectPathUseScript.transform.position - flagList[flagAcc].transform.position;
+        if (objectPathUseScript.custom_look_at_3D(flagList[flagAcc].transform.position))
+        {
+            if (flagPos.y > 5.0f)
+            {
+                Vector3 movementVector = objectPathUseScript.transform.InverseTransformDirection(Vector3.up);
+                objectPathUseScript.transform.Translate(movementVector * 10.0f * Time.deltaTime);
+            }
+            else
+            {
+                objectPathUseScript.transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
+            }
+        }
         return false;
     }
 

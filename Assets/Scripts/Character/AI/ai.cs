@@ -549,6 +549,14 @@ public class ai : Character {
 	public override void manual_start()
 	{
         AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
+        if (player == null)
+        {
+            player = target;
+            playerScript = targetScript;
+        }
+
+        
+
 		curState = AIState.IDLE;
 		starttime = Time.time;
 		gameObject.transform.LookAt(player.transform);

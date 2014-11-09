@@ -231,7 +231,7 @@ public class Character : MonoBehaviour
     }
 
 
-    protected bool custom_look_at(Vector3 position)
+    public bool custom_look_at(Vector3 position)
     {
         float rotAngle = Vector3.Angle(transform.forward, position - transform.position);
 

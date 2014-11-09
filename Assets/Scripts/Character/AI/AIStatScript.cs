@@ -28,6 +28,8 @@ public class AIStatScript : MonoBehaviour {
             level = 1;
         }
         //Debug.Log("Load enemy level: " + (level - 1));
+        if (level < 1)
+            level = 1;
         return aiStatTable[level - 1];
     }
 }

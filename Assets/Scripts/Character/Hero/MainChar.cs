@@ -628,7 +628,7 @@ public class MainChar : Character
         if (hitCollider.gameObject.tag == "Environment")
         {
 
-            Debug.Log("Impact with environment!");
+            //Debug.Log("Impact with environment!");
             Vector3 hitDirection = (previousPos - transform.position);
             //Debug.Log("Move direction" + hitDirection);
             if (attackPathBuffer == false) 
@@ -813,7 +813,7 @@ public class MainChar : Character
     // Update is called once per frame
     public override void manual_update()
     {
-        Debug.Log("Player State: " + curState);
+        //Debug.Log("Player State: " + curState);
         if (!thrusterSound.isPlaying)
             thrusterSound.Play();
         previousPos = transform.position;

@@ -7,7 +7,14 @@ public class YesConfirm : MonoBehaviour {
 	private FirstLogIn data;
 	public GameObject loading_screen;
 	public GameObject on_screen;
-	
+
+    string mapName;
+
+    public void set_level_to_load(string mapToLoad)
+    {
+        mapName = mapToLoad;
+    }
+
 	void Awake() {
 		behavior = "";
 		active = GameObject.Find("Confirm Level").GetComponent<ActivateConfirmation>();
@@ -17,6 +24,7 @@ public class YesConfirm : MonoBehaviour {
 	void Clicked() {
 		switch (behavior) {
 			case "LEVEL":
+                loading_screen.GetComponent<LoadingScreen>().set_loading_scene(mapName);
                 loading_screen.SetActive(true);
 				loading_screen.transform.position = on_screen.transform.position;
 				active.Reject();

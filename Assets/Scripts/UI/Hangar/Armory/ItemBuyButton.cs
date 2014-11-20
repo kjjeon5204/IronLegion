@@ -73,10 +73,13 @@ public class ItemBuyButton : MonoBehaviour {
         {
             armoryControl.item_bought(creditRequired, cogentumRequired, slotNum, 
                 itemInformation.itemObject.GetComponent<Item>().itemType);
+            /*
             Inventory playerInventory = new Inventory();
             playerInventory.load_inventory();
             playerInventory.add_item(itemInformation.itemObject.GetComponent<Item>().itemID);
             playerInventory.store_inventory();
+             */
+            armoryControl.masterData.add_item(itemInformation.itemObject.GetComponent<Item>().itemID);
         }
     }
 }

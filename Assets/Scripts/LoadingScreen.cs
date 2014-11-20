@@ -5,6 +5,11 @@ public class LoadingScreen : MonoBehaviour {
     public string sceneToLoad;
     public GameObject loadingCircle;
 
+    public void set_loading_scene(string loadScene)
+    {
+        sceneToLoad = loadScene;
+    }
+
     void Start()
     {
         //DontDestroyOnLoad(gameObject);

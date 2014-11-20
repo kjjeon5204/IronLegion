@@ -749,7 +749,7 @@ public class EventControls : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    public void update_combat()
     {
         //Check for last wave/win condition
         if (curWave >= waveRunData.Length && mapCleared == false)
@@ -774,7 +774,12 @@ public class EventControls : MonoBehaviour
             playerScript.animation.Play("deathstart");
             playerScript.animation.PlayQueued("deathloop");
             playerScript.initiateDeathSequence = true;
+            if (curEngageData.waveData[curWave].waveThemeMusic != null)
+            {
+                curEngageData.waveData[curWave].waveThemeMusic.Stop();
+            }
             combatScript.lose_battle_screen();
+            return;
         }
         //Checking wave clear/win conditions
         if (faderActive == true)

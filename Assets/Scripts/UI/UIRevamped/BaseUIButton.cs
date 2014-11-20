@@ -1,23 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasUiCutton : MonoBehaviour {
+public class BaseUIButton : MonoBehaviour {
+    public enum ButtonType
+    {
+        REGULAR,
+        DRAG
+    }
+
+    public SpriteRenderer myRenderer;
     public Sprite buttonPressed;
     public Sprite buttonLifted;
     
-    public virtual void button_action()
+    public virtual void button_released_action()
+    {
+        
+    }
+
+    public virtual void button_pressed()
+    {
+        if (buttonPressed != null)
+        {
+            myRenderer.sprite = buttonPressed;
+        }
+    }
+
+    public virtual void button_canceled()
+    {
+
+    }
+
+    public virtual void button_held_action(Touch myTouch)
     {
     }
 
-    public void button_pressed()
+
+    public virtual void button_released()
     {
+        if (buttonLifted != null)
+        {
+            myRenderer.sprite = buttonLifted;
+        }
     }
 
-    public void button_canceled()
+    void Start()
     {
-    }
-
-    public void button_released()
-    {
+        myRenderer = GetComponent<SpriteRenderer>();
+        if (buttonLifted != null)
+        {
+            myRenderer.sprite = buttonLifted;
+        }
     }
 }

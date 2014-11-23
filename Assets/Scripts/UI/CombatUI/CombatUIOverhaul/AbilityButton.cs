@@ -13,10 +13,11 @@ public class AbilityButtonData
 
     //For ability on CD;
     public Sprite buttonDown;
-
+    public float maxCoolDown;
+    public float startingCoolDown;
 }
 
-public class AbilityButton : MonoBehaviour {
+public class AbilityButton : BaseUIButton {
     public AbilityButtonData[] abilityCollection;
 
     IDictionary<string, AbilityButtonData> abilityButtonLibrary = new Dictionary<string, AbilityButtonData>();
@@ -101,6 +102,39 @@ public class AbilityButton : MonoBehaviour {
         mainPlayer = eventControlScript.playerScript;
     }
 
+    public void initialize_button(string abilityName)
+    {
+        TextMesh textAcc = skillText.GetComponent<TextMesh>();
+        if (abilityName != null && abilityName != "NONE")
+        {
+
+            initialRotation = coolDownBar.transform.rotation;
+            foreach (AbilityButtonData thisButton in abilityCollection)
+            {
+                abilityButtonLibrary[thisButton.skillName] = thisButton;
+            }
+            curRenderer = GetComponent<SpriteRenderer>();
+            thisButtonInfo = abilityButtonLibrary[abilityName];
+            if (thisButtonInfo.startingCoolDown == 0.0f)
+                curRenderer.sprite = thisButtonInfo.buttonUp;
+            else
+                curRenderer.sprite = thisButtonInfo.buttonDown;
+
+            textAcc.text = thisButtonInfo.skillDescription;
+            maxCoolDown = thisButtonInfo.maxCoolDown;
+            curCoolDown = thisButtonInfo.startingCoolDown;
+        }
+        else
+        {
+            //textAcc.text = "No Ability";
+            skillDescriptionBox.SetActive(false);
+            coolDownBar.SetActive(false);
+            noAbility = true;
+        }
+        eventControlScript = eventControlObject.GetComponent<EventControls>();
+        mainPlayer = eventControlScript.playerScript;
+    }
+
     public bool is_button_ready()
     {
         if (curCoolDown <= 0.0f)
@@ -127,17 +161,14 @@ public class AbilityButton : MonoBehaviour {
         return thisButtonInfo.skillName;
     }
     
-	// Use this for initialization
-	void Start () 
-    {
-	}
+	
 	
 	// Update is called once per frame
 	void Update () {
         if (noAbility == false)
         {
             if (curCoolDown > 0.0f)
-            {
+            { 
                 curCoolDown -= Time.deltaTime;
                 if (curCoolDown <= 0.0f)
                 {
@@ -148,5 +179,15 @@ public class AbilityButton : MonoBehaviour {
             coolDownBar.transform.rotation = initialRotation;
             coolDownBar.transform.Rotate(Vector3.back, 180.0f * (curCoolDown / maxCoolDown));
         }
+    }
+
+    public override void button_pressed_action()
+    {
+        mainPlayer.curState = thisButtonInfo.skillName;
+        mainPlayer.abilityDictionary[thisButtonInfo.skillName].initialize_ability();
+        curRenderer.sprite = thisButtonInfo.buttonDown;
+        curCoolDown = maxCoolDown;
+        if (touchDetector != null)
+            touchDetector.activate_button();
     }
 }

@@ -12,9 +12,10 @@ public class BaseUIButton : MonoBehaviour {
     public Sprite buttonPressed;
     public Sprite buttonLifted;
     
-    public virtual void button_released_action()
+   
+    //On Button Press
+    public virtual void button_pressed_action()
     {
-        
     }
 
     public virtual void button_pressed()
@@ -25,6 +26,8 @@ public class BaseUIButton : MonoBehaviour {
         }
     }
 
+
+    //Button canceled
     public virtual void button_canceled()
     {
 
@@ -34,6 +37,10 @@ public class BaseUIButton : MonoBehaviour {
     {
     }
 
+    public virtual void button_released_action()
+    {
+
+    }
 
     public virtual void button_released()
     {

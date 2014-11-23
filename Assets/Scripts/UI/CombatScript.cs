@@ -703,7 +703,7 @@ public class CombatScript : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    public void initialize_ui()
     {
         GUICam = this.GetComponent<Camera>();
 
@@ -754,7 +754,7 @@ public class CombatScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void update_ui()
     {
         if (isInitialized && tutorialActive == false && battleStopped == false && 
             inputEnabled == true)

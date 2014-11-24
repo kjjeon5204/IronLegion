@@ -21,21 +21,17 @@ public struct EndlessWaveRewardData {
 	int exp;
 }
 
-public class EndlessWave : MonoBehaviour {
+public class EndlessWave : BaseCombatStructure {
 	public EndlessWaveBattleData[] endlessWaveBattles;
 	public EndlessWaveRewardData rewards;
 	public Collider spawnBox;
     public MapChargeFlag mapchargeflag;
 	private int waveCounter = 0;
 
-    IList<Character> activeEnemyList = new List<Character>();
-
-    EndlessBattle endlessbattle;
-    MainChar playerScript;
 
 	void spawnWave(int waveNumber) {
-        activeEnemyList = new List<Character>();
-
+        enemyUnitList = new List<Character>();
+        spawnBox.enabled = true;
 		for (int i = 0; i < endlessWaveBattles[waveNumber].enemies.Length; i++) {
 			for (int j = 0; j < endlessWaveBattles[waveNumber].enemies[i].numEnemy; j++) {
 				//create randomized location drop
@@ -45,26 +41,27 @@ public class EndlessWave : MonoBehaviour {
 
 				//spawn enemy
                 GameObject enemy = (GameObject)Instantiate(endlessWaveBattles[waveNumber].enemies[i].enemy, dropPosition, Quaternion.identity);
-                activeEnemyList.Add(enemy.GetComponent<Character>());
+                enemyUnitList.Add(enemy.GetComponent<Character>());
 
-                activeEnemyList[activeEnemyList.Count - 1].mapFlag = mapchargeflag;
-                activeEnemyList[activeEnemyList.Count - 1].set_enemy_unit_index(activeEnemyList.Count - 1);
-                activeEnemyList[activeEnemyList.Count - 1].set_level(
+                enemyUnitList[enemyUnitList.Count - 1].mapFlag = mapchargeflag;
+                enemyUnitList[enemyUnitList.Count - 1].set_enemy_unit_index(enemyUnitList.Count - 1);
+                enemyUnitList[enemyUnitList.Count - 1].set_level(
                     Random.Range(endlessWaveBattles[waveNumber].enemies[i].levelMin, endlessWaveBattles[waveNumber].enemies[i].levelMax));
-                activeEnemyList[activeEnemyList.Count - 1].landCraftActive = endlessWaveBattles[waveNumber].enemies[i].landcraftActive;
-                activeEnemyList[activeEnemyList.Count - 1].set_target(playerScript.gameObject);
-
-                activeEnemyList[activeEnemyList.Count - 1].manual_start();
+                enemyUnitList[enemyUnitList.Count - 1].landCraftActive = endlessWaveBattles[waveNumber].enemies[i].landcraftActive;
+                enemyUnitList[enemyUnitList.Count - 1].set_target(playerScript.gameObject);
+                enemyUnitList[enemyUnitList.Count - 1].set_player(playerScript.gameObject);
+                enemyUnitList[enemyUnitList.Count - 1].manual_start();
 			}
 		}
+        spawnBox.enabled = false;
 	}
 
 
     bool checkWaveCompletion()
     {
-        for (int i = 0; i < activeEnemyList.Count; i++)
+        for (int i = 0; i < enemyUnitList.Count; i++)
         {
-            if (activeEnemyList[i] != null)
+            if (enemyUnitList[i] != null)
             {
                 return false;
             }
@@ -72,30 +69,64 @@ public class EndlessWave : MonoBehaviour {
         return true;
     }
 
-	// Use this for initialization
-	public void customStart (MainChar playerScriptInput, EndlessBattle currentBattleInput) {
+    bool combatInitialized = false;
 
+
+    public override void initialize_combat(MainChar playerScriptInput)
+    {
         playerScript = playerScriptInput;
-        endlessbattle = currentBattleInput;
+        playerScript.initialize_character(this);
+        spawnWave(waveCounter);
+    }
 
-		spawnWave (waveCounter);
- 
-	}
+    IList<Character> deathList = new List<Character>();
 	
 	// Update is called once per frame
-	void Update () {
-		if (endlessbattle != null && ((activeEnemyList.Count > 0 && checkWaveCompletion()) || Input.GetKeyDown(KeyCode.Backspace))) {
-			waveCounter++;
+	public void update_combat() {
+        if (enemyUnitList.Count == 0 && checkWaveCompletion())
+        {
+            waveCounter++;
             if (waveCounter >= endlessWaveBattles.Length)
             {
-                //All battles finished return back to endless battle and other end battle stuff
-                endlessbattle.battleReset = true;
+                //wave phase end condition
+                Destroy(gameObject);
             }
             else
             {
                 spawnWave(waveCounter);
             }
-		}
-	
+        }
+        else
+        {
+            if (enemyUnitList.Count > 0)
+            {
+                playerScript.manual_update();
+                for (int ctr = 0; ctr < enemyUnitList.Count; ctr++)
+                {
+                    if (enemyUnitList[ctr].return_cur_stats().hp > 0)
+                    {
+                        enemyUnitList[ctr].manual_update();
+                    }
+                    else
+                    {
+                        deathList.Add(enemyUnitList[ctr]);
+                        enemyUnitList.RemoveAt(ctr);
+                        ctr--;
+                    }
+                }
+                for (int ctr = 0; ctr < deathList.Count; ctr++)
+                {
+                    if (deathList[ctr] != null)
+                    {
+                        deathList[ctr].death_state();
+                    }
+                    else
+                    {
+                        deathList.RemoveAt(ctr);
+                        ctr--;
+                    }
+                }
+            }
+        }
 	}
 }

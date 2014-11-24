@@ -47,7 +47,7 @@ public class AbilityButton : BaseUIButton {
     Quaternion initialRotation;
 
     float timeDisabled;
-    bool noAbility = false;
+    bool noAbility = true;
 
     void OnDisable()
     {
@@ -90,6 +90,7 @@ public class AbilityButton : BaseUIButton {
             textAcc.text = thisButtonInfo.skillDescription;
             maxCoolDown = inMaxCoolDown;
             curCoolDown = inCurCoolDown;
+            noAbility = false;
         }
         else
         {
@@ -102,7 +103,7 @@ public class AbilityButton : BaseUIButton {
         mainPlayer = eventControlScript.playerScript;
     }
 
-    public void initialize_button(string abilityName)
+    public void initialize_button(string abilityName, MainChar mainCharInput)
     {
         TextMesh textAcc = skillText.GetComponent<TextMesh>();
         if (abilityName != null && abilityName != "NONE")
@@ -123,6 +124,7 @@ public class AbilityButton : BaseUIButton {
             textAcc.text = thisButtonInfo.skillDescription;
             maxCoolDown = thisButtonInfo.maxCoolDown;
             curCoolDown = thisButtonInfo.startingCoolDown;
+            noAbility = false;
         }
         else
         {
@@ -131,8 +133,7 @@ public class AbilityButton : BaseUIButton {
             coolDownBar.SetActive(false);
             noAbility = true;
         }
-        eventControlScript = eventControlObject.GetComponent<EventControls>();
-        mainPlayer = eventControlScript.playerScript;
+        mainPlayer = mainCharInput;
     }
 
     public bool is_button_ready()

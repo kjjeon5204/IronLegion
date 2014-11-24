@@ -79,9 +79,6 @@ public class Character : MonoBehaviour
     public float rotSpeed3D = 270.0f;
     public float rotSpeed = 180.0f;
 
-    float volumeMassConversionCoeff;
-    float massOfUnit;
-
     public Debuff characterDebuffScript;
 
     bool unitCollision;
@@ -106,6 +103,7 @@ public class Character : MonoBehaviour
     protected int initLevel;
 
     CollisionTypes collisionStatus;
+    protected BaseCombatStructure baseCombatStructure;
 
     public bool can_receive_detonator()
     {
@@ -168,13 +166,6 @@ public class Character : MonoBehaviour
         float rotAngleY = Vector3.Angle(get_xz_component(transform.forward), get_xz_component(targetPosition - transform.position));
         float rotAngleX = Vector3.Angle(Vector3.forward, get_yz_component(transform.InverseTransformPoint(targetPosition)));
 
-
-        /*
-        if (transform.InverseTransformPoint(targetPosition).z < 0)
-        {
-            rotAngleX = 0.0f;
-        }
-        */
         float xRotationValue = rotSpeed3D * (rotAngleX / (rotAngleX + rotAngleY));
         float yRotationValue = rotSpeed3D * (rotAngleY / (rotAngleX + rotAngleY));
 
@@ -208,7 +199,6 @@ public class Character : MonoBehaviour
         {
             if (rotAngleX > rotSpeed3D * Time.deltaTime)
             {
-                //Debug.Log("X axis Rotation Rate: " + rotSpeed * Time.deltaTime);
                 if (rotDirectionX > 0)
                 {
                     transform.Rotate(Vector3.left, xRotationValue * Time.deltaTime/*, Space.World*/);
@@ -259,7 +249,6 @@ public class Character : MonoBehaviour
             else if (rotDirection < 0)
                 transform.Rotate(Vector3.down * rotAngle);
 
-            //transform.LookAt(target.transform.position);
         }
         return true;
     }
@@ -303,22 +292,32 @@ public class Character : MonoBehaviour
         return baseStats;
     }
 
+    public void initialize_character(BaseCombatStructure baseCombatStructureInput)
+    {
+        baseCombatStructure = baseCombatStructureInput;
+    }
+
+    public void initialize_character(BaseCombatStructure baseCombatStructureInput, 
+        MapChargeFlag inputChargeFlag)
+    {
+        baseCombatStructure = baseCombatStructureInput;
+        mapFlag = inputChargeFlag;
+    }
+
+    public void initialize_character(BaseCombatStructure baseCombatStructureInput,
+        MapChargeFlag inputChargeFlag, int inputAccNum)
+    {
+        baseCombatStructure = baseCombatStructureInput;
+        mapFlag = inputChargeFlag;
+        enemyUnitIndex = inputAccNum;
+    }
+
 
     Vector3 flag_charge_force(MapChargeFlag flagCharges)
     {
         Vector3 retVector = Vector3.zero;
         retVector = flagCharges.transform.position - transform.position;
         float chargeForce = flagCharges.charge - retVector.magnitude;
-        /*
-        if (battleBoundary.bounds.extents.x > battleBoundary.bounds.extents.z)
-        {
-            chargeForce = flagCharges.charge * retVector.magnitude / (battleBoundary.bounds.extents.z * 0.5f);
-        }
-        else
-        {
-            chargeForce = flagCharges.charge * retVector.magnitude / (battleBoundary.bounds.extents.x * 0.5f);
-        }
-         * */
         if (flagCharges.suctionField > 0)
             chargeForce = flagCharges.charge * retVector.magnitude / (flagCharges.suctionField);
         if (flagCharges.suctionField <= 0)
@@ -326,17 +325,6 @@ public class Character : MonoBehaviour
             chargeForce = flagCharges.charge * retVector.magnitude / (10.0f);
         }
         retVector *= chargeForce;
-        //Debug.Log("Flag charge force: " + flagCharges.charge);
-        if (chargeForce > 0.0f)
-        {
-            //Debug.Log("Positive charge");
-            //Debug.DrawRay(transform.position, retVector, Color.blue);
-        }
-        if (chargeForce < 0.0f)
-        {
-            //Debug.Log("Negative charge");
-            //Debug.DrawRay(transform.position, retVector, Color.yellow);
-        }
         return retVector;
     }
 
@@ -349,10 +337,6 @@ public class Character : MonoBehaviour
         if (chargeForce < 0.0f)
         {
             chargeForce = 0.0f;
-        }
-        else
-        {
-            //Debug.DrawRay(transform.position, retVector, Color.red);
         }
         return retVector;
     }
@@ -368,11 +352,7 @@ public class Character : MonoBehaviour
         }
         if (mapFlag != null)
             retVector += flag_charge_force(mapFlag);
-        if (retVector != Vector3.zero)
-        {
-            //Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.black);
-            //Debug.DrawRay(transform.position, retVector.normalized * 10.0f, Color.green);
-        }
+
         if (retVector.magnitude < 2.0f)
         {
 
@@ -409,12 +389,6 @@ public class Character : MonoBehaviour
         return nullObject;
     }
 
-    public void calculate_object_mass()
-    {
-        Collider colliderBox = this.GetComponent<Collider>();
-        massOfUnit = volumeMassConversionCoeff * colliderBox.bounds.size.x * colliderBox.bounds.size.y
-            * colliderBox.bounds.size.z;
-    }
 
 
     /*Returns true if movement has been completely made. Else no movement
@@ -569,7 +543,7 @@ public class Character : MonoBehaviour
         return 0.0f;
     }
 
-    protected void death_state()
+    public virtual void death_state()
     {
         if (deathPhasedPlayed == false)
         {

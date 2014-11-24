@@ -7,12 +7,12 @@ public class PlayerCombatStatus : MonoBehaviour {
 
     public float healthBarModRate;
     float currentHealthBarScale;
-    float targetHealthBarScale;
+    public float targetHealthBarScale;
 
     public void update_player_status(MainChar mainCharacter)
     {
-        float energyRatio = mainCharacter.return_cur_stats().energy / mainCharacter.return_base_stats().energy;
-        float healthRatio = mainCharacter.return_cur_stats().hp / mainCharacter.return_base_stats().hp;
+        float energyRatio = (float)mainCharacter.return_cur_stats().energy / (float)mainCharacter.return_base_stats().energy;
+        float healthRatio = (float)mainCharacter.return_cur_stats().hp / (float)mainCharacter.return_base_stats().hp;
         ///Update Energy bar
         int numOfEnergyActivate = (int)(energyBars.Length * energyRatio);
         for (int ctr = 0; ctr < energyBars.Length; ctr++)

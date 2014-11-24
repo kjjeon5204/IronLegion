@@ -23,53 +23,59 @@ public class UI2DDragButton : BaseUIButton {
 
     Vector3 panDirection;
 
-    public override void button_held_action(Touch myTouch)
+    public override void button_held_action(CustomInput myTouch)
     {
         panDirection = Vector3.zero;
-        if (myTouch.deltaPosition != Vector2.zero)
+        if (myTouch.deltaPosition != Vector3.zero)
         {
-            if (!inverseDirection && rightMarker.position.x > rightLimit.position.x && 
-                myTouch.deltaPosition.x < 0)
+            if (panXAxis)
             {
-                panDirection += Vector3.left;
-            }
-            else if (rightMarker.position.x > rightLimit.position.x &&
-                myTouch.deltaPosition.x > 0)
-            {
-                panDirection += Vector3.left;
+                if (!inverseDirection && rightMarker.position.x > rightLimit.position.x &&
+                    myTouch.deltaPosition.x < 0)
+                {
+                    panDirection += Vector3.left;
+                }
+                else if (inverseDirection && rightMarker.position.x > rightLimit.position.x &&
+                    myTouch.deltaPosition.x > 0)
+                {
+                    panDirection += Vector3.left;
+                }
+
+                if (!inverseDirection && leftMarker.position.x < leftLimit.position.x &&
+                    myTouch.deltaPosition.x > 0)
+                {
+                    panDirection += Vector3.right;
+                }
+                else if (inverseDirection && leftMarker.position.x < leftLimit.position.x &&
+                    myTouch.deltaPosition.x < 0)
+                {
+                    panDirection += Vector3.right;
+                }
             }
 
-            if (!inverseDirection && leftMarker.position.x < leftLimit.position.x && 
-                myTouch.deltaPosition.x > 0)
+            if (panYAxis)
             {
-                panDirection += Vector3.right;
-            }
-            else if (leftMarker.position.x < leftLimit.position.x &&
-                myTouch.deltaPosition.x < 0)
-            {
-                panDirection += Vector3.right;
-            }
+                if (!inverseDirection && lowerMarker.position.y < lowerLimit.position.y &&
+                    myTouch.deltaPosition.y > 0)
+                {
+                    panDirection += Vector3.up;
+                }
+                else if (lowerMarker.position.y < lowerLimit.position.y &&
+                    myTouch.deltaPosition.y < 0)
+                {
+                    panDirection += Vector3.up;
+                }
 
-            if (!inverseDirection && lowerMarker.position.y < lowerLimit.position.y &&
-                myTouch.deltaPosition.y > 0)
-            {
-                panDirection += Vector3.up;
-            }
-            else if (lowerMarker.position.y < lowerLimit.position.y &&
-                myTouch.deltaPosition.y < 0)
-            {
-                panDirection += Vector3.up;
-            }
-
-            if (!inverseDirection && upperLimit.position.y > upperLimit.position.y && 
-                myTouch.deltaPosition.y < 0)
-            {
-                panDirection += Vector3.down;
-            }
-            else if (upperLimit.position.y > upperLimit.position.y &&
-                myTouch.deltaPosition.y < 0)
-            {
-                panDirection += Vector3.down;
+                if (!inverseDirection && upperLimit.position.y > upperLimit.position.y &&
+                    myTouch.deltaPosition.y < 0)
+                {
+                    panDirection += Vector3.down;
+                }
+                else if (upperLimit.position.y > upperLimit.position.y &&
+                    myTouch.deltaPosition.y < 0)
+                {
+                    panDirection += Vector3.down;
+                }
             }
         }
         panDirection.Normalize();
@@ -83,10 +89,5 @@ public class UI2DDragButton : BaseUIButton {
 
         lowerRightCorner = cameraDrawn.ViewportToWorldPoint(lowerRightCorner);
         upperLeftCorner = cameraDrawn.ViewportToWorldPoint(upperLeftCorner);
-
-        leftLimit.transform.position = upperLeftCorner;
-        upperLimit.transform.position = upperLeftCorner;
-        rightLimit.transform.position = lowerRightCorner;
-        lowerLimit.transform.position = lowerRightCorner;
 	}
 }

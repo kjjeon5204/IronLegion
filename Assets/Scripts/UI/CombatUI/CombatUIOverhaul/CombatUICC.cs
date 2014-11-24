@@ -11,6 +11,8 @@ public class CombatUICC : MonoBehaviour {
     public PlayerCombatStatus playerCombatStatus;
     public TargetStatus targetStatus;
 
+    bool uiInitialized = false;
+
     public struct CombatUIPhases
     {
 
@@ -42,9 +44,10 @@ public class CombatUICC : MonoBehaviour {
         string[] playerAbilities = playerCharacter.abilityNames;
         for (int ctr = 0; ctr < abilityButtons.Length; ctr++)
         {
-            abilityButtons[ctr].initialize_button(playerAbilities[ctr]);
+            abilityButtons[ctr].initialize_button(playerAbilities[ctr], playerCharacter);
         }
-
+        enable_close_range_weapon();
+        uiInitialized = true;
     }
 
 
@@ -57,6 +60,10 @@ public class CombatUICC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (uiInitialized == true)
+        {
+            playerCombatStatus.update_player_status(playerCharacter);
+            targetStatus.update_target_data(playerCharacter.targetScript);
+        }
 	}
 }

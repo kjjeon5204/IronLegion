@@ -18,7 +18,7 @@ public class BaseUIButton : MonoBehaviour {
     {
     }
 
-    public virtual void button_pressed()
+    public virtual void button_pressed(CustomInput myInput)
     {
         if (buttonPressed != null)
         {
@@ -33,7 +33,7 @@ public class BaseUIButton : MonoBehaviour {
 
     }
 
-    public virtual void button_held_action(Touch myTouch)
+    public virtual void button_held_action(CustomInput myInput)
     {
     }
 

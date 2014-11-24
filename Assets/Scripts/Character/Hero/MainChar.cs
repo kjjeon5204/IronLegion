@@ -289,6 +289,12 @@ public class MainChar : Character
 
     public GameObject find_nearest_enemy()
     {
+        if (baseCombatStructure != null)
+        {
+            IList<Character> tempEnemyList = baseCombatStructure.get_list_of_enemy();
+            enemyList = new Character[tempEnemyList.Count];
+            tempEnemyList.CopyTo(enemyList, 0);
+        }
         float curMaxDist = 10000;
         GameObject currentNearest = null;
         for (int ctr = 0; ctr < enemyList.Length; ctr++)
@@ -478,149 +484,7 @@ public class MainChar : Character
         }
     }
 
-    //Temporary debug functions
-    void temp_input()
-    {
-        //turn_off_effect();
-        if (Input.GetKeyDown(KeyCode.Space) && curState != "PATHING")
-        {
-            get_next_target();
-            if (curBattleType == BattleType.BOSS)
-            {
-                curState = "PATHING";
-                phasePlayed = false;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (isClose == true)
-                isClose = false;
-            else isClose = true;
-            stateSwitched = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (isClose == true)
-            {
-                curState = "GATTLING_GUN";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (isClose == true)
-            {
-                curState = "SHATTER";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (isClose == true)
-            {
-                curState = "BLUTSAUGER";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (isClose == true)
-            {
-                curState = "ENERGY_BLADE";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (isClose == false)
-            {
-                curState = "SHOTGUN";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (isClose == false)
-            {
-                curState = "BARRAGE";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (isClose == false)
-            {
-                curState = "AEGIS";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (isClose == false)
-            {
-                curState = "BEAM_CANNON";
-                abilityDictionary[curState].initialize_ability();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (abilityDictionary["DODGE_RIGHT"].initialize_ability())
-            {
-                curState = "DODGE_RIGHT";
-                LexhaustScript.instant_thruster(3.0f);
-                lKneeExhaustScript.instant_thruster(3.5f);
-                lLegExhaustScript.instant_thruster(3.5f);
-            }
-            else
-            {
-
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (abilityDictionary["DODGE_LEFT"].initialize_ability())
-            {
-                curState = "DODGE_LEFT";
-                RexhaustScript.instant_thruster(3.0f);
-                rKneeExhaustScript.instant_thruster(3.5f);
-                rLegExhaustScript.instant_thruster(3.5f);
-            }
-        }
-        else if (Input.GetKey(KeyCode.Z))
-        {
-            //Debug.Log("Button held!");
-            if (regAttackCtr == 0 && isClose == true && curState != "REGULAR_ATTACK1")
-            {
-                if (abilityDictionary["REGULAR_ATTACK1"].initialize_ability())
-                {
-                    curState = "REGULAR_ATTACK1";
-                }
-            }
-            else if (regAttackCtr == 1 && isClose == true)
-            {
-                if (abilityDictionary["REGULAR_ATTACK2"].initialize_ability())
-                {
-                    curState = "REGULAR_ATTACK2";
-                    regAttackCtr = 2;
-                }
-            }
-            else if (regAttackCtr == 2 && isClose == true)
-            {
-                if (abilityDictionary["REGULAR_ATTACK3"].initialize_ability())
-                {
-                    curState = "REGULAR_ATTACK3";
-                    regAttackCtr = 0;
-                }
-            }
-            if (isClose == false)
-            {
-                if (abilityDictionary["SHOULDER_GUN_ATTACK"].initialize_ability())
-                {
-                    curState = "SHOULDER_GUN_ATTACK";
-                }
-            }
-        }
-    }
+    
 
     void OnTriggerEnter(Collider hitCollider)
     {
@@ -734,7 +598,9 @@ public class MainChar : Character
             curStats.armor += playerMasterStat.armor;
             curStats.damage += playerMasterStat.damage;
             curStats.hp += playerMasterStat.hp;
+           
             maxEnergy += playerMasterStat.energy + 100;
+            curStats.energy = (int)maxEnergy;
             curEnergy = maxEnergy;
             baseStats = curStats;
             abilityNames = new string[8];
@@ -789,7 +655,8 @@ public class MainChar : Character
         movementScript = GetComponent<Movement>();
         movementScript.initialize_script();
 
-        worldScript = worldObject.GetComponent<EventControls>();
+        if (worldObject != null)
+            worldScript = worldObject.GetComponent<EventControls>();
 
         LexhaustScript = Lexhaust.GetComponent<Booster>();
         RexhaustScript = Rexhaust.GetComponent<Booster>();
@@ -852,9 +719,6 @@ public class MainChar : Character
         if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
             currentFlag = targetScript.mapFlag;
 
-        //PC
-        if (curCancelStatus.attackAvailable == true && attackPathBuffer == false)
-            temp_input();
 
         
         //if (target == null || targetScript.return_cur_stats().hp <= 0)
@@ -863,14 +727,15 @@ public class MainChar : Character
         if (target == null || targetScript.return_cur_stats().hp <= 0)
         {
             target = find_nearest_enemy();
-            targetScript = target.GetComponent<Character>();
+            if (target != null)
+                targetScript = target.GetComponent<Character>();
         }
 
         /*Check Events*/
 
         if (target != null && targetScript == null)
         {
-            target.GetComponent<Character>();
+            targetScript = target.GetComponent<Character>();
         }
 
         if (objectHit == true)
@@ -1003,7 +868,7 @@ public class MainChar : Character
             regAttackCtr++;
         }
 
-        if (/*turning == false && */curState == "IDLE")
+        if (target != null && curState == "IDLE")
         {
             line_of_sight_handle();
         }

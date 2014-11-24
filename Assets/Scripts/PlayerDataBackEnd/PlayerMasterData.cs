@@ -357,12 +357,13 @@ public class PlayerMasterData : MonoBehaviour {
 
     }
 
+    bool scriptInitialized = false;
 
-	// Use this for initialization
-	void Start () {
+    public void initialize_script()
+    {
         heroMechID = "heroMech"; //Initialize heromech ID later replaced with new data
 
-        if (!Directory.Exists(Application.persistentDataPath + "/" + heroMechID)) 
+        if (!Directory.Exists(Application.persistentDataPath + "/" + heroMechID))
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/" + heroMechID);
         }
@@ -377,6 +378,32 @@ public class PlayerMasterData : MonoBehaviour {
         upgradeData = new UpgradeData(heroMechID);
         eventRecord = new PlayerDataReader();
         load_player_master_data();
+
+        scriptInitialized = true;
+    }
+
+	// Use this for initialization
+	void Start () {
+        if (scriptInitialized == false)
+        {
+            heroMechID = "heroMech"; //Initialize heromech ID later replaced with new data
+
+            if (!Directory.Exists(Application.persistentDataPath + "/" + heroMechID))
+            {
+                Directory.CreateDirectory(Application.persistentDataPath + "/" + heroMechID);
+            }
+
+            //load files
+            playerConsecutiveWin = new PlayerRecord();
+            mapData = new MapData();
+            playerLevelData = new PlayerLevelBackEnd();
+            heroAbilityData = new HeroData();
+            inventoryData = new Inventory();
+            heroItemStats = new HeroStats();
+            upgradeData = new UpgradeData(heroMechID);
+            eventRecord = new PlayerDataReader();
+            load_player_master_data();
+        }
 	}
 	
 	// Update is called once per frame

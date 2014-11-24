@@ -64,7 +64,7 @@ public class Debuff : MonoBehaviour {
     public void initialize_script()
     {
         thisUnit = this.GetComponent<Character>();
-        combatScriptAcc = GameObject.Find("Camera").GetComponent<CombatScript>();
+        //combatScriptAcc = GameObject.Find("Camera").GetComponent<CombatScript>();
         scriptInitialized = true;
 	}
 	
@@ -78,7 +78,7 @@ public class Debuff : MonoBehaviour {
 
                 if (trackDebuff[ctr].duration <= 0.0f)
                 {
-                    combatScriptAcc.turn_off_buff_icon(trackDebuff[ctr].buffType, trackDebuff[ctr].buffIconSlot);
+                    //combatScriptAcc.turn_off_buff_icon(trackDebuff[ctr].buffType, trackDebuff[ctr].buffIconSlot);
                     thisUnit.modify_stat(-trackDebuff[ctr].armorModifier, -trackDebuff[ctr].attackModifier);
                     trackDebuff.Remove(trackDebuff[ctr]);
                     numOfActiveDebuff--;

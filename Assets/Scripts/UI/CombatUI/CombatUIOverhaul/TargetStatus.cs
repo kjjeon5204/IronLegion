@@ -10,36 +10,70 @@ public class TargetStatus : MonoBehaviour {
 
     public void update_target_data(Character target)
     {
-        //Update health bar
-        targetArmorText.text = target.return_cur_stats().armor.ToString();
-        targetDamageText.text = target.return_cur_stats().damage.ToString();
-        float targetHealthBarScale = target.return_cur_stats().hp / 
-            target.return_base_stats().hp;
-        Vector3 healthBarScale = healthBar.transform.localScale;
-        if (targetHealthBarScale < healthBarScale.x)
+        if (target != null)
         {
-            if (targetHealthBarScale < healthBarScale.x
-                - healthBarModRate * Time.deltaTime)
+            //Update health bar
+            targetArmorText.text = target.return_cur_stats().armor.ToString();
+            targetDamageText.text = target.return_cur_stats().damage.ToString();
+            targetNameText.text = target.characterName;
+            float targetHealthBarScale = (float)target.return_cur_stats().hp /
+                (float)target.return_base_stats().hp;
+            Vector3 healthBarScale = healthBar.transform.localScale;
+            if (targetHealthBarScale < healthBarScale.x)
             {
-                healthBarScale.x -= healthBarModRate * Time.deltaTime;
+                if (targetHealthBarScale < healthBarScale.x
+                    - healthBarModRate * Time.deltaTime)
+                {
+                    healthBarScale.x -= healthBarModRate * Time.deltaTime;
+                }
+                else
+                {
+                    healthBarScale.x = targetHealthBarScale;
+                }
             }
-            else
+            else if (targetHealthBarScale > healthBarScale.x)
             {
-                healthBarScale.x = targetHealthBarScale;
+                if (targetHealthBarScale > healthBarScale.x
+                    + healthBarModRate * Time.deltaTime)
+                {
+                    healthBarScale.x += healthBarModRate * Time.deltaTime;
+                }
+                else
+                {
+                    healthBarScale.x = targetHealthBarScale;
+                }
             }
+            healthBar.transform.localScale = healthBarScale;
         }
-        else if (targetHealthBarScale > healthBarScale.x)
+        else
         {
-            if (targetHealthBarScale > healthBarScale.x
-                + healthBarModRate * Time.deltaTime)
+            Vector3 healthBarScale = healthBar.transform.localScale;
+            float targetHealthBarScale = 0.0f;
+            if (targetHealthBarScale < healthBarScale.x)
             {
-                healthBarScale.x += healthBarModRate * Time.deltaTime;
+                if (targetHealthBarScale < healthBarScale.x
+                    - healthBarModRate * Time.deltaTime)
+                {
+                    healthBarScale.x -= healthBarModRate * Time.deltaTime;
+                }
+                else
+                {
+                    healthBarScale.x = targetHealthBarScale;
+                }
             }
-            else
+            else if (targetHealthBarScale > healthBarScale.x)
             {
-                healthBarScale.x = targetHealthBarScale;
+                if (targetHealthBarScale > healthBarScale.x
+                    + healthBarModRate * Time.deltaTime)
+                {
+                    healthBarScale.x += healthBarModRate * Time.deltaTime;
+                }
+                else
+                {
+                    healthBarScale.x = targetHealthBarScale;
+                }
             }
+            healthBar.transform.localScale = healthBarScale;
         }
-        healthBar.transform.localScale = healthBarScale;
     }
 }

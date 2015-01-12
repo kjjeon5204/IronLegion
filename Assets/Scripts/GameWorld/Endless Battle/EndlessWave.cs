@@ -57,17 +57,6 @@ public class EndlessWave : BaseCombatStructure {
 	}
 
 
-    bool checkWaveCompletion()
-    {
-        for (int i = 0; i < enemyUnitList.Count; i++)
-        {
-            if (enemyUnitList[i] != null)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     bool combatInitialized = false;
 
@@ -82,8 +71,8 @@ public class EndlessWave : BaseCombatStructure {
     IList<Character> deathList = new List<Character>();
 	
 	// Update is called once per frame
-	public void update_combat() {
-        if (enemyUnitList.Count == 0 && checkWaveCompletion())
+	public override void update_battle() {
+        if (enemyUnitList.Count == 0)
         {
             waveCounter++;
             if (waveCounter >= endlessWaveBattles.Length)

@@ -21,7 +21,8 @@ public class EndlessBattle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerMasterData.initialize_script();
-		curScene = (GameObject)Instantiate (endlessWaves [curSceneID].enviroment.gameObject, transform.position, Quaternion.identity);
+		curScene = (GameObject)Instantiate (endlessWaves [curSceneID]
+            .enviroment.gameObject, transform.position, Quaternion.identity);
         GameObject temp = (GameObject) Resources.Load("heromech");
         player = (GameObject)Instantiate(temp, Vector3.zero, Quaternion.identity);
         playerScript = player.GetComponent<MainChar>();
@@ -51,12 +52,13 @@ public class EndlessBattle : MonoBehaviour {
             //start player camera
             playerScript.enable_player_camera();
             //create next scene
-            curScene = (GameObject)Instantiate(endlessWaves[curSceneID].enviroment.gameObject, transform.position, Quaternion.identity);
+            curScene = (GameObject)Instantiate(endlessWaves[curSceneID].enviroment.gameObject,
+                transform.position, Quaternion.identity);
             curScene.GetComponent<EndlessWave>().initialize_combat(playerScript);
         }
         else if (curScene  != null)
         {
-            curScene.GetComponent<EndlessWave>().update_combat();
+            curScene.GetComponent<EndlessWave>().update_battle();
         }
 	}
 }

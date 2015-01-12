@@ -316,7 +316,7 @@ public class ArmoryControl : MonoBehaviour {
         }
         headCatalog.initialize_store_data(tempStoreData, this);
 
-        tempStoreData = armoryData.main_frame_catalog_data();
+        tempStoreData = armoryData.armor_catalog_data();
         totalUnlockedSlotCount += tempStoreData.numberOfUnlockedSpot;
         if (shopReset == true)
         {

@@ -2,22 +2,36 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class ItemDictionary : MonoBehaviour {
     public ItemList[] itemList;
+
 
     IList<GameObject> headItemList;
     IList<GameObject> coreItemList;
     IList<GameObject> bodyItemList;
     IList<GameObject> weaponItemList;
 
+    struct ItemTableAccess
+    {
+        public int itemTier;
+        public int itemNum;
+    }
+
     IDictionary<string, GameObject> itemDictionary = new Dictionary<string, GameObject>();
     bool setPoolTier = false;
+
+    IDictionary<string, ItemTableAccess> itemIDDictionary = new Dictionary<string, ItemTableAccess>();
+    IDictionary<string, ItemTableAccess> itemNameDictionary = new Dictionary<string, ItemTableAccess>();
 
 
     public GameObject get_item_data(string itemID)
     {
-        if (itemDictionary.ContainsKey(itemID))
-            return itemDictionary[itemID];
+        if (itemIDDictionary.ContainsKey(itemID))
+        {
+            ItemTableAccess acc = itemIDDictionary[itemID];
+            return itemList[acc.itemTier].items[acc.itemNum];
+        }
         else
             return null;
     }
@@ -70,6 +84,7 @@ public class ItemDictionary : MonoBehaviour {
         return itemList[itemTier].items[itemAccess];
     }
 
+
     public GameObject generate_random_item(Item.ItemType itemType)
     {
         if (itemType == Item.ItemType.ARMOR)
@@ -96,14 +111,19 @@ public class ItemDictionary : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log("Dictionary initialized!");
         for (int tierCtr = 0; tierCtr < itemList.Length; tierCtr++)
         {
             for (int itemAccess = 0; itemAccess < itemList[tierCtr].items.Length; 
                 itemAccess++)
             {
-                Debug.Log(tierCtr + " " + itemAccess);
-                itemDictionary[itemList[tierCtr].items[itemAccess].name] =
-                    itemList[tierCtr].items[itemAccess];
+                ItemTableAccess tempItemAccess;
+                tempItemAccess.itemTier = tierCtr;
+                tempItemAccess.itemNum = itemAccess;
+
+                Item tempItem = itemList[tierCtr].items[itemAccess].GetComponent<Item>();
+                itemIDDictionary[tempItem.gameObject.name] = tempItemAccess;
+                itemNameDictionary[tempItem.itemName] = tempItemAccess;
             }
         }
 	}

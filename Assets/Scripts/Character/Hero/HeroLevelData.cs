@@ -72,6 +72,11 @@ public class HeroLevelData : MonoBehaviour {
         return levelData[inputLevel - 1];
     }
 
+    public PlayerLevelData get_player_level_data(int inputLevel)
+    {
+        return levelData[inputLevel];
+    }
+
     
 	public PlayerMasterStat get_player_stat_all () {
         PlayerMasterStat temp = playerMasterData.get_combined_stats();

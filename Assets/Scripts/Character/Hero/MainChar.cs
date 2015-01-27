@@ -744,7 +744,7 @@ public class MainChar : Character
             playerCamEffectAccess.cam_control_activate("LEFT_RIGHT_SHAKE", 0.1f);
         }
 
-        if (targetScript != null)
+        if (target != null)
         {
             currentTargetIndex = targetScript.get_enemy_index();
             distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
@@ -752,9 +752,6 @@ public class MainChar : Character
             //Targeting indicator
             float playerTargetAngle = Vector3.Angle(transform.InverseTransformPoint
                 (target.transform.position), Vector3.forward);
-
-            //if (playerTargetAngle < 8.0f)
-            //{
 
             if (targetingIndicator.activeInHierarchy == false)
             {
@@ -765,13 +762,6 @@ public class MainChar : Character
                 WorldToViewportPoint(target.collider.bounds.center);
             tempPos = targetIndicatorCam.ViewportToWorldPoint(tempPos);
             targetIndicatorScript.gameObject.transform.position = tempPos;
-            //}
-            /*
-            else
-            {
-                targetIndicatorScript.gameObject.SetActive(false);
-            }
-             * */
         }
 
         //Check if player is facing a valid target

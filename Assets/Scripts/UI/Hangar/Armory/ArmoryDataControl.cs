@@ -28,8 +28,6 @@ public class ArmoryDataControl : MonoBehaviour
     System.DateTime curTime;
     string readCurTime;
     string nextResetTime;
-    public ItemPoolData itemPooling;
-    public PlayerMasterData playerMasterData;
 
 
 
@@ -52,7 +50,7 @@ public class ArmoryDataControl : MonoBehaviour
         return read_catalog_data("/StoreData/HeadCatalog.txt", Item.ItemType.HEAD);
     }
 
-    public StoreData main_frame_catalog_data() {
+    public StoreData armor_catalog_data() {
         return read_catalog_data("/StoreData/BodyCatalog.txt", Item.ItemType.ARMOR);
     }
 
@@ -108,7 +106,7 @@ public class ArmoryDataControl : MonoBehaviour
             for (int ctr = 0; ctr < 3; ctr++)
             {
                 ArmoryCatalog tempItem = new ArmoryCatalog();
-                playerLevel = playerMasterData.get_player_level();
+                playerLevel = UserData.userDataContainer.get_current_mech().level;
                 int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
                 Debug.Log(itemPoolNum);
                 itemDictionary.set_pooling_tier(itemPoolNum);
@@ -130,7 +128,7 @@ public class ArmoryDataControl : MonoBehaviour
         for (int ctr = 0; ctr < 3; ctr++)
         {
             ArmoryCatalog tempItem = new ArmoryCatalog();
-            playerLevel = playerMasterData.get_player_level();
+            playerLevel = UserData.userDataContainer.get_current_mech().level;
             int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
             Debug.Log(itemPoolNum);
             itemDictionary.set_pooling_tier(itemPoolNum);
@@ -151,7 +149,7 @@ public class ArmoryDataControl : MonoBehaviour
         for (int ctr = 0; ctr < 3; ctr++)
         {
             ArmoryCatalog tempItem = new ArmoryCatalog();
-            playerLevel = playerMasterData.get_player_level();
+            playerLevel = UserData.userDataContainer.get_current_mech().level;
             int itemPoolNum = Random.Range(playerLevel - 2, playerLevel + 1);
             Debug.Log(itemPoolNum);
             itemDictionary.set_pooling_tier(itemPoolNum);

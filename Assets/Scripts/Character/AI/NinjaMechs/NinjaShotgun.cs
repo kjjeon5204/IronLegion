@@ -26,7 +26,7 @@ public class NinjaShotgun : Character {
 	// Use this for initialization
 	public override void manual_start () {
 		currentStates = CurrentStates.IDLE;
-		targetScript = target.GetComponent<MainChar>();
+		//targetScript = target.GetComponent<MainChar>();
 		globalCDTracker = Time.time + globalCD;
 		
 		abilityList = GetComponents<Ability>();

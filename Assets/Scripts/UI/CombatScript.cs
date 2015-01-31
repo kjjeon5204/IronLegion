@@ -412,7 +412,7 @@ public class CombatScript : MonoBehaviour
 
     void modify_enemy_buff()
     {
-        Debuff targetDebuffScript = mainCharacter.target.GetComponent<Debuff>();
+        Debuff targetDebuffScript = mainCharacter.get_target().GetComponent<Debuff>();
         Vector3 position = Vector3.zero;
         for (int ctr = 0; ctr < debuffIconPool.Length; ctr++)
         {
@@ -643,7 +643,7 @@ public class CombatScript : MonoBehaviour
                 else if (mainCharacter.is_ready())
                 {
                     mainCharacter.switch_hero_state();
-                    mainCharacter.curEnergy -= 10.0f;
+                    mainCharacter.modify_energy(-10.0f);
                     if (mainCharacter.isClose == true/* && curRecord.y < 0.0f*/)
                     {
                         changeStateEffect.gameObject.SetActive(true);
@@ -791,10 +791,10 @@ public class CombatScript : MonoBehaviour
                 playerHP = 0.0f;
             }
             playerHpBar.transform.localScale = new Vector3(playerHP, 1.0f, 1.0f);
-            if (mainCharacter.target != null)
+            if (mainCharacter.get_target() != null)
             {
-                textModifier.initialize_text(mainCharacter.target.GetComponent<Character>().characterName);
-                Character targetScript = mainCharacter.target.GetComponent<Character>();
+                textModifier.initialize_text(mainCharacter.get_target().GetComponent<Character>().characterName);
+                Character targetScript = mainCharacter.get_target().GetComponent<Character>();
                 float enemyHP = 1.0f * targetScript.return_cur_stats().hp / targetScript.return_base_stats().hp;
                 if (enemyHP < 0.0f)
                     enemyHP = 0.0f;
@@ -811,7 +811,7 @@ public class CombatScript : MonoBehaviour
             if (mainCharacter.gameObject != null)
             {
 
-                int bar = (int)(mainCharacter.energyPercentage * energyBar.Length);
+                int bar = (int)(mainCharacter.get_energy_percentage() * energyBar.Length);
                 for (int ctr = 0; ctr < energyBar.Length; ctr++)
                 {
                     if (ctr < bar)
@@ -820,7 +820,7 @@ public class CombatScript : MonoBehaviour
                 }
 
             }
-            if (mainCharacter.target != null)
+            if (mainCharacter.get_target() != null)
                 modify_enemy_buff();
         }
         if (frameRateDisplay != null)

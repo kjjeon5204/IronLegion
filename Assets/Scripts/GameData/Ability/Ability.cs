@@ -119,15 +119,17 @@ public class Ability : MonoBehaviour {
 
     public bool initialize_ability()
     {
+        /*
         if (myCharacter.curEnergy < myData.energyUsage)
         {
             //Debug.Log("No energy left");
             return false;
         }
+        */ 
         curStat = myCharacter.return_cur_stats();
         phaseCtr = 0;
         phasePlayed = false;
-        myCharacter.curEnergy -= myData.energyUsage;
+        //myCharacter.curEnergy -= myData.energyUsage;
         IList<AbilityEffectControl> myEffectControl = new List<AbilityEffectControl>();
         return true;
     }
@@ -207,15 +209,15 @@ public class Ability : MonoBehaviour {
         {
             if (currentPhaseData.targetDam > 0.0f && (myData.attackType == AttackTypes.MELEE_ANGLE
                 || myData.attackType == AttackTypes.HITBOX) &&
-                ((myCharacter.transform.position - myCharacter.target.transform.position).magnitude 
+                ((myCharacter.transform.position - myCharacter.get_target().transform.position).magnitude 
                 < currentPhaseData.meleeAttackRange || currentPhaseData.meleeAttackRange == 0) &&
-                ((Vector3.Angle (Vector3.forward, transform.InverseTransformPoint(myCharacter.target.transform.position)) < currentPhaseData.meleeAngleRange) ||
+                ((Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(myCharacter.get_target().transform.position)) < currentPhaseData.meleeAngleRange) ||
                 currentPhaseData.meleeAngleRange == 0.0f))
             {
                 Debug.Log("Ability used");
                 if (currentPhaseData.targetArmorDuration > 0.0f)
                 {
-                    myCharacter.target.GetComponent<Character>().
+                    myCharacter.get_target().
                         characterDebuffScript.apply_debuff(abilityName, currentPhaseData.targetArmor,
                         0.0f, currentPhaseData.targetArmorDuration , myData.debuffIcon);
                     if (currentPhaseData.hitEffectAutoDeactivate != null)
@@ -223,7 +225,7 @@ public class Ability : MonoBehaviour {
                         currentPhaseData.hitEffectAutoDeactivate.SetActive(true);
                     }
                 }
-                float damageDone = myCharacter.target.GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
+                float damageDone = myCharacter.get_target().GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
                 if (currentPhaseData.hpLeech > 0)
                 {
                     myCharacter.hit(-1.0f * damageDone * currentPhaseData.hpLeech / 100.0f);
@@ -235,16 +237,16 @@ public class Ability : MonoBehaviour {
                 foreach (GameObject curMuzzle in currentPhaseData.muzzle)
                 {
                     if (currentPhaseData.forceTarget == true)
-                        curMuzzle.transform.LookAt(myCharacter.target.collider.bounds.center);
+                        curMuzzle.transform.LookAt(myCharacter.get_target().collider.bounds.center);
                     GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
                         curMuzzle.transform.position, curMuzzle.transform.rotation);
                     MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
                     ProjectileDataInput tempData;
-                    tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+                    tempData.inTargetScript = myCharacter.get_target().GetComponent<Character>();
 
                     if (currentPhaseData.selfTargetProjectile)
                         projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
-                    else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
+                    else projectileScript.set_projectile(myCharacter.get_target(), gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
             if (currentPhaseData.projectiles != null && myData.attackType == AttackTypes.HITBOX)
@@ -253,16 +255,16 @@ public class Ability : MonoBehaviour {
                 foreach (GameObject curMuzzle in currentPhaseData.muzzle)
                 {
                     if (currentPhaseData.forceTarget == true)
-                        curMuzzle.transform.LookAt(myCharacter.target.collider.bounds.center);
+                        curMuzzle.transform.LookAt(myCharacter.get_target().collider.bounds.center);
                     GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
                         curMuzzle.transform.position, curMuzzle.transform.rotation);
                     MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
                     ProjectileDataInput tempData;
-                    tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+                    tempData.inTargetScript = myCharacter.get_target().GetComponent<Character>();
 
                     if (currentPhaseData.selfTargetProjectile)
                         projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
-                    else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
+                    else projectileScript.set_projectile(myCharacter.get_target(), gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
         }
@@ -274,23 +276,23 @@ public class Ability : MonoBehaviour {
                 foreach (GameObject curMuzzle in currentPhaseData.muzzle)
                 {
                     if (currentPhaseData.forceTarget == true)
-                        curMuzzle.transform.LookAt(myCharacter.target.collider.bounds.center);
+                        curMuzzle.transform.LookAt(myCharacter.get_target().collider.bounds.center);
                     GameObject projectileObject = (GameObject)Instantiate(currentPhaseData.projectiles,
                         curMuzzle.transform.position, curMuzzle.transform.rotation);
                     MyProjectile projectileScript = projectileObject.GetComponent<MyProjectile>();
 					ProjectileDataInput tempData;
-					tempData.inTargetScript = myCharacter.target.GetComponent<Character>();
+                    tempData.inTargetScript = myCharacter.get_target().GetComponent<Character>();
 					
                     if (currentPhaseData.selfTargetProjectile) 
 						projectileScript.set_projectile(myCharacter, gameObject, calc_damage(currentPhaseData.targetDam));
-					else projectileScript.set_projectile(myCharacter.targetScript, gameObject, calc_damage(currentPhaseData.targetDam));
+                    else projectileScript.set_projectile(myCharacter.get_target(), gameObject, calc_damage(currentPhaseData.targetDam));
                 }
             }
 			
             else
             {
                 if (currentPhaseData.targetDam > 0.0f)
-                    myCharacter.target.GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
+                    myCharacter.get_target().GetComponent<Character>().hit(calc_damage(currentPhaseData.targetDam));
             }
         }
         return true;
@@ -391,7 +393,7 @@ public class Ability : MonoBehaviour {
         {
             //float distToMove = (this.transform.position - myCharacter.target.transform.position).magnitude
             //    - currentPhaseData.distFromTarget;
-            float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
+            float distToMove = calculate_distance(this.transform, myCharacter.get_target().transform) - currentPhaseData.distFromTarget;
             if (currentPhaseData.movementDirection == Vector3.forward || currentPhaseData.movementDirection == Vector3.back
                 || currentPhaseData.movementDirection == Vector3.zero)
             {
@@ -483,7 +485,7 @@ public class Ability : MonoBehaviour {
             }
             else if (currentPhaseData.isMoving == true && currentPhaseData.movementDirection == Vector3.forward)
             {
-                float distToMove = calculate_distance(this.transform, myCharacter.target.transform) - currentPhaseData.distFromTarget;
+                float distToMove = calculate_distance(this.transform, myCharacter.get_target().transform) - currentPhaseData.distFromTarget;
                 if (distToMove < currentPhaseData.distFromTarget / 2.0f)
                 {
                     turn_effect_off();

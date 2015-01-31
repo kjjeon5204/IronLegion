@@ -18,30 +18,40 @@ public enum CharType
     ALLY
 }
 
+[System.Serializable]
+public struct BaseBattleStat
+{
+    public int hp;
+    public int armor;
+    public int damage;
+    public int penetration;
+}
+
 public class Character : MonoBehaviour
 {
+    
 
     public CharType myType = CharType.NONE;
     public string characterName;
     public AnimationClip deathAnimation;
 
-    //AI variables
-    protected GameObject player;
-    protected Character playerScript;
+    
+    //These two variables store base stat and current stat of the enemy throughout the duration of the 
+    //battle. Base stat is set at initilization of the AI and should never be modified. Current stat
+    //is modified throughout the duration of the battle.
+    protected BaseBattleStat baseStats;
+    protected BaseBattleStat curStats;
 
-    public int baseHp;
-    public float baseArmor;
-    public float baseDamage;
-
-    protected Stats curStats; /*This keep's track of character's current stats*/
-    protected Stats baseStats; /*All values within this keeps track of all the base stats
-	                  *THIS SHOULD NEVER BE MODIFIED*/
+    public BaseBattleStat get_cur_stats()
+    {
+        return curStats;
+    }
 
     bool isUnitActive = true;
 
     //Variables shared by all character
     //**IDLE does not mean Character is not doing anything. Non idle means that the actor is doing something due to external commands**
-    public string curCharacterState = "IDLE";
+    public int curCharacterState;
     /*Checks if message is received this frame.*/
     protected bool messageReceived = false;
 
@@ -56,44 +66,43 @@ public class Character : MonoBehaviour
 
 
     //set target
-    public GameObject target; /*Used to store the enemy that the player is currently looking at*/
-    public Character targetScript;
+    IList<Character> enemyCharacter;
+    IList<Character> allyCharacter;
 
-    //Saves current targets
-    public Character[] targets;
+    protected Character target;
+    public Character get_target() 
+    {
+        return target;
+    }
+
+    //Pathing & positioning
     public MapChargeFlag mapFlag;
     public float chargeStrength;
 
-
     //Detonator variable
-    public GameObject detonatorFlinch;
-    public GameObject detonatorFlinchMelee;
     public GameObject detonatorDeath;
+    public Queue<GameObject> detonatorQueue;
+    int detonatorQueueLimit = 4;
 
     //Set boundary of movement
-    public Collider battleBoundary;
-
-    public float energyPercentage;
-    public float maxEnergy;
-    public float curEnergy;
     public float rotSpeed3D = 270.0f;
     public float rotSpeed = 180.0f;
 
     public Debuff characterDebuffScript;
 
     bool unitCollision;
-    public bool isNonPlayer = true;
 
-    GameObject characterFacing;
+    //Enemy Land unit spawn
     public DropShip dropShipScript;
     public AnimationClip dropAnimation;
-
-    protected Vector3 movement = Vector3.zero;
-    public bool modifyPath = false;
-
     protected bool enemyReady = false;
     public bool landCraftActive;
     public GameObject unitIndicatorRing;
+
+    //Player pathing
+    protected Vector3 movement = Vector3.zero;
+    public bool modifyPath = false;
+
 
     Vector3 aiPreviousPos;
     public int startingChildCount;
@@ -263,33 +272,36 @@ public class Character : MonoBehaviour
         return enemyUnitIndex;
     }
 
-    //Obsolete
-    public GameObject get_currently_facing()
-    {
-        return characterFacing;
-    }
 
     public void set_player(GameObject inPlayer)
     {
+        /*
         player = inPlayer;
         target = player;
         playerScript = player.GetComponent<Character>();
+         */ 
     }
 
     public void set_target(GameObject inTarget)
     {
+        /*
         target = inTarget;
         targetScript = inTarget.GetComponent<Character>();
+         */ 
     }
 
     public Stats return_cur_stats()
     {
-        return curStats;
+        //return curStats;
+        Stats temp = new Stats();
+        return temp;
     }
 
     public Stats return_base_stats()
     {
-        return baseStats;
+        //return baseStats;
+        Stats temp = new Stats();
+        return temp;
     }
 
     public void initialize_character(BaseCombatStructure baseCombatStructureInput)
@@ -344,12 +356,15 @@ public class Character : MonoBehaviour
     //In global coordinates
     public Vector3 find_movement_vector()
     {
+        
         Vector3 retVector = Vector3.zero;
+        /*
         foreach (Character objectCharge in targets)
         {
             if (objectCharge != null)
                 retVector += character_charge_force(objectCharge);
         }
+         */ 
         if (mapFlag != null)
             retVector += flag_charge_force(mapFlag);
 
@@ -358,7 +373,7 @@ public class Character : MonoBehaviour
 
             return Vector3.zero;
         }
-
+        
         return retVector.normalized;
     }
 
@@ -367,18 +382,19 @@ public class Character : MonoBehaviour
      If object is not looking at any object with a collider, returns false.*/
     public GameObject check_line_of_sight()
     {
+        
         Ray ray = new Ray();
-        ray.direction = (target.collider.bounds.center - collider.bounds.center).normalized;
+        //ray.direction = (target.collider.bounds.center - collider.bounds.center).normalized;
         ray.origin = collider.bounds.center;
         GameObject nullObject = null;
-        characterFacing = null;
+        //characterFacing = null;
         //Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
         RaycastHit hitData;
         if (Physics.Raycast(ray, out hitData, 1000.0f))
         {
             if (hitData.collider.tag == "Character")
             {
-                characterFacing = hitData.collider.gameObject;
+                //characterFacing = hitData.collider.gameObject;
                 return hitData.collider.gameObject;
             }
             else
@@ -397,19 +413,16 @@ public class Character : MonoBehaviour
     {
         Vector3 curPosition = transform.position;
         curPosition += 10 * inputMovement;
-        //if (battleBoundary.bounds.Contains(curPosition))
-        //{
         transform.Translate(inputMovement);
 
         return true;
-        //}
-        //return false;
     }
 
 
     //Checks and resolves any issues where enemy goes out of the battle scene
     void OnTriggerEnter(Collider hit)
     {
+        /*
         if (hit.gameObject.tag == "Character")
         {
             unitCollision = true;
@@ -419,6 +432,7 @@ public class Character : MonoBehaviour
             collisionStatus = CollisionTypes.ENVIRONMENT;
             transform.position = aiPreviousPos;
         }
+         */ 
     }
 
 
@@ -436,8 +450,10 @@ public class Character : MonoBehaviour
      actual damage that the character receives based on the raw damage value and 
      apply it to the character. Then it should return the applied damage. By
      default, rawDamage is applied directly*/
+    
     public float hit(float rawDamage)
     {
+        /*
         if (isUnitActive == true)
         {
             if (rawDamage >= 0)
@@ -459,7 +475,7 @@ public class Character : MonoBehaviour
                 }
                 curStats.hp -= (int)damageDone;
 
-                if (detonatorFlinch != null /*&& transform.childCount < startingChildCount + 5*/)
+                if (detonatorFlinch != null /*&& transform.childCount < startingChildCount + 5)
                 {
                     if (detonatorFlinchMelee == null)
                     {
@@ -493,11 +509,13 @@ public class Character : MonoBehaviour
                 return rawDamage;
             }
         }
+         */ 
         return 0.0f;
     }
 
     public float hit(float rawDamage, Vector3 hitPosition)
     {
+        /*
         if (isUnitActive == true)
         {
             if (rawDamage >= 0)
@@ -540,6 +558,7 @@ public class Character : MonoBehaviour
                 return rawDamage;
             }
         }
+         */ 
         return 0.0f;
     }
 
@@ -574,15 +593,19 @@ public class Character : MonoBehaviour
      value of 0.*/
     public void regen_health(float healValue)
     {
+        /*
         curStats.hp += (int)healValue;
+         */ 
     }
 
     public void modify_stat(float armorMod, float attackMod)
     {
+        /*
         curStats.armor += (int)armorMod;
         curStats.damage += (int)attackMod;
 
         Debug.Log("My Armor: " + curStats.armor);
+         */ 
     }
 
     /*Returns true when object is ready to be destroyed*/
@@ -627,6 +650,7 @@ public class Character : MonoBehaviour
         {
             enemyReady = true;
         }
+        /*
         if (isNonPlayer == true)
         {
             AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
@@ -635,6 +659,7 @@ public class Character : MonoBehaviour
             curStats.damage = (int)aiStat.baseAttack;
             baseStats = curStats;
         }
+         */ 
 
     }
 

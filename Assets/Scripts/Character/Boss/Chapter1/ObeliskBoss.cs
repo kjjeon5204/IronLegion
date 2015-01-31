@@ -68,7 +68,7 @@ public class ObeliskBoss : Character {
 	// Use this for initialization
 	public override void manual_start () {
 		currentStates = CurrentStates.IDLE;
-		targetScript = target.GetComponent<MainChar>();
+		target = target.GetComponent<MainChar>();
 		longRange = false;
 		//Setting attack cooldowns
 		globalCDTracker = Time.time + globalCD;

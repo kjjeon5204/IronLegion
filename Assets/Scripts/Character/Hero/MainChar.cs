@@ -124,7 +124,6 @@ public class MainChar : Character
 
     public GameObject rightAllyPositionPoint;
     public GameObject leftAllyPositionPoint;
-    BaseAlly allyUnit;
 
     bool environmentCollision;
 
@@ -208,10 +207,6 @@ public class MainChar : Character
             targetingIndicator.SetActive(false);
     }
 
-    public void set_ally_unit(BaseAlly inAllyUnit)
-    {
-        allyUnit = inAllyUnit;
-    }
 
     public bool is_switching_state()
     {
@@ -276,8 +271,6 @@ public class MainChar : Character
             }
             loopPreventer++;
         }
-        target = enemyList[currentTargetIndex].gameObject;
-        targetScript = enemyList[currentTargetIndex];
         autoAdjustEnabled = true;
         if (curBattleType == BattleType.BOSS)
         {
@@ -356,8 +349,6 @@ public class MainChar : Character
         {
             if (objectLookedAt != target && curBattleType != BattleType.BOSS)
             {
-                target = objectLookedAt;
-                targetScript = objectLookedAt.GetComponent<Character>();
             }
         }
     }
@@ -432,7 +423,7 @@ public class MainChar : Character
         dodgeDist = dodgeDistIn;
         phasePlayed = false;
         phaseCtr = 0;
-        curCharacterState = "DODGE";
+        //curCharacterState = "DODGE";
         if (dodgeRight == true)
         {
             curState = "DODGERIGHT";
@@ -446,6 +437,7 @@ public class MainChar : Character
 
     public void event_checker()
     {
+        /*
         messageReceived = false;
         phaseCtr = 0;
         phasePlayed = false;
@@ -474,6 +466,7 @@ public class MainChar : Character
             if (abilityDictionary.ContainsKey(curCharacterState))
                 abilityDictionary[curCharacterState].initialize_ability();
         }
+        */ 
     }
 
     public void turn_off_effect()
@@ -582,6 +575,20 @@ public class MainChar : Character
         enemyLandingCamPivotPoint.transform.LookAt(trackedObject.transform.position);
     }
 
+    protected int maxEnergy;
+    protected float curEnergy;
+    protected float energyPercentage;
+
+    public void modify_energy(float val)
+    {
+        curEnergy += val;
+    }
+
+    public float get_energy_percentage()
+    {
+        return energyPercentage;
+    }
+
     // Use this for initialization
     public override void manual_start()
     {
@@ -600,7 +607,6 @@ public class MainChar : Character
             curStats.hp += playerMasterStat.hp;
            
             maxEnergy += playerMasterStat.energy + 100;
-            curStats.energy = (int)maxEnergy;
             curEnergy = maxEnergy;
             baseStats = curStats;
             abilityNames = new string[8];
@@ -690,21 +696,6 @@ public class MainChar : Character
             transform.Translate(20.0f * Vector3.forward * Time.deltaTime);
         }
 
-        if (allyUnit != null)
-        {
-            if (target != null)
-                allyUnit.set_target(targetScript);
-            Vector3 allyRelativePos = transform.InverseTransformPoint(allyUnit.transform.position);
-            if (allyRelativePos.x > 0.0f)
-            {
-                allyUnit.set_movement_position(rightAllyPositionPoint.transform.position);
-            }
-            else
-            {
-                allyUnit.set_movement_position(leftAllyPositionPoint.transform.position);
-            }
-        }
-
         if (playerCamera.activeInHierarchy == false)
         {
             playerCamera.SetActive(true);
@@ -716,27 +707,16 @@ public class MainChar : Character
 
         float distToTarget = 0;
 
-        if (targetScript != null && curState != "PATHING" && attackPathBuffer != true)
-            currentFlag = targetScript.mapFlag;
+        if (target != null && curState != "PATHING" && attackPathBuffer != true)
+            currentFlag = target.mapFlag;
 
 
         
         //if (target == null || targetScript.return_cur_stats().hp <= 0)
             //get_next_target();
 
-        if (target == null || targetScript.return_cur_stats().hp <= 0)
-        {
-            target = find_nearest_enemy();
-            if (target != null)
-                targetScript = target.GetComponent<Character>();
-        }
 
         /*Check Events*/
-
-        if (target != null && targetScript == null)
-        {
-            targetScript = target.GetComponent<Character>();
-        }
 
         if (objectHit == true)
         {
@@ -746,7 +726,7 @@ public class MainChar : Character
 
         if (target != null)
         {
-            currentTargetIndex = targetScript.get_enemy_index();
+            currentTargetIndex = target.get_enemy_index();
             distToTarget = (gameObject.transform.position - target.transform.position).magnitude;
 
             //Targeting indicator
@@ -769,7 +749,6 @@ public class MainChar : Character
         {
             phasePlayed = false;
             curState = "DEATH";
-            curCharacterState = "DEATH";
         }
 
         if (messageReceived == true && curState == "IDLE")
@@ -863,11 +842,6 @@ public class MainChar : Character
             line_of_sight_handle();
         }
 
-        //Handles hit
-        if (curCharacterState == "Hit")
-        {
-            curState = "HIT";
-        }
 
         if (curEnergy < maxEnergy)
         {
@@ -889,7 +863,6 @@ public class MainChar : Character
             curCancelStatus.dodgeAvailable = true;
             //inputReady = true;
             animation.CrossFade("idle");
-            curCharacterState = "IDLE";
 
         }
         else if (curState == "DEATH")
@@ -919,7 +892,6 @@ public class MainChar : Character
                 (isClose == false && curState == "ADJUSTCLOSE" && distToTarget < farDist))
             {
                 curState = "IDLE";
-                curCharacterState = "IDLE";
                 autoAdjustEnabled = false;
                 approachPhase = false;
                 bossApproachPhase = false;
@@ -948,15 +920,15 @@ public class MainChar : Character
             if (phasePlayed == false)
             {
                 if (currentFlag == null)
-                    currentFlag = targetScript.mapFlag;
-                else if (currentFlag.gameObject == targetScript.mapFlag.gameObject)
+                    currentFlag = target.mapFlag;
+                else if (currentFlag.gameObject == target.mapFlag.gameObject)
                 {
                     curState = "IDLE";
                 }
                 //else
                     //Debug.Log("Current flag: " + currentFlag.name);
                 currentPath = currentFlag.GetComponent<BattleZone>().
-                get_path(targetScript.mapFlag.gameObject);
+                get_path(target.mapFlag.gameObject);
                 if (currentPath != null)
                 {
                     currentPath.initialize_path(this.gameObject);
@@ -1000,10 +972,9 @@ public class MainChar : Character
                 curCancelStatus.dodgeAvailable = abilityDictionary[curState].is_cancellable();
             }
         }
-        curCharacterState = curState;
         if (target != null)
         {
-            currentTargetIndex = targetScript.get_enemy_index();
+            currentTargetIndex = target.get_enemy_index();
         }
         booster_controls();
     }

@@ -57,7 +57,7 @@ public class Androktasia : Character {
 		curStats.armor = (int)statHolder.baseArmor;
 		baseStats = curStats;
 		currentStates = CurrentStates.DROPSHIP;
-		targetScript = target.GetComponent<MainChar>();
+		target = target.GetComponent<MainChar>();
 		longRange = false;
 		
 		initialCDTracker = Time.time + initialCD;

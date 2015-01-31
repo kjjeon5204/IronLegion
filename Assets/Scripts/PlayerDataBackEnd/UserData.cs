@@ -71,6 +71,18 @@ public class UserDataContainer
     IList<PlayerMechData> mechCollection;
     #endregion
 
+    public void equip_ability(string abilityName, int abilitySlot)
+    {
+        if (abilityName[0] == 'C')
+        {
+            mechCollection[currentlyEquippedMech].equippedSkill[abilitySlot] = abilityName;
+        }
+        else if (abilityName[0] == 'F')
+        {
+            mechCollection[currentlyEquippedMech].equippedSkill[abilitySlot + 4] = abilityName;
+        }
+    }
+
     public void add_item_to_inventory(string itemID)
     {
         itemInventory.Add(itemID);

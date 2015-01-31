@@ -166,9 +166,9 @@ public class ai : Character {
 	}
 	
 	PlayerState getPlayerState(){
-		MainChar playerScript = player.GetComponent<MainChar>();
-		string curplayerState = playerScript.curState;
-		GameObject	playerTarget = playerScript.target;
+		MainChar playerScript = target.GetComponent<MainChar>();
+		string curplayerState = "IDLE";
+		GameObject	playerTarget = gameObject;
 		PlayerState tmpPstate = PlayerState.IDLE;
 		if (curplayerState ==  "IDLE"){
 			tmpPstate = PlayerState.IDLE;
@@ -297,7 +297,7 @@ public class ai : Character {
 	void bullet_handler(attPhase attack, int aoe){
 		GameObject bulletAcc;
 		MyProjectile bulletScript;
-		Vector3 aim = player.transform.position;
+		Vector3 aim = target.transform.position;
 		aim.y = aim.y + 1.0f;
 		GameObject[] muzzles = attack.muzzles;
 		GameObject bullet = attack.bullet;
@@ -308,7 +308,7 @@ public class ai : Character {
 			bulletScript = bulletAcc.GetComponent<MyProjectile> ();
 
 			ProjectileDataInput tempData;
-			tempData.inTargetScript = playerScript;
+			tempData.inTargetScript = target;
 			tempData.inOwner = gameObject;
 			tempData.inDamage = curStats.damage * attack.DamagePrecentage / 100;
 			tempData.aimAngle = Mathf.Abs(muzzles[i].transform.localRotation.eulerAngles.x);
@@ -323,7 +323,7 @@ public class ai : Character {
 	}
 
 	float risingDegree (){ // for rotate the turret for shotting arc projectile
-		Vector3 fireDirection = player.transform.position - transform.position;
+		Vector3 fireDirection = target.transform.position - transform.position;
 		fireDirection.y = 0.0f;
 		float dist = fireDirection.magnitude;
 		fireDirection.Normalize();
@@ -360,7 +360,7 @@ public class ai : Character {
 			return phase;
 		}
 		
-		else if (attackForms[numOfAtt].attphases[phase].eff.Length != 0 && effectDone == false && player == check_line_of_sight())
+		else if (attackForms[numOfAtt].attphases[phase].eff.Length != 0 && effectDone == false && target == check_line_of_sight())
 		{
 			for (int i =0 ; i < attackForms[numOfAtt].attphases[phase].eff.Length; i ++)
 			{
@@ -374,7 +374,7 @@ public class ai : Character {
 		}
 		else if (attackForms[numOfAtt].attphases[phase].bullet != null && shotted == false)
 		{
-			if (player != check_line_of_sight()){
+			if (target != check_line_of_sight()){
 				phase ++;
 			}
 			else {
@@ -400,7 +400,7 @@ public class ai : Character {
 		if(!aiming){// aiming 
 			if (attackForms[numOfAtt].aoeNum != 0 && effectDone == false) {
 				AimingSquare = squares[attackForms[numOfAtt].aoeNum - 1];
-				AimingSquare.transform.position = player.transform.position;
+				AimingSquare.transform.position = target.transform.position;
 				AimingSquare.transform.localScale = new Vector3(1,1,1);
 				explosionRadius = aoe[attackForms[numOfAtt].aoeNum - 1].radias;
 				AimingSquare.transform.localScale *= explosionRadius;
@@ -409,11 +409,11 @@ public class ai : Character {
 			}
 
 			if (!hasTurret) {
-				if (!custom_lookAt(player.transform.position - transform.position, 
+				if (!custom_lookAt(target.transform.position - transform.position, 
 				                   transform.forward, transform,bodyRotSpeed)) return false;
 			}
 			else {
-				if (!custom_lookAt(player.transform.position - transform.position, 
+				if (!custom_lookAt(target.transform.position - transform.position, 
 				                   turret.transform.forward, turret.transform,turretRotSpeed))return false;
 			}
 			effectDone = false;
@@ -458,7 +458,7 @@ public class ai : Character {
 
 	
 		else if (type == moveType.move_back)
-			movementDir = player.transform.position - transform.position;
+			movementDir = target.transform.position - transform.position;
 
 		custom_lookAt (movementDir, transform.forward,  transform, bodyRotSpeed);
 
@@ -479,7 +479,7 @@ public class ai : Character {
 		}
 		else {
 			if (!custom_translate(moveAnimationTemp[tempPhase].speed * Vector3.forward * Time.deltaTime)){
-				gameObject.transform.LookAt(player.transform.position);
+				gameObject.transform.LookAt(target.transform.position);
 				transform.Translate(Vector3.forward);
 			}
 			if (starttime + moveAnimationTemp[tempPhase].duration < Time.time && 
@@ -549,17 +549,12 @@ public class ai : Character {
 	public override void manual_start()
 	{
         AIStatElement aiStat = GetComponent<AIStatScript>().getLevelData(initLevel);
-        if (player == null)
-        {
-            player = target;
-            playerScript = targetScript;
-        }
 
         
 
 		curState = AIState.IDLE;
 		starttime = Time.time;
-		gameObject.transform.LookAt(player.transform);
+		gameObject.transform.LookAt(target.transform);
 		base.manual_start();
 		moveAnimationTemp = new movePhase[3];
 		squares = new GameObject[aoe.Length];

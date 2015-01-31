@@ -19,6 +19,9 @@ public struct AIBehaviorModuleNode
 }
 
 public class AIBaseBehavior : Character {
+    /*HP, armor, and damage are multiplied by percentage. 100% = 1. Penetration is added.*/
+    public BaseBattleStat modifier;
+
 	public AIModuleContainer[] moduleContainers;
 	public AIBehaviorModuleNode[] moduleNodes;
 	AIBehaviorModuleNode curState; //Refers to current nodeID

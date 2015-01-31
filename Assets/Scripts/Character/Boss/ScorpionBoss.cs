@@ -22,7 +22,7 @@ public class ScorpionBoss : Character {
 	// Use this for initialization
 	public override void manual_start () {
 		currentStates = CurrentStates.IDLE;
-		targetScript = target.GetComponent<MainChar>();
+		target = target.GetComponent<MainChar>();
 		longRange = false;
 		
 		globalCDTracker = Time.time + globalCD;

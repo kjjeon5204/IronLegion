@@ -176,8 +176,6 @@ public class TutorialCutScene : BattleStory
         dialogueCtr = 0;
         get_next_text();
         tutorialPhase = 0;
-        
-        playerScript.battleBoundary = battleBoundary.collider;
         playerScript.worldObject = eventControls;
         playerScript.set_battle_type(BattleType.REGULAR);
         playerScript.manual_start();
@@ -395,7 +393,7 @@ public class TutorialCutScene : BattleStory
                 else if (playerScript.curState == "IDLE" && tutorialPhase == 6)
                 {
                     playerScript.switch_hero_state();
-                    playerScript.curEnergy -= 10.0f;
+                    playerScript.modify_energy(-10.0f);
                     if (playerScript.isClose == true && curRecord.y < 0.0f)
                     {
                         stateChangeTextMod.initialize_text("Phaser\nAttack");
@@ -462,7 +460,7 @@ public class TutorialCutScene : BattleStory
             playerHP = 0.0f;
         }
         playerHpBar.transform.localScale = new Vector3(playerHP, 1.0f, 1.0f);
-        int bar = (int)(playerScript.energyPercentage * energyBar.Length);
+        int bar = (int)(playerScript.get_energy_percentage() * energyBar.Length);
         for (int ctr = 0; ctr < energyBar.Length; ctr++)
         {
             if (ctr < bar)

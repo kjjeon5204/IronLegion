@@ -368,7 +368,7 @@ public class Movement : MonoBehaviour {
 
     public bool charge_enemy()
     {
-        if ((curCharacterScript.target.transform.position - transform.position).magnitude > distRange)
+        if ((curCharacterScript.get_target().transform.position - transform.position).magnitude > distRange)
         {
             animation.CrossFade(curMovement.animationClips[0].name, 0.1f);
         }

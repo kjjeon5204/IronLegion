@@ -61,7 +61,7 @@ public class TurretScript : Character {
                             muzzleAcc.transform.position, muzzleAcc.transform.rotation)).
                             GetComponent<MyProjectile>();
 
-                        projectileScript.set_projectile(playerScript, gameObject, curStats.damage * attackPercentage / 100.0f);
+                        projectileScript.set_projectile(target, gameObject, curStats.damage * attackPercentage / 100.0f);
                     }
                 }
                 else

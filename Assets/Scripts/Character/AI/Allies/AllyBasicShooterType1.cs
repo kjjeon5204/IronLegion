@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AllyBasicShooterType1 : BaseAlly {
+public class AllyBasicShooterType1 : Character {
     public int allyTier;
     public float movementSpeed;
     public AnimationClip idleAnimation;
@@ -44,10 +44,12 @@ public class AllyBasicShooterType1 : BaseAlly {
         //State control
         if (curState == UnitState.IDLE)
         {
+            /*
             if ((transform.position - movementPosition).magnitude > 2.0f)
             {
                 curState = UnitState.MOVING;
             }
+             */ 
         }
         if (attackTimeTracker < Time.time)
         {
@@ -65,11 +67,13 @@ public class AllyBasicShooterType1 : BaseAlly {
         {
             if (moveAnimation != null)
                 animation.Play(moveAnimation.name);
+            /*
             custom_look_at(movementPosition);
             if ((transform.position - movementPosition).magnitude > 2.0f)
                 transform.Translate(movementSpeed * Vector3.forward * Time.deltaTime);
             else
                 curState = UnitState.IDLE;
+             */
 
         }
         else if (curState == UnitState.ATTACK)
@@ -98,11 +102,11 @@ public class AllyBasicShooterType1 : BaseAlly {
             }
             if (attackStatePhase == 2)
             {
-                if (phasePlayed == false && targetScript != null)
+                if (phasePlayed == false && target != null)
                 {
                     if (muzzleDetonator != null && muzzlePos != null)
                         Instantiate(muzzleDetonator, muzzlePos.transform.position, muzzlePos.transform.rotation);
-                    targetScript.hit(curStats.damage * 0.15f);
+                    target.hit(curStats.damage * 0.15f);
                     animation.Play(attackFirePhase.name);
                     phasePlayed = true;
                 }

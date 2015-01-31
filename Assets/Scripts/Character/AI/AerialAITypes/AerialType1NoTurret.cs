@@ -159,7 +159,7 @@ public class AerialType1NoTurret : Character {
 
 
                         MyProjectile projectileScript = bulletObject.GetComponent<MyProjectile>();
-                        projectileScript.set_projectile(targetScript, gameObject, rawDamage);
+                        projectileScript.set_projectile(target.gameObject, gameObject, rawDamage);
 
                         foreach (GameObject muzzleEffect in
                             attackTypes[currentlyPolledAttack].destroyEffect)

@@ -15,7 +15,7 @@ public class HPCondition : AIBaseCondition {
 
 		int hpPercentage = (int)(1.0f * (float)character.return_cur_stats().hp / 
 		                         (float)character.return_base_stats().hp * 100.0f);
-		if (hpPercentage <= hpThreshold && character.check_line_of_sight() == character.target)
+		if (hpPercentage <= hpThreshold && character.check_line_of_sight() == character.get_target())
 			return true;
 
 		else return false;

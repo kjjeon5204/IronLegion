@@ -51,7 +51,7 @@ public class MainBodyBoss : Character {
                     MyProjectile projectileScript = projectileHolder.GetComponent<MyProjectile>();
                     float damage = missileProjectileDamage * curStats.damage / 100.0f;
                    
-                    projectileScript.set_projectile(targetScript, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
+                    projectileScript.set_projectile(target, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
                     
                 }
                 phasePlayedMissile = true;
@@ -78,7 +78,7 @@ public class MainBodyBoss : Character {
                     MyProjectile projectileScript = projectileHolder.GetComponent<MyProjectile>();
                     float damage = missileProjectileDamage * curStats.damage / 100.0f;
 
-                    projectileScript.set_projectile(targetScript, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
+                    projectileScript.set_projectile(target, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
 
                 }
                 phasePlayedMissile = true;
@@ -105,7 +105,7 @@ public class MainBodyBoss : Character {
                     MyProjectile projectileScript = projectileHolder.GetComponent<MyProjectile>();
                     float damage = missileProjectileDamage * curStats.damage / 100.0f;
 
-                    projectileScript.set_projectile(targetScript, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
+                    projectileScript.set_projectile(target, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
 
                 }
                 phasePlayedMissile = true;
@@ -132,7 +132,7 @@ public class MainBodyBoss : Character {
                     MyProjectile projectileScript = projectileHolder.GetComponent<MyProjectile>();
                     float damage = missileProjectileDamage * curStats.damage / 100.0f;
 
-                    projectileScript.set_projectile(targetScript, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
+                    projectileScript.set_projectile(target, gameObject, curStats.damage * missileProjectileDamage / 100.0f);
 
                 }
                 phasePlayedMissile = true;
@@ -206,8 +206,8 @@ public class MainBodyBoss : Character {
     {
         base.manual_start();
         currentWaveNum = 0;
-        missilePodRight.initialize_pod(target, curStats.damage * missileProjectileDamage / 100.0f, mainBodyCollider);
-        missilePodLeft.initialize_pod(target, curStats.damage * missileProjectileDamage / 100.0f, mainBodyCollider);
+        missilePodRight.initialize_pod(target.gameObject, curStats.damage * missileProjectileDamage / 100.0f, mainBodyCollider);
+        missilePodLeft.initialize_pod(target.gameObject, curStats.damage * missileProjectileDamage / 100.0f, mainBodyCollider);
     }
 	
 	// Update is called once per frame

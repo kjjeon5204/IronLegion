@@ -55,7 +55,7 @@ public class CombatUICC : MonoBehaviour {
     public void run_ui_controls()
     {
         playerCombatStatus.update_player_status(playerCharacter);
-        targetStatus.update_target_data(playerCharacter.targetScript);
+        targetStatus.update_target_data(playerCharacter.get_target());
     }
 	
 	// Update is called once per frame
@@ -63,7 +63,7 @@ public class CombatUICC : MonoBehaviour {
         if (uiInitialized == true)
         {
             playerCombatStatus.update_player_status(playerCharacter);
-            targetStatus.update_target_data(playerCharacter.targetScript);
+            targetStatus.update_target_data(playerCharacter.get_target());
         }
 	}
 }

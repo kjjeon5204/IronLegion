@@ -29,7 +29,7 @@ public class BasicAttack : AIBaseModule {
 			//check projectile
 			if (multiAttack[phaseTracker].attackState == true) {
                 GameObject projectileObject = (GameObject)Instantiate(projectile, muzzle.transform.position, muzzle.transform.rotation);
-                projectileObject.GetComponent<MyProjectile>().set_projectile(character.target, gameObject, character.baseDamage * attackPercentage / 100.0f);
+                projectileObject.GetComponent<MyProjectile>().set_projectile(character.get_target(), gameObject, character.get_cur_stats().damage * attackPercentage / 100.0f);
 			}
 			phasePlayed = true;
 		}
@@ -78,7 +78,7 @@ public class BasicAttack : AIBaseModule {
 
 			//fire projectile
 			GameObject projectileObject = (GameObject)Instantiate (projectile, muzzle.transform.position, muzzle.transform.rotation);
-			projectileObject.GetComponent<MyProjectile>().set_projectile(character.target, gameObject, character.baseDamage * attackPercentage / 100.0f);
+			projectileObject.GetComponent<MyProjectile>().set_projectile(character.get_target(), gameObject, character.get_cur_stats().damage * attackPercentage / 100.0f);
 		}
 		else {
 			if (!animation.IsPlaying(animations[1].name)) {
